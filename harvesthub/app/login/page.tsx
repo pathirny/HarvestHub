@@ -56,8 +56,8 @@ export default function Login({
   return (
     <div className="box">
       <Link href="/"> Back</Link>
-
-      <form action={signIn}>
+      <img src="#" alt="harvestHub Logo" className="logo"></img>
+      <form className="form" action={signIn}>
         <label className="text-md" htmlFor="email">
           Email
         </label>
