@@ -1,5 +1,12 @@
+:root {
+    --darkgreen-color: #47594E;
+    --lightgreen-color: #99A57B;
+    --brown-color: #B9A48C;
+    --whitecream-color: #F3EBE4;
+  }
+
 #calendar-background{
-background-color: #47594E;
+background-color: var(--darkgreen-color);
 }
 
 #calendargrid {
@@ -13,7 +20,7 @@ background-color: #47594E;
 #calendargrid p{
     text-align: center;
     margin-top: 1vw;
-    color: white;
+    color: var(--whitecream-color);
 }
 
 .month {
