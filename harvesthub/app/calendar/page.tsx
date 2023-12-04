@@ -1,18 +1,22 @@
+import Jan from "./assets/Jan.png"
+import Image from "next/image"
 export default function Calendar(){
 
     return(
-    <div id="calendargrid">
-        <div className="month" id="january"></div>
-        <div className="month" id="february"></div>
-        <div className="month" id="march"></div>
-        <div className="month" id="april"></div>
-        <div className="month" id="may"></div>
-        <div className="month" id="june"></div>
-        <div className="month" id="july"></div>
-        <div className="month" id="august"></div>
-        <div className="month" id="september"></div>
-        <div className="month" id="october"></div>
-        <div className="month" id="november"></div>
-        <div className="month" id="december"></div>
+        <div id="calendar-background">
+        <div id="calendargrid">
+            <div className="month" id="january"><p>January</p></div>
+            <div className="month" id="february"><p>January</p></div>
+            <div className="month" id="march"><p>January</p></div>
+            <div className="month" id="april"><p>January</p></div>
+            <div className="month" id="may"><p>January</p></div>
+            <div className="month" id="june"><p>January</p></div>
+            <div className="month" id="july"><p>January</p></div>
+            <div className="month" id="august"><p>January</p></div>
+            <div className="month" id="september"><p>January</p></div>
+            <div className="month" id="october"><p>January</p></div>
+            <div className="month" id="november"><p>January</p></div>
+            <div className="month" id="december"><p>January</p></div>
+        </div>
     </div>)
 }

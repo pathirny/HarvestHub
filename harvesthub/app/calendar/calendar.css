@@ -1,11 +1,27 @@
+#calendar-background{
+background-color: #47594E;
+}
+
 #calendargrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-gap: 4vw;
+    padding: 10vw;
+    position: relative;
     }
 
+#calendargrid p{
+    text-align: center;
+    margin-top: 1vw;
+    color: white;
+}
+
 .month {
-    background-color: blueviolet;
+    border-radius: 3vw;
+    height: 30vw
+}
+
+#january{
+    background-image: URL("./assets/Jan.png");
+    background-size: contain;
 }
