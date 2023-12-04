@@ -18,9 +18,9 @@ import { CiHeart } from "react-icons/ci";
 export default function TipsnTricks() {
   return (
     <>
-       <Card maxW="md">
+       <Card maxW="md" bg="#B9A48C" borderRadius={10}>
         <CardHeader>
-          <Flex spacing="4">
+          <Flex>
             <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
               <Box>
                 <Heading size="sm">Segun Adebayo</Heading>
@@ -28,9 +28,7 @@ export default function TipsnTricks() {
               </Box>
             </Flex>
             <IconButton
-              variant="ghost"
-              colorScheme="gray"
-              aria-label="See menu"
+              aria-label="Add to favourites"
               icon={<CiHeart/>}
             />
           </Flex>
