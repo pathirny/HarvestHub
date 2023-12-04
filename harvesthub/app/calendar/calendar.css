@@ -20,7 +20,8 @@ background-color: var(--dark-green-color);
 #calendargrid p{
     text-align: center;
     margin-top: 1vw;
-    color: var(--white-cream-color);
+    font-size: 3vw;
+    font-weight:bold;
 }
 
 .month {
@@ -28,7 +29,16 @@ background-color: var(--dark-green-color);
     height: 30vw
 }
 
-#january{
-    background-image: URL("./assets/Jan.png");
+.br-wht{
+    background-image: URL("./assets/br-month.png");
     background-size: contain;
+    background-repeat: no-repeat;
+    color: var(--white-cream-color);
+}
+
+.wht-br{
+    background-image: URL("./assets/Wht-month.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: var(--brown-color);
 }
