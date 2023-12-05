@@ -1,6 +1,10 @@
 import Header from "@/components/Header";
 import Link from "next/link";
+import Image from "next/image";
 import "./calendar.css";
+import brMonth from "./assets/brMonth.png";
+import WhtMonth from "./assets/WhtMonth.png";
+
 export default function Calendar() {
   return (
     <div id="calendar-background">
