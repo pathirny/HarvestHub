@@ -1,6 +1,8 @@
 import Header from "@/components/Header"
 import Link from "next/link"
 import BackButton from "@/components/BackButton"
+import brMonth from "../assets/brMonth.png"
+import Image from "next/image"
 
 export default function Month({ params } : any){
 
@@ -13,7 +15,9 @@ return(<>
 <Header title="Month" />
 <div id="month-nav-container">
     <Link href={`./${prev}`}><div id="prv-mnth-bttn"></div></Link>
-    <div className="month br-wht header-month" id="january"><p>{months[params.month]}</p></div>
+    <div className="month br-wht header-month" id="january"><p>{months[params.month]}</p>
+    <Image src={brMonth} style={{width: "40vw", height: "auto"}} height={100} width={100} alt="month" />
+    </div>
     <Link href={`./${nxt}`} ><div id="next-mnth-bttn"></div></Link>
  </div>
 <Link href='/Calendar'><BackButton/></Link>
