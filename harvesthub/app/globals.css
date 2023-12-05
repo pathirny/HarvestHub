@@ -273,5 +273,33 @@ background-color: var(--dark-green-color);
   text-align: center;
   font-size: 5vw;
 }
+#veggie-container {
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+}
 
+#veggie-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2vw;
+}
+
+#veggie-general-info {
+  width: 80vw;
+  height: 40vw;
+  border-radius: 3vw;
+  background-color: var(--white-cream-color);
+  margin: auto;
+}
+
+.cream {
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+}
+
+.brown {
+  background-color: var(--brown-color);
+  color: var(--white-cream-color);
+}
 /* calendar */
