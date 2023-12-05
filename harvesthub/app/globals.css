@@ -229,6 +229,25 @@ a {
 .link-container {
   width: 12rem;
   height: 8rem;
-  background-color: var(--white-cream-color);
   margin: 1rem;
+  border-radius: 25px;
+  text-align: center;
+  color: var(--dark-green-color);
+}
+
+.link-container:nth-child(odd) {
+  background-color: var(--white-cream-color);
+}
+
+.link-container:nth-child(even) {
+  background-color: var(--brown-color);
+}
+
+.homepage-box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-green-color);
+  align-items: center;
+  min-height: 100vh;
+  justify-content: flex-start;
 }

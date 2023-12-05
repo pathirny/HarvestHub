@@ -25,12 +25,15 @@ export default async function Index() {
   return (
     <>
       <Header />
-      <div className="box">
+      <div className="homepage-box">
         <div className="link-container">
-          <Link href="#">Tips and Tricks</Link>
+          <Link href="#">Tips n' Tricks</Link>
         </div>
         <div className="link-container">
-          <Link href="#">Calendar</Link>
+          <Link href="#">Growing Calendar</Link>
+        </div>
+        <div className="link-container">
+          <Link href="#">Stretch goals</Link>
         </div>
         <div className="link-container">
           <Link href="#">Stretch goals</Link>
