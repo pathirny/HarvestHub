@@ -8,7 +8,7 @@
   --brown-color: #b9a48c;
   --white-cream-color: #f3ebe4;
 }
-
+/* Login page */
 body {
   margin: 0;
   padding: 0;
@@ -70,6 +70,7 @@ button {
   margin-bottom: 2rem;
 }
 
+/* Header */
 #nav-body {
   background-color: var(--light-green-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
@@ -222,3 +223,12 @@ a {
 }
 
 /* calendar */
+
+/* Main Page */
+
+.link-container {
+  width: 12rem;
+  height: 8rem;
+  background-color: var(--white-cream-color);
+  margin: 1rem;
+}
