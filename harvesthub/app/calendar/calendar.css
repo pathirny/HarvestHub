@@ -5,6 +5,10 @@
     --white-cream-color: #F3EBE4;
   }
 
+a{
+    text-decoration: none;
+}
+
 #calendar-background{
 background-color: var(--dark-green-color);
 }
@@ -31,14 +35,81 @@ background-color: var(--dark-green-color);
 
 .br-wht{
     background-image: URL("./assets/br-month.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     color: var(--white-cream-color);
 }
 
 .wht-br{
     background-image: URL("./assets/Wht-month.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     color: var(--brown-color);
 }
+
+#month-nav-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 5vw;
+    align-items: center;
+}
+
+.header-month{
+    width: 52vw;
+    height: 43vw;
+    position: relative;
+}
+
+.header-month p{
+    text-align: center;
+    margin-top: 1vw;
+    font-size: 5vw;
+}
+
+#prv-mnth-bttn{
+    width: 0; 
+    height: 0; 
+    border-top: 5vw solid transparent;
+    border-bottom: 5vw solid transparent; 
+    border-right:5vw solid var(--light-green-color); 
+    align-self: center;
+}
+
+#next-mnth-bttn{
+    width: 0; 
+    height: 0; 
+    border-top: 5vw solid transparent;
+    border-bottom: 5vw solid transparent;
+    border-left: 5vw solid var(--light-green-color); 
+    align-self: center;
+}
+
+
+#back-btn{
+    background-color: #F3EBE4;
+    color: #47594E;
+    position: fixed;
+    bottom: 5vw;
+    width: 40vw;
+    height: 10vw;
+    border-radius: 5vw;
+    border: none;
+    left: 30vw;
+    right: 30vw;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    gap: 1vw;
+    align-items: center;
+  }
+
+  #calendar-pg-container{
+    background-color: var(--dark-green-color);
+    height: 100vh;
+    width: 100%;
+  }
