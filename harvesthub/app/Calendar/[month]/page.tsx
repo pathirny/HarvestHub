@@ -19,6 +19,14 @@ return(<>
     </div>
     <Link href={`./${nxt}`} ><div id="next-mnth-bttn"></div></Link>
  </div>
+ <div id="plant-harvest-grid">
+    <div id="plant-harvest-title">
+        <div>Plant</div>
+        <div>Harvest</div>
+    </div>
+    <div id="plant-list">Plant</div>
+    <div id="harvest-list">Harvest</div>
+ </div>
 <Link href='/Calendar'><BackButton/></Link>
 </div>
  </>

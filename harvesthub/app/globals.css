@@ -208,5 +208,34 @@ background-color: var(--dark-green-color);
   height: 100vh;
   width: 100%;
 }
+#plant-harvest-grid {
+  display: grid;
+  grid-template-areas: 'a a' 'b c';
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+#plant-harvest-title {
+  grid-area: a;
+  background-color: antiquewhite;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#plant-list {
+  grid-area: b;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+}
+
+#harvest-list {
+  grid-area: c;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+}
 
 /* calendar */
