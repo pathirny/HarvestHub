@@ -3,3 +3,43 @@
   flex-direction: column;
   background-color: red;
 }
+
+#nav-body{
+  background-color: #99A57B;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4)
+}
+
+#nav-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "a b b c";
+  width: 90vw;
+  padding: 20px 0px;
+  margin: auto;
+  gap: 7vw;
+}
+
+#nav-container div{
+  background-color: #F3EBE4;
+  text-align: center;
+  border-radius: 10px;
+  color: #47594E;
+}
+
+#nav-container h3{
+  margin: 0;
+  padding: 15px 0px;
+}
+
+#home-button{
+  grid-area: a;
+}
+
+#page-title{
+  grid-area: b;
+  width: 100%;
+}
+
+#user-button{
+  grid-area: c;
+}
