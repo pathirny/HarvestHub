@@ -27,10 +27,10 @@ export default async function Index() {
       <Header />
       <div className="homepage-box">
         <div className="link-container">
-          <Link href="#">Tips n' Tricks</Link>
+          <Link href="./TipsnTricks">Tips n' Tricks</Link>
         </div>
         <div className="link-container">
-          <Link href="#">Growing Calendar</Link>
+          <Link href="./Calendar">Growing Calendar</Link>
         </div>
         <div className="link-container">
           <Link href="#">Stretch goals</Link>
