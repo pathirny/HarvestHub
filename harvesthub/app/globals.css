@@ -153,13 +153,15 @@ background-color: var(--dark-green-color);
   width: 52vw;
   height: 43vw;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .header-month p{
   text-align: center;
   width: 100%;
   position: absolute;
-  margin-top: 1vw;
+  margin-top: 5vw;
   font-size: 5vw;
 }
 
@@ -210,20 +212,39 @@ background-color: var(--dark-green-color);
 }
 #plant-harvest-grid {
   display: grid;
-  grid-template-areas: 'a a' 'b c';
+  grid-template-areas: 'a a' 'x x' 'b c';
   justify-content: center;
   grid-template-columns: 1fr 1fr;
   gap: 5vw;
   padding: 2vw;
 }
 
+#underline{
+  border-bottom: solid 1px var(--white-cream-color);
+  grid-area: x;
+}
+
 #plant-harvest-title {
   grid-area: a;
-  background-color: antiquewhite;
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  gap:5vw;
+}
+
+#plant-harvest-title div{
+  border-radius: 2vw;
+  width: 100%;
+  height: 8vw;
+  margin: 0;
+  text-align: center;
+  background-color: var(--light-green-color);
+}
+
+#plant-harvest-title div h1{
+  margin: 0;
+  font-size: 5vw;
 }
 
 #plant-list {
@@ -245,23 +266,10 @@ background-color: var(--dark-green-color);
   width: 100%;
 }
 
-.plantListItem{
-  background-color: var(--white-cream-color);
-  border-radius: 2vw;
-  margin: 0;
-  width: 100%;
-  height: 8vw;
-  color: var(--dark-green-color);
-  text-align: center;
-  font-size: 5vw;
-}
-
-.harvestListItem{
-  background-color: var(--brown-color);
+.vegListItem{
   border-radius: 2vw;
   margin: 0;
   height: 8vw;
-  color: var(--white-cream-color);
   text-align: center;
   font-size: 5vw;
 }

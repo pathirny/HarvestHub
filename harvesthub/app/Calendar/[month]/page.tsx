@@ -26,20 +26,21 @@ return(<>
 <div id="month-nav-container">
     <Link href={`./${prev}`}><div id="prv-mnth-bttn"></div></Link>
     <div className="month br-wht header-month" id="january"><p>{months[params.month]}</p>
-    <img src="/assets/brMonth.png" style={{width: "40vw", height: "auto"}} alt="month" />
+    <img src="/assets/brMonth.png" style={{width: "40vw", height: "auto", alignSelf: "center"}} alt="month" />
     </div>
     <Link href={`./${nxt}`} ><div id="next-mnth-bttn"></div></Link>
  </div>
  <div id="plant-harvest-grid">
     <div id="plant-harvest-title">
-        <div>Plant</div>
-        <div>Harvest</div>
+        <div><h1>Plant</h1></div>
+        <div><h1>Harvest</h1></div>
     </div>
+    <div id="underline"></div>
     <div id="plant-list">
-        {plantList.map((a) => {return (<><h1 key={a.name} className="plantListItem" >{a.name}</h1></>)})}
+        {plantList.map((a) => {return (<><h1 key={a.name} className="vegListItem" style={{ color: "var(--dark-green-color)", backgroundColor: "var(--white-cream-color)"}} >{a.name}</h1></>)})}
     </div>
     <div id="harvest-list">
-        {harvestList.map((a) => {return (<><h1 key={a.name} className="harvestListItem">{a.name}</h1></>)})}
+        {harvestList.map((a) => {return (<><h1 key={a.name} className="vegListItem" style={{ color: "var(--white-cream-color)", backgroundColor: "var(--brown-color)"}}>{a.name}</h1></>)})}
     </div>
  </div>
 <Link href='/Calendar'><BackButton/></Link>
