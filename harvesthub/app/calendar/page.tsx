@@ -5,7 +5,7 @@ export default function Calendar(){
 
     return(
         <div id="calendar-background">
-            <Header />
+            <Header title="Calendar"/>
         <div id="calendargrid">
             <Link href="./Calendar/0" ><div className="month br-wht" id="january"><p>January</p></div></Link>
             <Link href="./Calendar/1" ><div className="month wht-br" id="february"><p>Febraury</p></div></Link>
