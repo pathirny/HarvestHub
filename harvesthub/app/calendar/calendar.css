@@ -1,3 +1,4 @@
+
 :root {
     --dark-green-color: #47594E;
     --light-green-color: #99A57B;
@@ -21,41 +22,7 @@ background-color: var(--dark-green-color);
     padding: 10vw;
     position: relative;
     }
-
-    @media only screen and (min-width: 768px) {
-        #calendargrid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 13vw);
-            grid-gap: 4vw;
-            padding: 10vw;
-            position: relative;
-            }
-
-            p{
-                text-align: center;
-                margin-top: 0;
-                padding-top: 0;
-                font-size: 2vw;
-                font-weight:bold;
-            }
-
-        .br-wht{
-            background-image: URL("./assets/br-month.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            color: var(--white-cream-color);
-        }
-
-        .wht-br{
-            background-image: URL("./assets/Wht-month.png");
-            background-size: auto;
-            background-repeat: no-repeat;
-            color: var(--brown-color);
-        }
-
-      }
-
+ 
 #calendargrid p{
     text-align: center;
     margin-top: 1vw;
@@ -70,14 +37,14 @@ background-color: var(--dark-green-color);
 }
 
 .br-wht{
-    background-image: URL("./assets/br-month.png");
+    background-image: URL("./assets/brMonth.png");
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--white-cream-color);
 }
 
 .wht-br{
-    background-image: URL("./assets/Wht-month.png");
+    background-image: URL("./assets/WhtMonth.png");
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--brown-color);
