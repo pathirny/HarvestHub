@@ -49,12 +49,12 @@ button {
   color: #47594e;
 }
 
-#nav-body{
-  background-color: #99A57B;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4)
+#nav-body {
+  background-color: #99a57b;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
-#nav-container{
+#nav-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: "a b b c";
@@ -64,26 +64,27 @@ button {
   gap: 7vw;
 }
 
-#nav-container div{
-  background-color: #F3EBE4;
+#nav-container div {
+  background-color: #f3ebe4;
   text-align: center;
   border-radius: 10px;
-  color: #47594E;
+  color: #47594e;
 }
 
-#nav-container h3{
+#nav-container h3 {
   margin: 0;
   padding: 15px 0px;
 }
 
-#home-button{
+#home-button {
   grid-area: a;
 }
 
-#page-title{
+#page-title {
   grid-area: b;
   width: 100%;
 }
 
-#user-button{
+#user-button {
   grid-area: c;
+}
