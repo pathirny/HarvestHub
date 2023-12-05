@@ -37,6 +37,10 @@ input {
   color: #47594e;
 }
 
+.TipCard{
+  box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
 input::placeholder {
   text-align: center;
   color: #47594e;
