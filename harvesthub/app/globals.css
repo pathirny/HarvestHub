@@ -1,13 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans:wght@700&family=Kanit&family=Karla:wght@700&family=Open+Sans&family=Poppins&family=Roboto&family=Smythe&family=Space+Mono&display=swap");
+
+:root {
+  --dark-green-color: #47594e;
+  --light-green-color: #99a57b;
+  --brown-color: #b9a48c;
+  --white-cream-color: #f3ebe4;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Josefin", sans-serif;
 }
 
 .box {
   display: flex;
   flex-direction: column;
-  background-color: #47594e;
+  background-color: var(--dark-green-color);
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -17,11 +27,13 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: #47594e;
+  color: var(--dark-green-color);
 }
 .logo {
   margin-bottom: 5rem;
   margin-top: 5rem;
+  width: 12rem;
+  height: 15rem;
 }
 label {
   margin-top: 1rem;
@@ -31,13 +43,13 @@ input {
   margin-top: 1rem;
   border-radius: 25px;
   height: 1.5rem;
-  background-color: #fcebe4;
-  color: #47594e;
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
 }
 
 input::placeholder {
   text-align: center;
-  color: #47594e;
+  color: var(--dark-green-color);
 }
 
 button {
@@ -45,12 +57,17 @@ button {
   width: 4rem;
   height: 2rem;
   border-radius: 25px;
-  background-color: #fcebe4;
-  color: #47594e;
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+}
+
+.reset-password {
+  color: var(--white-cream-color);
+  margin-top: 2rem;
 }
 
 #nav-body {
-  background-color: #99a57b;
+  background-color: var(--light-green-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -65,10 +82,10 @@ button {
 }
 
 #nav-container div {
-  background-color: #f3ebe4;
+  background-color: var(--white-cream-color);
   text-align: center;
   border-radius: 10px;
-  color: #47594e;
+  color: var(--dark-green-color);
 }
 
 #nav-container h3 {
@@ -91,19 +108,12 @@ button {
 
 /* calendar */
 
-:root {
-  --dark-green-color: #47594E;
-  --light-green-color: #99A57B;
-  --brown-color: #B9A48C;
-  --white-cream-color: #F3EBE4;
-}
-
-a{
+a {
   text-decoration: none;
 }
 
-#calendar-background{
-background-color: var(--dark-green-color);
+#calendar-background {
+  background-color: var(--dark-green-color);
 }
 
 #calendargrid {
@@ -113,17 +123,16 @@ background-color: var(--dark-green-color);
   grid-gap: 5vw;
   padding: 10vw;
   position: relative;
-  }
+}
 
-#calendargrid p{
+#calendargrid p {
   text-align: center;
   width: 100%;
   margin-top: 0vw;
   padding-top: 2vw;
   font-size: 4vw;
-  font-weight:bold;
+  font-weight: bold;
   position: absolute;
-
 }
 
 .month {
@@ -132,15 +141,15 @@ background-color: var(--dark-green-color);
   position: relative;
 }
 
-.br-wht{
+.br-wht {
   color: var(--white-cream-color);
 }
 
-.wht-br{
+.wht-br {
   color: var(--brown-color);
 }
 
-#month-nav-container{
+#month-nav-container {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -149,13 +158,13 @@ background-color: var(--dark-green-color);
   align-items: center;
 }
 
-.header-month{
+.header-month {
   width: 52vw;
   height: 43vw;
   position: relative;
 }
 
-.header-month p{
+.header-month p {
   text-align: center;
   width: 100%;
   position: absolute;
@@ -163,28 +172,27 @@ background-color: var(--dark-green-color);
   font-size: 5vw;
 }
 
-#prv-mnth-bttn{
-  width: 0; 
-  height: 0; 
-  border-top: 5vw solid transparent;
-  border-bottom: 5vw solid transparent; 
-  border-right:5vw solid var(--light-green-color); 
-  align-self: center;
-}
-
-#next-mnth-bttn{
-  width: 0; 
-  height: 0; 
+#prv-mnth-bttn {
+  width: 0;
+  height: 0;
   border-top: 5vw solid transparent;
   border-bottom: 5vw solid transparent;
-  border-left: 5vw solid var(--light-green-color); 
+  border-right: 5vw solid var(--light-green-color);
   align-self: center;
 }
 
+#next-mnth-bttn {
+  width: 0;
+  height: 0;
+  border-top: 5vw solid transparent;
+  border-bottom: 5vw solid transparent;
+  border-left: 5vw solid var(--light-green-color);
+  align-self: center;
+}
 
-#back-btn{
-  background-color: #F3EBE4;
-  color: #47594E;
+#back-btn {
+  background-color: #f3ebe4;
+  color: #47594e;
   position: fixed;
   bottom: 5vw;
   width: 40vw;
@@ -198,12 +206,12 @@ background-color: var(--dark-green-color);
   font-size: 5vw;
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content: center;
   gap: 1vw;
   align-items: center;
 }
 
-#calendar-pg-container{
+#calendar-pg-container {
   background-color: var(--dark-green-color);
   height: 100vh;
   width: 100%;

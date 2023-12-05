@@ -56,19 +56,19 @@ export default function Login({
   return (
     <div className="box">
       {/* <Link href="/"> Back</Link> */}
-      <img src="#" alt="harvestHub Logo" className="logo"></img>
+      <img src="/assets/logo.png" alt="harvestHub Logo" className="logo"></img>
       <form className="form" action={signIn}>
         {/* <label className="text-md" htmlFor="email">
           Email
         </label> */}
-        <input name="email" placeholder="email" required />
+        <input name="email" placeholder="Email" required />
         {/* <label className="text-md" htmlFor="password">
           Password
         </label> */}
         <input
           type="password"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           required
         />
         <button className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2">
@@ -81,7 +81,9 @@ export default function Login({
           </p>
         )}
       </form>
-      <a>Forgot your password?</a>
+      <a className="reset-password" href="#">
+        Forgot your password?
+      </a>
     </div>
   );
 }
