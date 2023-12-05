@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans:wght@700&family=Kanit&family=Karla:wght@700&family=Open+Sans&family=Poppins&family=Roboto&family=Smythe&family=Space+Mono&display=swap");
-
+/* * {
+  border: red 1px solid;
+} */
 :root {
   --dark-green-color: #47594e;
   --light-green-color: #99a57b;
@@ -19,6 +21,7 @@ body {
   flex-direction: column;
   background-color: var(--dark-green-color);
   align-items: center;
+  min-height: 100vh;
   justify-content: center;
 }
 .form {
