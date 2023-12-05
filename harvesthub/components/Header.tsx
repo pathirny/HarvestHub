@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Header({ title }) {
+export default function Header({ title } : any) {
   return (
     <>
     <div id="nav-body">
