@@ -253,6 +253,7 @@ background-color: var(--dark-green-color);
   height: 8vw;
   color: var(--dark-green-color);
   text-align: center;
+  font-size: 5vw;
 }
 
 .harvestListItem{
@@ -262,6 +263,7 @@ background-color: var(--dark-green-color);
   height: 8vw;
   color: var(--white-cream-color);
   text-align: center;
+  font-size: 5vw;
 }
 
 /* calendar */
