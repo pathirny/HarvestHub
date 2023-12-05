@@ -37,7 +37,7 @@ return(<>
     </div>
     <div id="underline"></div>
     <div id="plant-list">
-        {plantList.map((a) => {return (<><h1 key={a.name} className="vegListItem" style={{ color: "var(--dark-green-color)", backgroundColor: "var(--white-cream-color)"}} >{a.name}</h1></>)})}
+        {plantList.map((a) => {return (<><Link href="/Veggies/1"><h1 key={a.name} className="vegListItem" style={{ color: "var(--dark-green-color)", backgroundColor: "var(--white-cream-color)"}} >{a.name}</h1></Link></>)})}
     </div>
     <div id="harvest-list">
         {harvestList.map((a) => {return (<><h1 key={a.name} className="vegListItem" style={{ color: "var(--white-cream-color)", backgroundColor: "var(--brown-color)"}}>{a.name}</h1></>)})}
