@@ -1,9 +1,11 @@
 "use client";
 
-import { ChangeEvent, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import { SearchBar } from "@/components/SearchBar";
-import { gardeningTipsType, renderTips } from "./renderTips";
+import { renderTips } from "./renderTips";
+import BackButton from "@/components/BackButton";
+import Link from "next/link";
  const gardeningTips = [
   {
     id: 1,
@@ -80,6 +82,7 @@ export default function TipsnTricks() {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       {renderTips(filteredTips)}
+      <Link href="/"><BackButton /></Link>
     </div>
   );
 }

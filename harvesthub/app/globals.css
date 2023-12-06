@@ -63,6 +63,7 @@ button {
   border-radius: 25px;
   background-color: var(--white-cream-color);
   color: var(--dark-green-color);
+  border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .reset-password {
@@ -204,7 +205,7 @@ a {
   width: 40vw;
   height: 10vw;
   border-radius: 5vw;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   left: 30vw;
   right: 30vw;
   font-weight: bold;

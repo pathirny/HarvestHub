@@ -3,6 +3,8 @@
 import { Flex, Container, useStatStyles } from "@chakra-ui/react";
 import Header from "@/components/Header";
 import { useEffect, useState } from "react";
+import BackButton from "@/components/BackButton";
+import Link from "next/link";
 
 const gardeningTips = [
   {
@@ -100,6 +102,7 @@ export default function TipsPage({ params }: any) {
         >
           <p>{tip[0].description}</p>
         </Container>
+        <Link href="/TipsnTricks"><BackButton /></Link>
       </Flex>
     </>
   );
