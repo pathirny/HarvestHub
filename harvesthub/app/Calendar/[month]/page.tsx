@@ -16,7 +16,7 @@ export default function Month({ params } : any){
    const prev = +params.month === 0 ? 11 : +params.month - 1 
 
    useEffect(()=> {
-        setPlantList([{name: "Carrot"}, {name: "sprouts"}, {name: "apple"}])
+        setPlantList([{name: "carrot"}, {name: "sprout"}, {name: "apple"}])
         setHarvestList([{name: "pepper"}, {name: "pear"}, {name: "onion"}, {name: "sprout"}])
    }, [])
 
