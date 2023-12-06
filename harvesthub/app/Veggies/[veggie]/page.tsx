@@ -1,56 +1,57 @@
-"use client"
+"use client";
 import Header from "@/components/Header";
 import { useStatStyles } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { supabase } from "../../supabase.config"
+import { supabase } from "../../supabase.config";
 import { data } from "autoprefixer";
-export default function Veggies({ params } : any) {
-    const [difficulty, setDifficulty] = useState([''])
-    const [time, setTime] = useState([1, 2])
-//   const carrot = { name: "carrot", difficulty: '123' };
-  let ease = [1, 2, 3, 4, 5]
-  let timeEase = [1, 2, 3, 4, 5]
 
-  useEffect(()=>{
-    async function getDifTime(){
-        let { data: difficult, error } = await supabase
-  .from('veggies')
-  .select('difficulty')
-  .eq('name', params.veggie)
+export default function Veggies({ params }: any) {
+  const [difficulty, setDifficulty] = useState([""]);
+  const [time, setTime] = useState(['']);
+  const [vegInfo, setVegInfo] = useState('');
+  const [vegHarv, setVegHarv] = useState('');
+  const [vegPlant, setVegPlant] = useState('');
+  let ease = [1, 2, 3, 4, 5];
+  let timeEase = [1, 2, 3, 4, 5];
 
-//     let { data: time, error } = await supabase
-// .from('veggies')
-// .select('grow_time')
-// .eq('name', params.veggie)
+useEffect(() => {
+    async function getVeg() {
+      let { data: Veg, error } = await supabase
+        .from("veggies")
+        .select("*")
+        .eq("name", params.veggie)
 
-//   if(time){
-// //   setTime(time[0].grow_time.toString().split(''))
-//     } 
+     if (Veg) {
+        setTime(Veg[0].grow_time.toString().split(""));
+        setDifficulty(Veg[0].difficulty.toString().split(""));
+        setVegInfo(Veg[0].info)
+        setVegHarv(Veg[0].harvest)
+        setVegPlant(Veg[0].plant)
+      }
+    }
+    getVeg();
 
-    if(difficult){
-        setDifficulty(difficult[0].difficulty.toString().split(''))
-          } 
-}
-    getDifTime()
-   
-
-  }, [])
+  }, []);
 
   return (
     <>
       <div id="vegPageContainer">
         <Header title={params.veggie}></Header>
         <div id="veggie-container">
-          <div id="veggie-general-info"></div>
+          <div id="veggie-general-info">
+            <p>{vegInfo}</p>
+          </div>
           <div id="veggie-grid">
             <div className="cream">
               <h1>Difficulty:</h1>
             </div>
             <div className="carrot-rating brown">
-              {difficulty.map((a) => {  ease.pop();
+              {difficulty.map((a) => {
+                ease.pop();
                 return (
                   <>
                     <img
+                    key={a}
                       src="/assets/BlackCarrot.png"
                       alt="black carrot"
                       style={{ height: "13vw", width: "auto" }}
@@ -58,10 +59,11 @@ export default function Veggies({ params } : any) {
                   </>
                 );
               })}
-                {ease.map((a) => {
+              {ease.map((a) => {
                 return (
                   <>
                     <img
+                      key={a}
                       src="/assets/WhiteCarrot.png"
                       alt="black carrot"
                       style={{ height: "13vw", width: "auto" }}
@@ -73,11 +75,13 @@ export default function Veggies({ params } : any) {
             <div className="cream">
               <h1>Time:</h1>
             </div>
-            <div className="carrot-rating brown" >
-            {time.map((a) => { timeEase.pop();
+            <div className="carrot-rating brown">
+              {time.map((a) => {
+                timeEase.pop();
                 return (
                   <>
                     <img
+                      key={a}
                       src="/assets/BlackCarrot.png"
                       alt="black carrot"
                       style={{ height: "13vw", width: "auto" }}
@@ -85,10 +89,11 @@ export default function Veggies({ params } : any) {
                   </>
                 );
               })}
-                {timeEase.map((a) => {
+              {timeEase.map((a) => {
                 return (
                   <>
                     <img
+                      key={a}
                       src="/assets/WhiteCarrot.png"
                       alt="black carrot"
                       style={{ height: "13vw", width: "auto" }}
@@ -100,11 +105,11 @@ export default function Veggies({ params } : any) {
             <div className="cream">
               <h1>Plant:</h1>
             </div>
-            <div className="brown" ></div>
+            <div className="brown"><h1>{vegHarv}</h1></div>
             <div className="cream">
               <h1>Harvest:</h1>
             </div>
-            <div className="brown" ></div>
+            <div className="brown"><h1>{vegPlant}</h1></div>
           </div>
         </div>
       </div>
