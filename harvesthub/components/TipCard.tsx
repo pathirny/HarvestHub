@@ -23,14 +23,7 @@ interface TipCardtip {
 export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
   return (
     <Link href={`./TipsnTricks/${tip.id}`}>
-      <Card
-        className="TipCard"
-        maxW="md"
-        bg="#B9A48C"
-        borderRadius={10}
-        margin="20px"
-        p="20px"
-      >
+      <Card className="TipCard" maxW="md" borderRadius={10}>
         <CardHeader>
           <Flex>
             <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
