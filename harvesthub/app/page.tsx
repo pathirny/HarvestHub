@@ -28,13 +28,12 @@ export default async function Index() {
       <div className="homepage-box">
         <div className="link-container">
           <Link href="./TipsnTricks">
-            <div>
-              <p>Tips n' Tricks</p>
+            <div className="tipsntricks" style={{ position: "relative" }}>
               <img
-                src="/assets/brMonth.png"
-                style={{ width: "40vw", height: "auto" }}
-                alt="tipsntricks"
-              />
+                src="/assets/CalendarBackground.png"
+                style={{ width: "16rem", height: "auto", opacity: "0.5" }}
+              ></img>
+              <p style={{ position: "absolute", top: "0" }}>Tips n' Tricks</p>
             </div>
           </Link>
         </div>
