@@ -10,7 +10,7 @@ export default function Calendar() {
         <Link href="./Calendar/0">
           <div className="month br-wht" id="january">
             <p>January</p>
-      <img src="/assets/brMonth.png" style={{width: "40vw", height: "auto"}} alt="month" />
+        <img src="/assets/brMonth.png" style={{width: "40vw", height: "auto"}} alt="month" />
           </div>
         </Link>
         <Link href="./Calendar/1">
