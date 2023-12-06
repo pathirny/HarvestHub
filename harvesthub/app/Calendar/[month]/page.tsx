@@ -115,27 +115,25 @@ export default function Month({ params }: any) {
             {plantList.map((a) => {
               return (
                 <>
-                  <Link href={`/Veggies/${a.name}`}>
-                    <h1
-                      key={a.name}
-                      className="vegListItem"
-                      style={{
-                        color: "var(--dark-green-color)",
-                        backgroundColor: "var(--white-cream-color)",
-                      }}
-                    >
-                      {a.name}
-                    </h1>
-                  </Link>
+                  <div
+                    key={a.id}
+                    className="vegListItem"
+                    style={{
+                      color: "var(--dark-green-color)",
+                      backgroundColor: "var(--white-cream-color)",
+                    }}
+                  >
+                    <h3 style={{marginTop: "1vw", fontSize: "5vw"}}>{a.name}</h3>
+                  </div>
                 </>
-              );
+              );;
             })}
           </div>
           <div id="harvest-list">
             {harvestList.map((a) => {
               return (
                 <>
-                  <h1
+                  <div
                     key={a.id}
                     className="vegListItem"
                     style={{
@@ -143,8 +141,8 @@ export default function Month({ params }: any) {
                       backgroundColor: "var(--brown-color)",
                     }}
                   >
-                    {a.name}
-                  </h1>
+                    <h3 style={{marginTop: "1vw", fontSize: "5vw"}}>{a.name}</h3>
+                  </div>
                 </>
               );
             })}

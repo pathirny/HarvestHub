@@ -156,6 +156,8 @@ a {
   color: var(--brown-color);
 }
 
+/* month page */
+
 #month-nav-container {
   display: flex;
   flex-direction: row;
@@ -418,8 +420,10 @@ a {
   display: flex;
   flex-direction: column;
   justify-self: center;
+  justify-content: center;
   gap: 1vw;
   width: 100%;
+  height: fit-content;
 }
 
 #harvest-list {
@@ -430,12 +434,13 @@ a {
   justify-content: center;
   gap: 1vw;
   width: 100%;
+  height: fit-content;
 }
 
 .vegListItem {
   border-radius: 2vw;
   margin: 0;
-  height: 8vw;
+  height: 9vw;
   text-align: center;
   font-size: 5vw;
 }
