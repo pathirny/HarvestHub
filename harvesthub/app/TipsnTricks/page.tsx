@@ -61,11 +61,16 @@ export default function TipsnTricks() {
   ];
 
   useEffect(() => {
-    const tips: any = gardeningTips.filter((tip) =>
-      tip.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+    const newFilteredTips: any = gardeningTips.filter(tip => 
+      Object.values(tip).some(value =>
+        value.toString().toLowerCase().includes(lowerCaseSearchTerm)
+      )
     );
-    setFilteredTips(tips);
-  }, [searchTerm]);
+
+    setFilteredTips(newFilteredTips);
+  }, [searchTerm, gardeningTips]);
 
   return (
     <div>
