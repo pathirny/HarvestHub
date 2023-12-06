@@ -43,7 +43,7 @@ export default async function Index() {
           </div>
         </Link>
 
-        <Link href="./Calendar">
+        <Link href="./calendar">
           <div
             className="link-container"
             style={{
