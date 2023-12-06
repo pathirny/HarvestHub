@@ -26,20 +26,23 @@ export default async function Index() {
     <>
       <Header />
       <div className="homepage-box">
-        <div className="link-container">
           <Link href="./TipsnTricks">
-            <div className="tipsntricks" style={{ position: "relative" }}>
+          <div className="link-container" style={{padding: "0",}}>
+            <div style={{padding: "0", width: "100%", height: "100%", backgroundImage: "url(/assets/BackgroundVeg.png)", backgroundSize: "cover", opacity: "0.5" }}>
+            </div>
+              <h1 style={{position: "absolute"}}>Tips and Tricks</h1>
+          </div>
+          </Link>
+        
+        <Link href="./Calendar">
+        <div className="link-container" style={{ position: "relative" }}>
               <img
                 src="/assets/CalendarBackground.png"
                 style={{ width: "16rem", height: "auto", opacity: "0.5" }}
               ></img>
-              <p style={{ position: "absolute", top: "0" }}>Tips n' Tricks</p>
+              <h1 style={{ position: "absolute" }}>Calendar</h1>
             </div>
-          </Link>
-        </div>
-        <div className="link-container">
-          <Link href="./Calendar">Growing Calendar</Link>
-        </div>
+            </Link>
         <div className="link-container">
           <Link href="#">Stretch goals</Link>
         </div>
