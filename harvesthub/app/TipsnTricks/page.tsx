@@ -1,12 +1,13 @@
-import { ChangeEvent, useState } from 'react';
+"use client";
+
+import { ChangeEvent, useState, useEffect } from "react";
 import Header from "@/components/Header";
 import { SearchBar } from "@/components/SearchBar";
-import { renderTips } from "./renderTips";
-"use client"
+import { gardeningTipsType, renderTips } from "./renderTips";
 
 export default function TipsnTricks() {
-  const [searchTerm, setSearchTerm] = useState('');
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredTips, setFilteredTips] = useState([]);
   const gardeningTips = [
     {
       id: 1,
@@ -59,14 +60,20 @@ export default function TipsnTricks() {
     },
   ];
 
-  const filteredTips = gardeningTips.filter(tip =>
-    tip.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    const tips: any = gardeningTips.filter((tip) =>
+      tip.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredTips(tips);
+  }, [searchTerm]);
 
   return (
     <div>
       <Header title="Tips and Tricks" />
-      <SearchBar value={searchTerm} onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)} />
+      <SearchBar
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       {renderTips(filteredTips)}
     </div>
   );
