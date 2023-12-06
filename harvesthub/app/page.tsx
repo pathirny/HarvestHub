@@ -27,7 +27,16 @@ export default async function Index() {
       <Header />
       <div className="homepage-box">
         <div className="link-container">
-          <Link href="./TipsnTricks">Tips n' Tricks</Link>
+          <Link href="./TipsnTricks">
+            <div>
+              <p>Tips n' Tricks</p>
+              <img
+                src="/assets/brMonth.png"
+                style={{ width: "40vw", height: "auto" }}
+                alt="tipsntricks"
+              />
+            </div>
+          </Link>
         </div>
         <div className="link-container">
           <Link href="./Calendar">Growing Calendar</Link>
