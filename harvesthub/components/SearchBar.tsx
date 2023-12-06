@@ -3,8 +3,14 @@ import { Input } from "@chakra-ui/react";
 import { IconButton } from '@chakra-ui/react'
 import { CiSearch } from "react-icons/ci";
 
+// implicate search function
 
-export const SearchBar = () => {
+interface SearchBarProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   return (
     <>
       <Input placeholder="Search" size="md" />
