@@ -115,6 +115,7 @@ export default function Month({ params }: any) {
             {plantList.map((a) => {
               return (
                 <>
+                <Link href={`/Veggies/${a.name}`}>
                   <div
                     key={a.id}
                     className="vegListItem"
@@ -125,6 +126,7 @@ export default function Month({ params }: any) {
                   >
                     <h3 style={{marginTop: "1vw", fontSize: "5vw"}}>{a.name}</h3>
                   </div>
+                  </Link>
                 </>
               );;
             })}
@@ -132,7 +134,7 @@ export default function Month({ params }: any) {
           <div id="harvest-list">
             {harvestList.map((a) => {
               return (
-                <>
+                <><Link href={`/Veggies/${a.name}`}>
                   <div
                     key={a.id}
                     className="vegListItem"
@@ -143,12 +145,13 @@ export default function Month({ params }: any) {
                   >
                     <h3 style={{marginTop: "1vw", fontSize: "5vw"}}>{a.name}</h3>
                   </div>
+                  </Link>
                 </>
               );
             })}
           </div>
         </div>
-        <Link href="/calendar">
+        <Link href="/Calendar">
           <BackButton />
         </Link>
       </div>
