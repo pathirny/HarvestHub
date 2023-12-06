@@ -6,6 +6,7 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 import { cookies } from "next/headers";
 import Header from "../components/Header";
 import Link from "next/link";
+import { color } from "framer-motion";
 export default async function Index() {
   const cookieStore = cookies();
 
@@ -24,7 +25,7 @@ export default async function Index() {
 
   return (
     <>
-      <Header />
+      <Header title="Home Page"/>
       <div className="homepage-box">
           <Link href="./TipsnTricks">
           <div className="link-container" style={{padding: "0",}}>
@@ -35,7 +36,7 @@ export default async function Index() {
           </Link>
         
         <Link href="./Calendar">
-        <div className="link-container" style={{ position: "relative" }}>
+        <div className="link-container" style={{ position: "relative", backgroundColor: "#E3CBB0" }}>
               <img
                 src="/assets/CalendarBackground.png"
                 style={{ width: "16rem", height: "auto", opacity: "0.5" }}
