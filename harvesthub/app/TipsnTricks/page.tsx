@@ -4,7 +4,7 @@ import { ChangeEvent, useState, useEffect } from "react";
 import Header from "@/components/Header";
 import { SearchBar } from "@/components/SearchBar";
 import { gardeningTipsType, renderTips } from "./renderTips";
-export const gardeningTips = [
+ const gardeningTips = [
   {
     id: 1,
     title: "6 vegetable gardening tips every new food gardener needs to know",
@@ -55,6 +55,7 @@ export const gardeningTips = [
     author: "Niki Jabbour",
   },
 ];
+
 export default function TipsnTricks() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredTips, setFilteredTips] = useState([]);

@@ -22,7 +22,7 @@ interface TipCardtip {
 
 export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
   return (
-    <Link href="TipsnTricksInfo">
+    <Link href={`./TipsnTricks/${tip.id}`}>
       <Card
         className="TipCard"
         maxW="md"
