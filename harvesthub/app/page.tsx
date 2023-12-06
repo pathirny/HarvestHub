@@ -6,6 +6,7 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 import { cookies } from "next/headers";
 import Header from "../components/Header";
 import Link from "next/link";
+import { color } from "framer-motion";
 export default async function Index() {
   const cookieStore = cookies();
 
@@ -24,19 +25,73 @@ export default async function Index() {
 
   return (
     <>
-      <Header />
+      <Header title="Harvest Hub" />
       <div className="homepage-box">
+        <Link href="./TipsnTricks">
+          <div className="link-container" style={{ padding: "0" }}>
+            <div
+              style={{
+                padding: "0",
+                width: "100%",
+                height: "100%",
+                backgroundImage: "url(/assets/BackgroundVeg.png)",
+                backgroundSize: "cover",
+                opacity: "0.25",
+              }}
+            ></div>
+            <h1 style={{ position: "absolute" }}>Tips and Tricks</h1>
+          </div>
+        </Link>
+
+        <Link href="./Calendar">
+          <div
+            className="link-container"
+            style={{
+              position: "relative",
+              backgroundColor: "#b9a48c",
+              color: "#f3ebe4",
+            }}
+          >
+            <img
+              src="/assets/CalendarBackground.png"
+              style={{ width: "16rem", height: "auto", opacity: "0.25" }}
+            ></img>
+            <h1 style={{ position: "absolute" }}>Growing Calendar</h1>
+          </div>
+        </Link>
         <div className="link-container">
-          <Link href="./TipsnTricks">Tips n' Tricks</Link>
+          <Link href="#">
+            <div className="link-container" style={{ padding: "0" }}>
+              <div
+                style={{
+                  padding: "0",
+                  width: "100%",
+                  height: "100%",
+                  backgroundImage: "url(/assets/BackgroundVeg.png)",
+                  backgroundSize: "cover",
+                  opacity: "0.25",
+                }}
+              ></div>
+              <h1 style={{ position: "absolute" }}>Stretch goal 1</h1>
+            </div>
+          </Link>
         </div>
         <div className="link-container">
-          <Link href="./Calendar">Growing Calendar</Link>
-        </div>
-        <div className="link-container">
-          <Link href="#">Stretch goals</Link>
-        </div>
-        <div className="link-container">
-          <Link href="#">Stretch goals</Link>
+          <Link href="#">
+            <div className="link-container" style={{ padding: "0" }}>
+              <div
+                style={{
+                  padding: "0",
+                  width: "100%",
+                  height: "100%",
+                  backgroundImage: "url(/assets/BackgroundVeg.png)",
+                  backgroundSize: "cover",
+                  opacity: "0.25",
+                }}
+              ></div>
+              <h1 style={{ position: "absolute" }}>Stretch goal 2</h1>
+            </div>
+          </Link>
         </div>
       </div>
     </>

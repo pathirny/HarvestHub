@@ -51,10 +51,6 @@ input {
   color: var(--dark-green-color);
 }
 
-.TipCard{
-  box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
-}
-
 input::placeholder {
   text-align: center;
   color: var(--dark-green-color);
@@ -67,6 +63,7 @@ button {
   border-radius: 25px;
   background-color: var(--white-cream-color);
   color: var(--dark-green-color);
+  border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .reset-password {
@@ -208,7 +205,7 @@ a {
   width: 40vw;
   height: 10vw;
   border-radius: 5vw;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   left: 30vw;
   right: 30vw;
   font-weight: bold;
@@ -229,10 +226,10 @@ a {
 
 /* calendar */
 
-/* Main Page */
+/* Home Page */
 
 .link-container {
-  width: 12rem;
+  width: 18rem;
   height: 8rem;
   margin: 1rem;
   border-radius: 25px;
@@ -262,18 +259,18 @@ a {
 /* calendar */
 
 :root {
-  --dark-green-color: #47594E;
-  --light-green-color: #99A57B;
-  --brown-color: #B9A48C;
-  --white-cream-color: #F3EBE4;
+  --dark-green-color: #47594e;
+  --light-green-color: #99a57b;
+  --brown-color: #b9a48c;
+  --white-cream-color: #f3ebe4;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-#calendar-background{
-background-color: var(--dark-green-color);
+#calendar-background {
+  background-color: var(--dark-green-color);
 }
 
 #calendargrid {
@@ -283,17 +280,16 @@ background-color: var(--dark-green-color);
   grid-gap: 5vw;
   padding: 8vw;
   position: relative;
-  }
+}
 
-#calendargrid p{
+#calendargrid p {
   text-align: center;
   width: 100%;
   margin-top: 0vw;
   padding-top: 2vw;
   font-size: 4vw;
-  font-weight:bold;
+  font-weight: bold;
   position: absolute;
-
 }
 
 .month {
@@ -302,15 +298,15 @@ background-color: var(--dark-green-color);
   position: relative;
 }
 
-.br-wht{
+.br-wht {
   color: var(--white-cream-color);
 }
 
-.wht-br{
+.wht-br {
   color: var(--brown-color);
 }
 
-#month-nav-container{
+#month-nav-container {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -319,7 +315,7 @@ background-color: var(--dark-green-color);
   align-items: center;
 }
 
-.header-month{
+.header-month {
   width: 52vw;
   height: 43vw;
   position: relative;
@@ -327,7 +323,7 @@ background-color: var(--dark-green-color);
   justify-content: center;
 }
 
-.header-month p{
+.header-month p {
   text-align: center;
   width: 100%;
   position: absolute;
@@ -335,28 +331,27 @@ background-color: var(--dark-green-color);
   font-size: 5vw;
 }
 
-#prv-mnth-bttn{
-  width: 0; 
-  height: 0; 
-  border-top: 5vw solid transparent;
-  border-bottom: 5vw solid transparent; 
-  border-right:5vw solid var(--light-green-color); 
-  align-self: center;
-}
-
-#next-mnth-bttn{
-  width: 0; 
-  height: 0; 
+#prv-mnth-bttn {
+  width: 0;
+  height: 0;
   border-top: 5vw solid transparent;
   border-bottom: 5vw solid transparent;
-  border-left: 5vw solid var(--light-green-color); 
+  border-right: 5vw solid var(--light-green-color);
   align-self: center;
 }
 
+#next-mnth-bttn {
+  width: 0;
+  height: 0;
+  border-top: 5vw solid transparent;
+  border-bottom: 5vw solid transparent;
+  border-left: 5vw solid var(--light-green-color);
+  align-self: center;
+}
 
-#back-btn{
-  background-color: #F3EBE4;
-  color: #47594E;
+#back-btn {
+  background-color: #f3ebe4;
+  color: #47594e;
   position: fixed;
   bottom: 5vw;
   width: 40vw;
@@ -370,12 +365,12 @@ background-color: var(--dark-green-color);
   font-size: 5vw;
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content: center;
   gap: 1vw;
   align-items: center;
 }
 
-#calendar-pg-container{
+#calendar-pg-container {
   background-color: var(--dark-green-color);
   height: 100vh;
   width: 100%;
@@ -383,14 +378,14 @@ background-color: var(--dark-green-color);
 
 #plant-harvest-grid {
   display: grid;
-  grid-template-areas: 'a a' 'x x' 'b c';
+  grid-template-areas: "a a" "x x" "b c";
   justify-content: center;
   grid-template-columns: 1fr 1fr;
   gap: 5vw;
   padding: 2vw;
 }
 
-#underline{
+#underline {
   border-bottom: solid 1px var(--white-cream-color);
   grid-area: x;
 }
@@ -401,10 +396,10 @@ background-color: var(--dark-green-color);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  gap:5vw;
+  gap: 5vw;
 }
 
-#plant-harvest-title div{
+#plant-harvest-title div {
   border-radius: 2vw;
   width: 100%;
   height: 8vw;
@@ -413,7 +408,7 @@ background-color: var(--dark-green-color);
   background-color: var(--light-green-color);
 }
 
-#plant-harvest-title div h1{
+#plant-harvest-title div h1 {
   margin: 0;
   font-size: 5vw;
 }
@@ -437,7 +432,7 @@ background-color: var(--dark-green-color);
   width: 100%;
 }
 
-.vegListItem{
+.vegListItem {
   border-radius: 2vw;
   margin: 0;
   height: 8vw;
@@ -458,7 +453,7 @@ background-color: var(--dark-green-color);
   gap: 2vw;
 }
 
-#veggie-grid div{
+#veggie-grid div {
   height: 16vw;
   border-radius: 4vw;
   text-align: center;
@@ -466,7 +461,7 @@ background-color: var(--dark-green-color);
   align-items: center;
 }
 
-#veggie-grid div h1{
+#veggie-grid div h1 {
   margin-top: 4vw;
   font-size: 5vw;
 }
@@ -477,7 +472,6 @@ background-color: var(--dark-green-color);
   border-radius: 5vw;
   background-color: var(--white-cream-color);
   margin: auto;
-
 }
 
 .cream {
@@ -490,7 +484,7 @@ background-color: var(--dark-green-color);
   color: var(--white-cream-color);
 }
 
-.carrot-rating{
+.carrot-rating {
   display: flex;
   flex-direction: row;
   gap: 5vw;
@@ -498,8 +492,21 @@ background-color: var(--dark-green-color);
   justify-content: center;
 }
 
-#vegPageContainer{
+#vegPageContainer {
   background-color: var(--dark-green-color);
   height: 100vh;
 }
 /* calendar */
+
+/* tips and tricks */
+.card:nth-child(odd) {
+  background-color: var(--brown-color);
+}
+
+.card:nth-child(even) {
+  background-color: var(--white-cream-color);
+}
+
+.card {
+  box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
+}

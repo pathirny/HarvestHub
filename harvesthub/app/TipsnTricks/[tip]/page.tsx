@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Flex, Container, useStatStyles } from "@chakra-ui/react";
 import Header from "@/components/Header";
-import { SearchBar } from "@/components/SearchBar";
-import { renderTips } from "./renderTips";
+import { useEffect, useState } from "react";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
- const gardeningTips = [
+
+const gardeningTips = [
   {
     id: 1,
     title: "6 vegetable gardening tips every new food gardener needs to know",
@@ -58,31 +58,52 @@ import Link from "next/link";
   },
 ];
 
-export default function TipsnTricks() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredTips, setFilteredTips] = useState([]);
+export default function TipsPage({ params }: any) {
+  const [tip, setTip] = useState([{ title: "", description: "" }]);
 
   useEffect(() => {
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    console.log(params.tip);
 
-    const newFilteredTips: any = gardeningTips.filter((tip) =>
-      Object.values(tip).some((value) =>
-        value.toString().toLowerCase().includes(lowerCaseSearchTerm)
-      )
-    );
-
-    setFilteredTips(newFilteredTips);
-  }, [searchTerm, gardeningTips]);
+    setTip(gardeningTips.filter((a) => a.id == params.tip));
+    console.log(tip[0].title);
+  }, []);
 
   return (
-    <div>
-      <Header title="Tips and Tricks" />
-      <SearchBar
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      {renderTips(filteredTips)}
-      <Link href="/"><BackButton /></Link>
-    </div>
+    <>
+      <Header />
+      <Flex
+        marginTop="2rem"
+        gap="2rem"
+        flexDirection="column"
+        justifyContent="space-around"
+        align="center"
+      >
+        <Container
+          backgroundColor="#F3EBE4"
+          borderRadius="25px"
+          width="90%"
+          textAlign="center"
+        >
+          <h1>{tip[0].title}</h1>
+        </Container>
+        <Container
+          backgroundColor="#F3EBE4"
+          borderRadius="25px"
+          width="90%"
+          textAlign="center"
+        >
+          <h1>Image</h1>
+        </Container>
+        <Container
+          backgroundColor="#F3EBE4"
+          borderRadius="25px"
+          width="90%"
+          textAlign="center"
+        >
+          <p>{tip[0].description}</p>
+        </Container>
+        <Link href="/TipsnTricks"><BackButton /></Link>
+      </Flex>
+    </>
   );
 }
