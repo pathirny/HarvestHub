@@ -1,6 +1,8 @@
 import { Center, Container, Flex } from "@chakra-ui/react";
 import Header from "@/components/Header";
-export default function TipsnTricksInfo() {
+import { gardeningTips } from "../TipsnTricks/page";
+import { gardeningTipsType } from "../TipsnTricks/renderTips";
+export default function TipsnTricksInfo(tip: gardeningTipsType) {
   return (
     <>
       <Header />
@@ -17,7 +19,7 @@ export default function TipsnTricksInfo() {
           width="90%"
           textAlign="center"
         >
-          <h1>Title</h1>
+          <h1>{tip.title}</h1>
         </Container>
         <Container
           backgroundColor="#F3EBE4"
