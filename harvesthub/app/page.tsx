@@ -25,7 +25,7 @@ export default async function Index() {
 
   return (
     <>
-      <Header title="Home Page"/>
+      <Header title="Harvest Hub"/>
       <div className="homepage-box">
           <Link href="./TipsnTricks">
           <div className="link-container" style={{padding: "0",}}>
