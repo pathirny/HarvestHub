@@ -29,11 +29,11 @@ export default function Month({ params } : any){
         .select("season")
         .eq("month", params.month)
     
-        const { data, error } = await supabase.from('countries').select(`
-  id, 
-  name, 
-  cities ( id, name )
-`)
+//         const { data, error } = await supabase.from('countries').select(`
+//   id, 
+//   name, 
+//   cities ( id, name )
+// `)
       }
  }, [])
 
