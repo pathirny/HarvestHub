@@ -3,6 +3,7 @@ import Header from "@/components/Header"
 import Link from "next/link"
 import BackButton from "@/components/BackButton"
 import { useEffect, useState } from "react"
+import { supabase } from "@/app/supabase.config"
 
 
 
@@ -19,6 +20,22 @@ export default function Month({ params } : any){
         setPlantList([{name: "carrot"}, {name: "sprout"}, {name: "apple"}])
         setHarvestList([{name: "pepper"}, {name: "pear"}, {name: "onion"}, {name: "sprout"}])
    }, [])
+
+ useEffect(()=>{
+    async function getList(){
+
+        let { data: Veg, error } = await supabase
+        .from("months")
+        .select("season")
+        .eq("month", params.month)
+    
+        const { data, error } = await supabase.from('countries').select(`
+  id, 
+  name, 
+  cities ( id, name )
+`)
+      }
+ }, [])
 
 return(<>
 <div id="calendar-pg-container" >
