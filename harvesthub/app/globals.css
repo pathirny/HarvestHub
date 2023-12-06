@@ -1,0 +1,500 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans:wght@700&family=Kanit&family=Karla:wght@700&family=Open+Sans&family=Poppins&family=Roboto&family=Smythe&family=Space+Mono&display=swap");
+/* * {
+  border: red 1px solid;
+} */
+:root {
+  --dark-green-color: #47594e;
+  --light-green-color: #99a57b;
+  --brown-color: #b9a48c;
+  --white-cream-color: #f3ebe4;
+}
+/* Login page */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin", sans-serif;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-green-color);
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-green-color);
+}
+.logo {
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+  width: 15rem;
+  height: 18rem;
+}
+label {
+  margin-top: 1rem;
+}
+
+input {
+  margin-top: 1rem;
+  border-radius: 25px;
+  height: 3rem;
+  width: 14rem;
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+}
+
+input::placeholder {
+  text-align: center;
+  color: var(--dark-green-color);
+}
+
+button {
+  margin-top: 1rem;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 25px;
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+}
+
+.reset-password {
+  color: var(--white-cream-color);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Header */
+#nav-body {
+  background-color: var(--light-green-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+#nav-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "a b b c";
+  width: 90vw;
+  padding: 20px 0px;
+  margin: auto;
+  gap: 7vw;
+}
+
+#nav-container div {
+  background-color: var(--white-cream-color);
+  text-align: center;
+  border-radius: 10px;
+  color: var(--dark-green-color);
+}
+
+#nav-container h3 {
+  margin: 0;
+  padding: 15px 0px;
+}
+
+#home-button {
+  grid-area: a;
+}
+
+#page-title {
+  grid-area: b;
+  width: 100%;
+}
+
+#user-button {
+  grid-area: c;
+}
+
+/* calendar */
+
+a {
+  text-decoration: none;
+}
+
+#calendar-background {
+  background-color: var(--dark-green-color);
+}
+
+#calendargrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 30vw);
+  grid-gap: 5vw;
+  padding: 10vw;
+  position: relative;
+}
+
+#calendargrid p {
+  text-align: center;
+  width: 100%;
+  margin-top: 0vw;
+  padding-top: 2vw;
+  font-size: 4vw;
+  font-weight: bold;
+  position: absolute;
+}
+
+.month {
+  border-radius: 3vw;
+  height: 100%;
+  position: relative;
+}
+
+.br-wht {
+  color: var(--white-cream-color);
+}
+
+.wht-br {
+  color: var(--brown-color);
+}
+
+#month-nav-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 5vw;
+  align-items: center;
+}
+
+.header-month {
+  width: 52vw;
+  height: 43vw;
+  position: relative;
+}
+
+.header-month p {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  margin-top: 1vw;
+  font-size: 5vw;
+}
+
+#prv-mnth-bttn {
+  width: 0;
+  height: 0;
+  border-top: 5vw solid transparent;
+  border-bottom: 5vw solid transparent;
+  border-right: 5vw solid var(--light-green-color);
+  align-self: center;
+}
+
+#next-mnth-bttn {
+  width: 0;
+  height: 0;
+  border-top: 5vw solid transparent;
+  border-bottom: 5vw solid transparent;
+  border-left: 5vw solid var(--light-green-color);
+  align-self: center;
+}
+
+#back-btn {
+  background-color: #f3ebe4;
+  color: #47594e;
+  position: fixed;
+  bottom: 5vw;
+  width: 40vw;
+  height: 10vw;
+  border-radius: 5vw;
+  border: none;
+  left: 30vw;
+  right: 30vw;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1vw;
+  align-items: center;
+}
+
+#calendar-pg-container {
+  background-color: var(--dark-green-color);
+  height: 100vh;
+  width: 100%;
+}
+
+/* calendar */
+
+/* Main Page */
+
+.link-container {
+  width: 12rem;
+  height: 8rem;
+  margin: 1rem;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark-green-color);
+}
+
+.link-container:nth-child(odd) {
+  background-color: var(--white-cream-color);
+}
+
+.link-container:nth-child(even) {
+  background-color: var(--brown-color);
+}
+
+.homepage-box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-green-color);
+  align-items: center;
+  min-height: 100vh;
+  justify-content: flex-start;
+}
+
+/* calendar */
+
+:root {
+  --dark-green-color: #47594E;
+  --light-green-color: #99A57B;
+  --brown-color: #B9A48C;
+  --white-cream-color: #F3EBE4;
+}
+
+a{
+  text-decoration: none;
+}
+
+#calendar-background{
+background-color: var(--dark-green-color);
+}
+
+#calendargrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 30vw);
+  grid-gap: 5vw;
+  padding: 8vw;
+  position: relative;
+  }
+
+#calendargrid p{
+  text-align: center;
+  width: 100%;
+  margin-top: 0vw;
+  padding-top: 2vw;
+  font-size: 4vw;
+  font-weight:bold;
+  position: absolute;
+
+}
+
+.month {
+  border-radius: 3vw;
+  height: 100%;
+  position: relative;
+}
+
+.br-wht{
+  color: var(--white-cream-color);
+}
+
+.wht-br{
+  color: var(--brown-color);
+}
+
+#month-nav-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 5vw;
+  align-items: center;
+}
+
+.header-month{
+  width: 52vw;
+  height: 43vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.header-month p{
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  margin-top: 5vw;
+  font-size: 5vw;
+}
+
+#prv-mnth-bttn{
+  width: 0; 
+  height: 0; 
+  border-top: 5vw solid transparent;
+  border-bottom: 5vw solid transparent; 
+  border-right:5vw solid var(--light-green-color); 
+  align-self: center;
+}
+
+#next-mnth-bttn{
+  width: 0; 
+  height: 0; 
+  border-top: 5vw solid transparent;
+  border-bottom: 5vw solid transparent;
+  border-left: 5vw solid var(--light-green-color); 
+  align-self: center;
+}
+
+
+#back-btn{
+  background-color: #F3EBE4;
+  color: #47594E;
+  position: fixed;
+  bottom: 5vw;
+  width: 40vw;
+  height: 10vw;
+  border-radius: 5vw;
+  border: none;
+  left: 30vw;
+  right: 30vw;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  gap: 1vw;
+  align-items: center;
+}
+
+#calendar-pg-container{
+  background-color: var(--dark-green-color);
+  height: 100vh;
+  width: 100%;
+}
+
+#plant-harvest-grid {
+  display: grid;
+  grid-template-areas: 'a a' 'x x' 'b c';
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+  padding: 2vw;
+}
+
+#underline{
+  border-bottom: solid 1px var(--white-cream-color);
+  grid-area: x;
+}
+
+#plant-harvest-title {
+  grid-area: a;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap:5vw;
+}
+
+#plant-harvest-title div{
+  border-radius: 2vw;
+  width: 100%;
+  height: 8vw;
+  margin: 0;
+  text-align: center;
+  background-color: var(--light-green-color);
+}
+
+#plant-harvest-title div h1{
+  margin: 0;
+  font-size: 5vw;
+}
+
+#plant-list {
+  grid-area: b;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 1vw;
+  width: 100%;
+}
+
+#harvest-list {
+  grid-area: c;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
+  gap: 1vw;
+  width: 100%;
+}
+
+.vegListItem{
+  border-radius: 2vw;
+  margin: 0;
+  height: 8vw;
+  text-align: center;
+  font-size: 5vw;
+}
+
+#veggie-container {
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10vw;
+}
+
+#veggie-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2vw;
+}
+
+#veggie-grid div{
+  height: 16vw;
+  border-radius: 4vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#veggie-grid div h1{
+  margin-top: 4vw;
+  font-size: 5vw;
+}
+
+#veggie-general-info {
+  width: 100%;
+  height: 60vw;
+  border-radius: 5vw;
+  background-color: var(--white-cream-color);
+  margin: auto;
+
+}
+
+.cream {
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+}
+
+.brown {
+  background-color: var(--brown-color);
+  color: var(--white-cream-color);
+}
+
+.carrot-rating{
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
+  width: 100%;
+  justify-content: center;
+}
+
+#vegPageContainer{
+  background-color: var(--dark-green-color);
+  height: 100vh;
+}
+/* calendar */

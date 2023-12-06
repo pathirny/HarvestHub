@@ -6,7 +6,7 @@ import { supabase } from "../../supabase.config"
 import { data } from "autoprefixer";
 export default function Veggies({ params } : any) {
     const [difficulty, setDifficulty] = useState([''])
-    const [time, setTime] = useState([''])
+    const [time, setTime] = useState([1, 2])
 //   const carrot = { name: "carrot", difficulty: '123' };
   let ease = [1, 2, 3, 4, 5]
   let timeEase = [1, 2, 3, 4, 5]
@@ -18,14 +18,14 @@ export default function Veggies({ params } : any) {
   .select('difficulty')
   .eq('name', params.veggie)
 
-    let { data: time, error2 } = await supabase
-.from('veggies')
-.select('grow_time')
-.eq('name', params.veggie)
+//     let { data: time, error } = await supabase
+// .from('veggies')
+// .select('grow_time')
+// .eq('name', params.veggie)
 
-  if(time){
-  setTime(time[0].grow_time.toString().split(''))
-    } 
+//   if(time){
+// //   setTime(time[0].grow_time.toString().split(''))
+//     } 
 
     if(difficult){
         setDifficulty(difficult[0].difficulty.toString().split(''))
