@@ -1,30 +1,44 @@
-import DeployButton from '../components/DeployButton'
-import AuthButton from '../components/AuthButton'
-import { createClient } from '@/utils/supabase/server'
-import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
-import SignUpUserSteps from '@/components/SignUpUserSteps'
-import Header from '@/components/Header'
-import { cookies } from 'next/headers'
-
+import DeployButton from "../components/DeployButton";
+import AuthButton from "../components/AuthButton";
+import { createClient } from "@/utils/supabase/server";
+import ConnectSupabaseSteps from "@/components/ConnectSupabaseSteps";
+import SignUpUserSteps from "@/components/SignUpUserSteps";
+import { cookies } from "next/headers";
+import Header from "../components/Header";
+import Link from "next/link";
 export default async function Index() {
-  const cookieStore = cookies()
+  const cookieStore = cookies();
 
   const canInitSupabaseClient = () => {
     // This function is just for the interactive tutorial.
     // Feel free to remove it once you have Supabase connected.
     try {
-      createClient(cookieStore)
-      return true
+      createClient(cookieStore);
+      return true;
     } catch (e) {
-      return false
+      return false;
     }
-  }
+  };
 
-  const isSupabaseConnected = canInitSupabaseClient()
+  const isSupabaseConnected = canInitSupabaseClient();
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      <h1>Hello</h1>
-    </div>
-  )
+    <>
+      <Header />
+      <div className="homepage-box">
+        <div className="link-container">
+          <Link href="./TipsnTricks">Tips n' Tricks</Link>
+        </div>
+        <div className="link-container">
+          <Link href="./Calendar">Growing Calendar</Link>
+        </div>
+        <div className="link-container">
+          <Link href="#">Stretch goals</Link>
+        </div>
+        <div className="link-container">
+          <Link href="#">Stretch goals</Link>
+        </div>
+      </div>
+    </>
+  );
 }
