@@ -111,7 +111,7 @@ background-color: var(--dark-green-color);
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(6, 30vw);
   grid-gap: 5vw;
-  padding: 10vw;
+  padding: 8vw;
   position: relative;
   }
 
@@ -210,6 +210,7 @@ background-color: var(--dark-green-color);
   height: 100vh;
   width: 100%;
 }
+
 #plant-harvest-grid {
   display: grid;
   grid-template-areas: 'a a' 'x x' 'b c';
@@ -273,11 +274,12 @@ background-color: var(--dark-green-color);
   text-align: center;
   font-size: 5vw;
 }
+
 #veggie-container {
   padding: 5vw;
   display: flex;
   flex-direction: column;
-  gap: 2vw
+  gap: 10vw;
 }
 
 #veggie-grid {
@@ -287,20 +289,22 @@ background-color: var(--dark-green-color);
 }
 
 #veggie-grid div{
-  height: 10vw;
-  border-radius: 2vw;
+  height: 16vw;
+  border-radius: 4vw;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #veggie-grid div h1{
-  margin-top: 2vw;
+  margin-top: 4vw;
   font-size: 5vw;
 }
 
 #veggie-general-info {
-  width: 80vw;
-  height: 40vw;
-  border-radius: 3vw;
+  width: 100%;
+  height: 60vw;
+  border-radius: 5vw;
   background-color: var(--white-cream-color);
   margin: auto;
 
@@ -319,7 +323,9 @@ background-color: var(--dark-green-color);
 .carrot-rating{
   display: flex;
   flex-direction: row;
-  gap: 1vw
+  gap: 5vw;
+  width: 100%;
+  justify-content: center;
 }
 
 #vegPageContainer{

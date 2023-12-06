@@ -16,7 +16,7 @@ export default function Month({ params } : any){
    const prev = +params.month === 0 ? 11 : +params.month - 1 
 
    useEffect(()=> {
-        setPlantList([{name: "carrot"}, {name: "sprouts"}, {name: "apple"}])
+        setPlantList([{name: "Carrot"}, {name: "sprouts"}, {name: "apple"}])
         setHarvestList([{name: "pepper"}, {name: "pear"}, {name: "onion"}, {name: "sprout"}])
    }, [])
 
@@ -37,7 +37,7 @@ return(<>
     </div>
     <div id="underline"></div>
     <div id="plant-list">
-        {plantList.map((a) => {return (<><Link href="/Veggies/1"><h1 key={a.name} className="vegListItem" style={{ color: "var(--dark-green-color)", backgroundColor: "var(--white-cream-color)"}} >{a.name}</h1></Link></>)})}
+        {plantList.map((a) => {return (<><Link href={`/Veggies/${a.name}`}><h1 key={a.name} className="vegListItem" style={{ color: "var(--dark-green-color)", backgroundColor: "var(--white-cream-color)"}} >{a.name}</h1></Link></>)})}
     </div>
     <div id="harvest-list">
         {harvestList.map((a) => {return (<><h1 key={a.name} className="vegListItem" style={{ color: "var(--white-cream-color)", backgroundColor: "var(--brown-color)"}}>{a.name}</h1></>)})}
