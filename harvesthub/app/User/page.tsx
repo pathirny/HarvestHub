@@ -4,15 +4,43 @@ import BackButton from "@/components/BackButton";
 import { SettingsIcon, AddIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { CldUploadWidget, CldImage } from 'next-cloudinary';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "../supabase.config";
+
 
 export default function UserPage() {
 
     const [publicId, setPublicId] = useState("/Users_img/Screenshot_2023-11-29_at_15.51.37_gnkn8u")
 
+  useEffect(()=>{
+    supabase.auth.getSession().then(({ data: { session } }) => {
+        setSession(session);
+      });
+      const {
+        data: { subscription },
+      } = supabase.auth.onAuthStateChange((_event, session) => {
+        setSession(session);
+      });
+      return () => subscription.unsubscribe();
+    }, []);
+
+
+function selectId(){
+        async function getUserName(){
+            let { data: Users, error } = await supabase
+  .from('Users')
+  .select('first_name')
+console.log("hello")
+  console.log(Users)
+    }
+
+    getUserName()
+}
+
   return (
     <>
       <Header title="User Page" />
+      <button onClick={selectId}>click me</button>
       <div id="userPage-container">
         <div id="icon-container">
           <div className="IconBox">
