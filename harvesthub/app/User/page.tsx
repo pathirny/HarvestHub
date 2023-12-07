@@ -12,17 +12,7 @@ export default function UserPage() {
 
     const [publicId, setPublicId] = useState("/Users_img/Screenshot_2023-11-29_at_15.51.37_gnkn8u")
 
-  useEffect(()=>{
-    supabase.auth.getSession().then(({ data: { session } }) => {
-        setSession(session);
-      });
-      const {
-        data: { subscription },
-      } = supabase.auth.onAuthStateChange((_event, session) => {
-        setSession(session);
-      });
-      return () => subscription.unsubscribe();
-    }, []);
+
 
 
 function selectId(){
