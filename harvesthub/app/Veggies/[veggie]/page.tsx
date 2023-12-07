@@ -4,6 +4,7 @@ import { useStatStyles } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { supabase } from "../../supabase.config";
 import { data } from "autoprefixer";
+import { CldImage } from 'next-cloudinary';
 
 export default function Veggies({ params }: any) {
   const [difficulty, setDifficulty] = useState([""]);
@@ -112,6 +113,12 @@ useEffect(() => {
             <div className="brown"><h1>{vegPlant}</h1></div>
           </div>
         </div>
+      <CldImage className="tip-img"
+    alt="tip-img"
+        width="500"
+        height="500"
+        style={{width: "70vw", height: "auto", borderRadius: "3vw", marginLeft: "15vw"}}
+        src="/HarvestHub/BlackCarrot_fol0qd"/>
       </div>
     </>
   );
