@@ -7,8 +7,14 @@ import { supabase } from "@/app/supabase.config";
 
 export default function Month({ params }: any) {
   const [plantList, setPlantList] = useState([{ name: "carrot" }]);
-  const [harvestList, setHarvestList] = useState([{ name: "carrot" }]);
-  const [season, setSeason] = useState("");
+  const [harvestList, setHarvestList] = useState([{ id: 0,
+    name: "hvhjv",
+    harvest: "",
+    plant: "",
+    difficulty: 0,
+    grow_time: 0,
+    info: ""}]);
+//   const [season, setSeason] = useState("");
 
   const months = [
     "January",
@@ -28,38 +34,52 @@ export default function Month({ params }: any) {
   const nxt = +params.month === 11 ? 0 : +params.month + 1;
   const prev = +params.month === 0 ? 11 : +params.month - 1;
 
-  useEffect(() => {
-    setPlantList([{ name: "carrot" }, { name: "sprout" }, { name: "apple" }]);
-    setHarvestList([
-      { name: "pepper" },
-      { name: "pear" },
-      { name: "onion" },
-      { name: "sprout" },
-    ]);
-  }, []);
 
   useEffect(() => {
+    async function getHarvest(season : string) {
+        let { data: seasonInfo, error } = await supabase
+          .from("veggies")
+          .select("*")
+          .eq("harvest", season);
+          if(seasonInfo){
+            console.log(seasonInfo)
+              setHarvestList(seasonInfo)
+          }
+      }
+
     if (+params.month >= 2 && +params.month <= 4) {
-      setSeason("Spring");
+        getHarvest("Spring");  
     } else if (+params.month >= 5 && +params.month <= 7) {
-      setSeason("Summer");
+        getHarvest("Summer");
     } else if (+params.month >= 8 && +params.month <= 10) {
-      setSeason("Autumn");
+        getHarvest("Autumn");
     } else {
-      setSeason("Winter");
+        getHarvest("Winter");
     }
   }, []);
 
   useEffect(() => {
-    async function getList() {
-      let { data: seasonInfo, error } = await supabase
-        .from("veggies")
-        .select("*")
-        .eq("harvest", season);
-      console.log(seasonInfo);
+    async function getPlant(season : string) {
+        let { data: seasonInfo, error } = await supabase
+          .from("veggies")
+          .select("*")
+          .eq("plant", season);
+          if(seasonInfo){
+            console.log(seasonInfo)
+              setPlantList(seasonInfo)
+          }
+      }
+
+    if (+params.month >= 2 && +params.month <= 4) {
+        getPlant("Spring");  
+    } else if (+params.month >= 5 && +params.month <= 7) {
+        getPlant("Summer");
+    } else if (+params.month >= 8 && +params.month <= 10) {
+        getPlant("Autumn");
+    } else {
+        getPlant("Winter");
     }
-    getList();
-  }, [season]);
+  }, []);
 
   return (
     <>
@@ -95,36 +115,37 @@ export default function Month({ params }: any) {
             {plantList.map((a) => {
               return (
                 <>
-                  <Link href={`/Veggies/${a.name}`}>
-                    <h1
-                      key={a.name}
-                      className="vegListItem"
-                      style={{
-                        color: "var(--dark-green-color)",
-                        backgroundColor: "var(--white-cream-color)",
-                      }}
-                    >
-                      {a.name}
-                    </h1>
+                <Link href={`/Veggies/${a.name}`}>
+                  <div
+                  
+                    className="vegListItem"
+                    style={{
+                      color: "var(--dark-green-color)",
+                      backgroundColor: "var(--white-cream-color)",
+                    }}
+                  >
+                    <h3 style={{marginTop: "1vw", fontSize: "5vw"}}>{a.name}</h3>
+                  </div>
                   </Link>
                 </>
-              );
+              );;
             })}
           </div>
           <div id="harvest-list">
             {harvestList.map((a) => {
               return (
-                <>
-                  <h1
-                    key={a.name}
+                <><Link href={`/Veggies/${a.name}`}>
+                  <div
+                    
                     className="vegListItem"
                     style={{
                       color: "var(--white-cream-color)",
                       backgroundColor: "var(--brown-color)",
                     }}
                   >
-                    {a.name}
-                  </h1>
+                    <h3 style={{marginTop: "1vw", fontSize: "5vw"}}>{a.name}</h3>
+                  </div>
+                  </Link>
                 </>
               );
             })}
