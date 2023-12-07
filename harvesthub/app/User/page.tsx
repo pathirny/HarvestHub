@@ -11,10 +11,10 @@ export default function UserPage() {
       <div id="userPage-container">
         <div id="icon-container">
           <div className="IconBox">
-            <SettingsIcon boxSize="7vw" />
+            <SettingsIcon boxSize="7vw" color="#47594e"/>
           </div>
           <div className="IconBox">
-            <AddIcon boxSize="7vw" />
+            <AddIcon boxSize="7vw" color="#47594e" />
           </div>
         </div>
         <div id="user-img" >
