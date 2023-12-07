@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans:wght@700&family=Kanit&family=Karla:wght@700&family=Open+Sans&family=Poppins&family=Roboto&family=Smythe&family=Space+Mono&display=swap");
-/* * {
+* {
   border: red 1px solid;
-} */
+}
 :root {
   --dark-green-color: #47594e;
   --light-green-color: #99a57b;
@@ -202,14 +202,14 @@ a {
 #back-btn {
   background-color: #f3ebe4;
   color: #47594e;
-  position: fixed;
+  position: relative;
   bottom: 5vw;
   width: 40vw;
   height: 10vw;
   border-radius: 5vw;
   border: 1px solid rgba(0, 0, 0, 0.4);
-  left: 30vw;
-  right: 30vw;
+  /* left: 30vw;
+  right: 30vw; */
   font-weight: bold;
   font-family: sans-serif;
   font-size: 5vw;
@@ -351,27 +351,6 @@ a {
   align-self: center;
 }
 
-#back-btn {
-  background-color: #f3ebe4;
-  color: #47594e;
-  position: fixed;
-  bottom: 5vw;
-  width: 40vw;
-  height: 10vw;
-  border-radius: 5vw;
-  border: solid 1px black;
-  left: 30vw;
-  right: 30vw;
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 5vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1vw;
-  align-items: center;
-}
-
 #calendar-pg-container {
   background-color: var(--dark-green-color);
   height: 100vh;
@@ -511,6 +490,27 @@ a {
 /* calendar */
 
 /* tips and tricks */
+
+.addButton {
+  background-color: #f3ebe4;
+  color: #47594e;
+  position: relative;
+  bottom: 5vw;
+  width: 40vw;
+  height: 10vw;
+  border-radius: 5vw;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  /* left: 30vw;
+  right: 30vw; */
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1vw;
+  align-items: center;
+}
 
 .tipContainer {
   mask-image: linear-gradient(

@@ -6,7 +6,7 @@ import { SearchBar } from "@/components/SearchBar";
 import { renderTips } from "./renderTips";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
-import { Container, Flex } from "@chakra-ui/react";
+import { Button, Container, Flex } from "@chakra-ui/react";
 const gardeningTips = [
   {
     id: 1,
@@ -83,13 +83,11 @@ export default function TipsnTricks() {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <Container className="tipContainer">{renderTips(filteredTips)}</Container>
-      <Flex>
-        <Link href="/">
+      <Flex flexDirection="row" justifyContent="space-around">
+        {/* <Link href="/"> */}
           <BackButton />
-        </Link>
-        <Link href="/">
-          <Container>Add Tip +</Container>
-        </Link>
+        {/* </Link> */}
+          <Button className="addButton" >Add Tip +</Button>
       </Flex>
     </div>
   );
