@@ -31,7 +31,7 @@ export default async function Index() {
           src="/assets/Veglogo.png"
           style={{ width: "16rem", height: "auto", opacity: "1" }}
         ></img>
-        <div className="link-container" style={{ padding: "0", width: "25rem", height: "18rem" }}>
+        <div className="link-container" style={{ padding: "0", width: "27rem", height: "18rem" }}>
           <div
             style={{
               padding: "0",
