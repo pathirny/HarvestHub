@@ -27,6 +27,30 @@ export default async function Index() {
     <>
       <Header title="Harvest Hub" />
       <div className="homepage-box">
+        <img
+          src="/assets/Veglogo.png"
+          style={{ width: "16rem", height: "auto", opacity: "1" }}
+        ></img>
+        <div className="link-container" style={{ padding: "0" }}>
+          <div
+            style={{
+              padding: "0",
+              width: "100%",
+              height: "100%",
+              backgroundImage: "url(/assets/BackgroundVeg.png)",
+              backgroundSize: "cover",
+              opacity: "0.25",
+            }}
+          ></div>
+          <div>
+            <h2 style={{ position: "absolute" }}>Ready to garden?</h2>
+            <p style={{ position: "relative" }}>
+              Are you looking for ways to live more sustainably and grow your
+              own stuff? Look no further than Harvest Hub!
+            </p>
+          </div>
+        </div>
+
         <Link href="./TipsnTricks">
           <div className="link-container" style={{ padding: "0" }}>
             <div
