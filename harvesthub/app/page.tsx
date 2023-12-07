@@ -31,7 +31,10 @@ export default async function Index() {
           src="/assets/Veglogo.png"
           style={{ width: "16rem", height: "auto", opacity: "1" }}
         ></img>
-        <div className="link-container" style={{ padding: "0", width: "27rem", height: "18rem" }}>
+        <div
+          className="link-container"
+          style={{ padding: "0", width: "27rem", height: "18rem" }}
+        >
           <div
             style={{
               padding: "0",
@@ -43,17 +46,28 @@ export default async function Index() {
             }}
           ></div>
           <div className="hero-header-inner">
-          {/* style={{ position: "absolute", width: "15rem", height: "10rem"}} */}
-          {/* style={{ position: "absolute", width: "15rem", height: "auto"}}  */}
-            <h2 className="hero-header-heading">Ready to garden?</h2>
-            
+            {/* style={{ position: "absolute", width: "15rem", height: "10rem"}} */}
+            {/* style={{ position: "absolute", width: "15rem", height: "auto"}}  */}
+            <h1 className="hero-header-heading">
+              <div>
+                Get ready to
+                <span className="text-highlight"> garden</span>
+                <br />
+                <span className="text-highlight">grow</span>
+                <br />
+                <span className="text-highlight">learn</span>
+                <br />
+                <span className="text-highlight">eat</span>
+              </div>
+            </h1>
+
             <div className="hero-header-subheading">
               <span>
-              Are you looking for ways to live more sustainably and grow your
-              own stuff? Look no further than Harvest Hub!
+                Are you looking for ways to live more sustainably and grow your
+                own stuff? Look no further than Harvest Hub!
               </span>
             </div>
-            </div>
+          </div>
         </div>
 
         <Link href="./TipsnTricks">

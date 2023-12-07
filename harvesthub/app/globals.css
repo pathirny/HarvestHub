@@ -264,3 +264,7 @@ a {
   align-items: center;
   color: var(--dark-green-color);
 }
+
+.text-highlight {
+  color: var(--white-cream-color);
+}
