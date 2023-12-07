@@ -31,7 +31,7 @@ export default async function Index() {
           src="/assets/Veglogo.png"
           style={{ width: "16rem", height: "auto", opacity: "1" }}
         ></img>
-        <div className="link-container" style={{ padding: "0" }}>
+        <div className="link-container" style={{ padding: "0", width: "25rem", height: "18rem" }}>
           <div
             style={{
               padding: "0",
@@ -43,7 +43,9 @@ export default async function Index() {
             }}
           ></div>
           <div>
-            <h2 style={{ position: "absolute" }}>Ready to garden?</h2>
+            
+            <h2 style={{ position: "relative"}}>Ready to garden?</h2>
+            
             <p style={{ position: "relative" }}>
               Are you looking for ways to live more sustainably and grow your
               own stuff? Look no further than Harvest Hub!
