@@ -117,7 +117,7 @@ export default function Month({ params }: any) {
                 <>
                 <Link href={`/Veggies/${a.name}`}>
                   <div
-                    key={a.id}
+                  
                     className="vegListItem"
                     style={{
                       color: "var(--dark-green-color)",
@@ -136,7 +136,7 @@ export default function Month({ params }: any) {
               return (
                 <><Link href={`/Veggies/${a.name}`}>
                   <div
-                    key={a.id}
+                    
                     className="vegListItem"
                     style={{
                       color: "var(--white-cream-color)",
