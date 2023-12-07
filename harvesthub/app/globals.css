@@ -258,6 +258,23 @@ a {
   justify-content: flex-start;
 }
 
+/* 
+.hero-header-heading {
+  position: absolute;
+  width: 18rem;
+  height: 8rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark-green-color);
+} */
+
+.text-highlight {
+  color: var(--white-cream-color);
+}
+
+
 /* calendar */
 
 #calendar-welcome-container{
@@ -623,4 +640,5 @@ a {
 .card {
   box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
 }
+
 
