@@ -376,7 +376,7 @@ a {
   width: 40vw;
   height: 10vw;
   border-radius: 5vw;
-  border: none;
+  border: solid 1px black;
   left: 30vw;
   right: 30vw;
   font-weight: bold;
@@ -540,6 +540,7 @@ a {
   box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
 }
 
+
 /* user page */
 
 #userPage-container{
@@ -607,3 +608,13 @@ a {
 
 
 /* user page */
+
+.tipContainer {
+  overflow-y: auto;
+  mask-image: linear-gradient(
+    to bottom,
+    black calc(100% - 48px),
+    transparent 100%
+  );
+}
+
