@@ -42,15 +42,18 @@ export default async function Index() {
               opacity: "0.25",
             }}
           ></div>
-          
+          <div className="hero-header-inner">
+          {/* style={{ position: "absolute", width: "15rem", height: "10rem"}} */}
+          {/* style={{ position: "absolute", width: "15rem", height: "auto"}}  */}
+            <h2 className="hero-header-heading">Ready to garden?</h2>
             
-            <h2 style={{ position: "absolute"}}>Ready to garden?</h2>
-            
-            <p style={{ position: "absolute", width: "15rem", height: "15rem" }}>
+            <div className="hero-header-subheading">
+              <span>
               Are you looking for ways to live more sustainably and grow your
               own stuff? Look no further than Harvest Hub!
-            </p>
-          
+              </span>
+            </div>
+            </div>
         </div>
 
         <Link href="./TipsnTricks">

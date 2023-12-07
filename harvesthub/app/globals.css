@@ -253,3 +253,14 @@ a {
   min-height: 100vh;
   justify-content: flex-start;
 }
+
+.hero-header-heading {
+  position: absolute;
+  width: 18rem;
+  height: 8rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark-green-color);
+}
