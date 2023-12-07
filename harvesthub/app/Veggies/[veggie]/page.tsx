@@ -20,7 +20,7 @@ useEffect(() => {
       let { data: Veg, error } = await supabase
         .from("veggies")
         .select("*")
-        .eq("name", params.veggie)
+        .eq("name", `${params.veggie}`)
 
      if (Veg) {
         setTime(Veg[0].grow_time.toString().split(""));
@@ -118,7 +118,9 @@ useEffect(() => {
         width="500"
         height="500"
         style={{width: "70vw", height: "auto", borderRadius: "3vw", marginLeft: "15vw"}}
-        src="/HarvestHub/BlackCarrot_fol0qd"/>
+        src={`/HarvestHub/${params.veggie}`}
+        // src="/HarvestHub/Pumpkin"
+        />
       </div>
     </>
   );

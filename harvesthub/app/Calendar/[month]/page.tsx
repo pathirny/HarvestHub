@@ -85,6 +85,7 @@ export default function Month({ params }: any) {
     <>
       <div id="calendar-pg-container">
         <Header title="Month" />
+        <div id="calendar-welcome-container"><h1 id="calendar-welcome">Click on the veggies for more info and advice on growing!</h1></div>
         <div id="month-nav-container">
           <Link href={`./${prev}`}>
             <div id="prv-mnth-bttn"></div>
