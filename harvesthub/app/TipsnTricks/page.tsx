@@ -59,6 +59,7 @@ import Link from "next/link";
 ];
 
 export default function TipsnTricks() {
+
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredTips, setFilteredTips] = useState([]);
 
