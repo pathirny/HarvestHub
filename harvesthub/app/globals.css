@@ -450,7 +450,7 @@ a {
   padding: 5vw;
   display: flex;
   flex-direction: column;
-  gap: 10vw;
+  gap: 5vw;
 }
 
 #veggie-grid {
@@ -473,11 +473,17 @@ a {
 }
 
 #veggie-general-info {
-  width: 100%;
-  height: 60vw;
+  width: 80vw;
+  height: 40vw;
   border-radius: 5vw;
   background-color: var(--white-cream-color);
   margin: auto;
+  padding: 2vw;
+  font-size: 4vw;
+  color: var(--dark-green-color);
+  font-family: sans-serif;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 .cream {
