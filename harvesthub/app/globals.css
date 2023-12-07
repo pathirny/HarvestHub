@@ -564,4 +564,8 @@ a {
   margin: auto
 }
 
+#Underline{
+  border-bottom: 1px solid var(--white-cream-color);
+}
+
 /* user page */
