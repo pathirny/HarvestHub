@@ -42,15 +42,15 @@ export default async function Index() {
               opacity: "0.25",
             }}
           ></div>
-          <div>
+          
             
-            <h2 style={{ position: "relative"}}>Ready to garden?</h2>
+            <h2 style={{ position: "absolute"}}>Ready to garden?</h2>
             
-            <p style={{ position: "relative" }}>
+            <p style={{ position: "absolute", width: "15rem", height: "15rem" }}>
               Are you looking for ways to live more sustainably and grow your
               own stuff? Look no further than Harvest Hub!
             </p>
-          </div>
+          
         </div>
 
         <Link href="./TipsnTricks">
