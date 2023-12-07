@@ -511,3 +511,11 @@ a {
   box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
 }
 
+.tipContainer {
+  overflow-y: auto;
+  mask-image: linear-gradient(
+    to bottom,
+    black calc(100% - 48px),
+    transparent 100%
+  );
+}
