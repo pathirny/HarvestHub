@@ -70,7 +70,7 @@ export default function TipsPage({ params }: any) {
 
   return (
     <>
-      <Header />
+      <Header title="Tips and Tricks" />
       <Flex
         marginTop="2rem"
         gap="2rem"
@@ -102,7 +102,9 @@ export default function TipsPage({ params }: any) {
         >
           <p>{tip[0].description}</p>
         </Container>
-        <Link href="/TipsnTricks"><BackButton /></Link>
+        <Link href="/TipsnTricks">
+          <BackButton />
+        </Link>
       </Flex>
     </>
   );
