@@ -525,11 +525,15 @@ a {
 .card:nth-child(odd) {
   background-color: var(--brown-color);
 }
-
+.card:nth-child(odd) a {
+  color: var(--white-cream-color);
+}
 .card:nth-child(even) {
   background-color: var(--white-cream-color);
 }
-
+.card:nth-child(even) a {
+  color: var(--dark-green-color);
+}
 .card {
   box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
 }
