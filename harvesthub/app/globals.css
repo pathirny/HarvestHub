@@ -260,6 +260,23 @@ a {
 
 /* calendar */
 
+#calendar-welcome-container{
+  background-color: var(--white-cream-color);
+  padding: 1vw;
+  margin-top: 5vw;
+}
+
+#calendar-welcome{
+color: var(--dark-green-color);
+text-align: center;
+font-size: 5vw;
+font-family: sans-serif;
+width: 90vw;
+margin: auto;
+
+
+}
+
 :root {
   --dark-green-color: #47594e;
   --light-green-color: #99a57b;
