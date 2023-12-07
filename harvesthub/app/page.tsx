@@ -45,7 +45,7 @@ export default async function Index() {
               opacity: "0.25",
             }}
           ></div>
-          <div className="hero-header-inner">
+          <div style={{ position: "absolute", width: "18rem", height: "19rem"}} className="hero-header-inner">
             {/* style={{ position: "absolute", width: "15rem", height: "10rem"}} */}
             {/* style={{ position: "absolute", width: "15rem", height: "auto"}}  */}
             <h1 className="hero-header-heading">

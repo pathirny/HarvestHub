@@ -253,7 +253,7 @@ a {
   min-height: 100vh;
   justify-content: flex-start;
 }
-
+/* 
 .hero-header-heading {
   position: absolute;
   width: 18rem;
@@ -263,7 +263,7 @@ a {
   justify-content: center;
   align-items: center;
   color: var(--dark-green-color);
-}
+} */
 
 .text-highlight {
   color: var(--white-cream-color);
