@@ -1,16 +1,22 @@
+
+
 import Header from "@/components/Header";
 import Link from "next/link";
 
 
+
 export default function Calendar() {
+
+
   return (
     <div id="calendar-background">
       <Header title="Calendar" />
+      <div id="calendar-welcome-container"><h1 id="calendar-welcome">Welcome to our growing calendar - click on the months to see what you can grow and harvest!</h1></div>
       <div id="calendargrid">
         <Link href="./Calendar/0">
           <div className="month br-wht" id="january">
             <p>January</p>
-      <img src="/assets/brMonth.png" style={{width: "40vw", height: "auto"}} alt="month" />
+        <img src="/assets/brMonth.png" style={{width: "40vw", height: "auto"}} alt="month" />
           </div>
         </Link>
         <Link href="./Calendar/1">
@@ -34,7 +40,7 @@ export default function Calendar() {
         <Link href="./Calendar/4">
           <div className="month br-wht" id="may">
             <p>May</p>
-            <img src="/assets/WhtMonth.png" style={{width: "40vw", height: "auto"}} alt="month" />
+            <img src="/assets/brMonth.png" style={{width: "40vw", height: "auto"}} alt="month" />
           </div>
         </Link>
         <Link href="./Calendar/5">

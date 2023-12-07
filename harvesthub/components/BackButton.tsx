@@ -1,10 +1,9 @@
-import bckbttn from './assets/bck-bttn.png'
+import { Button } from "@chakra-ui/react";
 
-export default function BackButton(){
-
-    return (
-        <>
-          <button id="back-btn">Back</button>
-        </>
-    );
+export default function BackButton() {
+  return (
+    <>
+      <Button id="back-btn">Back</Button>
+    </>
+  );
 }
