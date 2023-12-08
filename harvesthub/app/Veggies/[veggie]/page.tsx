@@ -1,12 +1,16 @@
 "use client";
 import Header from "@/components/Header";
-import { useStatStyles } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { supabase } from "../../supabase.config";
-import { data } from "autoprefixer";
+import { createBrowserClient } from '@supabase/ssr'
 import { CldImage } from 'next-cloudinary';
 
 export default function Veggies({ params }: any) {
+
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
   const [difficulty, setDifficulty] = useState([""]);
   const [time, setTime] = useState(['']);
   const [vegInfo, setVegInfo] = useState('');
