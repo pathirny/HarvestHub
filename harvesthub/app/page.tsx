@@ -26,14 +26,14 @@ export default async function Index() {
   return (
     <>
       <Header title="Harvest Hub" />
-      <div className="homepage-box">
+      <header className="homepage-box">
         <img
           src="/assets/Veglogo.png"
           style={{ width: "16rem", height: "auto", opacity: "1" }}
         ></img>
         <div
           className="link-container"
-          style={{ padding: "0", width: "27rem", height: "18rem" }}
+          style={{ padding: "0", width: "90vw", height: "18rem" }}
         >
           <div
             style={{
@@ -139,7 +139,7 @@ export default async function Index() {
             </div>
           </Link>
         </div>
-      </div>
+      </header>
     </>
   );
 }

@@ -5,7 +5,8 @@ import { SettingsIcon, AddIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { CldUploadWidget, CldImage } from "next-cloudinary";
 import { useEffect, useState } from "react";
-import { supabase } from "../supabase.config";
+import { createBrowserClient } from '@supabase/ssr'
+
 
 export default function UserPage() {
   const [publicId, setPublicId] = useState("/Users_img/sprout");
@@ -36,6 +37,11 @@ export default function UserPage() {
 
     setUserImgSB();
   }
+
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
 
   function selectId() {
     async function getUserName() {
