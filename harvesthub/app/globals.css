@@ -567,7 +567,7 @@ a {
   padding: 1vw;
   background-color: var(--white-cream-color);
   border-radius: 2vw;
-  box-shadow: 0px 1vw 2vw;
+  box-shadow: 0px 1vw 2vw black;
 }
 
 
@@ -642,3 +642,31 @@ a {
 }
 
 
+/* setting page */
+
+#settings-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10vw;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10vw
+}
+
+.setting_button{
+width: 90vw;
+height: 15vw;
+border-radius: 4vw;
+background-color: var(--white-cream-color);
+color: var(--dark-green-color);
+box-shadow: 0vw 1vw 1vw black;
+padding: 2vw;
+}
+
+.setting_button h1{
+text-align: start;
+margin-top: 4vw;
+font-size: 6vw;
+
+}

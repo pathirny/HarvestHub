@@ -53,9 +53,10 @@ export default function UserPage() {
       <button onClick={selectId}>click me</button>
       <div id="userPage-container">
         <div id="icon-container">
-          <div className="IconBox">
+          <Link href="/settings"><div className="IconBox">
             <SettingsIcon boxSize="7vw" color="#47594e" />
           </div>
+          </Link>
           <div className="IconBox">
             <AddIcon boxSize="7vw" color="#47594e" />
           </div>
