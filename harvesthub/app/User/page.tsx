@@ -8,17 +8,40 @@ import { useEffect, useState } from "react";
 import { supabase } from "../supabase.config";
 
 export default function UserPage() {
-  const [publicId, setPublicId] = useState(
-    "/Users_img/Screenshot_2023-11-29_at_15.51.37_gnkn8u"
-  );
+  const [publicId, setPublicId] = useState("/Users_img/sprout");
+
+  useEffect(() => {
+    async function getUserImg() {
+      let { data: Users, error } = await supabase
+        .from("Users")
+        .select("user_img");
+      if (Users) {
+        setPublicId(Users[0].user_img);
+      }
+    }
+    getUserImg();
+  }, []);
+
+  function setUserImg(imgId: string) {
+   console.log("update img")
+    async function setUserImgSB() {
+      const { data, error } = await supabase
+        .from("Users")
+        .update({ user_img: imgId })
+        .eq('first_name', 'Olivia')
+        .select();
+        console.log("uploaded img")
+      console.log(data);
+    }
+
+    setUserImgSB();
+  }
 
   function selectId() {
     async function getUserName() {
       let { data: Users, error } = await supabase
         .from("Users")
         .select("first_name");
-      console.log("hello");
-      console.log(Users);
     }
 
     getUserName();
@@ -53,8 +76,9 @@ export default function UserPage() {
             const img: any = result?.info;
             if (img) {
               setPublicId(img.public_id);
+              setUserImg(img.public_id);
             }
-            widget.close();
+            widget.close(img.public_id);
           }}
         >
           {({ open }) => {
