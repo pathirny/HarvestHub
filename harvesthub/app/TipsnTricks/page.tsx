@@ -104,7 +104,6 @@ export default function TipsnTricks() {
         bgColor="#47594e"
         justifyContent="center"
         width="100%"
-        className="forms"
         color="#f3ebe4"
       >
         <FormControl
@@ -112,12 +111,10 @@ export default function TipsnTricks() {
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
+          className="forms"
         >
-          <FormLabel>Title</FormLabel>
           <Input placeholder="title" />
-          <FormLabel>Description</FormLabel>
           <Input placeholder="description" />
-          <FormLabel>Image</FormLabel>
           <Input placeholder="image" />
           <Button type="submit" onClick={toggleForm}>
             Submit

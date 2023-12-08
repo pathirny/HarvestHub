@@ -33,7 +33,7 @@ export default async function Index() {
         ></img>
         <div
           className="link-container"
-          style={{ padding: "0", width: "27rem", height: "18rem" }}
+          style={{ padding: "0", width: "90vw", height: "18rem" }}
         >
           <div
             style={{
@@ -89,7 +89,7 @@ export default async function Index() {
           </div>
         </Link>
 
-        <Link href="./calendar">
+        <Link href="./Calendar">
           <div
             className="link-container"
             style={{
