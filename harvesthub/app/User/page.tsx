@@ -9,7 +9,7 @@ import { createBrowserClient } from "@supabase/ssr";
 
 export default function UserPage() {
   const [publicId, setPublicId] = useState("/Users_img/sprout");
-
+  const [userName, setUserName] = useState("");
   useEffect(() => {
     async function getUserImg() {
       let { data: Users, error } = await supabase
@@ -20,31 +20,34 @@ export default function UserPage() {
       }
     }
     getUserImg();
-  }, []);
-
-  function setUserImg(imgId: string) {
-    console.log("update img");
-
     async function getName() {
       let { data: Users, error } = await supabase
         .from("Users")
         .select("first_name");
       if (Users) {
-        const userName = Users[0].first_name;
-        console.log(userName);
-        setUserImgSB(userName);
+        setUserName(Users[0].first_name);
       }
     }
     getName();
-    async function setUserImgSB(userName: any) {
+  }, []);
+
+  function setUserImg(imgId: any) {
+    console.log("update img");
+    console.log(userName);
+    async function setUserImgSB(name: any) {
       const { data, error } = await supabase
         .from("Users")
         .update({ user_img: imgId })
-        .eq("first_name", userName)
+        .eq("first_name", name)
         .select();
       console.log("uploaded img");
-      console.log(data);
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(data);
+      }
     }
+    setUserImgSB(userName);
   }
 
   const supabase = createBrowserClient(
@@ -102,7 +105,7 @@ export default function UserPage() {
           }}
         </CldUploadWidget>
         <div id="user_name">
-          <p style={{ alignSelf: "center" }}>John Doe</p>
+          <p style={{ alignSelf: "center" }}>{userName}</p>
         </div>
         <div id="Underline"></div>
         <h2 id="bio-title" style={{ textAlign: "center" }}>
