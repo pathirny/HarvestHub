@@ -5,8 +5,7 @@ import { SettingsIcon, AddIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { CldUploadWidget, CldImage } from "next-cloudinary";
 import { useEffect, useState } from "react";
-import { createBrowserClient } from '@supabase/ssr'
-
+import { createBrowserClient } from "@supabase/ssr";
 
 export default function UserPage() {
   const [publicId, setPublicId] = useState("/Users_img/sprout");
@@ -24,30 +23,41 @@ export default function UserPage() {
   }, []);
 
   function setUserImg(imgId: string) {
-   console.log("update img")
-    async function setUserImgSB() {
+    console.log("update img");
+
+    async function getName() {
+      let { data: Users, error } = await supabase
+        .from("Users")
+        .select("first_name");
+      if (Users) {
+        const userName = Users[0].first_name;
+        console.log(userName);
+        setUserImgSB(userName);
+      }
+    }
+    getName();
+    async function setUserImgSB(userName: any) {
       const { data, error } = await supabase
         .from("Users")
         .update({ user_img: imgId })
-        .eq('first_name', 'Olivia')
+        .eq("first_name", userName)
         .select();
-        console.log("uploaded img")
+      console.log("uploaded img");
       console.log(data);
     }
-
-    setUserImgSB();
   }
 
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+  );
 
   function selectId() {
     async function getUserName() {
       let { data: Users, error } = await supabase
         .from("Users")
         .select("first_name");
+      console.log(Users);
     }
 
     getUserName();
