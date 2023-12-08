@@ -15,7 +15,7 @@ export function renderTips(tips: gardeningTipsType[]) {
       borderRadius={10}
       margin="20px"
       p="20px"
-      
+      zIndex="0"
     >
       <TipCard key={index} tip={tip} />
     </Container>
