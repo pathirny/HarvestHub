@@ -10,6 +10,12 @@ import { createBrowserClient } from "@supabase/ssr";
 export default function UserPage() {
   const [publicId, setPublicId] = useState("/Users_img/sprout");
   const [userName, setUserName] = useState("");
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
+//get user image from supabase
   useEffect(() => {
     async function getUserImg() {
       let { data: Users, error } = await supabase
@@ -20,6 +26,8 @@ export default function UserPage() {
       }
     }
     getUserImg();
+
+//get use name
     async function getName() {
       let { data: Users, error } = await supabase
         .from("Users")
@@ -31,6 +39,7 @@ export default function UserPage() {
     getName();
   }, []);
 
+  //
   function setUserImg(imgId: any) {
     console.log("update img");
     console.log(userName);
@@ -50,10 +59,6 @@ export default function UserPage() {
     setUserImgSB(userName);
   }
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
 
   function selectId() {
     async function getUserName() {
