@@ -85,7 +85,9 @@ export default async function Index() {
                 opacity: "0.25",
               }}
             ></div>
-            <h1 style={{ position: "absolute" }}>Tips and Tricks</h1>
+            <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+              Tips and Tricks
+            </h2>
           </div>
         </Link>
 
@@ -102,7 +104,9 @@ export default async function Index() {
               src="/assets/CalendarBackground.png"
               style={{ width: "16rem", height: "auto", opacity: "0.25" }}
             ></img>
-            <h1 style={{ position: "absolute" }}>Growing Calendar</h1>
+            <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+              Growing Calendar
+            </h2>
           </div>
         </Link>
         <div className="link-container">
@@ -118,13 +122,18 @@ export default async function Index() {
                   opacity: "0.25",
                 }}
               ></div>
-              <h1 style={{ position: "absolute" }}>Stretch goal 1</h1>
+              <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+                Stretch goal 1
+              </h2>
             </div>
           </Link>
         </div>
         <div className="link-container">
           <Link href="#">
-            <div className="link-container" style={{ padding: "0" }}>
+            <div
+              className="link-container"
+              style={{ padding: "0", fontSize: "2rem" }}
+            >
               <div
                 style={{
                   padding: "0",
@@ -135,7 +144,9 @@ export default async function Index() {
                   opacity: "0.25",
                 }}
               ></div>
-              <h1 style={{ position: "absolute" }}>Stretch goal 2</h1>
+              <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+                Stretch goal 2
+              </h2>
             </div>
           </Link>
         </div>
