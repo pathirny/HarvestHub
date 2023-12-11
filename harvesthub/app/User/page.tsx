@@ -10,6 +10,10 @@ import { createBrowserClient } from "@supabase/ssr";
 export default function UserPage() {
   const [publicId, setPublicId] = useState("/Users_img/sprout");
   const [userName, setUserName] = useState("");
+  const [update, setUpdate] = useState(false)
+  const [bio, setBio] = useState("hi")
+
+
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -27,7 +31,7 @@ export default function UserPage() {
     }
     getUserImg();
 
-//get use name
+//get user name
     async function getName() {
       let { data: Users, error } = await supabase
         .from("Users")
@@ -38,6 +42,18 @@ export default function UserPage() {
     }
     getName();
   }, []);
+
+  function setUserBio(){
+    // async function setBioDB(bio) {
+    //   const { data, error } = await supabase
+    //   .from("Users")
+    //   .update({ user_bio: bio })
+    //   .select();
+
+    //   console.log(data)
+    // }
+    
+  }
 
   //
   function setUserImg(imgId: any) {
@@ -59,29 +75,16 @@ export default function UserPage() {
     setUserImgSB(userName);
   }
 
-
-  function selectId() {
-    async function getUserName() {
-      let { data: Users, error } = await supabase
-        .from("Users")
-        .select("first_name");
-      console.log(Users);
-    }
-
-    getUserName();
-  }
-
   return (
     <>
       <Header title="User Page" />
-      <button onClick={selectId}>click me</button>
       <div id="userPage-container">
         <div id="icon-container">
           <Link href="/settings"><div className="IconBox">
             <SettingsIcon boxSize="7vw" color="#47594e" />
           </div>
           </Link>
-          <div className="IconBox">
+          <div className="IconBox" onClick={()=>{setUpdate(!update)}}>
             <AddIcon boxSize="7vw" color="#47594e" />
           </div>
         </div>
@@ -95,6 +98,7 @@ export default function UserPage() {
             src={`${publicId}`}
           />
         </div>
+        { update ? 
         <CldUploadWidget
           uploadPreset="User_Upload"
           onSuccess={(result, { widget }) => {
@@ -109,7 +113,7 @@ export default function UserPage() {
           {({ open }) => {
             return <button onClick={() => open()}>Upload an Image</button>;
           }}
-        </CldUploadWidget>
+        </CldUploadWidget> : <></>}
         <div id="user_name">
           <p style={{ alignSelf: "center" }}>{userName}</p>
         </div>
@@ -118,10 +122,14 @@ export default function UserPage() {
           Bio
         </h2>
         <div id="UserBio">
+          { update ? 
+          <>
+          <form onSubmit={(e)=>{console.log(e)}}><textarea style={{height: "100%", width: "100%"}} value={bio} onChange={(e)=>{setBio(e.target.value)}}></textarea>
+          <button type="submit" >Submit</button></form></>
+          :
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+            {bio}
+          </p>}
         </div>
       </div>
       <Link href="/">

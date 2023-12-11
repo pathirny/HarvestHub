@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import { Switch, Spinner } from '@chakra-ui/react'
 import { createBrowserClient } from "@supabase/ssr";
+import { redirect } from "next/navigation";
 
 
 export default function Settings(){
@@ -17,6 +18,8 @@ export default function Settings(){
 
     async function signOut(){
            const { error } = await supabase.auth.signOut()
+
+           return redirect("/");
     }
 
     signOut()
