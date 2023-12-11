@@ -1,12 +1,16 @@
 "use client";
 import Header from "@/components/Header";
-import { useStatStyles } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { supabase } from "../../supabase.config";
-import { data } from "autoprefixer";
+import { createBrowserClient } from '@supabase/ssr'
 import { CldImage } from 'next-cloudinary';
 
 export default function Veggies({ params }: any) {
+
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
   const [difficulty, setDifficulty] = useState([""]);
   const [time, setTime] = useState(['']);
   const [vegInfo, setVegInfo] = useState('');
@@ -20,7 +24,7 @@ useEffect(() => {
       let { data: Veg, error } = await supabase
         .from("veggies")
         .select("*")
-        .eq("name", params.veggie)
+        .eq("name", `${params.veggie}`)
 
      if (Veg) {
         setTime(Veg[0].grow_time.toString().split(""));
@@ -118,7 +122,9 @@ useEffect(() => {
         width="500"
         height="500"
         style={{width: "70vw", height: "auto", borderRadius: "3vw", marginLeft: "15vw"}}
-        src="/HarvestHub/BlackCarrot_fol0qd"/>
+        src={`/HarvestHub/${params.veggie}`}
+        // src="/HarvestHub/Pumpkin"
+        />
       </div>
     </>
   );

@@ -11,6 +11,7 @@ export default function Calendar() {
   return (
     <div id="calendar-background">
       <Header title="Calendar" />
+      <div id="calendar-welcome-container"><h1 id="calendar-welcome">Welcome to our growing calendar - click on the months to see what you can grow and harvest!</h1></div>
       <div id="calendargrid">
         <Link href="./Calendar/0">
           <div className="month br-wht" id="january">

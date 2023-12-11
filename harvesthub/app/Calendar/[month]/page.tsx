@@ -3,9 +3,16 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import BackButton from "@/components/BackButton";
 import { useEffect, useState } from "react";
-import { supabase } from "@/app/supabase.config";
+import { createBrowserClient } from '@supabase/ssr'
+
 
 export default function Month({ params }: any) {
+
+    const supabase = createBrowserClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+      )
+
   const [plantList, setPlantList] = useState([{ name: "carrot" }]);
   const [harvestList, setHarvestList] = useState([{ id: 0,
     name: "hvhjv",
@@ -85,6 +92,7 @@ export default function Month({ params }: any) {
     <>
       <div id="calendar-pg-container">
         <Header title="Month" />
+        <div id="calendar-welcome-container"><h1 id="calendar-welcome">Click on the veggies for more info and advice on growing!</h1></div>
         <div id="month-nav-container">
           <Link href={`./${prev}`}>
             <div id="prv-mnth-bttn"></div>

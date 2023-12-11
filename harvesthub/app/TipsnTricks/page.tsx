@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import { SearchBar } from "@/components/SearchBar";
 import { renderTips } from "./renderTips";
@@ -82,6 +82,15 @@ export default function TipsnTricks() {
     setFilteredTips(newFilteredTips);
   }, [searchTerm, gardeningTips]);
 
+  const [display, setDisplay] = useState("none");
+  function toggleForm() {
+    if (display === "none") {
+      setDisplay("flex");
+    } else {
+      setDisplay("none");
+    }
+  }
+
   return (
     <div>
       <Header title="Tips and Tricks" />
@@ -89,28 +98,39 @@ export default function TipsnTricks() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Flex justifyContent="center" alignItems="center">
+      <Flex
+        position="absolute"
+        zIndex="2"
+        bgColor="#47594e"
+        justifyContent="center"
+        width="100%"
+        color="#f3ebe4"
+      >
         <FormControl
-          display="flex"
+          display={display}
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
+          className="forms"
         >
-          <FormLabel>Title</FormLabel>
           <Input placeholder="title" />
-          <FormLabel>Description</FormLabel>
           <Input placeholder="description" />
-          <FormLabel>Image</FormLabel>
           <Input placeholder="image" />
-          <Button type="submit">Submit</Button>
+          <Button type="submit" onClick={toggleForm}>
+            Submit
+          </Button>
+          <Button onClick={toggleForm}>Cancel</Button>
         </FormControl>
       </Flex>
       <Container className="tipContainer">{renderTips(filteredTips)}</Container>
       <Flex height="20px" flexDirection="row" justifyContent="space-around">
-        <Button className="addButton">
-          <Link href="/">Back</Link>{" "}
+        <Link href="/">
+          <Button className="addButton">Back</Button>
+        </Link>
+
+        <Button className="addButton" onClick={toggleForm}>
+          Add Tip +
         </Button>
-        <Button className="addButton">Add Tip +</Button>
       </Flex>
     </div>
   );

@@ -11,9 +11,11 @@ export default function Header({ title } : any) {
        <div id="page-title">
             <h3>{title}</h3>
        </div>
+       <Link href="/User">
        <div id="user-button">
             <h3>User</h3>
        </div>
+       </Link>
     </div>
     </div>
     </>
