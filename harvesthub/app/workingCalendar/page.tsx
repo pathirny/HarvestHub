@@ -3,10 +3,12 @@
 import FullCalendar from '../../components/calendar.jsx';
 
 export default function Home() {
-  return (
+  return (<>
+  
     <div id="calendar-container">
       <FullCalendar initialView='dayGridMonth' />
       {/* <FullCalendar initialView='timeGridWeek' /> */}
     </div>
+    </>
   );
 }
