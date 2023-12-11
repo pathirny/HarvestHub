@@ -17,11 +17,12 @@ export default function Header({ title } : any) {
 
         useEffect(()=>{
           async function getUserImg(){
+               console.log('hello')
                let { data: userImg, error } = await supabase
                .from("Users")
                .select("user_img")
-
                if(userImg){
+                    console.log('hello')
                     setUserImg(userImg[0].user_img)
                } else {
                     setUserImg(null)
@@ -45,6 +46,7 @@ export default function Header({ title } : any) {
             style={{ height: "10vw", width: "auto", borderRadius: "50%", margin: "auto" }}
             src={`${userImg}`}/> :
           <Link href="/User">
+
        <div id="user-button">
             <h3>User</h3>
        </div>
