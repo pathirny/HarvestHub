@@ -272,6 +272,7 @@ a {
 
 .text-highlight {
   color: var(--white-cream-color);
+  font-size: 3rem;
 }
 
 /* calendar */
