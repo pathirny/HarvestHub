@@ -90,19 +90,16 @@ export default function TipsnTricks() {
       setDisplay("none");
     }
   }
-
   return (
     <div>
       <Header title="Tips and Tricks" />
-      <SearchBar
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+
       <Flex
+        className="flexContainer"
         position="absolute"
         zIndex="2"
-        bgColor="#47594e"
         justifyContent="center"
+        bgColor="#47594e"
         width="100%"
         color="#f3ebe4"
       >
@@ -113,21 +110,41 @@ export default function TipsnTricks() {
           alignItems="center"
           className="forms"
         >
-          <Input placeholder="title" />
-          <Input placeholder="description" />
-          <Input placeholder="image" />
-          <Button type="submit" onClick={toggleForm}>
+          <Input placeholder="Title ✍" width="90vw" borderRadius="10px 0px" />
+          <Input
+            placeholder="Description ✍"
+            width="90vw"
+            height="25vh"
+            borderRadius="10px 0px"
+          />
+          <Input placeholder="Image ✍" width="90vw" borderRadius="10px 0" />
+          <hr />
+          <Button
+            type="submit"
+            onClick={toggleForm}
+            border="solid 1px black"
+            boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
+          >
             Submit
           </Button>
-          <Button onClick={toggleForm}>Cancel</Button>
+          <Button
+            onClick={toggleForm}
+            border="solid 1px black"
+            boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
+          >
+            Cancel
+          </Button>
         </FormControl>
       </Flex>
+      <SearchBar
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <Container className="tipContainer">{renderTips(filteredTips)}</Container>
       <Flex height="20px" flexDirection="row" justifyContent="space-around">
         <Link href="/">
           <Button className="addButton">Back</Button>
         </Link>
-
         <Button className="addButton" onClick={toggleForm}>
           Add Tip +
         </Button>
