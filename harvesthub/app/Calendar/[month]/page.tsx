@@ -111,12 +111,8 @@ export default function Month({ params }: any) {
         </div>
         <div id="plant-harvest-grid">
           <div id="plant-harvest-title">
-            <div>
               <h1>Plant</h1>
-            </div>
-            <div>
               <h1>Harvest</h1>
-            </div>
           </div>
           <div id="underline"></div>
           <div id="plant-list">
