@@ -41,7 +41,7 @@ export default function Index() {
   return (
     <>
       <Header title="Harvest Hub" />
-      <header className="homepage-box">
+      <main className="homepage-box">
         <img
           src="/assets/Veglogo.png"
           style={{ width: "16rem", height: "auto", opacity: "1" }}
@@ -157,7 +157,7 @@ export default function Index() {
             </div>
           </Link>
         </div>
-      </header>
+      </main>
     </>
   );
 }
