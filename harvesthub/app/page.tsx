@@ -59,7 +59,7 @@ export default function Index() {
             }}
           ></div>
           <div
-            style={{ position: "absolute", width: "18rem", height: "19rem" }}
+            style={{ position: "absolute", width: "18rem", height: "14rem" }}
             className="hero-header-inner"
           >
             {/* style={{ position: "absolute", width: "15rem", height: "10rem"}} */}
@@ -73,7 +73,7 @@ export default function Index() {
             </div>
 
             <div className="hero-header-subheading">
-              <span style={{}}>
+              <span>
                 Searching for ways to live more sustainably and grow your own
                 stuff? Look no further than Harvest Hub!
               </span>
