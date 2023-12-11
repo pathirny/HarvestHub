@@ -118,6 +118,7 @@ export default function TipsnTricks() {
             borderRadius="10px 0px"
           />
           <Input placeholder="Image ✍" width="90vw" borderRadius="10px 0" />
+          <hr />
           <Button
             type="submit"
             onClick={toggleForm}

@@ -75,7 +75,7 @@ export default function Index() {
             </div>
 
             <div className="hero-header-subheading">
-              <span>
+              <span >
                 Searching for ways to live more sustainably and grow your own
                 stuff? Look no further than Harvest Hub!
               </span>
