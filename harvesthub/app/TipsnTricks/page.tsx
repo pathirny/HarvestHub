@@ -101,7 +101,7 @@ export default function TipsnTricks() {
       <Flex
         position="absolute"
         zIndex="2"
-        bgColor="#47594e"
+        bgGradient="linear(to-b, #47594e, #b9848c)"
         justifyContent="center"
         width="100%"
         color="#f3ebe4"
@@ -113,9 +113,9 @@ export default function TipsnTricks() {
           alignItems="center"
           className="forms"
         >
-          <Input placeholder="title" />
-          <Input placeholder="description" />
-          <Input placeholder="image" />
+          <Input placeholder="Title" width="90vw" borderRadius="10px 0px"/>
+          <Input placeholder="Description" width="90vw" height="25vh" borderRadius="10px 0px"/>
+          <Input placeholder="Image" width="90vw" borderRadius="10px 0"/>
           <Button type="submit" onClick={toggleForm}>
             Submit
           </Button>
