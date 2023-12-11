@@ -33,7 +33,9 @@ export default function Index() {
   );
   const [text] = useTypewriter({
     words: ["Garden", "Grow", "Learn", "Eat"],
-    loop: {},
+    loop: false,
+    typeSpeed: 200,
+    deleteSpeed: 150,
   });
 
   return (
@@ -68,7 +70,7 @@ export default function Index() {
               <h2>Get ready to</h2>
               <div>
                 <span className="text-highlight">{text}</span>
-                <Cursor />
+                <Cursor cursorStyle="|" />
               </div>
             </div>
 
