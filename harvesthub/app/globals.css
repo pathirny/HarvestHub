@@ -113,7 +113,6 @@ button {
   color: var(--white-cream-color);
   text-align: center;
   width: 100%;
-  text-decoration: underline;
 }
 
 #user-button {
