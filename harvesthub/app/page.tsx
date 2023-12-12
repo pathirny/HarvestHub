@@ -1,32 +1,47 @@
+"use client";
 import DeployButton from "../components/DeployButton";
 import AuthButton from "../components/AuthButton";
+import { createBrowserClient } from "@supabase/ssr";
 import { createClient } from "@/utils/supabase/server";
 import ConnectSupabaseSteps from "@/components/ConnectSupabaseSteps";
 import SignUpUserSteps from "@/components/SignUpUserSteps";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 import Header from "../components/Header";
 import Link from "next/link";
+import React from "react";
 import { color } from "framer-motion";
-export default async function Index() {
-  const cookieStore = cookies();
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 
-  const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
-    try {
-      createClient(cookieStore);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
+export default function Index() {
+  // const cookieStore = cookies();
 
-  const isSupabaseConnected = canInitSupabaseClient();
+  // const canInitSupabaseClient = () => {
+  //   // This function is just for the interactive tutorial.
+  //   // Feel free to remove it once you have Supabase connected.
+  //   try {
+  //     createClient(cookieStore);
+  //     return true;
+  //   } catch (e) {
+  //     return false;
+  //   }
+  // };
+
+  // const isSupabaseConnected = canInitSupabaseClient();
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+  const [text] = useTypewriter({
+    words: ["Garden", "Grow", "Learn", "Eat"],
+    loop: false,
+    typeSpeed: 200,
+    deleteSpeed: 150,
+  });
 
   return (
     <>
       <Header title="Harvest Hub" />
-      <header className="homepage-box">
+      <main className="homepage-box">
         <img
           src="/assets/Veglogo.png"
           style={{ width: "16rem", height: "auto", opacity: "1" }}
@@ -46,26 +61,21 @@ export default async function Index() {
             }}
           ></div>
           <div
-            style={{ position: "absolute", width: "18rem", height: "19rem" }}
+            style={{ position: "absolute", width: "18rem", height: "14rem" }}
             className="hero-header-inner"
           >
             {/* style={{ position: "absolute", width: "15rem", height: "10rem"}} */}
             {/* style={{ position: "absolute", width: "15rem", height: "auto"}}  */}
-            <h1 className="hero-header-heading">
+            <div className="container">
+              <h2>Get ready to</h2>
               <div>
-                Get ready to
-                <span className="text-highlight"> garden</span>
-                <br />
-                <span className="text-highlight">grow</span>
-                <br />
-                <span className="text-highlight">learn</span>
-                <br />
-                <span className="text-highlight">eat</span>
+                <span className="text-highlight">{text}</span>
+                <Cursor cursorStyle="|" />
               </div>
-            </h1>
+            </div>
 
             <div className="hero-header-subheading">
-              <span>
+              <span >
                 Searching for ways to live more sustainably and grow your own
                 stuff? Look no further than Harvest Hub!
               </span>
@@ -85,7 +95,9 @@ export default async function Index() {
                 opacity: "0.25",
               }}
             ></div>
-            <h1 style={{ position: "absolute" }}>Tips and Tricks</h1>
+            <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+              Tips and Tricks
+            </h2>
           </div>
         </Link>
 
@@ -102,7 +114,9 @@ export default async function Index() {
               src="/assets/CalendarBackground.png"
               style={{ width: "16rem", height: "auto", opacity: "0.25" }}
             ></img>
-            <h1 style={{ position: "absolute" }}>Growing Calendar</h1>
+            <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+              Growing Calendar
+            </h2>
           </div>
         </Link>
         <div className="link-container">
@@ -118,13 +132,18 @@ export default async function Index() {
                   opacity: "0.25",
                 }}
               ></div>
-              <h1 style={{ position: "absolute" }}>Stretch goal 1</h1>
+              <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+                Stretch goal 1
+              </h2>
             </div>
           </Link>
         </div>
         <div className="link-container">
           <Link href="#">
-            <div className="link-container" style={{ padding: "0" }}>
+            <div
+              className="link-container"
+              style={{ padding: "0", fontSize: "2rem" }}
+            >
               <div
                 style={{
                   padding: "0",
@@ -135,11 +154,13 @@ export default async function Index() {
                   opacity: "0.25",
                 }}
               ></div>
-              <h1 style={{ position: "absolute" }}>Stretch goal 2</h1>
+              <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+                Stretch goal 2
+              </h2>
             </div>
           </Link>
         </div>
-      </header>
+      </main>
     </>
   );
 }

@@ -60,6 +60,7 @@ button {
   margin-top: 1rem;
   width: 8rem;
   height: 3rem;
+
   border-radius: 25px;
   background-color: var(--white-cream-color);
   color: var(--dark-green-color);
@@ -276,8 +277,22 @@ a {
   color: var(--dark-green-color);
 } */
 
-.text-highlight {
+.hero-header-subheading {
+  margin-top: 1rem;
   color: var(--white-cream-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.text-highlight {
+  color: var(--dark-green-color);
+  font-size: 3rem;
+}
+
+.container h2 {
+  color: var(--white-cream-color);
+  font-weight: bold;
 }
 
 /* calendar */
@@ -413,23 +428,21 @@ a {
   text-align: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   gap: 5vw;
 }
 
 #plant-harvest-title div {
-  border-radius: 2vw;
   width: 100%;
   height: 8vw;
   margin: 0;
   text-align: center;
-  background-color: var(--light-green-color);
 }
 
-#plant-harvest-title div h1 {
+#plant-harvest-title h1 {
   margin-top: 1vw;
   font-size: 5vw;
-  color: var(--dark-green-color);
+  color: var(--white-cream-color);
 }
 
 #plant-list {
@@ -527,11 +540,39 @@ a {
 /* calendar */
 
 /* tips and tricks */
+@media only screen and (max-width: 430px) {
+  .buttonsContainer {
+    position: fixed;
+    background-color: var(--dark-green-color);
+    bottom: 0.1rem;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    bottom: 0;
+    height: 30vh;
+    background-color: var(--dark-green-color);
+    mask-image: linear-gradient(
+      to top,
+      black calc(100% - 10px),
+      transparent 100%
+    );
+
+    /* background: linear-gradient(
+      to bottom,
+      rgba(71, 89, 78, 0.7),
+      rgba(71, 89, 78, 1)
+    ); */
+  }
+
+  .addButton {
+    margin-top: 3rem;
+  }
+}
 
 .addButton {
   background-color: #f3ebe4;
   color: #47594e;
-  position: relative;
+  position: fixed;
   bottom: 7vw;
   width: 40vw;
   height: 10vw;
@@ -623,6 +664,7 @@ a {
   );
   height: 45.5rem;
   overflow: scroll;
+  margin-bottom: 4rem;
 }
 
 .card:nth-child(odd) {
@@ -643,6 +685,7 @@ a {
 .forms {
   padding-bottom: 10px;
 }
+
 
 /* setting page */
 
@@ -673,11 +716,16 @@ font-size: 6vw;
 
 }
 
-
-
 /* working calendar  */
 
 #calendar-container{
 width: 90vw;
 margin: auto
 }
+
+/* working calendar  */
+
+hr {
+  width: 90vw;
+}
+

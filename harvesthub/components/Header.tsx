@@ -1,3 +1,4 @@
+
 "use client"
 
 import Link from "next/link"
@@ -53,6 +54,7 @@ export default function Header({ title } : any) {
        </Link>}
     </div>
     </header>
+
     </>
-  )
+  );
 }
