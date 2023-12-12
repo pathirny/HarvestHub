@@ -140,7 +140,10 @@ export default function Index() {
         </div>
         <div className="link-container">
           <Link href="#">
-            <div className="link-container" style={{ padding: "0" }}>
+            <div
+              className="link-container"
+              style={{ padding: "0", fontSize: "2rem" }}
+            >
               <div
                 style={{
                   padding: "0",

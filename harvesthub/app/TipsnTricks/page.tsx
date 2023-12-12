@@ -141,7 +141,12 @@ export default function TipsnTricks() {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <Container className="tipContainer">{renderTips(filteredTips)}</Container>
-      <Flex height="20px" flexDirection="row" justifyContent="space-around">
+      <Flex
+        className="buttonsContainer"
+        height="80px"
+        flexDirection="row"
+        justifyContent="space-around"
+      >
         <Link href="/">
           <Button className="addButton">Back</Button>
         </Link>
