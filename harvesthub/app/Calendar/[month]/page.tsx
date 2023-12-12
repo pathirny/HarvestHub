@@ -32,7 +32,7 @@ export default function Month({ params }: any) {
     "June",
     "July",
     "August",
-    "Septmeber",
+    "September",
     "October",
     "November",
     "December",
