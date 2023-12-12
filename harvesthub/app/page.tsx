@@ -120,7 +120,7 @@ export default function Index() {
           </div>
         </Link>
         <div className="link-container">
-          <Link href="/workingCalendar">
+          <Link href="/MyGarden">
             <div className="link-container" style={{ padding: "0" }}>
               <div
                 style={{
@@ -133,7 +133,7 @@ export default function Index() {
                 }}
               ></div>
               <h2 style={{ position: "absolute", fontSize: "2rem" }}>
-                Personal Calendar
+                My Garden Calendar
               </h2>
             </div>
           </Link>
