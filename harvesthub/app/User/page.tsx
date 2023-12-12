@@ -26,11 +26,7 @@ export default function UserPage() {
         .from("Users")
         .select("user_img");
       if (Users) {
-          
-        
-        if (Users[0].user_img) {
-          setPublicId(Users[0].user_img);
-        }
+        setPublicId(Users[0].user_img);
       }
     }
     getUserImg();
