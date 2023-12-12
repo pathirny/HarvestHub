@@ -75,7 +75,7 @@ export default function Index() {
             </div>
 
             <div className="hero-header-subheading">
-              <span >
+              <span>
                 Searching for ways to live more sustainably and grow your own
                 stuff? Look no further than Harvest Hub!
               </span>
@@ -95,7 +95,7 @@ export default function Index() {
                 opacity: "0.25",
               }}
             ></div>
-            <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+            <h2 style={{ position: "absolute", fontSize: "1.8rem" }}>
               Tips and Tricks
             </h2>
           </div>
@@ -114,7 +114,7 @@ export default function Index() {
               src="/assets/CalendarBackground.png"
               style={{ width: "16rem", height: "auto", opacity: "0.25" }}
             ></img>
-            <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+            <h2 style={{ position: "absolute", fontSize: "1.8rem" }}>
               Growing Calendar
             </h2>
           </div>
@@ -132,7 +132,7 @@ export default function Index() {
                   opacity: "0.25",
                 }}
               ></div>
-              <h2 style={{ position: "absolute", fontSize: "2rem" }}>
+              <h2 style={{ position: "absolute", fontSize: "1.8rem" }}>
                 My Garden Calendar
               </h2>
             </div>
