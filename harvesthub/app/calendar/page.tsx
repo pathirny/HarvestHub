@@ -24,7 +24,7 @@ export default function Calendar() {
         </Link>
         <Link href="./calendar/1">
           <div className="month wht-br" id="february">
-            <p>Febraury</p>
+            <p>February</p>
             <img
               src="/assets/WhtMonth.png"
               style={{ width: "40vw", height: "auto" }}
