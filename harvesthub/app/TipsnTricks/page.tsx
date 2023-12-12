@@ -92,11 +92,12 @@ export default function TipsnTricks() {
     if (id) {
       console.log(id);
     }
+
     const { data, error } = await supabase
       .from("tips")
       .insert([
         {
-          user_id: id.data.user.id,
+          user_id: id.data.user?.id,
           title: title,
           description: description,
           // image: image
