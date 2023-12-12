@@ -1,12 +1,12 @@
 "use client"
-import FullCalendar from '../../components/calendar.jsx';
+import Header from '@/components/Header.jsx';
+import FullCalendar from '../../components/Calendar.jsx';
 
 export default function Home() {
   return (<>
-
+<Header title="My Garden"/>
     <div id="calendar-container">
-      <FullCalendar initialView='dayGridMonth' />
-      {/* <FullCalendar initialView='timeGridWeek' /> */}
+      <FullCalendar initialView='dayGridMonth'  />
     </div>
     </>
   );
