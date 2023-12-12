@@ -19,7 +19,7 @@ export default function TipsPage({ params }: any) {
     //render the tips using supabase query
     async function getTips() {
       let { data: tips, error } = await supabase.from("tips").select("*");
-      // set the state of tips and filteredTips
+      // filter through tips and if the ids match the tip setTip
       if (tips) {
         setTip(tips.filter((a) => a.id == params.tip));
         console.log(tips);
@@ -48,14 +48,14 @@ export default function TipsPage({ params }: any) {
         >
           <h1>{tip[0].title}</h1>
         </Container>
-        <Container
+        {/* <Container
           backgroundColor="#F3EBE4"
           borderRadius="25px"
           width="90%"
           textAlign="center"
         >
           <h1>Image</h1>
-        </Container>
+        </Container> */}
         <Container
           backgroundColor="#F3EBE4"
           borderRadius="25px"

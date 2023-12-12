@@ -22,20 +22,21 @@ export default function TipsnTricks() {
   const [filteredTips, setFilteredTips] = useState([{}]);
   const [gardeningTips, setGardeningTips] = useState([{}]);
   const [display, setDisplay] = useState("none");
-
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
   //use supabase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
-
-  useEffect(() => {
+  function viewTips() {
     //render the tips using supabase query
     async function getTips() {
       let { data: tips, error } = await supabase.from("tips").select("*");
       // set the state of tips and filteredTips
       if (tips) {
-        setGardeningTips(tips);
+        setGardeningTips(tips.reverse());
         setFilteredTips(tips);
         console.log(tips);
       } else {
@@ -43,6 +44,21 @@ export default function TipsnTricks() {
       }
     }
     getTips();
+  }
+  useEffect(() => {
+    //render the tips using supabase query
+    // async function getTips() {
+    //   let { data: tips, error } = await supabase.from("tips").select("*");
+    //   // set the state of tips and filteredTips
+    //   if (tips) {
+    //     setGardeningTips(tips);
+    //     setFilteredTips(tips);
+    //     console.log(tips);
+    //   } else {
+    //     console.log(error);
+    //   }
+    // }
+    viewTips();
   }, []); // empty dependency so it loads on render
 
   useEffect(() => {
@@ -68,6 +84,36 @@ export default function TipsnTricks() {
       setDisplay("none");
     }
   }
+
+  // form submit functionality
+  const addTip = async (event: any) => {
+    event.preventDefault();
+    const id = await supabase.auth.getUser();
+    if (id) {
+      console.log(id);
+    }
+    const { data, error } = await supabase
+      .from("tips")
+      .insert([
+        {
+          user_id: id.data.user.id,
+          title: title,
+          description: description,
+          // image: image
+        },
+      ])
+      .select();
+    if (error) {
+      console.log(error);
+    }
+    if (data) {
+      console.log(data);
+    }
+    setTitle("");
+    setDescription("");
+    setImage("");
+    viewTips();
+  };
   return (
     <div>
       <Header title="Tips and Tricks" />
@@ -88,20 +134,34 @@ export default function TipsnTricks() {
           alignItems="center"
           className="forms"
         >
-          <Input placeholder="Title ✍" width="90vw" borderRadius="10px 0px" />
+          <Input
+            placeholder="Title ✍"
+            width="90vw"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+          />
           <Input
             placeholder="Description ✍"
             width="90vw"
             height="25vh"
-            borderRadius="10px 0px"
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
           />
-          <Input placeholder="Image ✍" width="90vw" borderRadius="10px 0" />
+          {/* <Input
+            placeholder="Image ✍"
+            width="90vw"
+            value={image}
+            onChange={(event) => setImage(event.target.value)}
+          /> */}
           <hr />
           <Button
             type="submit"
-            onClick={toggleForm}
             border="solid 1px black"
             boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
+            onClick={(event) => {
+              addTip(event);
+              toggleForm();
+            }}
           >
             Submit
           </Button>
