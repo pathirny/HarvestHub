@@ -7,8 +7,8 @@ export interface gardeningTipsType {
   author: string;
 }
 
-export function renderTips(tips: gardeningTipsType[]) {
-  return tips.map((tip, index) => (
+export function renderTips(tips: any) {
+  return tips.map((tip: any, index: any) => (
     <Container
       className="card"
       maxW="md"
