@@ -1,6 +1,6 @@
 "use client"
-import Header from '@/components/Header.jsx';
-import FullCalendar from '../../components/Calendar.jsx';
+import Header from '@/components/Header';
+import FullCalendar from '../../components/calendar.jsx';
 
 export default function Home() {
   return (<>
