@@ -1,10 +1,10 @@
+// use client side rendering to enable useEffect
 "use client";
-
+//import necessary packages
 import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import { SearchBar } from "@/components/SearchBar";
 import { renderTips } from "./renderTips";
-import BackButton from "@/components/BackButton";
 import { createBrowserClient } from "@supabase/ssr";
 import Link from "next/link";
 import {
@@ -15,21 +15,25 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-
+// create TipsnTricks component
 export default function TipsnTricks() {
+  // set state for search, tips, display and newfiltered tips
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredTips, setFilteredTips] = useState([{}]);
   const [gardeningTips, setGardeningTips] = useState([{}]);
+  const [display, setDisplay] = useState("none");
 
+  //use supabase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
   useEffect(() => {
+    //render the tips using supabase query
     async function getTips() {
       let { data: tips, error } = await supabase.from("tips").select("*");
-
+      // set the state of tips and filteredTips
       if (tips) {
         setGardeningTips(tips);
         setFilteredTips(tips);
@@ -39,15 +43,13 @@ export default function TipsnTricks() {
       }
     }
     getTips();
-  }, []);
+  }, []); // empty dependency so it loads on render
 
   useEffect(() => {
+    // useEffect for search function
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
-    // const newFilteredTips: any = gardeningTips.filter((tips) =>
-    //   Object.values(tips).some((value: any) =>
-    //     value.toString().toLowerCase().includes(lowerCaseSearchTerm)
-    //   )
+    // Search functionality which filters over gardening tips and returns the values
     const newFilteredTips = gardeningTips.filter((a) => {
       const values = Object.values(a);
       values.pop();
@@ -55,11 +57,10 @@ export default function TipsnTricks() {
         return b.toString().toLowerCase().includes(lowerCaseSearchTerm);
       });
     });
-
+    // set the state of filtered tips
     setFilteredTips(newFilteredTips);
-  }, [searchTerm]);
-
-  const [display, setDisplay] = useState("none");
+  }, [searchTerm]); // render everytime search term changes
+  // function to toggle the form once button is clicked
   function toggleForm() {
     if (display === "none") {
       setDisplay("flex");
