@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Link from "next/link";
-import { Button, Flex } from "@chakra-ui/react";
+
 export default function Calendar() {
   return (
     <div id="calendar-background">
@@ -12,7 +12,7 @@ export default function Calendar() {
         </h1>
       </div>
       <div id="calendargrid">
-        <Link href="./Calendar/0">
+        <Link href="./calendar/0">
           <div className="month br-wht" id="january">
             <p>January</p>
             <img
@@ -22,7 +22,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/1">
+        <Link href="./calendar/1">
           <div className="month wht-br" id="february">
             <p>Febraury</p>
             <img
@@ -32,7 +32,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/2">
+        <Link href="./calendar/2">
           <div className="month wht-br" id="march">
             <p>March</p>
             <img
@@ -42,7 +42,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/3">
+        <Link href="./calendar/3">
           <div className="month br-wht" id="april">
             <p>April</p>
             <img
@@ -52,7 +52,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/4">
+        <Link href="./calendar/4">
           <div className="month br-wht" id="may">
             <p>May</p>
             <img
@@ -62,7 +62,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/5">
+        <Link href="./calendar/5">
           <div className="month wht-br" id="june">
             <p>June</p>
             <img
@@ -72,7 +72,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/6">
+        <Link href="./calendar/6">
           <div className="month wht-br" id="july">
             <p>July</p>
             <img
@@ -82,7 +82,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/7">
+        <Link href="./calendar/7">
           <div className="month br-wht" id="august">
             <p>August</p>
             <img
@@ -92,7 +92,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/8">
+        <Link href="./calendar/8">
           <div className="month br-wht" id="september">
             <p>September</p>
             <img
@@ -102,7 +102,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/9">
+        <Link href="./calendar/9">
           <div className="month wht-br" id="october">
             <p>October</p>
             <img
@@ -112,7 +112,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/10">
+        <Link href="./calendar/10">
           <div className="month wht-br" id="november">
             <p>November</p>
             <img
@@ -122,7 +122,7 @@ export default function Calendar() {
             />
           </div>
         </Link>
-        <Link href="./Calendar/11">
+        <Link href="./calendar/11">
           <div className="month br-wht" id="december">
             <p>December</p>
             <img
@@ -133,16 +133,6 @@ export default function Calendar() {
           </div>
         </Link>
       </div>
-      <Flex
-        width="100vw"
-        justifyContent="center"
-        position="fixed"
-        bottom="-10px"
-      >
-        <Link href="/">
-          <Button className="addButton">Back</Button>
-        </Link>
-      </Flex>
     </div>
   );
 }
