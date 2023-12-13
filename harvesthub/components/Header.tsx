@@ -50,7 +50,7 @@ export default function Header({ title } : any) {
 
        <div id="user-button">
             <h3>User</h3>
-       </div>Ÿ
+       </div>
        </Link>}
     </div>
     </header>
