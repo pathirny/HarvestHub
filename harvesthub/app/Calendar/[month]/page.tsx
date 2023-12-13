@@ -11,11 +11,11 @@ export default function Month({ params }: any) {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  const [plantList, setPlantList] = useState([{ name: "carrot" }]);
+  const [plantList, setPlantList] = useState([{ name: "loading" }]);
   const [harvestList, setHarvestList] = useState([
     {
       id: 0,
-      name: "hvhjv",
+      name: "loading",
       harvest: "",
       plant: "",
       difficulty: 0,
