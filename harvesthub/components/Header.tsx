@@ -46,7 +46,7 @@ export default function Header({ title } : any) {
             height="500"
             style={{ height: "10vw", width: "auto", borderRadius: "50%", margin: "auto" }}
             src={`${userImg}`}/> :
-          <Link href="/User">
+          <Link href="/user">
 
        <div id="user-button">
             <h3>User</h3>

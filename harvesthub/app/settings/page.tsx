@@ -35,7 +35,7 @@ export default function Settings(){
 
     </div>
     
-    <Link href="/User">
+    <Link href="/user">
     <BackButton /></Link>
     </>)
 }
