@@ -10,6 +10,7 @@ export interface gardeningTipsType {
 export function renderTips(tips: any) {
   return tips.map((tip: any, index: any) => (
     <Container
+      key={tip.id}
       className="card"
       maxW="md"
       borderRadius={10}
