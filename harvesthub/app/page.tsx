@@ -83,7 +83,7 @@ export default function Index() {
           </div>
         </div>
 
-        <Link href="./TipsnTricks">
+        <Link href="./tips-and-tricks">
           <div className="link-container" style={{ padding: "0" }}>
             <div
               style={{
@@ -120,7 +120,7 @@ export default function Index() {
           </div>
         </Link>
         <div className="link-container">
-          <Link href="/MyGarden">
+          <Link href="/my-garden">
             <div className="link-container" style={{ padding: "0" }}>
               <div
                 style={{

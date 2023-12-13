@@ -64,7 +64,7 @@ export default function TipsPage({ params }: any) {
         >
           <p>{tip[0].description}</p>
         </Container>
-        <Link href="/TipsnTricks">
+        <Link href="/tips-and-tricks">
           <BackButton />
         </Link>
       </Flex>
