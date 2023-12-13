@@ -134,7 +134,7 @@ export default function Calendar() {
           </div>
         </Link>
       </div>
-      <Link href="/app">
+      <Link href="/">
       <BackButton/>
       </Link>
     </div>
