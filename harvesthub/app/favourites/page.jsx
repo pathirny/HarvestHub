@@ -56,6 +56,7 @@ export default function Favourites() {
       if (error) {
         console.log(error);
       }
+      getFavs()
     }
     apiCall(id);
   }
