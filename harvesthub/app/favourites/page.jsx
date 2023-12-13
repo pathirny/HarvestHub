@@ -14,6 +14,8 @@ export default function Favourites() {
 
   //handle list of favourited tips
   const [favTips, setFavTips] = useState();
+
+  const [filteredTips, setFilteredTips] = useState();
   //record success of api call to database
   const [success, setSuccess] = useState(false);
   //manage state for search terms in searchbar
@@ -29,13 +31,13 @@ export default function Favourites() {
         console.log(error);
       } else if (data.length > 0) {
         setFavTips(data);
+        setFilteredTips(data)
         setSuccess(true);
       } else if (data.length <= 0) {
         setFavTips("");
         setSuccess(false);
       }
     }
-    console.log("getting favs")
     apiCall();
   }
 
@@ -59,7 +61,6 @@ export default function Favourites() {
   }
 
   useEffect(() => {
-    console.log(success)
     // useEffect for search function
     if(success){
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
@@ -70,13 +71,14 @@ export default function Favourites() {
 
      const tipArr = Object.values(tip)
      tipArr.pop()
-    console.log(tipArr)
+
       return tipArr.some((b) => {
         return b.toString().toLowerCase().includes(lowerCaseSearchTerm);
       });
     });
     // set the state of filtered tips
-    setFavTips(newFilteredTips);
+    console.log(newFilteredTips)
+    setFilteredTips(newFilteredTips);
   }
   }, [searchTerm]); // render everytime search term changes
 
@@ -90,7 +92,7 @@ export default function Favourites() {
       <ul id="fav-container">
         {/* checking if api call has pulled back data rather than an empty array before rendering tips */}
         {success ? (
-          favTips.map((a) => {
+          filteredTips.map((a) => {
             return (
               <div id="fav-card-container" key={a.tips.id}>
                 <Link href={`./TipsnTricks/${a.tips.id}`} id="fav-card">
