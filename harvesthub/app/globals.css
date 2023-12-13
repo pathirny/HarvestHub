@@ -728,3 +728,41 @@ hr {
   width: 90vw;
 }
 
+
+/* favourites page */
+
+#fav-container{
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 5vw;
+}
+
+#fav-card-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+#fav-card{
+  background-color: var(--white-cream-color);
+  border-radius: 3vw;
+  padding: 0vw 2vw 0vw 2vw;
+  color: var(--dark-green-color);
+  height: 20vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+}
+
+#delete-fav{
+  border: none;
+  width: 20%;
+  height: 20vw;
+  border-radius: 3vw;
+  margin: 0
+}
+
