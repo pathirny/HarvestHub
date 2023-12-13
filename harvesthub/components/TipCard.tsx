@@ -58,12 +58,9 @@ apiCall(tip.id)
 
 function favTip() {
 
-async function apiCall(){
+async function apiCall(idIn : any){
 
   const id = await supabase.auth.getUser();
-  if (id) {
-    
-  }
 
   const { data, error } = await supabase
   .from('favourites')
@@ -71,14 +68,25 @@ async function apiCall(){
     {user_id: id.data.user?.id, tip_id: tip.id },
   ])
   .select()
+
+  setFavourited(true)
 if(error){
   console.log(error)
-  alert(error.message)
+  if(error.code == '23505'){
+    const { error } = await supabase
+        .from("favourites")
+        .delete()
+        .eq("tip_id", idIn);
+      if (error) {
+        console.log(error);
+      }
+      setFavourited(false)
+  }
 }
 
 }
 
-apiCall()
+apiCall(tip.id)
   
 }
 
