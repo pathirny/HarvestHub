@@ -81,7 +81,7 @@ export default function Favourites() {
           })
         ) : (
           <>
-            <p>You have not saved any favourites</p>
+            <p className="favsMissing">You have not saved any favourites</p>
           </>
         )}
       </ul>

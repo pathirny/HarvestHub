@@ -654,6 +654,13 @@ a {
 
 .favouritesButton {
   width: 90vw;
+  box-shadow: 10px 10px 18px 0px rgba(0, 0, 0, 0.75);
+}
+
+.favsMissing {
+  color: var(--white-cream-color);
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 /* user page */
@@ -770,6 +777,11 @@ hr {
   height: 20vw;
   overflow: hidden;
   text-overflow: ellipsis;
+  mask-image: linear-gradient(
+    to bottom,
+    black calc(100% - 80px),
+    transparent 100%
+  );
 }
 
 #tip-container {
