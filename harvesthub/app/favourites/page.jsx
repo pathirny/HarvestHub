@@ -13,10 +13,12 @@ export default function Favourites() {
   );
 
   //handle list of favourited tips
-  const [favTips, setFavTips] = useState([{}]);
+  const [favTips, setFavTips] = useState();
   //record success of api call to database
   const [success, setSuccess] = useState(false);
+  //manage state for search terms in searchbar
   const [searchTerm, setSearchTerm] = useState("");
+
   //function to get favourites from database and set favTips
   function getFavs() {
     async function apiCall() {
@@ -33,13 +35,14 @@ export default function Favourites() {
         setSuccess(false);
       }
     }
+    console.log("getting favs")
     apiCall();
   }
 
   //set the favTips on first render
   useEffect(() => {
     getFavs();
-  }, [deleteFav]);
+  }, []);
 
   //to delete a tip from the database
   function deleteFav(id) {
@@ -52,24 +55,29 @@ export default function Favourites() {
         console.log(error);
       }
     }
-    console.log("delete");
     apiCall(id);
   }
 
   useEffect(() => {
+    console.log(success)
     // useEffect for search function
+    if(success){
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
     // Search functionality which filters over gardening tips and returns the values
     const newFilteredTips = favTips.filter((a) => {
-      const values = Object.values(a);
-      values.pop();
-      return values.some((b) => {
+      let tip = a.tips
+
+     const tipArr = Object.values(tip)
+     tipArr.pop()
+    console.log(tipArr)
+      return tipArr.some((b) => {
         return b.toString().toLowerCase().includes(lowerCaseSearchTerm);
       });
     });
     // set the state of filtered tips
     setFavTips(newFilteredTips);
+  }
   }, [searchTerm]); // render everytime search term changes
 
   return (
