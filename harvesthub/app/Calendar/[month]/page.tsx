@@ -124,7 +124,7 @@ export default function Month({ params }: any) {
             {plantList.map((a) => {
               return (
                 <>
-                  <Link href={`/Veggies/${a.name}`}>
+                  <Link href={`/veggies/${a.name}`}>
                     <div
                       className="vegListItem"
                       style={{
@@ -145,7 +145,7 @@ export default function Month({ params }: any) {
             {harvestList.map((a) => {
               return (
                 <>
-                  <Link href={`/Veggies/${a.name}`}>
+                  <Link href={`/veggies/${a.name}`}>
                     <div
                       className="vegListItem"
                       style={{

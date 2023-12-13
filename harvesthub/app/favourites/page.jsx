@@ -96,7 +96,7 @@ export default function Favourites() {
           filteredTips.map((a) => {
             return (
               <div id="fav-card-container" key={a.tips.id}>
-                <Link href={`./TipsnTricks/${a.tips.id}`} id="fav-card">
+                <Link href={`./tips-and-tricks/${a.tips.id}`} id="fav-card">
                   <h2>{a.tips.title}</h2>
                 </Link>
                 <button
