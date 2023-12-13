@@ -766,3 +766,16 @@ hr {
   margin: 0
 }
 
+#tip-description{
+  height: 20vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#tip-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 
+}

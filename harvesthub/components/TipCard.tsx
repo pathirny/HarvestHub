@@ -58,28 +58,32 @@ apiCall()
 }
 
 
-  return (
+  return (<>
+  <div id="tip-container">
     <Link href={`./TipsnTricks/${tip.id}`}>
       <Card className="TipCard" maxW="md" borderRadius={10}>
         <CardHeader>
           <Flex>
             <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
               <Box>
-                <Heading size="sm">{tip.title}</Heading>
-                <Text>{tip.author}</Text>
+                <Heading size="sm" style={{margin: "0"}}>{tip.title}</Heading>
+                <Text style={{margin: "0"}}>{tip.author}</Text>
               </Box>
             </Flex>
-            <IconButton aria-label="Add to favourites" onClick={favTip} icon={<CiHeart />} />
           </Flex>
         </CardHeader>
-        <CardBody>
-          {/* <Text>
+        <CardBody id="tip-description">
+          <Text>
             With Chakra UI, I wanted to sync the speed of development with the
             speed of design. I wanted the developer to be just as excited as the
             designer to create a screen.
-          </Text> */}
+          </Text>
         </CardBody>
       </Card>
   </Link>
+  
+        <IconButton style={{margin: "0"}} aria-label="Add to favourites" onClick={favTip} icon={<CiHeart />} />
+  </div>
+  </>
   );
 };
