@@ -117,6 +117,7 @@ export default function UserPage() {
         <div id="user_name">
           <p style={{ alignSelf: "center" }}>{userName}</p>
         </div>
+        <Link href="/favourites">Favourites</Link>
       </div>
       <Link href="/">
         <BackButton />
