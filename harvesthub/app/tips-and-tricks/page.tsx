@@ -38,7 +38,6 @@ export default function TipsnTricks() {
       if (tips) {
         setGardeningTips(tips.reverse());
         setFilteredTips(tips);
-        console.log(tips);
       } else {
         console.log(error);
       }
