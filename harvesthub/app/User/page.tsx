@@ -117,20 +117,7 @@ export default function UserPage() {
         <div id="user_name">
           <p style={{ alignSelf: "center" }}>{userName}</p>
         </div>
-        <div id="Underline"></div>
-        <h2 id="bio-title" style={{ textAlign: "center" }}>
-          Bio
-        </h2>
-        <div id="UserBio">
-          { update ? 
-          <>
-          <form onSubmit={(e)=>{console.log(e)}}><textarea style={{height: "100%", width: "100%"}} value={bio} onChange={(e)=>{setBio(e.target.value)}}></textarea>
-          <button type="submit" >Submit</button></form></>
-          :
-          <p>
-            {bio}
-          </p>}
-        </div>
+        <Link href="/favourites">Favourites</Link>
       </div>
       <Link href="/">
         <BackButton />
