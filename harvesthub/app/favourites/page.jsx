@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Link from "next/link";
 
-
 export default function Favourites() {
   //set up the supabase client
   const supabase = createBrowserClient(
@@ -25,10 +24,12 @@ export default function Favourites() {
   `);
       if (error) {
         console.log(error);
-      } else if (data.length >0) {
-          setFavTips(data);
-          setSuccess(true);
-          console.log("hello")
+      } else if (data.length > 0) {
+        setFavTips(data);
+        setSuccess(true);
+      } else if (data.length <= 0) {
+        setFavTips("");
+        setSuccess(false);
       }
     }
     apiCall();
@@ -37,7 +38,7 @@ export default function Favourites() {
   //set the favTips on first render
   useEffect(() => {
     getFavs();
-  }, []);
+  }, [deleteFav]);
 
   //to delete a tip from the database
   function deleteFav(id) {
@@ -50,8 +51,8 @@ export default function Favourites() {
         console.log(error);
       }
     }
+    console.log("delete");
     apiCall(id);
-    getFavs()
   }
 
   return (
