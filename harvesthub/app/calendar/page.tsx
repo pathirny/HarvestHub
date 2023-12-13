@@ -1,3 +1,4 @@
+import BackButton from "@/components/BackButton";
 import Header from "@/components/Header";
 import Link from "next/link";
 
@@ -133,6 +134,10 @@ export default function Calendar() {
           </div>
         </Link>
       </div>
+      <Link href="/app">
+      <BackButton/>
+      </Link>
     </div>
+
   );
 }
