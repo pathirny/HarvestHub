@@ -100,8 +100,8 @@ export default function Index() {
             </h2>
           </div>
         </Link>
-
-        <Link href="./Calendar">
+        {/* Calendar */}
+        <Link href="./calendar">
           <div
             className="link-container"
             style={{

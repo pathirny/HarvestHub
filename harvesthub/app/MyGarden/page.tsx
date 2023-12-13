@@ -1,11 +1,13 @@
-"use client"
-import Header from '@/components/Header';
-import FullCalendar from '../../components/calendar.jsx';
+"use client";
+import Header from "@/components/Header";
+import FullCalendar from "../../components/calendar.jsx";
 import { Flex, Button } from "@chakra-ui/react";
+import Link from "next/link.js";
 export default function Home() {
-  return (<>
-<Header title="My Garden"/>
-    <div id="calendar-container">
+  return (
+    <>
+      <Header title="My Garden" />
+      <div id="calendar-container">
         <FullCalendar initialView="dayGridMonth" />
         {/* <FullCalendar initialView='timeGridWeek' /> */}
 
