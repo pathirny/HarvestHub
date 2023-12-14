@@ -1,5 +1,14 @@
+import { useState, useEffect } from "react";
+import { createBrowserClient } from "@supabase/ssr";
+
 export default function useCheckSignedIn() {
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  );
+
   const [signedIn, setSignedIn] = useState();
+  useEffect(()=>{
 async function apiCall(){
   const {
     data: { user },
@@ -12,7 +21,7 @@ async function apiCall(){
     setSignedIn(false);
   } }
 
-  apiCall()
+  apiCall()}, [])
 
-  return {signedIn};
+  return [signedIn];
 }

@@ -6,8 +6,9 @@ import Link from "next/link";
 import { CldUploadWidget, CldImage } from "next-cloudinary";
 import { useEffect, useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
-
+import useCheckSignedIn from "../../components/hooks/useCheckSignedIn"
 export default function UserPage() {
+  const [signedIn] = useCheckSignedIn()
   const [publicId, setPublicId] = useState("/Users_img/sprout");
   const [userName, setUserName] = useState("");
   const [update, setUpdate] = useState(false);
@@ -125,6 +126,9 @@ export default function UserPage() {
         </div>
         <Link href="/favourites">
           <button className="favouritesButton">Favourites</button>
+        </Link>
+        <Link href="/yourTips">
+          <button className="favouritesButton">Your Tips</button>
         </Link>
       </div>
       <Link href="/">
