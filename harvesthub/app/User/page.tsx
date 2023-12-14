@@ -1,4 +1,6 @@
+// using client side instead of server side
 "use client";
+// importing dependency's
 import Header from "@/components/Header";
 import BackButton from "@/components/BackButton";
 import { SettingsIcon, AddIcon } from "@chakra-ui/icons";
@@ -12,7 +14,7 @@ export default function UserPage() {
   const [userName, setUserName] = useState("");
   const [update, setUpdate] = useState(false);
   const [bio, setBio] = useState("hi");
-
+// use supperbase 
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -52,7 +54,7 @@ export default function UserPage() {
     // }
   }
 
-  //
+  // function to set users profile picture 
   function setUserImg(imgId: any) {
     console.log("update img");
     console.log(userName);

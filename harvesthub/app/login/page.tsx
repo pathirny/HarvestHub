@@ -1,9 +1,10 @@
 import Link from "next/link";
+// importing dependancys 
 import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
-
+// creating function to sign in 
 export default function Login({
   searchParams,
 }: {
@@ -12,7 +13,7 @@ export default function Login({
   const signIn = async (formData: FormData) => {
 
     "use server";
-
+// storing sign in data in varibales
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const cookieStore = cookies();
@@ -29,7 +30,7 @@ export default function Login({
 
     return redirect("/");
   };
-
+// storing sign up data in varibales
   const signUp = async (formData: FormData) => {
     "use server";
 
@@ -54,7 +55,7 @@ export default function Login({
 
     return redirect("/login?message=Check email to continue sign in process");
   };
-
+// rendering user data inputs and sign in button
   return (
     <div className="box">
       {/* <Link href="/"> Back</Link> */}
