@@ -20,6 +20,16 @@ export default function Index() {
 
 async function apiCall(formData : any ){
 //insert row into public users table
+const { data, error } = await supabase
+  .from('Users')
+  .insert([
+    { first_name: formData.target[0].value, last_name: formData.target[1].value },
+  ])
+  .select()
+
+  if(error){
+    console.log(error)
+  }
 }
 apiCall(e)
 
@@ -59,11 +69,6 @@ apiCall(e)
   return (
     <>
       <Header title="Harvest Hub" />
-      {publicUser ? <></> : (<form onSubmit={(e)=>{addToPublic(e)}}>
-        <input name="first name" type="text" placeholder="first name"></input>
-        <input name="last name" type="text" placeholder="last name"></input>
-        <button type="submit">Submit</button>
-      </form>)}
       <main className="homepage-box">
         <img
           src="/assets/Veglogo.png"
@@ -184,6 +189,13 @@ apiCall(e)
           </Link>
         </div>
       </main>
+      {publicUser ? <></> : (<><div id="publicUserBackground" ></div><form id="publicUserForm" onSubmit={(e)=>{addToPublic(e)}}>
+        <h3>Please add you first and last name to complete the sign up process.</h3>
+        <input name="first name" type="text" placeholder="First Name"></input>
+        <input name="last name" type="text" placeholder="Last Name"></input>
+        <button type="submit">Submit</button>
+      </form>
+      </>)}
     </>
   );
 }

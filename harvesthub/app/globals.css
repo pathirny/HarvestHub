@@ -791,3 +791,37 @@ hr {
   justify-content: center;
   margin: 0;
 }
+
+
+
+
+/* public user form  */
+
+#publicUserForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90vw;
+  align-items: center;
+  margin: auto;
+  position: fixed;
+  top: 60vw;
+  left: 5vw;
+  background-color: var(--dark-green-color);
+  border-radius: 3vw;
+  color: var(--white-cream-color);
+  text-align: center;
+}
+
+#publicUserForm input, #publicUserForm button{
+  margin: 3vw;
+}
+
+#publicUserBackground{
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--white-cream-color);
+  opacity: 0.5;
+}
