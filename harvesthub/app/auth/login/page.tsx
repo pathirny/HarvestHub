@@ -1,21 +1,22 @@
+//using client side instead of server side
 "use client"
-
+//importing functions from frameworks and librariers
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-
+//defining a type of AlertProps
 type AlertProps = {
   type: "info" | "error",
   msg: string
 }
-
+//create function to login to the page
 export default function Page(){
     const {push} = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState<AlertProps>()
   const [loading, setLoading] = useState(false);
-  
+  //rendering login form
   return (
     <main className="antialiased flex min-h-screen flex-col items-center justify-center bg-slate-100">
       {alert && <Alert msg={alert.msg} type={alert.type}/>}
@@ -23,6 +24,7 @@ export default function Page(){
         <h1 className="font-semibold mb-2">Login</h1>
         <form className="flex flex-col gap-4 mt-4">
           <div className="flex flex-col gap-1">
+  {/* create an input email field */}
             <input type="email" 
               id="email"
               className="px-3 py-2 text-sm text-slate-400 border border-slate-300 rounded outline-none"
@@ -30,7 +32,7 @@ export default function Page(){
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"/>
           </div>
-
+{/* create an input password field */}
           <div className="flex flex-col gap-1">
             <input type="password" 
               id="password"
@@ -41,7 +43,7 @@ export default function Page(){
           </div>
           
           <hr />
-
+{/* create a submit button to submit the form data */}
           <button type="button"
             className="bg-slate-900 font-semibold rounded py-2 text-white"
             onClick={async (e) => {
@@ -57,6 +59,7 @@ export default function Page(){
            {loading ? '...' : 'Login'}
             
           </button>
+{/* create a button to sign up if the user does not already exists */}
           <button type="button"
             className="bg-slate-900 font-semibold rounded py-2 text-white"
             onClick={async (e) => {
@@ -75,10 +78,10 @@ export default function Page(){
   )
 }
 
-
+// create a functin to handle a error message/alert
 const Alert: React.FC<AlertProps> = ({ type, msg }) => {
   let style = ""
-
+// switch function to display the correct message
   switch (type) {
     case "info":
     default:
@@ -88,7 +91,7 @@ const Alert: React.FC<AlertProps> = ({ type, msg }) => {
       style = "bg-red-100 border-red-300 text-red-600"
       break;
   }
-
+// 
   return (<div className={`text-xs py-2 px-2 flex gap-2 mb-2 w-72 border rounded-md ${style}`}>
     <strong>{type}: </strong>
     <span>{msg}</span>
