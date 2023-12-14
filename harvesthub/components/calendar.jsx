@@ -7,6 +7,8 @@ import multiMonthPlugin from "@fullcalendar/multimonth";
 import { Select } from "@chakra-ui/react";
 import { createBrowserClient } from "@supabase/ssr";
 import { formatDate } from "@fullcalendar/core";
+// import { h } from "@fullcalendar/core/preact";
+// import { s } from "@fullcalendar/core/internal-common";
 
 export default function FullCalendar(props) {
   //connecting to supabase
@@ -31,7 +33,10 @@ export default function FullCalendar(props) {
     getVegOptions();
   }, []);
 
-
+  // Set state to the harvest date
+  const [harvestDate, setHarvestDate] = useState(3);
+  // Set state to the selected veggie
+  const [selectedVeg, setSelectedVeg] = useState('');
   //toggle to control if the form is showing to input a new event
   const [input, setinput] = useState(false);
   //setting date when a calendar day is clicked on - to be passed the event object
@@ -59,6 +64,32 @@ export default function FullCalendar(props) {
     setDate(e.date);
   }
 
+  //Create a function that uses the name of the veggie to get the harvest date and add it to the calendar
+  useEffect(() => {
+    async function getHarvestDate(veg) {
+      // Do an api call to get the harvest date
+      let { data: veggies, error } = await supabase
+      .from('veggies')
+      .select("grow-time")
+        .eq('name', `${veg}`);
+  
+      if (error) {
+        console.error('Error fetching veggies:', error);
+        return;
+      }
+  
+      if (veggies && veggies.length > 0) {
+        setHarvestDate(veggies[0]['grow-time']);
+        console.log(veggies[0]['grow-time']);
+      } else {
+        console.log('No veggies found with the name:', veg);
+      }
+    }
+  
+    getHarvestDate(selectedVeg);
+  }, [selectedVeg]);
+    
+
   //adds event when the input form has been submitted
   function addEvent(data) {
     data.preventDefault();
@@ -67,7 +98,7 @@ export default function FullCalendar(props) {
     let newDate = new Date(date);
 
     // Add 2 days to the date
-    newDate.setDate(date.getDate() + 2);
+    newDate.setDate(date.getDate() + harvestDate);
 
     //adds the new event and the harvest event to the current events
     setEvent((curr) => {
@@ -107,9 +138,13 @@ export default function FullCalendar(props) {
         <form onSubmit={addEvent}>
           <label htmlFor="vegTypev">what are you growing</label>
           {/* drop down to select veggies */}
-          <Select placeholder="Select option" style={{ borderRadius: "2vw" }}>
+          <Select placeholder="Select option" style={{ borderRadius: "2vw" }} value={selectedVeg} onChange={(e) => setSelectedVeg(e.target.value)}>
             {vegList.map((a) => {
-              return <option value={a.name}>{a.name}</option>;
+              return (
+                <option value={a.name} key={a.id}>
+                  {a.name}
+                </option>
+              );
             })}
           </Select>
           {/* <input type="text" name="vegType" /> */}
@@ -134,16 +169,11 @@ export default function FullCalendar(props) {
           handleDateClick(e);
         }}
         events={event}
-        eventClick={(e) => {
-          addCheck;
-        }}
+        // eventClick={(e) => {
+        //   addCheck(e);
+        // }}
         {...props}
       />
     </>
   );
 }
-
-//Create a function that uses the name of the veggie to get the harvest date and add it to the calendar
-// Do an api call to get the harvest date
-// Set state to the harvest date
-// Use a tmplate literal to add the harvest date to the calendar
