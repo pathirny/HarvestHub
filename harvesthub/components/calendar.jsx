@@ -142,3 +142,8 @@ export default function FullCalendar(props) {
     </>
   );
 }
+
+//Create a function that uses the name of the veggie to get the harvest date and add it to the calendar
+// Do an api call to get the harvest date
+// Set state to the harvest date
+// Use a tmplate literal to add the harvest date to the calendar
