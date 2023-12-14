@@ -10,8 +10,8 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { CiHeart } from "react-icons/ci";
+import { gardeningTipsType } from "@/app/tips-and-tricks/renderTips";
 import { FaHeartCircleCheck } from "react-icons/fa6";
-import { gardeningTipsType } from "@/app/TipsnTricks/renderTips";
 import { createBrowserClient } from "@supabase/ssr";
 import { useEffect, useState } from "react";
 // 1 - Style card with border etc.
@@ -24,12 +24,32 @@ interface TipCardtip {
 }
 
 export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
-
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
+  function favTip() {
+    async function apiCall() {
+      console.dir(tip);
+
+      const id = await supabase.auth.getUser();
+      if (id) {
+        console.log(id.data.user?.id);
+      }
+
+      const { data, error } = await supabase
+        .from("favourites")
+        .insert([{ user_id: id.data.user?.id, tip_id: tip.id }])
+        .select();
+      if (error) {
+        console.log(error);
+      } else if (data) {
+        console.log(data);
+      }
+    }
+
+    apiCall();
   const [favourited, setFavourited] = useState(false)
 
 useEffect(()=>{
