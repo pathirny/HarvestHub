@@ -15,6 +15,9 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
+import useCheckSignedIn from "../../components/hooks/useCheckSignedIn"
+
+
 // create TipsnTricks component
 export default function TipsnTricks() {
   // set state for search, tips, display and newfiltered tips
@@ -25,6 +28,7 @@ export default function TipsnTricks() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
+  const [signedIn] = useCheckSignedIn()
   //use supabase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -188,9 +192,9 @@ export default function TipsnTricks() {
         <Link href="/">
           <Button className="addButton">Back</Button>
         </Link>
-        <Button className="addButton" onClick={toggleForm}>
+        {signedIn ? <Button className="addButton" onClick={toggleForm}>
           Add Tip +
-        </Button>
+        </Button> : <></> }
       </Flex>
     </div>
   );
