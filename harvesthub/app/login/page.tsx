@@ -49,11 +49,9 @@ export default function Login({
     if (error) {
       console.log(error);
       return redirect("/login?message=Could not authenticate user");
-      alert("Could not authenticate user");
     }
 
     return redirect("/login?message=Check email to continue sign in process");
-    alert("Check email to continue sign in process");
   };
 
   return (
