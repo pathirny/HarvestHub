@@ -42,7 +42,7 @@ export default function Login({
       email,
       password,
       options: {
-        emailRedirectTo: `${origin}/auth/callback`,
+        emailRedirectTo: `https://harvest-hub-tau.vercel.app/auth/callback`,
       },
     });
 
