@@ -11,22 +11,12 @@ import Link from "next/link";
 import React from "react";
 import { color } from "framer-motion";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
+import useCheckSignedIn from "../components/hooks/useCheckSignedIn"
 
 export default function Index() {
-  // const cookieStore = cookies();
 
-  // const canInitSupabaseClient = () => {
-  //   // This function is just for the interactive tutorial.
-  //   // Feel free to remove it once you have Supabase connected.
-  //   try {
-  //     createClient(cookieStore);
-  //     return true;
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // };
+  const [signedIn] = useCheckSignedIn()
 
-  // const isSupabaseConnected = canInitSupabaseClient();
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
