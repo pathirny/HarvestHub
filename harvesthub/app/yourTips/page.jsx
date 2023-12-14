@@ -27,10 +27,8 @@ export default function YourTips() {
       const id = await supabase.auth.getUser();
       const { data, error } = await supabase.from("tips").select(`*`).eq('user_id', id.data.user.id);
       if (error) {
-        console.log('cannot get')
         console.log(error);
       } else if (data) {
-        console.log(data)
         setYourTips(data);
         setFilteredTips(data)
         setSuccess(true);
@@ -76,7 +74,6 @@ export default function YourTips() {
       });
     });
     // set the state of filtered tips
-    console.log(newFilteredTips)
     setFilteredTips(newFilteredTips);
   }
   }, [searchTerm]); // render everytime search term changes
@@ -94,7 +91,7 @@ export default function YourTips() {
           filteredTips.map((a) => {
             return (
               <div id="fav-card-container" key={a.id}>
-                <Link href={`./TipsnTricks/${a.id}`} id="fav-card">
+                <Link href={`./tips-and-tricks/${a.id}`} id="fav-card">
                   <h2>{a.title}</h2>
                 </Link>
                 <button
