@@ -13,7 +13,7 @@ export default function YourTips() {
   );
 
   //handle list of favourited tips
-  const [yourTips, setYourTips] = useState([{id: 1}]);
+  const [yourTips, setYourTips] = useState();
 
   const [filteredTips, setFilteredTips] = useState();
   //record success of api call to database
@@ -32,7 +32,10 @@ export default function YourTips() {
         setYourTips(data);
         setFilteredTips(data)
         setSuccess(true);
-      } 
+      } if (data.length <= 0) {
+        setYourTips("");
+        setSuccess(false);
+      }
     }
     apiCall();
   }
