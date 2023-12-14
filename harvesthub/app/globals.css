@@ -8,7 +8,7 @@
   --brown-color: #b9a48c;
   --white-cream-color: #f3ebe4;
 }
-/* Login page */
+
 body {
   margin: 0;
   padding: 0;
@@ -17,29 +17,8 @@ body {
   font-family: "Josefin", sans-serif;
 }
 
-.box {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--dark-green-color);
-  align-items: center;
-  min-height: 100vh;
-  justify-content: center;
-}
-.form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  color: var(--dark-green-color);
-}
-.logo {
-  margin-bottom: 5rem;
-  margin-top: 5rem;
-  width: 15rem;
-  height: 18rem;
-}
-label {
-  margin-top: 1rem;
+a {
+  text-decoration: none;
 }
 
 input {
@@ -66,13 +45,62 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
+#back-btn {
+  background-color: #f3ebe4;
+  color: #47594e;
+  position: fixed;
+  bottom: 5vw;
+  width: 40vw;
+  height: 10vw;
+  border-radius: 5vw;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  left: 30vw;
+  right: 30vw;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1vw;
+  align-items: center;
+}
+
+hr {
+  width: 90vw;
+}
+
+/*////////////////////////////////////////////// Login page ///////////////////////////////////////////*/
+
+.box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-green-color);
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-green-color);
+}
+.logo {
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+  width: 15rem;
+  height: 18rem;
+}
+
 .reset-password {
   color: var(--white-cream-color);
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
-/* Header */
+/*////////////////////////////////////////////// Header ///////////////////////////////////////////*/
 #nav-body {
   background-color: var(--light-green-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
@@ -96,8 +124,8 @@ button {
   border-radius: 10px;
   color: var(--dark-green-color);
   border: 2px solid var(--dark-green-color);
+  width: 12vw;
   height: 12vw;
-  width: 16vw;
 }
 
 #nav-container h3 {
@@ -118,13 +146,23 @@ button {
 
 #user-button {
   grid-area: c;
-  height: 100%;
 }
 
-/* calendar */
+/*////////////////////////////////////////////// Calendar Year View ///////////////////////////////////////////*/
 
-a {
-  text-decoration: none;
+#calendar-welcome-container {
+  background-color: var(--white-cream-color);
+  padding: 1vw;
+  margin-top: 5vw;
+}
+
+#calendar-welcome {
+  color: var(--dark-green-color);
+  text-align: center;
+  font-size: 5vw;
+  font-family: sans-serif;
+  width: 90vw;
+  margin: auto;
 }
 
 #calendar-background {
@@ -164,7 +202,7 @@ a {
   color: var(--brown-color);
 }
 
-/* month page */
+/*////////////////////////////////////////////// Calendar Month Page ///////////////////////////////////////////*/
 
 #month-nav-container {
   display: flex;
@@ -174,18 +212,19 @@ a {
   gap: 5vw;
   align-items: center;
 }
-
 .header-month {
   width: 52vw;
   height: 43vw;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .header-month p {
   text-align: center;
   width: 100%;
   position: absolute;
-  margin-top: 1vw;
+  margin-top: 5vw;
   font-size: 5vw;
 }
 
@@ -207,36 +246,13 @@ a {
   align-self: center;
 }
 
-#back-btn {
-  background-color: #f3ebe4;
-  color: #47594e;
-  position: fixed;
-  bottom: 5vw;
-  width: 40vw;
-  height: 10vw;
-  border-radius: 5vw;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  left: 30vw;
-  right: 30vw;
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 5vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1vw;
-  align-items: center;
-}
-
 #calendar-pg-container {
   background-color: var(--dark-green-color);
   height: 100vh;
   width: 100%;
 }
 
-/* calendar */
-
-/* Home Page */
+/*////////////////////////////////////////////// Homepage ///////////////////////////////////////////*/
 
 .link-container {
   width: 18rem;
@@ -266,18 +282,6 @@ a {
   justify-content: flex-start;
 }
 
-/* 
-.hero-header-heading {
-  position: absolute;
-  width: 18rem;
-  height: 8rem;
-  margin: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--dark-green-color);
-} */
-
 .hero-header-subheading {
   margin-top: 1rem;
   color: var(--white-cream-color);
@@ -286,6 +290,7 @@ a {
   letter-spacing: 1px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
 .text-highlight {
   color: var(--dark-green-color);
   font-size: 3rem;
@@ -296,119 +301,7 @@ a {
   font-weight: bold;
 }
 
-/* calendar */
-
-#calendar-welcome-container {
-  background-color: var(--white-cream-color);
-  padding: 1vw;
-  margin-top: 5vw;
-}
-
-#calendar-welcome {
-  color: var(--dark-green-color);
-  text-align: center;
-  font-size: 5vw;
-  font-family: sans-serif;
-  width: 90vw;
-  margin: auto;
-}
-
-:root {
-  --dark-green-color: #47594e;
-  --light-green-color: #99a57b;
-  --brown-color: #b9a48c;
-  --white-cream-color: #f3ebe4;
-}
-
-a {
-  text-decoration: none;
-}
-
-#calendar-background {
-  background-color: var(--dark-green-color);
-}
-
-#calendargrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 30vw);
-  grid-gap: 5vw;
-  padding: 8vw;
-  position: relative;
-}
-
-#calendargrid p {
-  text-align: center;
-  width: 100%;
-  margin-top: 0vw;
-  padding-top: 2vw;
-  font-size: 4vw;
-  font-weight: bold;
-  position: absolute;
-}
-
-.month {
-  border-radius: 3vw;
-  height: 100%;
-  position: relative;
-}
-
-.br-wht {
-  color: var(--white-cream-color);
-}
-
-.wht-br {
-  color: var(--brown-color);
-}
-
-#month-nav-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-  gap: 5vw;
-  align-items: center;
-}
-
-.header-month {
-  width: 52vw;
-  height: 43vw;
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.header-month p {
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  margin-top: 5vw;
-  font-size: 5vw;
-}
-
-#prv-mnth-bttn {
-  width: 0;
-  height: 0;
-  border-top: 5vw solid transparent;
-  border-bottom: 5vw solid transparent;
-  border-right: 5vw solid var(--light-green-color);
-  align-self: center;
-}
-
-#next-mnth-bttn {
-  width: 0;
-  height: 0;
-  border-top: 5vw solid transparent;
-  border-bottom: 5vw solid transparent;
-  border-left: 5vw solid var(--light-green-color);
-  align-self: center;
-}
-
-#calendar-pg-container {
-  background-color: var(--dark-green-color);
-  height: 100vh;
-  width: 100%;
-}
+/*////////////////////////////////////////////// Veggies page ///////////////////////////////////////////*/
 
 #plant-harvest-grid {
   display: grid;
@@ -538,9 +431,8 @@ a {
   background-color: var(--dark-green-color);
   height: 100vh;
 }
-/* calendar */
 
-/* tips and tricks */
+/*////////////////////////////////////////////// Tips and Tricks ///////////////////////////////////////////*/
 @media only screen and (max-width: 430px) {
   .buttonsContainer {
     position: fixed;
@@ -557,12 +449,6 @@ a {
       black calc(100% - 10px),
       transparent 100%
     );
-
-    /* background: linear-gradient(
-      to bottom,
-      rgba(71, 89, 78, 0.7),
-      rgba(71, 89, 78, 1)
-    ); */
   }
 
   .addButton {
@@ -579,8 +465,6 @@ a {
   height: 10vw;
   border-radius: 5vw;
   border: 1px solid rgba(0, 0, 0, 0.4);
-  /* left: 30vw;
-  right: 30vw; */
   font-weight: bold;
   font-family: sans-serif;
   font-size: 5vw;
@@ -591,7 +475,7 @@ a {
   align-items: center;
 }
 
-/* user page */
+/*////////////////////////////////////////////// User Page ///////////////////////////////////////////*/
 
 #userPage-container {
   display: flex;
@@ -638,23 +522,6 @@ a {
   border-bottom: 1px solid var(--white-cream-color);
 }
 
-#UserBio {
-  margin-top: 0vw;
-  background-color: var(--white-cream-color);
-  border-radius: 2vw;
-  color: var(--dark-green-color);
-  height: 50vw;
-  padding: 3vw;
-}
-
-#bio-title {
-  color: var(--white-cream-color);
-}
-
-#UserBio p {
-  margin: 2vw;
-}
-
 .favouritesButton {
   width: 90vw;
   box-shadow: 10px 10px 18px 0px rgba(0, 0, 0, 0.75);
@@ -666,7 +533,7 @@ a {
   font-size: 1.2rem;
 }
 
-/* user page */
+/*////////////////////////////////////////////// Tip Cards ///////////////////////////////////////////*/
 
 .tipContainer {
   mask-image: linear-gradient(
@@ -698,7 +565,25 @@ a {
   padding-bottom: 10px;
 }
 
-/* setting page */
+#tip-description {
+  height: 20vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  mask-image: linear-gradient(
+    to bottom,
+    black calc(100% - 80px),
+    transparent 100%
+  );
+}
+
+#tip-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+/*////////////////////////////////////////////// Settings Page ///////////////////////////////////////////*/
 
 #settings-container {
   display: flex;
@@ -726,20 +611,14 @@ a {
   font-size: 6vw;
 }
 
-/* working calendar  */
+/*////////////////////////////////////////////// My Garden Calendar ///////////////////////////////////////////*/
 
 #calendar-container {
   width: 90vw;
   margin: auto;
 }
 
-/* working calendar  */
-
-hr {
-  width: 90vw;
-}
-
-/* favourites page */
+/*////////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
 
 #fav-container {
   padding: 5vw;
@@ -773,25 +652,6 @@ hr {
   width: 20%;
   height: 20vw;
   border-radius: 3vw;
-  margin: 0;
-}
-
-#tip-description {
-  height: 20vw;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  mask-image: linear-gradient(
-    to bottom,
-    black calc(100% - 80px),
-    transparent 100%
-  );
-}
-
-#tip-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   margin: 0;
 }
 
@@ -829,4 +689,7 @@ hr {
 
 #user-button {
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

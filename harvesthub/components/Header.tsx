@@ -43,13 +43,17 @@ export default function Header({ title }: any) {
           </Link>
           <h1 id="page-title">{title}</h1>
           {signedIn ? (
-            <Link href="/user">
+            <Link href="/user" id="user-button">
               <div id="user-button">
                 <CldImage
                   src={`${userImg}`}
                   width="500"
                   height="500"
-                  style={{ width: "auto", height: "12vw" }}
+                  className="userImg"
+                  style={{
+                    width: "15vw",
+                    height: "auto",
+                  }}
                   alt="the Users profile"
                 />
               </div>
