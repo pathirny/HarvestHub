@@ -126,6 +126,9 @@ export default function UserPage() {
         <Link href="/favourites">
           <button className="favouritesButton">Favourites</button>
         </Link>
+        <Link href="/yourTips">
+          <button className="favouritesButton">Your Tips</button>
+        </Link>
       </div>
       <Link href="/">
         <BackButton />
