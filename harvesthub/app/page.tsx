@@ -16,6 +16,15 @@ import useCheckSignedIn from "../components/hooks/useCheckSignedIn";
 export default function Index() {
   const [publicUser, setPublicUser] = useState(true);
 
+  function addToPublic(e : any){
+
+async function apiCall(formData : any ){
+//insert row into public users table
+}
+apiCall(e)
+
+  }
+
   const [signedIn] = useCheckSignedIn();
   useEffect(() => {
     async function checkUser() {
@@ -25,7 +34,8 @@ export default function Index() {
           .select("user_id");
         if (Users) {
           if (Users?.length <= 0) {
-            console.log("SIGN IN");
+            console.log("SIGN IN")
+            setPublicUser(false);
           }
           console.log(Users);
         } else if (error) {
@@ -49,6 +59,11 @@ export default function Index() {
   return (
     <>
       <Header title="Harvest Hub" />
+      {publicUser ? <></> : (<form onSubmit={(e)=>{addToPublic(e)}}>
+        <input name="first name" type="text" placeholder="first name"></input>
+        <input name="last name" type="text" placeholder="last name"></input>
+        <button type="submit">Submit</button>
+      </form>)}
       <main className="homepage-box">
         <img
           src="/assets/Veglogo.png"
