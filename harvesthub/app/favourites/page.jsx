@@ -1,4 +1,6 @@
+// use client rendering
 "use client";
+// import all neccesary component dependencies
 import { createBrowserClient } from "@supabase/ssr";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
