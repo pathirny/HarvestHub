@@ -94,10 +94,6 @@ hr {
   height: 18rem;
 }
 
-/* label {
-  margin-top: 1rem; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-} */
-
 .reset-password {
   color: var(--white-cream-color);
   margin-top: 2rem;
@@ -128,6 +124,8 @@ hr {
   border-radius: 10px;
   color: var(--dark-green-color);
   border: 2px solid var(--dark-green-color);
+  width: 12vw;
+  height: 12vw;
 }
 
 #nav-container h3 {
@@ -656,3 +654,45 @@ hr {
   border-radius: 3vw;
   margin: 0;
 }
+
+
+/* public user form  */
+
+#publicUserForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90vw;
+  align-items: center;
+  margin: auto;
+  position: fixed;
+  top: 60vw;
+  left: 5vw;
+  background-color: var(--dark-green-color);
+  border-radius: 3vw;
+  color: var(--white-cream-color);
+  text-align: center;
+}
+
+#publicUserForm input,
+#publicUserForm button {
+  margin: 3vw;
+}
+
+#publicUserBackground {
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--white-cream-color);
+  opacity: 0.5;
+}
+
+#user-button {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

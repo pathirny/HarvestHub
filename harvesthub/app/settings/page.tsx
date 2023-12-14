@@ -19,16 +19,18 @@ export default function Settings(){
     async function signOut(){
            const { error } = await supabase.auth.signOut()
 
-           return redirect("/");
-    }
-
-    signOut()
+          }
+          
+          signOut()
+          return redirect("/");
   }
 
     return (<>
     <Header title="Settings" />
     <div id="settings-container">
-    <button id="signOut" className="setting_button" onClick={signOutFunc}><h1>Sign Out</h1> </button>
+      <form action={signOutFunc}>
+    <button id="signOut" type="submit" className="setting_button"><h1>Sign Out</h1> </button>
+    </form>
     <button id="changeMode" className="setting_button"><h1>Change Theme</h1></button>
 
   <Switch colorScheme='red' style={{width: "80vw", height: "30vw"}} />
