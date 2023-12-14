@@ -91,7 +91,7 @@ const Alert: React.FC<AlertProps> = ({ type, msg }) => {
       style = "bg-red-100 border-red-300 text-red-600"
       break;
   }
-// 
+//displaye a message in a styled div
   return (<div className={`text-xs py-2 px-2 flex gap-2 mb-2 w-72 border rounded-md ${style}`}>
     <strong>{type}: </strong>
     <span>{msg}</span>
