@@ -8,15 +8,33 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 // import { cookies } from "next/headers";
 import Header from "../components/Header";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { color } from "framer-motion";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import useCheckSignedIn from "../components/hooks/useCheckSignedIn"
+import useCheckSignedIn from "../components/hooks/useCheckSignedIn";
 
 export default function Index() {
+  const [publicUser, setPublicUser] = useState(true);
 
-  const [signedIn] = useCheckSignedIn()
-
+  const [signedIn] = useCheckSignedIn();
+  useEffect(() => {
+    async function checkUser() {
+      if (signedIn) {
+        let { data: Users, error } = await supabase
+          .from("Users")
+          .select("user_id");
+        if (Users) {
+          if (Users?.length <= 0) {
+            console.log("SIGN IN");
+          }
+          console.log(Users);
+        } else if (error) {
+          console.log(error);
+        }
+      }
+    }
+    checkUser();
+  }, [signedIn]);
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
