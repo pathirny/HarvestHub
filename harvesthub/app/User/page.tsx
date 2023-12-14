@@ -10,16 +10,15 @@ import { createBrowserClient } from "@supabase/ssr";
 export default function UserPage() {
   const [publicId, setPublicId] = useState("/Users_img/sprout");
   const [userName, setUserName] = useState("");
-  const [update, setUpdate] = useState(false)
-  const [bio, setBio] = useState("hi")
-
+  const [update, setUpdate] = useState(false);
+  const [bio, setBio] = useState("hi");
 
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-//get user image from supabase
+  //get user image from supabase
   useEffect(() => {
     async function getUserImg() {
       let { data: Users, error } = await supabase
@@ -31,7 +30,7 @@ export default function UserPage() {
     }
     getUserImg();
 
-//get user name
+    //get user name
     async function getName() {
       let { data: Users, error } = await supabase
         .from("Users")
@@ -43,16 +42,14 @@ export default function UserPage() {
     getName();
   }, []);
 
-  function setUserBio(){
+  function setUserBio() {
     // async function setBioDB(bio) {
     //   const { data, error } = await supabase
     //   .from("Users")
     //   .update({ user_bio: bio })
     //   .select();
-
     //   console.log(data)
     // }
-    
   }
 
   //
@@ -80,11 +77,17 @@ export default function UserPage() {
       <Header title="User Page" />
       <div id="userPage-container">
         <div id="icon-container">
-          <Link href="/settings"><div className="IconBox">
-            <SettingsIcon boxSize="7vw" color="#47594e" />
-          </div>
+          <Link href="/settings">
+            <div className="IconBox">
+              <SettingsIcon boxSize="7vw" color="#47594e" />
+            </div>
           </Link>
-          <div className="IconBox" onClick={()=>{setUpdate(!update)}}>
+          <div
+            className="IconBox"
+            onClick={() => {
+              setUpdate(!update);
+            }}
+          >
             <AddIcon boxSize="7vw" color="#47594e" />
           </div>
         </div>
@@ -98,26 +101,31 @@ export default function UserPage() {
             src={`${publicId}`}
           />
         </div>
-        { update ? 
-        <CldUploadWidget
-          uploadPreset="User_Upload"
-          onSuccess={(result, { widget }) => {
-            const img: any = result?.info;
-            if (img) {
-              setPublicId(img.public_id);
-              setUserImg(img.public_id);
-            }
-            widget.close(img.public_id);
-          }}
-        >
-          {({ open }) => {
-            return <button onClick={() => open()}>Upload an Image</button>;
-          }}
-        </CldUploadWidget> : <></>}
+        {update ? (
+          <CldUploadWidget
+            uploadPreset="User_Upload"
+            onSuccess={(result, { widget }) => {
+              const img: any = result?.info;
+              if (img) {
+                setPublicId(img.public_id);
+                setUserImg(img.public_id);
+              }
+              widget.close(img.public_id);
+            }}
+          >
+            {({ open }) => {
+              return <button onClick={() => open()}>Upload an Image</button>;
+            }}
+          </CldUploadWidget>
+        ) : (
+          <></>
+        )}
         <div id="user_name">
           <p style={{ alignSelf: "center" }}>{userName}</p>
         </div>
-        <Link href="/favourites">Favourites</Link>
+        <Link href="/favourites">
+          <button className="favouritesButton">Favourites</button>
+        </Link>
       </div>
       <Link href="/">
         <BackButton />
