@@ -4,12 +4,12 @@ import Link from "next/link";
 import { createBrowserClient } from "@supabase/ssr";
 import { useEffect, useState } from "react";
 import { CldImage } from "next-cloudinary";
-import useCheckSignedIn from "./hooks/useCheckSignedIn"
+import useCheckSignedIn from "./hooks/useCheckSignedIn";
 
 export default function Header({ title }: any) {
   const [userImg, setUserImg] = useState(null);
 
-  const [signedIn] = useCheckSignedIn()
+  const [signedIn] = useCheckSignedIn();
 
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -29,6 +29,7 @@ export default function Header({ title }: any) {
         setUserImg(null);
       }
     }
+    getUserImg();
   }, []);
 
   return (
@@ -42,11 +43,17 @@ export default function Header({ title }: any) {
           </Link>
           <h1 id="page-title">{title}</h1>
           {signedIn ? (
-           <Link href="/user">
-           <div id="user-button">
-             <h3>User</h3>
-           </div>
-         </Link>
+            <Link href="/user">
+              <div id="user-button">
+                <CldImage
+                  src={`${userImg}`}
+                  width="500"
+                  height="500"
+                  style={{ width: "auto", height: "12vw" }}
+                  alt="the Users profile"
+                />
+              </div>
+            </Link>
           ) : (
             <Link href="/login">
               <div id="user-button">
