@@ -3,14 +3,12 @@ import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
-
 export default function Login({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
   const signIn = async (formData: FormData) => {
-
     "use server";
 
     const email = formData.get("email") as string;
@@ -25,6 +23,7 @@ export default function Login({
 
     if (error) {
       return redirect("/login?message=Could not authenticate user");
+      alert("Could not authenticate user");
     }
 
     return redirect("/");
@@ -63,6 +62,7 @@ export default function Login({
         {/* <label className="text-md" htmlFor="email">
           Email
         </label> */}
+
         <input name="email" placeholder="Email" required />
         {/* <label className="text-md" htmlFor="password">
           Password
