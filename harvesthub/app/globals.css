@@ -124,7 +124,7 @@ hr {
   border-radius: 10px;
   color: var(--dark-green-color);
   border: 2px solid var(--dark-green-color);
-  width: 12vw;
+  width: 15vw;
   height: 12vw;
 }
 
@@ -655,7 +655,6 @@ hr {
   margin: 0;
 }
 
-
 /* public user form  */
 
 #publicUserForm {
@@ -694,5 +693,3 @@ hr {
   align-items: center;
   justify-content: center;
 }
-
-

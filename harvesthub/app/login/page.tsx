@@ -42,7 +42,7 @@ export default function Login({
       email,
       password,
       options: {
-        emailRedirectTo: "www.google.com",
+        emailRedirectTo: `${origin}/auth/callback`,
       },
     });
 
