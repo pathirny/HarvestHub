@@ -4,6 +4,7 @@ import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
+
 // creating function to sign in 
 export default function Login({
   searchParams,
@@ -11,7 +12,6 @@ export default function Login({
   searchParams: { message: string };
 }) {
   const signIn = async (formData: FormData) => {
-
     "use server";
 // storing sign in data in varibales
     const email = formData.get("email") as string;
@@ -26,6 +26,7 @@ export default function Login({
 
     if (error) {
       return redirect("/login?message=Could not authenticate user");
+      alert("Could not authenticate user");
     }
 
     return redirect("/");
@@ -64,6 +65,7 @@ export default function Login({
         {/* <label className="text-md" htmlFor="email">
           Email
         </label> */}
+
         <input name="email" placeholder="Email" required />
         {/* <label className="text-md" htmlFor="password">
           Password

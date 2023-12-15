@@ -8,25 +8,53 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 // import { cookies } from "next/headers";
 import Header from "../components/Header";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { color } from "framer-motion";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
+import useCheckSignedIn from "../components/hooks/useCheckSignedIn";
 
 export default function Index() {
-  // const cookieStore = cookies();
+  const [publicUser, setPublicUser] = useState(true);
 
-  // const canInitSupabaseClient = () => {
-  //   // This function is just for the interactive tutorial.
-  //   // Feel free to remove it once you have Supabase connected.
-  //   try {
-  //     createClient(cookieStore);
-  //     return true;
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // };
+  function addToPublic(e : any){
 
-  // const isSupabaseConnected = canInitSupabaseClient();
+async function apiCall(formData : any ){
+//insert row into public users table
+const { data, error } = await supabase
+  .from('Users')
+  .insert([
+    { first_name: formData.target[0].value, last_name: formData.target[1].value },
+  ])
+  .select()
+
+  if(error){
+    console.log(error)
+  }
+}
+apiCall(e)
+
+  }
+
+  const [signedIn] = useCheckSignedIn();
+  useEffect(() => {
+    async function checkUser() {
+      if (signedIn) {
+        let { data: Users, error } = await supabase
+          .from("Users")
+          .select("user_id");
+        if (Users) {
+          if (Users?.length <= 0) {
+            console.log("SIGN IN")
+            setPublicUser(false);
+          }
+          console.log(Users);
+        } else if (error) {
+          console.log(error);
+        }
+      }
+    }
+    checkUser();
+  }, [signedIn]);
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -161,6 +189,13 @@ export default function Index() {
           </Link>
         </div>
       </main>
+      {publicUser ? <></> : (<><div id="publicUserBackground" ></div><form id="publicUserForm" onSubmit={(e)=>{addToPublic(e)}}>
+        <h3>Please add you first and last name to complete the sign up process.</h3>
+        <input name="first name" type="text" placeholder="First Name"></input>
+        <input name="last name" type="text" placeholder="Last Name"></input>
+        <button type="submit">Submit</button>
+      </form>
+      </>)}
     </>
   );
 }
