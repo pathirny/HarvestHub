@@ -24,17 +24,19 @@ export default function FullCalendar(props) {
       let { data: veggies, error } = await supabase
         .from("veggies")
         .select("name, id");
-      console.log(veggies);
       setVegList(veggies);
     }
 
     getVegOptions();
+    getCalendarEvents();
   }, []);
 
   // Set state to the selected veggie
   const [selectedVeg, setSelectedVeg] = useState("");
   //toggle to control if the form is showing to input a new event
   const [input, setinput] = useState(false);
+  //toggle for event popup to delete event
+  const [eventOptions, setEventOptions] = useState(false);
   //setting date when a calendar day is clicked on - to be passed the event object
   const [date, setDate] = useState(null);
   //setting even lists for events on calendar
@@ -51,6 +53,8 @@ export default function FullCalendar(props) {
       eventOverlap: true,
     },
   ]);
+  //selected event when it is clicked on
+  const [currentEvent, setCurrentEvent] = useState(null);
 
   //handles when a day is clicked on the calendar
   function handleDateClick(e) {
@@ -59,9 +63,6 @@ export default function FullCalendar(props) {
     //sets the date to the day that has been clicked on
     setDate(e.date);
   }
-
-  // useEffect(() => {
-  // }, [selectedVeg]);
 
   //adds event when the input form has been submitted
   function addEvent(data) {
@@ -79,8 +80,6 @@ export default function FullCalendar(props) {
       }
 
       if (veggies && veggies.length > 0) {
-        console.log(veggies[0]["grow_days"]);
-
         // Create a new Date object to avoid mutating the original date
         let newDate = new Date(date);
 
@@ -97,12 +96,11 @@ export default function FullCalendar(props) {
                 harvest_date: newDate,
               },
             ]);
-          if (data) {
-            getCalendarEvents();
-          }
+
           if (error) {
             console.log(error);
           }
+          getCalendarEvents();
         }
         apiCall();
       } else {
@@ -116,11 +114,12 @@ export default function FullCalendar(props) {
     //toggles the input form off
     setinput(false);
   }
+
   function getCalendarEvents() {
     async function apiCall() {
       let { data: events, error } = await supabase
         .from("calendar_events")
-        .select("veggies (name), plant_date, harvest_date");
+        .select("veggies (name), plant_date, harvest_date, event_id");
       setEvent(events);
       if (error) {
         console.error("Error fetching veggies:", error);
@@ -137,9 +136,10 @@ export default function FullCalendar(props) {
               textColor: "#47594e",
               borderColor: "#f3ebe4",
               eventOverlap: true,
+              id: event.event_id,
             },
             {
-              title: "Harvest " + event.veggies.name,
+              title: event.veggies.name,
               start: event.harvest_date,
               allDay: true,
               display: "block",
@@ -147,20 +147,44 @@ export default function FullCalendar(props) {
               textColor: "#f3ebe4",
               borderColor: "#b9a48c",
               eventOverlap: true,
+              id: event.event_id + "#",
             },
           ];
         });
         setEvent(eventList.flat());
-        console.log(eventList);
       }
     }
 
     apiCall();
   }
 
-  useEffect(() => {
-    getCalendarEvents();
-  }, []);
+  function displayEvent(e) {
+    console.log(e.event._def.publicId);
+    setCurrentEvent(e.event._def.publicId);
+  }
+
+  function deleteEvent() {
+    if (currentEvent.includes("#")) {
+      async function apiCall() {
+        let { error } = await supabase
+          .from("calendar_events")
+          .delete()
+          .eq("event_id", currentEvent.substring(0, currentEvent.length - 1));
+        getCalendarEvents();
+      }
+      apiCall();
+    }
+
+    async function apiCall() {
+      let { error } = await supabase
+        .from("calendar_events")
+        .delete()
+        .eq("event_id", currentEvent);
+
+      getCalendarEvents();
+    }
+    apiCall();
+  }
 
   return (
     <>
@@ -205,11 +229,21 @@ export default function FullCalendar(props) {
           handleDateClick(e);
         }}
         events={event}
-        // eventClick={(e) => {
-        //   addCheck(e);
-        // }}
+        eventClick={(e) => {
+          setEventOptions(true);
+          displayEvent(e);
+        }}
         {...props}
       />
+      {eventOptions ? (
+        <>
+          <button type="button" onClick={deleteEvent}>
+            Delete Event
+          </button>
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
