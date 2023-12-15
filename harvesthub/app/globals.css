@@ -720,18 +720,19 @@ hr {
     width: 90vw;
     overflow: hidden;
   }
-.card{
-  width: 80vw;
-  align-items: center;
-  display: flex;
-}
+  .card {
+    width: 80vw;
+    align-items: center;
+    display: flex;
+    height: 10vh;
+  }
 
-.tipContainer{
-  display: flex;
-  align-items: center;
-  justify-content:  center;
-  flex-direction: column;
-  margin-top: 50px;
-}
-
+  .tipContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 100vh;
+  }
 }
