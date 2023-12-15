@@ -184,6 +184,7 @@ export default function FullCalendar(props) {
       getCalendarEvents();
     }
     apiCall();
+    setEventOptions(false)
   }
 
   return (
@@ -213,7 +214,7 @@ export default function FullCalendar(props) {
       ) : (
         <></>
       )}
-
+<div >
       <Calendar
         plugins={[dayGrid, timeGrid, interactionPlugin, multiMonthPlugin]}
         headerToolbar={{
@@ -235,6 +236,7 @@ export default function FullCalendar(props) {
         }}
         {...props}
       />
+      </div>
       {eventOptions ? (
         <>
           <button type="button" onClick={deleteEvent}>

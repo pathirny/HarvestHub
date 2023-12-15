@@ -614,6 +614,7 @@ hr {
 #calendar-container {
   width: 90vw;
   margin: auto;
+  height: 100vh;
 }
 
 /*////////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
@@ -651,4 +652,58 @@ hr {
   height: 20vw;
   border-radius: 3vw;
   margin: 0;
+}
+
+
+
+  .fc-button.fc-prev-button, .fc-button.fc-next-button, .fc-button.fc-button-primary{
+    background: var(--light-green-color);
+    background-image: none;
+    height: 15vw;
+    width: 15vw;
+}
+
+.fc-day{
+  background-color: var(--light-green-color);
+  border: 3vw solid var(--dark-green-color)
+}
+
+.fc-day-sun, .fc-day-sat{
+  background-color: var(--brown-color);
+  border:  1vw solid var(--dark-green-color)
+}
+
+.fc-scrollgrid, .fc-theme-standard td{
+  border:  1vw solid var(--dark-green-color)
+}
+
+
+
+.fc-theme-standard .fc-scrollgrid {
+  border:  1vw solid var(--dark-green-color)
+}
+
+.fc-theme-standard th {
+  border:  1vw solid var(--dark-green-color)
+}
+
+.fc{
+  padding: 5vw 1vw 5vw 1vw
+}
+
+.fc-dayGridMonth-view{
+  height: 80vh;
+}
+
+.fc-toolbar-title{
+  color: var(--white-cream-color);
+}
+
+.fc-today-button{
+ color: var(--white-cream-color);
+ background-color: var(--brown-color);
+}
+
+.fc .fc-button-primary:hover {
+  background-color: var(--light-green-color);
 }

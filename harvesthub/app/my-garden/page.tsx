@@ -17,11 +17,11 @@ export default function Home() {
           position="fixed"
           bottom="-10px"
         >
+        </Flex>
+      </div>
           <Link href="/">
             <Button className="addButton">Back</Button>
           </Link>
-        </Flex>
-      </div>
     </>
   );
 }
