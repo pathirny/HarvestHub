@@ -707,3 +707,17 @@ hr {
 .fc .fc-button-primary:hover {
   background-color: var(--light-green-color);
 }
+
+#delete-event-button {
+ position: sticky;
+ top: 50vw;
+}
+#delete-event-background {
+  background-color: var(--white-cream-color);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  position: sticky;
+}
