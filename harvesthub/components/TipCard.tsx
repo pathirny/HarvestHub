@@ -109,6 +109,7 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
           style={{ margin: "0" }}
           aria-label="Add to favourites"
           onClick={favTip}
+          className="favButton"
           icon={favourited ? <FaHeartCircleCheck /> : <CiHeart />}
         />
       </div>
