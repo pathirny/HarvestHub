@@ -2,13 +2,11 @@ import Calendar from "@fullcalendar/react";
 import dayGrid from "@fullcalendar/daygrid";
 import timeGrid from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import multiMonthPlugin from "@fullcalendar/multimonth";
 import { Select } from "@chakra-ui/react";
 import { createBrowserClient } from "@supabase/ssr";
 import { formatDate } from "@fullcalendar/core";
-// import { h } from "@fullcalendar/core/preact";
-// import { s } from "@fullcalendar/core/internal-common";
 
 export default function FullCalendar(props) {
   //connecting to supabase
@@ -33,8 +31,6 @@ export default function FullCalendar(props) {
     getVegOptions();
   }, []);
 
-  // Set state to the harvest date
-  const [harvestDate, setHarvestDate] = useState(3);
   // Set state to the selected veggie
   const [selectedVeg, setSelectedVeg] = useState('');
   //toggle to control if the form is showing to input a new event
@@ -64,13 +60,20 @@ export default function FullCalendar(props) {
     setDate(e.date);
   }
 
-  //Create a function that uses the name of the veggie to get the harvest date and add it to the calendar
-  useEffect(() => {
+  // useEffect(() => {
+  // }, [selectedVeg]);
+  
+  
+  //adds event when the input form has been submitted
+  function addEvent(data) {
+    data.preventDefault();
+    
+    //Create a function that uses the name of the veggie to get the harvest date and add it to the calendar
     async function getHarvestDate(veg) {
       // Do an api call to get the harvest date
       let { data: veggies, error } = await supabase
       .from('veggies')
-      .select("grow-time")
+      .select("grow_days, id")
         .eq('name', `${veg}`);
   
       if (error) {
@@ -79,57 +82,105 @@ export default function FullCalendar(props) {
       }
   
       if (veggies && veggies.length > 0) {
-        setHarvestDate(veggies[0]['grow-time']);
-        console.log(veggies[0]['grow-time']);
+        console.log(veggies[0]['grow_days']);
+
+        // Create a new Date object to avoid mutating the original date
+        let newDate = new Date(date);
+    
+        // Add 2 days to the date
+        newDate.setDate(date.getDate() + veggies[0]['grow_days']);
+        
+        async function apiCall() {
+          const { data, error } = await supabase.from("calendar_events").insert([{ veg_id: veggies[0]['id'], plant_date: date, harvest_date: newDate}])
+          if (error) {
+            console.log(error);
+          }
+        }
+        apiCall();
+
+        //adds the new event and the harvest event to the current events
+        setEvent((curr) => {
+          // return [
+          //   ...curr,
+          //   {
+          //     title: data.target[0].value,
+          //     start: date,
+          //     allDay: true,
+          //     display: "block",
+          //     backgroundColor: "#f3ebe4",
+          //     textColor: "#47594e",
+          //     borderColor: "#f3ebe4",
+          //     eventOverlap: true,
+          //   },
+          //   {
+          //     title: "Harvest " + data.target[0].value,
+          //     start: newDate,
+          //     allDay: true,
+          //     display: "block",
+          //     backgroundColor: "#b9a48c",
+          //     textColor: "#f3ebe4",
+          //     borderColor: "#b9a48c",
+          //     eventOverlap: true,
+          //   },
+          // ];
+        });
       } else {
         console.log('No veggies found with the name:', veg);
       }
     }
   
     getHarvestDate(selectedVeg);
-  }, [selectedVeg]);
-    
+    // Create an async function to do the api call to add a new event to the databage
 
-  //adds event when the input form has been submitted
-  function addEvent(data) {
-    data.preventDefault();
 
-    // Create a new Date object to avoid mutating the original date
-    let newDate = new Date(date);
-
-    // Add 2 days to the date
-    newDate.setDate(date.getDate() + harvestDate);
-
-    //adds the new event and the harvest event to the current events
-    setEvent((curr) => {
-      return [
-        ...curr,
-        {
-          title: data.target[0].value,
-          start: date,
-          allDay: true,
-          display: "block",
-          backgroundColor: "#f3ebe4",
-          textColor: "#47594e",
-          borderColor: "#f3ebe4",
-          eventOverlap: true,
-        },
-        {
-          title: "Harvest " + data.target[0].value,
-          start: newDate,
-          allDay: true,
-          display: "block",
-          backgroundColor: "#b9a48c",
-          textColor: "#f3ebe4",
-          borderColor: "#b9a48c",
-          eventOverlap: true,
-        },
-      ];
-    });
 
     //toggles the input form off
     setinput(false);
   }
+
+  useEffect(() => {
+    async function getCalendarEvents() {
+      let { data: events, error } = await supabase
+        .from("calendar_events")
+        .select("veggies (name), plant_date, harvest_date");
+      console.log(events);
+      setEvent(events);
+      if (error) {
+        console.error('Error fetching veggies:', error);
+      }
+      if (events && events.length > 0) {
+        const eventList = events.map((event) => {
+          return [
+            
+            {
+              title: event.veggies.name,
+              start: event.plant_date,
+              allDay: true,
+              display: "block",
+              backgroundColor: "#f3ebe4",
+              textColor: "#47594e",
+              borderColor: "#f3ebe4",
+              eventOverlap: true,
+            },
+            {
+              title: "Harvest " + event.veggies.name,
+              start: event.harvest_date,
+              allDay: true,
+              display: "block",
+              backgroundColor: "#b9a48c",
+              textColor: "#f3ebe4",
+              borderColor: "#b9a48c",
+              eventOverlap: true,
+            },
+          ]
+        
+        })
+        console.log(eventList);
+      }
+    }
+
+    getCalendarEvents();
+  }, []);  
 
   return (
     <>
