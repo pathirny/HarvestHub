@@ -1,4 +1,6 @@
+//using client side instead of server side 
 "use client";
+//importing dependency's
 import Header from "@/components/Header";
 import { useState, useEffect } from "react";
 import { createBrowserClient } from '@supabase/ssr'
@@ -7,12 +9,12 @@ import BackButton from "@/components/BackButton";
 import Link from "next/link";
 
 export default function Veggies({ params }: any) {
-
+// use suberbase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   )
-
+// setting state
   const [difficulty, setDifficulty] = useState([""]);
   const [time, setTime] = useState(['']);
   const [vegInfo, setVegInfo] = useState('');
@@ -20,7 +22,7 @@ export default function Veggies({ params }: any) {
   const [vegPlant, setVegPlant] = useState('');
   let ease = [1, 2, 3, 4, 5];
   let timeEase = [1, 2, 3, 4, 5];
-
+// using superbase to get the veggies data to display on veggie page
 useEffect(() => {
     async function getVeg() {
       let { data: Veg, error } = await supabase
@@ -38,7 +40,7 @@ useEffect(() => {
     }
     getVeg();
 
-  }, []);
+  }, []); //empty array to so that it only renders once on load
 
   return (
     <>
