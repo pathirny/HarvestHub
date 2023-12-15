@@ -181,7 +181,9 @@ export default function TipsnTricks() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Container className="tipContainer">{renderTips(filteredTips)}</Container>
+      <Container className="tipContainer">
+        <div className="tipContainerTwo">{renderTips(filteredTips)}</div>
+      </Container>
       <Container
         className="buttonsContainer"
         // height="80px"
