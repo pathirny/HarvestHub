@@ -9,19 +9,18 @@ export default function Home() {
       <Header title="My Garden" />
       <div id="calendar-container">
         <FullCalendar initialView="dayGridMonth" />
-        {/* <FullCalendar initialView='timeGridWeek' /> */}
 
-        <Flex
+        {/* <Flex
           width="100vw"
           justifyContent="center"
           position="fixed"
           bottom="-10px"
         >
+        </Flex> */}
+      </div>
           <Link href="/">
             <Button className="addButton">Back</Button>
           </Link>
-        </Flex>
-      </div>
     </>
   );
 }
