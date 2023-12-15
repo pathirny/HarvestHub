@@ -15,8 +15,7 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import useCheckSignedIn from "../../components/hooks/useCheckSignedIn"
-
+import useCheckSignedIn from "../../components/hooks/useCheckSignedIn";
 
 // create TipsnTricks component
 export default function TipsnTricks() {
@@ -28,7 +27,7 @@ export default function TipsnTricks() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-  const [signedIn] = useCheckSignedIn()
+  const [signedIn] = useCheckSignedIn();
   //use supabase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -182,20 +181,26 @@ export default function TipsnTricks() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Container className="tipContainer">{renderTips(filteredTips)}</Container>
-      <Flex
+      <Container className="tipContainer">
+        <div className="tipContainerTwo">{renderTips(filteredTips)}</div>
+      </Container>
+      <Container
         className="buttonsContainer"
-        height="80px"
+        // height="80px"
         flexDirection="row"
         justifyContent="space-around"
       >
         <Link href="/">
           <Button className="addButton">Back</Button>
         </Link>
-        {signedIn ? <Button className="addButton" onClick={toggleForm}>
-          Add Tip +
-        </Button> : <></> }
-      </Flex>
+        {signedIn ? (
+          <Button className="addButton" onClick={toggleForm}>
+            Add Tip +
+          </Button>
+        ) : (
+          <></>
+        )}
+      </Container>
     </div>
   );
 }
