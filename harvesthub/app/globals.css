@@ -100,7 +100,7 @@ hr {
   margin-bottom: 2rem;
 }
 
-/*////////////////////////////////////////////// Header ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Header ///////////////////////////////////////////*/
 #nav-body {
   background-color: var(--light-green-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
@@ -202,7 +202,7 @@ hr {
   color: var(--brown-color);
 }
 
-/*////////////////////////////////////////////// Calendar Month Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Calendar Month Page ///////////////////////////////////////////*/
 
 #month-nav-container {
   display: flex;
@@ -301,7 +301,7 @@ hr {
   font-weight: bold;
 }
 
-/*////////////////////////////////////////////// Veggies page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Veggies page ///////////////////////////////////////////*/
 
 #plant-harvest-grid {
   display: grid;
@@ -475,7 +475,7 @@ hr {
   align-items: center;
 }
 
-/*////////////////////////////////////////////// User Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// User Page ///////////////////////////////////////////*/
 
 #userPage-container {
   display: flex;
@@ -583,7 +583,7 @@ hr {
   justify-content: center;
   margin: 0;
 }
-/*////////////////////////////////////////////// Settings Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Settings Page ///////////////////////////////////////////*/
 
 #settings-container {
   display: flex;
@@ -618,7 +618,7 @@ hr {
   margin: auto;
 }
 
-/*////////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
 
 #fav-container {
   padding: 5vw;
@@ -724,7 +724,7 @@ hr {
     width: 80vw;
     align-items: center;
     display: flex;
-    height: 10vh;
+    height: 20vh;
   }
 
   .tipContainer {
@@ -733,6 +733,27 @@ hr {
     justify-content: center;
     flex-direction: column;
     margin-top: 50px;
-    height: 100vh;
+    overflow: scroll;
+    height: 100%;
+  }
+  #tip-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .TipCard {
+    display: flex;
+    flex-direction: column;
+  }
+  .individualCards {
+    position: absolute;
+    top: -100px;
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+  }
+  #tip-description {
+    height: 8vw;
   }
 }
