@@ -100,7 +100,7 @@ hr {
   margin-bottom: 2rem;
 }
 
-/*////////////////////////////////////////////// Header ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Header ///////////////////////////////////////////*/
 #nav-body {
   background-color: var(--light-green-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
@@ -124,7 +124,7 @@ hr {
   border-radius: 10px;
   color: var(--dark-green-color);
   border: 2px solid var(--dark-green-color);
-  width: 12vw;
+  width: 15vw;
   height: 12vw;
 }
 
@@ -202,7 +202,7 @@ hr {
   color: var(--brown-color);
 }
 
-/*////////////////////////////////////////////// Calendar Month Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Calendar Month Page ///////////////////////////////////////////*/
 
 #month-nav-container {
   display: flex;
@@ -301,7 +301,7 @@ hr {
   font-weight: bold;
 }
 
-/*////////////////////////////////////////////// Veggies page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Veggies page ///////////////////////////////////////////*/
 
 #plant-harvest-grid {
   display: grid;
@@ -475,7 +475,7 @@ hr {
   align-items: center;
 }
 
-/*////////////////////////////////////////////// User Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// User Page ///////////////////////////////////////////*/
 
 #userPage-container {
   display: flex;
@@ -583,7 +583,7 @@ hr {
   justify-content: center;
   margin: 0;
 }
-/*////////////////////////////////////////////// Settings Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Settings Page ///////////////////////////////////////////*/
 
 #settings-container {
   display: flex;
@@ -616,9 +616,10 @@ hr {
 #calendar-container {
   width: 90vw;
   margin: auto;
+  height: 100vh;
 }
 
-/*////////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
 
 #fav-container {
   padding: 5vw;
@@ -656,6 +657,93 @@ hr {
 }
 
 
+  .fc-button.fc-prev-button, .fc-button.fc-next-button, .fc-button.fc-button-primary{
+    background: var(--light-green-color);
+    background-image: none;
+    height: 15vw;
+    width: 15vw;
+}
+
+.fc-day{
+  background-color: var(--light-green-color);
+  border: 3vw solid var(--dark-green-color)
+}
+
+.fc-day-sun, .fc-day-sat{
+  background-color: var(--brown-color);
+  border:  1vw solid var(--dark-green-color)
+}
+
+.fc-scrollgrid, .fc-theme-standard td{
+  border:  1vw solid var(--dark-green-color)
+}
+
+
+
+.fc-theme-standard .fc-scrollgrid {
+  border:  1vw solid var(--dark-green-color)
+}
+
+.fc-theme-standard th {
+  border:  1vw solid var(--dark-green-color)
+}
+
+.fc{
+  padding: 5vw 1vw 5vw 1vw
+}
+
+.fc-dayGridMonth-view{
+  height: 80vh;
+}
+
+.fc-toolbar-title{
+  color: var(--white-cream-color);
+}
+
+.fc-today-button{
+ color: var(--white-cream-color);
+ background-color: var(--brown-color);
+}
+
+.fc .fc-button-primary:hover {
+  background-color: var(--light-green-color);
+}
+
+#delete-event-button {
+ z-index: 2000;
+ margin: auto
+}
+#delete-event-background {
+  background-color: var(--white-cream-color);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+#delete-event-container{
+  height: 30vw;
+  left: 30vw;
+  display: flex;
+  flex-direction: column;
+  top: 50vw;
+  position: fixed;
+  background-color: var(--dark-green-color);
+  border-radius: 3vw;
+  margin:auto;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+  z-index: 2000;
+}
+
+#delete-event-container p{
+  color: var(--white-cream-color);
+  text-align: center;
+}
 /* public user form  */
 
 #publicUserForm {
@@ -695,4 +783,131 @@ hr {
   justify-content: center;
 }
 
+/* Media Queries */
+@media only screen and (min-width: 1000px) {
+  #nav-body {
+    height: 11vw;
+  }
+  #nav-container div {
+    height: 8vw;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  #nav-container div:hover::after {
+    opacity: 40% var(--dark-green-color);
+    transition: 1s;
+  }
+  .link-container {
+    width: 80vw;
+    height: 10vw;
+    transition: 0.5s;
+  }
+  .link-container:hover {
+    width: 90vw;
+    overflow: hidden;
+  }
+  .card {
+    width: 80vw;
+    align-items: center;
+    display: flex;
+    height: 20vh;
+  }
+
+  .tipContainerTwo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .tipContainer {
+    width: 100%;
+    overflow: scroll;
+    height: 60vh;
+  }
+
+  #tip-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .TipCard {
+    display: flex;
+    flex-direction: column;
+  }
+  .individualCards {
+    position: absolute;
+    top: -100px;
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+  }
+  #tip-description {
+    height: 8vw;
+  }
+  .buttonsContainer {
+    bottom: 0;
+    position: fixed;
+    width: 100vw;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--dark-green-color);
+    mask-image: linear-gradient(
+      to top,
+      black calc(100% - 10px),
+      transparent 100%
+    );
+  }
+  .addButton {
+    width: 15vw;
+    height: 5vw;
+    bottom: -10px;
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .buttonsContainer {
+    height: 80px;
+  }
+  .card {
+    width: 80vw;
+    align-items: center;
+    display: flex;
+    height: 15vh;
+  }
+
+  .tipContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 80%;
+    overflow: scroll;
+    margin: 0;
+    padding: 0;
+  }
+  #tip-container {
+    width: 100%;
+    display: flex;
+    height: 10vw;
+    justify-content: space-between;
+  }
+  .TipCard {
+    display: flex;
+    flex-direction: column;
+  }
+  .individualCards {
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .favButton {
+    width: 10vw;
+  }
+}

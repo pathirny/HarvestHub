@@ -16,23 +16,24 @@ import useCheckSignedIn from "../components/hooks/useCheckSignedIn";
 export default function Index() {
   const [publicUser, setPublicUser] = useState(true);
 
-  function addToPublic(e : any){
+  function addToPublic(e: any) {
+    async function apiCall(formData: any) {
+      //insert row into public users table
+      const { data, error } = await supabase
+        .from("Users")
+        .insert([
+          {
+            first_name: formData.target[0].value,
+            last_name: formData.target[1].value,
+          },
+        ])
+        .select();
 
-async function apiCall(formData : any ){
-//insert row into public users table
-const { data, error } = await supabase
-  .from('Users')
-  .insert([
-    { first_name: formData.target[0].value, last_name: formData.target[1].value },
-  ])
-  .select()
-
-  if(error){
-    console.log(error)
-  }
-}
-apiCall(e)
-
+      if (error) {
+        console.log(error);
+      }
+    }
+    apiCall(e);
   }
 
   const [signedIn] = useCheckSignedIn();
@@ -44,7 +45,7 @@ apiCall(e)
           .select("user_id");
         if (Users) {
           if (Users?.length <= 0) {
-            console.log("SIGN IN")
+            console.log("SIGN IN");
             setPublicUser(false);
           }
           console.log(Users);
@@ -135,14 +136,19 @@ apiCall(e)
             style={{
               position: "relative",
               backgroundColor: "#b9a48c",
-              color: "#f3ebe4",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              color: "#47594e",
+              backgroundPosition: "center",
+              backgroundImage: "url(/assets/CalendarBackground.png)",
             }}
           >
-            <img
-              src="/assets/CalendarBackground.png"
-              style={{ width: "16rem", height: "auto", opacity: "0.25" }}
-            ></img>
-            <h2 style={{ position: "absolute", fontSize: "1.8rem" }}>
+            <h2
+              style={{
+                position: "absolute",
+                fontSize: "1.8rem",
+              }}
+            >
               Growing Calendar
             </h2>
           </div>
@@ -189,13 +195,31 @@ apiCall(e)
           </Link>
         </div>
       </main>
-      {publicUser ? <></> : (<><div id="publicUserBackground" ></div><form id="publicUserForm" onSubmit={(e)=>{addToPublic(e)}}>
-        <h3>Please add you first and last name to complete the sign up process.</h3>
-        <input name="first name" type="text" placeholder="First Name"></input>
-        <input name="last name" type="text" placeholder="Last Name"></input>
-        <button type="submit">Submit</button>
-      </form>
-      </>)}
+      {publicUser ? (
+        <></>
+      ) : (
+        <>
+          <div id="publicUserBackground"></div>
+          <form
+            id="publicUserForm"
+            onSubmit={(e) => {
+              addToPublic(e);
+            }}
+          >
+            <h3>
+              Please add you first and last name to complete the sign up
+              process.
+            </h3>
+            <input
+              name="first name"
+              type="text"
+              placeholder="First Name"
+            ></input>
+            <input name="last name" type="text" placeholder="Last Name"></input>
+            <button type="submit">Submit</button>
+          </form>
+        </>
+      )}
     </>
   );
 }

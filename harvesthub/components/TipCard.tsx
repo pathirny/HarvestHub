@@ -86,25 +86,22 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
       <div id="tip-container" key={tip.id}>
         <Link href={`./tips-and-tricks/${tip.id}`}>
           <Card className="TipCard" maxW="md" borderRadius={10}>
-            <CardHeader>
-              <Flex>
-                <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-                  <Box>
-                    <Heading size="sm" style={{ margin: "0" }}>
-                      {tip.title}
-                    </Heading>
-                    <Text style={{ margin: "0" }}>{tip.author}</Text>
-                  </Box>
-                </Flex>
+            <CardHeader className="tipsFlexContainer">
+              <Flex
+                className="individualCards"
+                flex="1"
+                gap="4"
+                alignItems="center"
+                flexWrap="wrap"
+              >
+                <Heading size="sm" style={{ margin: "0" }}>
+                  {tip.title}
+                </Heading>
+                <CardBody id="tip-description">
+                  <p>{tip.description}</p>
+                </CardBody>
               </Flex>
             </CardHeader>
-            <CardBody id="tip-description">
-              <Text>
-                With Chakra UI, I wanted to sync the speed of development with
-                the speed of design. I wanted the developer to be just as
-                excited as the designer to create a screen.
-              </Text>
-            </CardBody>
           </Card>
         </Link>
 
@@ -112,6 +109,7 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
           style={{ margin: "0" }}
           aria-label="Add to favourites"
           onClick={favTip}
+          className="favButton"
           icon={favourited ? <FaHeartCircleCheck /> : <CiHeart />}
         />
       </div>
