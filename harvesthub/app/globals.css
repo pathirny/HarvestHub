@@ -734,8 +734,9 @@ hr {
     flex-direction: column;
   }
   .tipContainer {
-    height: 100vh;
     width: 100%;
+    overflow: scroll;
+    height: 60vh;
   }
 
   #tip-container {
@@ -765,7 +766,6 @@ hr {
     height: 150px;
     display: flex;
     justify-content: center;
-
     background-color: var(--dark-green-color);
     mask-image: linear-gradient(
       to top,
