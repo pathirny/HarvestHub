@@ -86,6 +86,9 @@ export default function Login({
       <a className="reset-password" href="#">
         Forgot your password?
       </a>
+      <Link href="https://harvest-hub-tau.vercel.app/">
+        <button>Continue as Guest</button>
+      </Link>
     </div>
   );
 }

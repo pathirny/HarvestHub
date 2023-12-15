@@ -693,3 +693,31 @@ hr {
   align-items: center;
   justify-content: center;
 }
+
+/* Media Queries */
+@media only screen and (min-width: 1000px) {
+  #nav-body {
+    height: 11vw;
+  }
+  #nav-container div {
+    height: 8vw;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #nav-container div:hover::after {
+    opacity: 40% var(--dark-green-color);
+    transition: 1s;
+  }
+  .link-container {
+    width: 80vw;
+    height: 10vw;
+    transition: 0.5s;
+  }
+  .link-container:hover {
+    width: 90vw;
+    overflow: hidden;
+  }
+}

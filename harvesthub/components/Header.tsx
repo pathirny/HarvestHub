@@ -37,7 +37,7 @@ export default function Header({ title }: any) {
       <header id="nav-body">
         <div id="nav-container">
           <Link href="/">
-            <div id="home-button">
+            <div id="home-button" className="clickable">
               <h3>Home</h3>
             </div>
           </Link>
@@ -60,7 +60,7 @@ export default function Header({ title }: any) {
             </Link>
           ) : (
             <Link href="/login">
-              <div id="user-button">
+              <div id="user-button" className="clickable">
                 <h3>Sign In</h3>
               </div>
             </Link>
