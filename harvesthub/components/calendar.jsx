@@ -242,10 +242,12 @@ export default function FullCalendar(props) {
         <div id="delete-event-background">
           
         </div>
-        
+        <div id="delete-event-container">
+          <p>Are you sure you want to delete this event?</p>
         <button id="delete-event-button" type="button" onClick={deleteEvent}>
         Delete Event
       </button>
+      </div>
       </>
       ) : (
         <></>

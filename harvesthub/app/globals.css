@@ -709,15 +709,37 @@ hr {
 }
 
 #delete-event-button {
- position: sticky;
- top: 50vw;
+ z-index: 2000;
+ margin: auto
 }
 #delete-event-background {
   background-color: var(--white-cream-color);
   width: 100vw;
   height: 100vh;
-  opacity: 0.5;
+  opacity: 0.8;
   top: 0;
   left: 0;
-  position: sticky;
+  position: fixed;
+  z-index: 1000;
+}
+
+#delete-event-container{
+  height: 30vw;
+  left: 30vw;
+  display: flex;
+  flex-direction: column;
+  top: 50vw;
+  position: fixed;
+  background-color: var(--dark-green-color);
+  border-radius: 3vw;
+  margin:auto;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+  z-index: 2000;
+}
+
+#delete-event-container p{
+  color: var(--white-cream-color);
+  text-align: center;
 }
