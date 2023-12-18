@@ -908,6 +908,16 @@ hr {
   .description-container {
     max-width: 70vw;
   }
+  .formButton {
+    transition: 0.8s;
+  }
+  .formButton:hover {
+    background-color: var(--brown-color);
+    cursor: pointer;
+  }
+  #calendar-welcome {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (max-width: 430px) {

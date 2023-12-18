@@ -162,6 +162,7 @@ export default function TipsnTricks() {
           <Button
             type="submit"
             border="solid 1px black"
+            className="formButton"
             boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
             onClick={(event) => {
               addTip(event);
@@ -172,6 +173,7 @@ export default function TipsnTricks() {
           </Button>
           <Button
             onClick={toggleForm}
+            className="formButton"
             border="solid 1px black"
             boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
           >
