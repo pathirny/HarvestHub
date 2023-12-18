@@ -1,25 +1,26 @@
-import { createClient } from '@/utils/supabase/server'
-import Link from 'next/link'
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
-
+import { createClient } from "@/utils/supabase/server";
+import Link from "next/link";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+// create authentication button
 export default async function AuthButton() {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
-
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+  // get user's data from supabase
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
   const signOut = async () => {
-    'use server'
+    "use server";
 
-    const cookieStore = cookies()
-    const supabase = createClient(cookieStore)
-    await supabase.auth.signOut()
-    return redirect('/login')
-  }
-
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
+    await supabase.auth.signOut();
+    return redirect("/login");
+  };
+  // if user is signed in, logout
+  // if user is not signed in, redirect to login
   return user ? (
     <div className="flex items-center gap-4">
       Hey, {user.email}!
@@ -36,5 +37,5 @@ export default async function AuthButton() {
     >
       Login
     </Link>
-  )
+  );
 }

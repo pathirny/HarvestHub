@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Input } from "@chakra-ui/react";
 import { CiSearch } from "react-icons/ci";
 
-// implicate search function
+// implement search function
 
 interface SearchBarProps {
   value: string;
@@ -12,6 +12,7 @@ interface SearchBarProps {
 export const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   return (
     <Flex justifyContent="center">
+{/* displays magifying glass emoji until something is typed in search bar */}
       <Input
         onChange={onChange}
         placeholder="Search 🔍"
