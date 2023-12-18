@@ -51,8 +51,8 @@ useEffect(() => {
             <p>{vegInfo}</p>
           </div>
           <div id="veggie-grid">
-            <div className="cream">
-              <h1 className="veggie-difficulty">Difficulty:</h1>
+            <div className="cream" id="h1-heading-veggie-grid">
+              <h1>Difficulty:</h1>
             </div>
             <div className="carrot-rating brown">
               {difficulty.map((a) => {

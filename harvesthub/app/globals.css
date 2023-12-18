@@ -999,11 +999,9 @@ hr {
  .carrot-rating {
     gap: 1vw;
  }
- /* .veggie-difficulty {
-  font-size: 1vh;
- } */
- #cream h1 {
-  font-size: 1rem
+
+ #h1-heading-veggie-grid h1 {
+  font-size: 1rem;
  }
 }
 
