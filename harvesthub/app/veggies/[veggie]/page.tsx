@@ -52,14 +52,14 @@ useEffect(() => {
           </div>
           <div id="veggie-grid">
             <div className="cream">
-              <h1>Difficulty:</h1>
+              <h1 className="veggie-difficulty">Difficulty:</h1>
             </div>
             <div className="carrot-rating brown">
               {difficulty.map((a) => {
                 ease.pop();
                 return (
                   <>
-                    <img
+                    <img className="carrot-image"
                     key={a}
                       src="/assets/BlackCarrot.png"
                       alt="black carrot"
@@ -71,7 +71,7 @@ useEffect(() => {
               {ease.map((a) => {
                 return (
                   <>
-                    <img
+                    <img className="carrot-image"
                       key={a}
                       src="/assets/WhiteCarrot.png"
                       alt="black carrot"
@@ -89,7 +89,7 @@ useEffect(() => {
                 timeEase.pop();
                 return (
                   <>
-                    <img
+                    <img className="carrot-image"
                       key={a}
                       src="/assets/BlackCarrot.png"
                       alt="black carrot"
@@ -101,7 +101,7 @@ useEffect(() => {
               {timeEase.map((a) => {
                 return (
                   <>
-                    <img
+                    <img className="carrot-image"
                       key={a}
                       src="/assets/WhiteCarrot.png"
                       alt="black carrot"

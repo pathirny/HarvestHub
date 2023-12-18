@@ -978,6 +978,33 @@ hr {
   #veggie-general-info p {
     font-size: 1.8rem
   }
+  #veggie-grid {
+    align-items: center;
+    justify-items: center;
+    gap: 1px;
+    padding: 0;
+  }
+  #veggie-grid div {
+    width: 20vw;
+    height: 15vw;
+  }
+  #veggie-grid a {
+    width: 20vw;
+    height: auto;
+  }
+  .carrot-image {
+    max-height: 5vw;
+    width: auto;
+  }
+ .carrot-rating {
+    gap: 1vw;
+ }
+ /* .veggie-difficulty {
+  font-size: 1vh;
+ } */
+ #cream h1 {
+  font-size: 1rem
+ }
 }
 
 @media only screen and (max-width: 430px) {
