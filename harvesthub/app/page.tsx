@@ -12,6 +12,7 @@ import React, { useEffect, useState } from "react";
 import { color } from "framer-motion";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import useCheckSignedIn from "../components/hooks/useCheckSignedIn";
+import Head from "next/head";
 
 export default function Index() {
   const [publicUser, setPublicUser] = useState(true);
@@ -69,6 +70,9 @@ export default function Index() {
 
   return (
     <>
+    <Head>    
+      <title>helooooo</title>
+    </Head>
       <Header title="Harvest Hub" />
       <main className="homepage-box">
         <img
