@@ -122,13 +122,13 @@ export default function TipsnTricks() {
       <Header title="Tips and Tricks" />
 
       <Flex
-        className="flexContainer"
         position="absolute"
         zIndex="2"
         justifyContent="center"
         bgColor="#47594e"
         width="100%"
         color="#f3ebe4"
+        className="flexContainer"
       >
         <FormControl
           display={display}
@@ -140,6 +140,7 @@ export default function TipsnTricks() {
           <Input
             placeholder="Title ✍"
             width="90vw"
+            className="input"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
@@ -147,6 +148,7 @@ export default function TipsnTricks() {
             placeholder="Description ✍"
             width="90vw"
             height="25vh"
+            className="input"
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />

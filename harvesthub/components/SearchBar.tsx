@@ -18,6 +18,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
         size="md"
         m="10px"
         width="90%"
+        className="searchBar"
       />
     </Flex>
   );

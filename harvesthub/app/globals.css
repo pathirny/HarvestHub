@@ -656,53 +656,54 @@ hr {
   margin: 0;
 }
 
-
-  .fc-button.fc-prev-button, .fc-button.fc-next-button, .fc-button.fc-button-primary{
-    background: var(--light-green-color);
-    background-image: none;
-    height: 15vw;
-    width: 15vw;
+.fc-button.fc-prev-button,
+.fc-button.fc-next-button,
+.fc-button.fc-button-primary {
+  background: var(--light-green-color);
+  background-image: none;
+  height: 15vw;
+  width: 15vw;
 }
 
-.fc-day{
+.fc-day {
   background-color: var(--light-green-color);
-  border: 3vw solid var(--dark-green-color)
+  border: 3vw solid var(--dark-green-color);
 }
 
-.fc-day-sun, .fc-day-sat{
+.fc-day-sun,
+.fc-day-sat {
   background-color: var(--brown-color);
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
-.fc-scrollgrid, .fc-theme-standard td{
-  border:  1vw solid var(--dark-green-color)
+.fc-scrollgrid,
+.fc-theme-standard td {
+  border: 1vw solid var(--dark-green-color);
 }
-
-
 
 .fc-theme-standard .fc-scrollgrid {
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
 .fc-theme-standard th {
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
-.fc{
-  padding: 5vw 1vw 5vw 1vw
+.fc {
+  padding: 5vw 1vw 5vw 1vw;
 }
 
-.fc-dayGridMonth-view{
+.fc-dayGridMonth-view {
   height: 80vh;
 }
 
-.fc-toolbar-title{
+.fc-toolbar-title {
   color: var(--white-cream-color);
 }
 
-.fc-today-button{
- color: var(--white-cream-color);
- background-color: var(--brown-color);
+.fc-today-button {
+  color: var(--white-cream-color);
+  background-color: var(--brown-color);
 }
 
 .fc .fc-button-primary:hover {
@@ -710,8 +711,8 @@ hr {
 }
 
 #delete-event-button {
- z-index: 2000;
- margin: auto
+  z-index: 2000;
+  margin: auto;
 }
 #delete-event-background {
   background-color: var(--white-cream-color);
@@ -724,7 +725,7 @@ hr {
   z-index: 1000;
 }
 
-#delete-event-container{
+#delete-event-container {
   height: 30vw;
   left: 30vw;
   display: flex;
@@ -733,14 +734,14 @@ hr {
   position: fixed;
   background-color: var(--dark-green-color);
   border-radius: 3vw;
-  margin:auto;
+  margin: auto;
   align-items: center;
   justify-content: center;
   width: 40vw;
   z-index: 2000;
 }
 
-#delete-event-container p{
+#delete-event-container p {
   color: var(--white-cream-color);
   text-align: center;
 }
@@ -867,6 +868,23 @@ hr {
     height: 5vw;
     bottom: -10px;
     font-size: 2rem;
+  }
+
+  .searchBar {
+    max-width: 83vw;
+  }
+
+  .flexContainer {
+    max-width: 60vw;
+    left: 20%;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .input {
+    max-width: 40vw;
+  }
+  hr {
+    width: 50vw;
   }
 }
 
