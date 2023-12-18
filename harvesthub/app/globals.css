@@ -940,6 +940,37 @@ hr {
     max-width: 25vw;
     height: auto;
   }
+
+  #plant-harvest-title h1 {
+    font-size: 6rem;
+  }
+  #plant-harvest-title {
+    background-color: #47594e;
+    position: sticky;
+    top: 0;
+    mask-image: linear-gradient(
+      to bottom,
+      black calc(100% - 10px),
+      transparent 100%
+    );
+  }
+  .vegListItem {
+    max-width: 25vw;
+    height: 5vw;
+  }
+
+  .plantHarvestList {
+    max-width: 25vw;
+  }
+  .plantHarvestList a {
+    width: 25vw;
+  }
+  #harvest-list a {
+    width: 25vw;
+  }
+  #harvest-list {
+    width: 25vw;
+  }
 }
 
 @media only screen and (max-width: 430px) {
