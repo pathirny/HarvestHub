@@ -3,7 +3,9 @@ import Index from "@/app/page"
 import { createBrowserClient } from "@supabase/ssr";
 
 jest.mock('@supabase/ssr')
-jest.mock('../components/hooks/useCheckSignedIn', () => [true])
+jest.mock('../components/hooks/useCheckSignedIn', () => {
+    return jest.fn(() => [true]);
+  });
 
 describe('Home', ()=>{
     fit('Page should have text - Growing Calendar - on page', async ()=> {
