@@ -7,8 +7,9 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Harvest hub",
+  title: "Harvest hub!",
   description: "The fastest way to build apps with Next.js and Supabase",
+  favicon: "./public/assets/logo.png" 
 };
 
 export default function RootLayout({

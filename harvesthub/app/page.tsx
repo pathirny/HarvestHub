@@ -71,10 +71,9 @@ export default function Index() {
 
   return (
     <>
-<<<<<<< HEAD
-    <Head><title>nlah</title></Head>
-=======
->>>>>>> 0436c16bd1a68cbeaa9524953e1d1a439850c405
+    <Head>
+      <link rel="icon" href="./public/assets/logo.png"></link>
+    </Head>
       <Header title="Harvest Hub" />
       <main className="homepage-box">
         <img
