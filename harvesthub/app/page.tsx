@@ -70,9 +70,7 @@ export default function Index() {
 
   return (
     <>
-    <Head>    
-      <title>helooooo</title>
-    </Head>
+    <Head><title>nlah</title></Head>
       <Header title="Harvest Hub" />
       <main className="homepage-box">
         <img
