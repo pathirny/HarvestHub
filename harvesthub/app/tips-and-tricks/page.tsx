@@ -140,6 +140,7 @@ export default function TipsnTricks() {
           <Input
             placeholder="Title ✍"
             width="90vw"
+            required
             className="input"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
@@ -149,6 +150,7 @@ export default function TipsnTricks() {
             width="90vw"
             height="25vh"
             className="input"
+            required
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
