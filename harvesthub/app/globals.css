@@ -918,6 +918,28 @@ hr {
   #calendar-welcome {
     font-size: 1.5rem;
   }
+  #calendargrid {
+    align-items: center;
+    justify-items: center;
+    gap: 2px;
+    padding: 0;
+  }
+  #calendargrid div {
+    width: 25vw;
+    height: 20vw;
+  }
+  #calendargrid a {
+    width: 25vw;
+    height: auto;
+  }
+  #calendargrid p {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .month img {
+    max-width: 25vw;
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 430px) {
