@@ -971,6 +971,13 @@ hr {
   #harvest-list {
     width: 25vw;
   }
+  #veggie-general-info {
+    max-width: 40vw;
+    height: 20vw;
+  }
+  #veggie-general-info p {
+    font-size: 1.8rem
+  }
 }
 
 @media only screen and (max-width: 430px) {
