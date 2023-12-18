@@ -19,16 +19,17 @@ import { useEffect, useState } from "react";
 // 3 - Create a function to map through the array of tips and render a card for each one
 // 4 - Add search bar
 
+// defines prperties of TipCardtip
 interface TipCardtip {
   tip: gardeningTipsType;
 }
-
 export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
+  // connects to supabase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
-
+  // sets state (if tip is favourited or not)
   const [favourited, setFavourited] = useState(false);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
 
     apiCall(tip.id);
   }, []);
-
+  // adds selected tip to user's favourited list
   function favTip() {
     async function apiCall(idIn: any) {
       const id = await supabase.auth.getUser();
@@ -80,7 +81,7 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
 
     apiCall(tip.id);
   }
-
+  // renders tip card
   return (
     <>
       <div id="tip-container" key={tip.id}>
