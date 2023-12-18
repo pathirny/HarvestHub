@@ -15,12 +15,16 @@ import useCheckSignedIn from "../components/hooks/useCheckSignedIn"
 
 export default function Index() {
 
+  
   const [signedIn] = useCheckSignedIn()
+  
+  // const supabase = createBrowserClient(
+  //   process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  //   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  //   );
+    
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+
   const [text] = useTypewriter({
     words: ["Garden", "Grow", "Learn", "Eat"],
     loop: false,
