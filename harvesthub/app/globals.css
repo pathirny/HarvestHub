@@ -886,6 +886,16 @@ hr {
   hr {
     width: 50vw;
   }
+  #back-btn {
+    width: 10vw;
+    font-size: 1.5rem;
+    height: 5vw;
+    left: 45vw;
+    transition: 0.8s;
+  }
+  #back-btn:hover {
+    background-color: var(--brown-color);
+  }
 }
 
 @media only screen and (max-width: 430px) {
