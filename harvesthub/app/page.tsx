@@ -13,7 +13,7 @@ import { color } from "framer-motion";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import useCheckSignedIn from "../components/hooks/useCheckSignedIn";
 import Head from "next/head";
-import IndexPage from "@/components/Head";
+// import IndexPage from "@/components/Head";
 
 export default function Index() {
   const [publicUser, setPublicUser] = useState(true);
