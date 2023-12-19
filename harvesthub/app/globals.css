@@ -7,6 +7,7 @@
   --light-green-color: #99a57b;
   --brown-color: #b9a48c;
   --white-cream-color: #f3ebe4;
+  --orange-color: rgb(219, 120, 77)
 }
 
 body {
@@ -723,7 +724,8 @@ hr {
   z-index: 2000;
   margin: auto;
 }
-#delete-event-background {
+
+.calendar-event-background {
   background-color: var(--white-cream-color);
   width: 100vw;
   height: 100vh;
@@ -734,10 +736,13 @@ hr {
   z-index: 1000;
 }
 
-#delete-event-container {
-  height: 30vw;
+.calendar-event-container{
+  color: var(--white-cream-color);
+  text-align: center;
+  height: fit-content;
   left: 30vw;
   display: flex;
+  padding: 3vw;
   flex-direction: column;
   top: 50vw;
   position: fixed;
@@ -1064,4 +1069,58 @@ hr {
   .favButton {
     width: 10vw;
   }
+}
+
+
+
+/* calendar list view */
+
+#calendar-list-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 3vw;
+  color: var(--white-cream-color);
+}
+
+.calendar-list{
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+  text-align: center;
+}
+
+.calendar-list-item{
+  color: var(--dark-green-color);
+  border-radius: 3vw;
+  padding: 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  background-color: var(--white-cream-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-list-itme-container{
+  display: flex;
+  flex-direction: row;
+  gap: 1vw
+}
+.calendar-list-item p{
+  margin: 0;
+}
+
+.delete-list-item{
+ color: var(--dark-green-color);
+ background-color: var(--white-cream-color);
+ height: 100%;
+ margin: 0;
+ width: 10vw;
+ border-radius: 3vw;
+}
+
+.calendar-event-container button{
+  color: var(--orange-color);
+  font-weight: 700;
 }
