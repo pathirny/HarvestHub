@@ -1003,6 +1003,12 @@ hr {
  #h1-heading-veggie-grid h1 {
   font-size: 1rem;
  }
+
+ #vegPageContainer div {
+  max-width: 100vw;
+  height: auto;
+
+ }
 }
 
 @media only screen and (max-width: 430px) {
