@@ -1137,6 +1137,17 @@ hr {
     background-color: var(--brown-color);
     cursor: pointer;
   }
+
+  #home-button {
+    transition: 0.7s;
+  }
+  #home-button:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+  #nav-container a {
+    max-width: 10vw;
+  }
 }
 
 @media only screen and (max-width: 430px) {
