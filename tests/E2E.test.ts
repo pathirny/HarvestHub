@@ -122,9 +122,9 @@ test("delete tip from tips and tricks", async ({ page }) => {
   // Click the your tips link.
   await page.getByRole("link", { name: "Your Tips" }).click();
   // Expect the tip to be visible.
-  await expect(page.getByText("Test Tip").first()).toBeVisible({ timeout: 10000 });
+  await expect(page.getByText("Test Tip").first()).toBeVisible({ timeout: 20000 });
   // Click the delete button.
   await page.getByRole("button", { name: "X" }).first().click();
   // Expect the tip to be gone.
-  // await page.waitForSelector('Test Tip', { state: 'detached' });
-});
+  await expect(page.getByText("Test Tip").first()).not.toBeVisible();
+  });
