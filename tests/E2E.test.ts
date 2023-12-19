@@ -188,6 +188,29 @@ test("delete tip from tips and tricks", async ({ page }: any) => {
         await page.getByTitle('Previous month').click();
 
         //checking month has changed
+        await expect(page.getByRole('heading', { name:'Nov'})).toBeVisible();
+      });
 
-      await expect(page.getByRole('heading', { name:'Nov'})).toBeVisible();
+
+      test("testing add veggie to growing calendar", async ({ page }: any) => {
+        await page.goto("https://harvest-hub-tau.vercel.app/login");
+      
+        // Enter the email and password.
+        await page.getByPlaceholder("Email").fill("testington706@gmail.com");
+        await page.getByPlaceholder("Password").fill("testpassword");
+      
+        // Click the Sign In link.
+        await page.getByRole("button", { name: "Sign In" }).click();
+
+        //going to calendar
+        await page.getByRole('link', { name: 'My Garden Calendar' }).click();
+
+        //should see my garden calendar
+        await expect(page.getByRole('heading', { name: 'My Garden' })).toBeVisible(); 
+
+        await page.getByTitle('Previous month').click();
+
+        await page.getByRole('gridcell', { name: 'November 1, 2023', exact: true }).locator('div').nth(2).click();
+
+        await page.getByRole('option', { value: 'Potato' }).click({ timeout: 10000});
       });
