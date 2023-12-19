@@ -51,7 +51,7 @@ useEffect(() => {
             <p>{vegInfo}</p>
           </div>
           <div id="veggie-grid">
-            <div className="cream" id="h1-heading-veggie-grid">
+            <div className="cream">
               <h1>Difficulty:</h1>
             </div>
             <div className="carrot-rating brown">

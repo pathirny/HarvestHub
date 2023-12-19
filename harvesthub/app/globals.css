@@ -987,6 +987,7 @@ hr {
   #veggie-grid div {
     width: 20vw;
     height: 15vw;
+    margin-bottom: 2vw;
   }
   #veggie-grid a {
     width: 20vw;
