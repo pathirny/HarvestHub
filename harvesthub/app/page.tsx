@@ -65,7 +65,7 @@ export default function Index() {
   );
 
   
-  
+  // const [signedIn] = useCheckSignedIn()
   
   // const supabase = createBrowserClient(
   //   process.env.NEXT_PUBLIC_SUPABASE_URL!,

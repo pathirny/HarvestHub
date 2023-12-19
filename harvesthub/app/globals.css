@@ -119,14 +119,23 @@ hr {
   align-items: center;
 }
 
+.userImg {
+  width: 18vw;
+  height: auto;
+}
+
 #nav-container div {
   background-color: var(--white-cream-color);
   text-align: center;
-  border-radius: 10px;
+  border-radius: 50%;
   color: var(--dark-green-color);
   border: 2px solid var(--dark-green-color);
   width: 15vw;
-  height: 12vw;
+  height: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
 }
 
 #nav-container h3 {
@@ -657,53 +666,54 @@ hr {
   margin: 0;
 }
 
-
-  .fc-button.fc-prev-button, .fc-button.fc-next-button, .fc-button.fc-button-primary{
-    background: var(--light-green-color);
-    background-image: none;
-    height: 15vw;
-    width: 15vw;
+.fc-button.fc-prev-button,
+.fc-button.fc-next-button,
+.fc-button.fc-button-primary {
+  background: var(--light-green-color);
+  background-image: none;
+  height: 15vw;
+  width: 15vw;
 }
 
-.fc-day{
+.fc-day {
   background-color: var(--light-green-color);
-  border: 3vw solid var(--dark-green-color)
+  border: 3vw solid var(--dark-green-color);
 }
 
-.fc-day-sun, .fc-day-sat{
+.fc-day-sun,
+.fc-day-sat {
   background-color: var(--brown-color);
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
-.fc-scrollgrid, .fc-theme-standard td{
-  border:  1vw solid var(--dark-green-color)
+.fc-scrollgrid,
+.fc-theme-standard td {
+  border: 1vw solid var(--dark-green-color);
 }
-
-
 
 .fc-theme-standard .fc-scrollgrid {
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
 .fc-theme-standard th {
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
-.fc{
-  padding: 5vw 1vw 5vw 1vw
+.fc {
+  padding: 5vw 1vw 5vw 1vw;
 }
 
-.fc-dayGridMonth-view{
+.fc-dayGridMonth-view {
   height: 80vh;
 }
 
-.fc-toolbar-title{
+.fc-toolbar-title {
   color: var(--white-cream-color);
 }
 
-.fc-today-button{
- color: var(--white-cream-color);
- background-color: var(--brown-color);
+.fc-today-button {
+  color: var(--white-cream-color);
+  background-color: var(--brown-color);
 }
 
 .fc .fc-button-primary:hover {
@@ -711,8 +721,8 @@ hr {
 }
 
 #delete-event-button {
- z-index: 2000;
- margin: auto
+  z-index: 2000;
+  margin: auto;
 }
 
 .calendar-event-background {
@@ -738,14 +748,14 @@ hr {
   position: fixed;
   background-color: var(--dark-green-color);
   border-radius: 3vw;
-  margin:auto;
+  margin: auto;
   align-items: center;
   justify-content: center;
   width: 40vw;
   z-index: 2000;
 }
 
-#delete-event-container p{
+#delete-event-container p {
   color: var(--white-cream-color);
   text-align: center;
 }
@@ -795,12 +805,16 @@ hr {
   }
   #nav-container div {
     height: 8vw;
-    width: 10vw;
+    width: 8vw;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
+  .userImg {
+    width: 9vw;
+    height: auto;
+  }
   #nav-container div:hover::after {
     opacity: 40% var(--dark-green-color);
     transition: 1s;
@@ -868,10 +882,150 @@ hr {
     );
   }
   .addButton {
-    width: 15vw;
+    width: 10vw;
     height: 5vw;
     bottom: -10px;
+    font-size: 1.5rem;
+    transition: 0.8s;
+  }
+  .addButton:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+
+  .searchBar {
+    max-width: 83vw;
+  }
+
+  .flexContainer {
+    max-width: 60vw;
+    left: 20%;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .input {
+    max-width: 40vw;
+  }
+  hr {
+    width: 50vw;
+  }
+  #back-btn {
+    width: 10vw;
+    font-size: 1.5rem;
+    height: 5vw;
+    left: 45vw;
+    transition: 0.8s;
+  }
+  #back-btn:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+  .title-container {
+    max-width: 40vw;
+  }
+  .description-container {
+    max-width: 70vw;
+  }
+  .formButton {
+    transition: 0.8s;
+  }
+  .formButton:hover {
+    background-color: var(--brown-color);
+    cursor: pointer;
+  }
+  #calendar-welcome {
+    font-size: 1.5rem;
+  }
+  #calendargrid {
+    align-items: center;
+    justify-items: center;
+    gap: 2px;
+    padding: 0;
+  }
+  #calendargrid div {
+    width: 25vw;
+    height: 20vw;
+  }
+  #calendargrid a {
+    width: 25vw;
+    height: auto;
+  }
+  #calendargrid p {
     font-size: 2rem;
+    text-align: center;
+  }
+  .month img {
+    max-width: 25vw;
+    height: auto;
+  }
+
+  #plant-harvest-title h1 {
+    font-size: 6rem;
+  }
+  #plant-harvest-title {
+    background-color: #47594e;
+    position: sticky;
+    top: 0;
+    mask-image: linear-gradient(
+      to bottom,
+      black calc(100% - 10px),
+      transparent 100%
+    );
+  }
+  .vegListItem {
+    max-width: 25vw;
+    height: 5vw;
+  }
+
+  .plantHarvestList {
+    max-width: 25vw;
+  }
+  .plantHarvestList a {
+    width: 25vw;
+  }
+  #harvest-list a {
+    width: 25vw;
+  }
+  #harvest-list {
+    width: 25vw;
+  }
+  #veggie-general-info {
+    max-width: 40vw;
+    height: 20vw;
+  }
+  #veggie-general-info p {
+    font-size: 1.8rem;
+  }
+  #veggie-grid {
+    align-items: center;
+    justify-items: center;
+    gap: 1px;
+    padding: 0;
+  }
+  #veggie-grid div {
+    width: 20vw;
+    height: 15vw;
+    margin-bottom: 2vw;
+  }
+  #veggie-grid a {
+    width: 20vw;
+    height: auto;
+  }
+  .carrot-image {
+    max-height: 5vw;
+    width: auto;
+  }
+  .carrot-rating {
+    gap: 1vw;
+  }
+
+  #veggie-grid div h1 {
+    margin-top: 2vw;
+    font-size: 2vw;
+  }
+  #veggie-container div {
+    max-width: 100vw;
+    height: auto;
   }
 }
 

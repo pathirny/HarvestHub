@@ -59,7 +59,7 @@ useEffect(() => {
                 ease.pop();
                 return (
                   <>
-                    <img
+                    <img className="carrot-image"
                     key={a}
                       src="/assets/BlackCarrot.png"
                       alt="black carrot"
@@ -71,7 +71,7 @@ useEffect(() => {
               {ease.map((a) => {
                 return (
                   <>
-                    <img
+                    <img className="carrot-image"
                       key={a}
                       src="/assets/WhiteCarrot.png"
                       alt="black carrot"
@@ -89,7 +89,7 @@ useEffect(() => {
                 timeEase.pop();
                 return (
                   <>
-                    <img
+                    <img className="carrot-image"
                       key={a}
                       src="/assets/BlackCarrot.png"
                       alt="black carrot"
@@ -101,7 +101,7 @@ useEffect(() => {
               {timeEase.map((a) => {
                 return (
                   <>
-                    <img
+                    <img className="carrot-image"
                       key={a}
                       src="/assets/WhiteCarrot.png"
                       alt="black carrot"
