@@ -1068,6 +1068,23 @@ hr {
     width: 50vw;
     box-shadow: 28px 26px 29px -12px rgba(0, 0, 0, 0.75);
   }
+  /* Settings Page */
+  #settings-container {
+    height: 100vh;
+  }
+  #settings-container button {
+    width: 30vw;
+    height: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  #settings-container button:hover {
+    background-color: var(--brown-color);
+  }
 }
 
 @media only screen and (max-width: 430px) {
