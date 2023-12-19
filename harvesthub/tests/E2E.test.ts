@@ -1,14 +1,14 @@
 import { test, expect } from "@playwright/test";
 
 test("has title", async ({ page }: any) => {
-  await page.goto("/");
+  await page.goto("https://harvest-hub-tau.vercel.app/");
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Next.js and Supabase Starter Kit/);
+  await expect(page).toHaveTitle(/Harvest hub!/);
 });
 
 test("clicking sign in link takes you to log in page", async ({ page }: any) => {
-  await page.goto("/");
+  await page.goto("https://harvest-hub-tau.vercel.app/");
 
   // Click the Sign In link.
   await page.getByRole("link", { name: "Sign In" }).click();
@@ -34,7 +34,7 @@ test("clicking sign in link takes you to log in page", async ({ page }: any) => 
 });
 
 test("login", async ({ page }: any) => {
-  await page.goto("/login");
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
 
   // Enter the email and password.
   await page.getByPlaceholder("Email").fill("testington706@gmail.com");
@@ -54,7 +54,7 @@ test("login", async ({ page }: any) => {
 });
 
 test("navigate to tips and tricks", async ({ page }: any) => {
-  await page.goto("/login");
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
 
   // Enter the email and password.
   await page.getByPlaceholder("Email").fill("testington706@gmail.com");
@@ -76,7 +76,7 @@ test("navigate to tips and tricks", async ({ page }: any) => {
 });
 
 test("add a tip to tips and tricks", async ({ page }: any) => {
-  await page.goto("/login");
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
 
   // Enter the email and password.
   await page.getByPlaceholder("Email").fill("testington706@gmail.com");
@@ -100,31 +100,31 @@ test("add a tip to tips and tricks", async ({ page }: any) => {
   // Click the submit button.
   await page.getByRole("button", { name: "Submit" }).click();
   // Expect the tip to be visible.
-  await expect(page.getByText("Test Tip")).toBeVisible({ timeout: 10000 });
+  await expect(page.getByText("Test Tip").first()).toBeVisible({ timeout: 10000 });
 });
 
-// test("delete tip from tips and tricks", async ({ page }) => {
-//   await page.goto("/login");
+test("delete tip from tips and tricks", async ({ page }) => {
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
 
-//   // Enter the email and password.
-//   await page.getByPlaceholder("Email").fill("testington706@gmail.com");
-//   await page.getByPlaceholder("Password").fill("testpassword");
+  // Enter the email and password.
+  await page.getByPlaceholder("Email").fill("testington706@gmail.com");
+  await page.getByPlaceholder("Password").fill("testpassword");
 
-//   // Click the Sign In link.
-//   await page.getByRole("button", { name: "Sign In" }).click();
+  // Click the Sign In link.
+  await page.getByRole("button", { name: "Sign In" }).click();
 
-//   // Expect to see the users icon.
-//   await expect(
-//     page.getByRole("link", { name: "the Users profile" })
-//   ).toBeVisible({ timeout: 10000 });
-//   // Click the users icon.
-//   await page.getByRole("link", { name: "the Users profile" }).click();
-//   // Click the your tips link.
-//   await page.getByRole("link", { name: "Your Tips" }).click();
-//   // Expect the tip to be visible.
-//   await expect(page.getByText("Test Tip")).first().toBeVisible({ timeout: 10000 });
-//   // Click the delete button.
-//   await page.getByRole("button", { name: "X" }).first().click();
-//   // Expect the tip to be gone.
-//   // await page.waitForSelector('Test Tip', { state: 'detached' });
-// });
+  // Expect to see the users icon.
+  await expect(
+    page.getByRole("link", { name: "the Users profile" })
+  ).toBeVisible({ timeout: 10000 });
+  // Click the users icon.
+  await page.getByRole("link", { name: "the Users profile" }).click();
+  // Click the your tips link.
+  await page.getByRole("link", { name: "Your Tips" }).click();
+  // Expect the tip to be visible.
+  await expect(page.getByText("Test Tip").first()).toBeVisible({ timeout: 10000 });
+  // Click the delete button.
+  await page.getByRole("button", { name: "X" }).first().click();
+  // Expect the tip to be gone.
+  // await page.waitForSelector('Test Tip', { state: 'detached' });
+});
