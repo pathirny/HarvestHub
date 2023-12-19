@@ -39,7 +39,11 @@ export default function UserPage() {
         .from("Users")
         .select("first_name");
       if (Users) {
+        console.log(Users);
         setUserName(Users[0].first_name);
+      }
+      if (error) {
+        console.log(error);
       }
     }
     getName();
@@ -131,16 +135,20 @@ export default function UserPage() {
         <div id="user_name">
           <p style={{ alignSelf: "center" }}>{userName}</p>
         </div>
-        <Link href="/favourites">
-          <button className="favouritesButton">Favourites</button>
-        </Link>
-        <Link href="/yourTips">
-          <button className="favouritesButton">Your Tips</button>
+        <div className="favAndTipButtons">
+          <Link href="/favourites">
+            <button className="favouritesButton">Favourites</button>
+          </Link>
+          <Link href="/yourTips">
+            <button className="favouritesButton">Your Tips</button>
+          </Link>
+        </div>
+      </div>
+      <div id="backBtn">
+        <Link href="/">
+          <BackButton />
         </Link>
       </div>
-      <Link href="/">
-        <BackButton />
-      </Link>
     </>
   );
 }

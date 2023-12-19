@@ -1093,11 +1093,49 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s;
   }
   .settingIcon,
   .addIcon {
     max-width: 3vw;
     max-height: 3vw;
+  }
+  #icon-container div:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+  #userPage-container {
+    width: 60vw;
+    margin-top: 1vw;
+  }
+
+  #user-img {
+    width: 20vw;
+    height: 20vw;
+  }
+  #user_name {
+    height: 7vw;
+  }
+  #user_name p {
+    font-size: 3rem;
+  }
+  #backBtn {
+    display: none;
+  }
+  .favAndTipButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1vw;
+  }
+  .favAndTipButtons button {
+    transition: 0.8s;
+    width: 20vw;
+    font-size: 1.6rem;
+    align-self: center;
+  }
+  .favAndTipButtons button:hover {
+    background-color: var(--brown-color);
+    cursor: pointer;
   }
 }
 
