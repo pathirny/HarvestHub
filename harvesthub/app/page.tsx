@@ -12,9 +12,12 @@ import React, { useEffect, useState } from "react";
 import { color } from "framer-motion";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import useCheckSignedIn from "../components/hooks/useCheckSignedIn";
+import Head from "next/head";
+// import IndexPage from "@/components/Head";
 
 export default function Index() {
   const [publicUser, setPublicUser] = useState(true);
+
 
   function addToPublic(e: any) {
     async function apiCall(formData: any) {
@@ -60,6 +63,17 @@ export default function Index() {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
+
+  
+  // const [signedIn] = useCheckSignedIn()
+  
+  // const supabase = createBrowserClient(
+  //   process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  //   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  //   );
+    
+
+
   const [text] = useTypewriter({
     words: ["Garden", "Grow", "Learn", "Eat"],
     loop: false,
@@ -69,6 +83,9 @@ export default function Index() {
 
   return (
     <>
+    <Head>
+      <link rel="icon" href="./public/assets/logo.png"></link>
+    </Head>
       <Header title="Harvest Hub" />
       <main className="homepage-box">
         <img
