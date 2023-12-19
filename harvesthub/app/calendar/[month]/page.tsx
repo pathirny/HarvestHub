@@ -15,10 +15,10 @@ export default function Month({ params }: any) {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
-// setting state 
+  // setting state
   const [plantList, setPlantList] = useState([{ name: "loading" }]);
   const [harvestList, setHarvestList] = useState([
-  // create an object to store the veggie data
+    // create an object to store the veggie data
     {
       id: 0,
       name: "loading",
@@ -48,7 +48,7 @@ export default function Month({ params }: any) {
   //define two constants for cycling through the months
   const nxt = +params.month === 11 ? 0 : +params.month + 1;
   const prev = +params.month === 0 ? 11 : +params.month - 1;
-// get the data about veggies which needs to be harvested from suparbase
+  // get the data about veggies which needs to be harvested from suparbase
   useEffect(() => {
     async function getHarvest(season: string) {
       let { data: seasonInfo, error } = await supabase
@@ -60,7 +60,7 @@ export default function Month({ params }: any) {
         setHarvestList(seasonInfo);
       }
     }
-// defines the season of each month
+    // defines the season of each month
     if (+params.month >= 2 && +params.month <= 4) {
       getHarvest("Spring");
     } else if (+params.month >= 5 && +params.month <= 7) {
@@ -71,7 +71,7 @@ export default function Month({ params }: any) {
       getHarvest("Winter");
     }
   }, []);
-// get the data about veggies which needs to be planted from suparbase
+  // get the data about veggies which needs to be planted from suparbase
   useEffect(() => {
     async function getPlant(season: string) {
       let { data: seasonInfo, error } = await supabase
@@ -83,7 +83,7 @@ export default function Month({ params }: any) {
         setPlantList(seasonInfo);
       }
     }
-// defines the season of each month
+    // defines the season of each month
     if (+params.month >= 2 && +params.month <= 4) {
       getPlant("Spring");
     } else if (+params.month >= 5 && +params.month <= 7) {
@@ -94,7 +94,7 @@ export default function Month({ params }: any) {
       getPlant("Winter");
     }
   }, []);
-// returns the individual month with the veggies to be harvested/planted
+  // returns the individual month with the veggies to be harvested/planted
   return (
     <>
       <div id="calendar-pg-container">
@@ -126,10 +126,10 @@ export default function Month({ params }: any) {
             <h1>Harvest</h1>
           </div>
           <div id="underline"></div>
-          <div id="plant-list">
+          <div id="plant-list" className="plantHarvestList">
             {plantList.map((a) => {
               return (
-                <>
+                <div className="vegContainer">
                   <Link href={`/veggies/${a.name}`}>
                     <div
                       className="vegListItem"
@@ -138,12 +138,12 @@ export default function Month({ params }: any) {
                         backgroundColor: "var(--white-cream-color)",
                       }}
                     >
-                      <h3 style={{ marginTop: "1vw", fontSize: "5vw" }}>
+                      <h3 style={{ marginTop: "1vw", fontSize: "4vw" }}>
                         {a.name}
                       </h3>
                     </div>
                   </Link>
-                </>
+                </div>
               );
             })}
           </div>
@@ -159,7 +159,10 @@ export default function Month({ params }: any) {
                         backgroundColor: "var(--brown-color)",
                       }}
                     >
-                      <h3 style={{ marginTop: "1vw", fontSize: "5vw" }}>
+                      <h3
+                        className="vegTitle"
+                        style={{ marginTop: "1vw", fontSize: "4vw" }}
+                      >
                         {a.name}
                       </h3>
                     </div>
@@ -169,7 +172,7 @@ export default function Month({ params }: any) {
             })}
           </div>
         </div>
-{/* returns to previous page - button */}
+        {/* returns to previous page - button */}
         <Link href="/calendar">
           <BackButton />
         </Link>

@@ -49,10 +49,10 @@ export default function Header({ title }: any) {
                   width="500"
                   height="500"
                   className="userImg"
-                  style={{
-                    width: "15vw",
-                    height: "auto",
-                  }}
+                  // style={{
+                  //   width: "10vw",
+                  //   height: "auto",
+                  // }}
                   alt="the Users profile"
                 />
               </div>

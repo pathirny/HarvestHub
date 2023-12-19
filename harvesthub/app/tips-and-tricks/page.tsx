@@ -122,13 +122,13 @@ export default function TipsnTricks() {
       <Header title="Tips and Tricks" />
 
       <Flex
-        className="flexContainer"
         position="absolute"
         zIndex="2"
         justifyContent="center"
         bgColor="#47594e"
         width="100%"
         color="#f3ebe4"
+        className="flexContainer"
       >
         <FormControl
           display={display}
@@ -140,6 +140,8 @@ export default function TipsnTricks() {
           <Input
             placeholder="Title ✍"
             width="90vw"
+            required
+            className="input"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
@@ -147,6 +149,8 @@ export default function TipsnTricks() {
             placeholder="Description ✍"
             width="90vw"
             height="25vh"
+            className="input"
+            required
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
@@ -160,6 +164,7 @@ export default function TipsnTricks() {
           <Button
             type="submit"
             border="solid 1px black"
+            className="formButton"
             boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
             onClick={(event) => {
               addTip(event);
@@ -170,6 +175,7 @@ export default function TipsnTricks() {
           </Button>
           <Button
             onClick={toggleForm}
+            className="formButton"
             border="solid 1px black"
             boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
           >
