@@ -148,3 +148,22 @@ test("delete tip from tips and tricks", async ({ page }: any) => {
     
     await expect(page.getByRole('heading', { name: 'Click on the veggies for more info and advice on growing!' })).toBeVisible();
     });
+
+    test("checking that individual veggie page opens and retrieves data from database", async ({ page }: any) => {
+      await page.goto("https://harvest-hub-tau.vercel.app/login");
+    
+      // Enter the email and password.
+      await page.getByPlaceholder("Email").fill("testington706@gmail.com");
+      await page.getByPlaceholder("Password").fill("testpassword");
+    
+      // Click the Sign In link.
+      await page.getByRole("button", { name: "Sign In" }).click();
+    
+      await page.goto("https://harvest-hub-tau.vercel.app/calendar/0");
+      await expect(page.getByRole('link', { name: 'Orange' })).toBeVisible({ timeout: 20000 });
+      await expect(page.getByRole('link', { name: 'Cauliflower' })).toBeVisible({ timeout: 20000 });
+      await expect(page.getByRole('link', { name: 'Grapefruit' })).toBeVisible({ timeout: 20000 });
+
+      await page.getByRole('link', { name: 'Cauliflower' }).click();
+      await expect(page.getByRole('heading', { name: 'Cauliflower' })).toBeVisible();
+      });  
