@@ -34,7 +34,7 @@ export default function FullCalendar(props) {
   // Set state to the selected veggie
   const [selectedVeg, setSelectedVeg] = useState("");
   //toggle to control if the form is showing to input a new event
-  const [input, setinput] = useState(false);
+  const [input, setInput] = useState(false);
   //toggle for event popup to delete event
   const [eventOptions, setEventOptions] = useState(false);
   //setting date when a calendar day is clicked on - to be passed the event object
@@ -59,7 +59,7 @@ export default function FullCalendar(props) {
   //handles when a day is clicked on the calendar
   function handleDateClick(e) {
     //toggles the input form to show
-    setinput(true);
+    setInput(true);
     //sets the date to the day that has been clicked on
     setDate(e.date);
   }
@@ -112,7 +112,7 @@ export default function FullCalendar(props) {
     // Create an async function to do the api call to add a new event to the databage
 
     //toggles the input form off
-    setinput(false);
+    setInput(false);
   }
 
   function getCalendarEvents() {
@@ -189,31 +189,7 @@ export default function FullCalendar(props) {
 
   return (
     <>
-      {/* toggle for showing input */}
-      {input ? (
-        <form onSubmit={addEvent}>
-          <label htmlFor="vegTypev">what are you growing</label>
-          {/* drop down to select veggies */}
-          <Select
-            placeholder="Select option"
-            style={{ borderRadius: "2vw" }}
-            value={selectedVeg}
-            onChange={(e) => setSelectedVeg(e.target.value)}
-          >
-            {vegList.map((a) => {
-              return (
-                <option value={a.name} key={a.id}>
-                  {a.name}
-                </option>
-              );
-            })}
-          </Select>
-          {/* <input type="text" name="vegType" /> */}
-          <button type="submit">Submit</button>
-        </form>
-      ) : (
-        <></>
-      )}
+    
 <div >
       <Calendar
         plugins={[dayGrid, timeGrid, interactionPlugin, multiMonthPlugin]}
@@ -237,15 +213,48 @@ export default function FullCalendar(props) {
         {...props}
       />
       </div>
+      {input ? (<>
+         <div className="calendar-event-background">
+          
+         </div>
+        <form onSubmit={addEvent} className="calendar-event-container">
+          <label htmlFor="vegTypev">what are you growing?</label>
+          <br></br>
+          {/* drop down to select veggies */}
+          <Select
+            placeholder="Select option"
+            style={{ borderRadius: "2vw" }}
+            value={selectedVeg}
+            onChange={(e) => setSelectedVeg(e.target.value)}
+          >
+            {vegList.map((a) => {
+              return (
+                <option value={a.name} key={a.id}>
+                  {a.name}
+                </option>
+              );
+            })}
+          </Select>
+          {/* <input type="text" name="vegType" /> */}
+          <button type="submit">Submit</button>
+          <button id="cancel-delete-button" type="button" onClick={()=>{setInput(false)} }>
+        Cancel
+      </button>
+        </form></>
+      ) : (
+        <></>
+      )}
       {eventOptions ? (
         <>
-        <div id="delete-event-background">
+        <div className="calendar-event-background">
           
         </div>
-        <div id="delete-event-container">
+        <div className="calendar-event-container">
           <p>Are you sure you want to delete this event?</p>
         <button id="delete-event-button" type="button" onClick={deleteEvent}>
         Delete Event
+      </button>  <button id="cancel-delete-button" type="button" onClick={()=>{setEventOptions(false)} }>
+        Cancel
       </button>
       </div>
       </>

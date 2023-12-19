@@ -713,7 +713,8 @@ hr {
  z-index: 2000;
  margin: auto
 }
-#delete-event-background {
+
+.calendar-event-background {
   background-color: var(--white-cream-color);
   width: 100vw;
   height: 100vh;
@@ -724,10 +725,13 @@ hr {
   z-index: 1000;
 }
 
-#delete-event-container{
+.calendar-event-container{
+  color: var(--white-cream-color);
+  text-align: center;
   height: 30vw;
   left: 30vw;
   display: flex;
+  padding: 3vw;
   flex-direction: column;
   top: 50vw;
   position: fixed;
