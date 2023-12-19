@@ -7,7 +7,7 @@
   --light-green-color: #99a57b;
   --brown-color: #b9a48c;
   --white-cream-color: #f3ebe4;
-  --orange-color: rgb(219, 120, 77)
+  --orange-color: rgb(219, 120, 77);
 }
 
 body {
@@ -604,7 +604,9 @@ hr {
   justify-content: space-evenly;
   margin-top: 10vw;
 }
-
+.monthImage {
+  width: 40vw;
+}
 .setting_button {
   width: 90vw;
   height: 15vw;
@@ -736,7 +738,7 @@ hr {
   z-index: 1000;
 }
 
-.calendar-event-container{
+.calendar-event-container {
   color: var(--white-cream-color);
   text-align: center;
   height: fit-content;
@@ -958,7 +960,18 @@ hr {
     max-width: 25vw;
     height: auto;
   }
-
+  .header-month {
+    width: 30vw;
+    height: auto;
+  }
+  .monthImage {
+    max-width: 25vw;
+    margin-top: 5vw;
+    max-height: 25vw;
+  }
+  .header-month p {
+    font-size: 5rem;
+  }
   #plant-harvest-title h1 {
     font-size: 6rem;
   }
@@ -1071,11 +1084,9 @@ hr {
   }
 }
 
-
-
 /* calendar list view */
 
-#calendar-list-container{
+#calendar-list-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -1083,14 +1094,14 @@ hr {
   color: var(--white-cream-color);
 }
 
-.calendar-list{
+.calendar-list {
   display: flex;
   flex-direction: column;
   gap: 3vw;
   text-align: center;
 }
 
-.calendar-list-item{
+.calendar-list-item {
   color: var(--dark-green-color);
   border-radius: 3vw;
   padding: 2vw;
@@ -1102,25 +1113,25 @@ hr {
   flex-direction: column;
 }
 
-.calendar-list-itme-container{
+.calendar-list-itme-container {
   display: flex;
   flex-direction: row;
-  gap: 1vw
+  gap: 1vw;
 }
-.calendar-list-item p{
+.calendar-list-item p {
   margin: 0;
 }
 
-.delete-list-item{
- color: var(--dark-green-color);
- background-color: var(--white-cream-color);
- height: 100%;
- margin: 0;
- width: 10vw;
- border-radius: 3vw;
+.delete-list-item {
+  color: var(--dark-green-color);
+  background-color: var(--white-cream-color);
+  height: 100%;
+  margin: 0;
+  width: 10vw;
+  border-radius: 3vw;
 }
 
-.calendar-event-container button{
+.calendar-event-container button {
   color: var(--orange-color);
   font-weight: 700;
 }
