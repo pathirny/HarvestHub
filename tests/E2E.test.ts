@@ -103,7 +103,7 @@ test("add a tip to tips and tricks", async ({ page }: any) => {
   await expect(page.getByText("Test Tip").first()).toBeVisible({ timeout: 10000 });
 });
 
-test("delete tip from tips and tricks", async ({ page }) => {
+test("delete tip from tips and tricks", async ({ page }: any) => {
   await page.goto("https://harvest-hub-tau.vercel.app/login");
 
   // Enter the email and password.
@@ -128,3 +128,21 @@ test("delete tip from tips and tricks", async ({ page }) => {
   // Expect the tip to be gone.
   await expect(page.getByText("Test Tip").first()).not.toBeVisible();
   });
+
+  test("checking that months are visable in the Growing Calendar", async ({ page }: any) => {
+    await page.goto("https://harvest-hub-tau.vercel.app/login");
+  
+    // Enter the email and password.
+    await page.getByPlaceholder("Email").fill("testington706@gmail.com");
+    await page.getByPlaceholder("Password").fill("testpassword");
+  
+    // Click the Sign In link.
+    await page.getByRole("button", { name: "Sign In" }).click();
+  
+    // Expect to see the Growing Calendar link on the home page.
+    await page.getByRole("link", { name: "Growing Calendar" }).click();
+    await expect(
+      page.getByRole("heading", { name: "Welcome to our growing calendar - click on the months to see what you can grow and harvest!"}
+    )).toBeVisible({ timeout: 20000 });
+   
+    });
