@@ -1085,6 +1085,20 @@ hr {
   #settings-container button:hover {
     background-color: var(--brown-color);
   }
+
+  /* User Page */
+  #icon-container div {
+    width: 2vw;
+    height: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .settingIcon,
+  .addIcon {
+    max-width: 3vw;
+    max-height: 3vw;
+  }
 }
 
 @media only screen and (max-width: 430px) {

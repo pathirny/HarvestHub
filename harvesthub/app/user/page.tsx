@@ -8,14 +8,14 @@ import Link from "next/link";
 import { CldUploadWidget, CldImage } from "next-cloudinary";
 import { useEffect, useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
-import useCheckSignedIn from "../../components/hooks/useCheckSignedIn"
+import useCheckSignedIn from "../../components/hooks/useCheckSignedIn";
 export default function UserPage() {
-  const [signedIn] = useCheckSignedIn()
+  const [signedIn] = useCheckSignedIn();
   const [publicId, setPublicId] = useState("/Users_img/sprout");
   const [userName, setUserName] = useState("");
   const [update, setUpdate] = useState(false);
   const [bio, setBio] = useState("hi");
-// use supperbase 
+  // use supperbase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -55,7 +55,7 @@ export default function UserPage() {
     // }
   }
 
-  // function to set users profile picture 
+  // function to set users profile picture
   function setUserImg(imgId: any) {
     console.log("update img");
     console.log(userName);
@@ -82,17 +82,21 @@ export default function UserPage() {
         <div id="icon-container">
           <Link href="/settings">
             <div className="IconBox">
-              <SettingsIcon boxSize="7vw" color="#47594e" />
+              <SettingsIcon
+                className="settingIcon"
+                boxSize="7vw"
+                color="#47594e"
+              />
             </div>
           </Link>
           <div
-          aria-label="edit-button"
+            aria-label="edit-button"
             className="IconBox"
             onClick={() => {
               setUpdate(!update);
             }}
           >
-            <AddIcon boxSize="7vw" color="#47594e" />
+            <AddIcon className="addIcon" boxSize="7vw" color="#47594e" />
           </div>
         </div>
         <div id="user-img">
