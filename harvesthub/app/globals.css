@@ -7,6 +7,7 @@
   --light-green-color: #99a57b;
   --brown-color: #b9a48c;
   --white-cream-color: #f3ebe4;
+  --orange-color: rgb(219, 120, 77)
 }
 
 body {
@@ -966,6 +967,6 @@ hr {
 }
 
 .calendar-event-container button{
-  color:rgb(219, 120, 77);
+  color: var(--orange-color);
   font-weight: 700;
 }

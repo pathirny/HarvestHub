@@ -86,6 +86,7 @@ export default function UserPage() {
             </div>
           </Link>
           <div
+          aria-label="edit-button"
             className="IconBox"
             onClick={() => {
               setUpdate(!update);

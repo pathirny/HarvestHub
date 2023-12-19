@@ -74,7 +74,6 @@ export default function FullCalendar(props) {
 
   //adds event when the input form has been submitted
   function addEvent(data) {
-    console.log("selected veg" + selectedVeg)
     if (!selectedVeg){
       data.preventDefault()
       setErrorAdding(true)
@@ -122,7 +121,7 @@ export default function FullCalendar(props) {
       } else {
         console.log("No veggies found with the name:", veg);
   
-      }
+      } setSelectedVeg("")
       
     }
 
@@ -184,18 +183,7 @@ export default function FullCalendar(props) {
   }
 
   function deleteEvent(id) {
-    if (currentEvent.includes("#")) {
-      async function apiCall() {
-        let { error } = await supabase
-          .from("calendar_events")
-          .delete()
-          .eq("event_id", currentEvent.substring(0, currentEvent.length - 1));
-        getCalendarEvents();
-      }
-      apiCall();
-    }
-
-    else if(id){
+    if(id){
 
       async function apiCall() {
         let { error } = await supabase
@@ -207,6 +195,17 @@ export default function FullCalendar(props) {
       }
       apiCall();
     }
+    else if (currentEvent.includes("#")) {
+      async function apiCall() {
+        let { error } = await supabase
+          .from("calendar_events")
+          .delete()
+          .eq("event_id", currentEvent.substring(0, currentEvent.length - 1));
+        getCalendarEvents();
+      }
+      apiCall();
+    }
+    else {
 
     async function apiCall() {
       let { error } = await supabase
@@ -216,7 +215,7 @@ export default function FullCalendar(props) {
 
       getCalendarEvents();
     }
-    apiCall();
+    apiCall();}
     setEventOptions(false)
   }
 
@@ -306,7 +305,7 @@ export default function FullCalendar(props) {
           <p>Are you sure you want to delete this event?</p>
         <button id="delete-event-button" type="button" onClick={deleteEvent}>
         Delete Event
-      </button>  <button id="cancel-delete-button" type="button" onClick={()=>{setEventOptions(false); setErrorAdding(false)} }>
+      </button>  <button id="cancel-delete-button" type="button" onClick={()=>{setEventOptions(false); setErrorAdding(false); return} }>
         Cancel
       </button>
       </div>

@@ -15,6 +15,10 @@ jobs:
         node-version: 18
     - name: Install dependencies
       run: npm ci
+    - name: Install React Testing Library
+      run: npm install @testing-library/react
+    - name: Install Playwright Test
+      run: npm install @playwright/test
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
