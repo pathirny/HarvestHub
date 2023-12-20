@@ -627,6 +627,8 @@ hr {
   width: 90vw;
   margin: auto;
   height: 100vh;
+  margin-left: 5vw;
+  margin-right: 5vw
 }
 
 /*/ ///////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
@@ -678,6 +680,11 @@ hr {
 .fc-day {
   background-color: var(--light-green-color);
   border: 3vw solid var(--dark-green-color);
+  border-radius: 1vw;
+}
+
+.fc-daygrid-day-frame{
+  border-radius: 1vw;
 }
 
 .fc-day-sun,
@@ -718,6 +725,18 @@ hr {
 
 .fc .fc-button-primary:hover {
   background-color: var(--light-green-color);
+}
+
+.fc-button-group {
+gap: 1vw
+}
+
+.fc-direction-ltr{
+  border: none;
+  border-radius: 2vw;
+}
+.fc .fc-button-primary {
+  border-color: var(--light-green-color);
 }
 
 #delete-event-button {
@@ -1123,4 +1142,96 @@ hr {
 .calendar-event-container button{
   color: var(--orange-color);
   font-weight: 700;
+}
+
+#myGarden-introduction{
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+  padding: 0 3vw 0 3vw;
+  text-align: center;
+  margin: 0;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+  border: none
+}
+
+#myGarden-introduction h3{
+margin: 0;
+}
+
+#view-options-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  height: fit-content;
+  align-items: center;
+  background-color: var(--white-cream-color);
+  width: 100vw;
+  border: none;
+  margin-left: -5vw;
+  margin-right: -5vw
+}
+
+#view-options-container button{
+  margin: 0;
+  border-radius: 0;
+border: none;
+  border-top-right-radius: 2vw;
+  border-top-left-radius: 2vw;
+  background-color: #47594e;
+  border-bottom: none;
+  color: var(--white-cream-color);
+  width: 40vw;
+}
+
+#calendar-key-container{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  align-items: center;
+  gap: 3vw;
+  z-index: 10000;
+}
+
+#calendar-key-container p {
+  color: var(--white-cream-color);
+  margin: 0;
+}
+
+.key-color{
+  height: 10vw;
+  width: 10vw;
+  border-radius: 50%;
+  background-color: var(--brown-color);
+
+}
+
+#calendar-key-toggle{
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+  height: 4em;
+  width: 4em;
+  left: 0;
+  border-radius: 40%;
+  position: absolute;
+}
+
+#calendar-key-toggle p {
+  color: var(--dark-green-color);
+  transform: rotate(90deg);
+  margin: 5vw;
+  margin-left: 7vw
+}
+
+#key-colors-container{
+  position: relative;
+  top: 40vw;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 5vw;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3vw;
 }

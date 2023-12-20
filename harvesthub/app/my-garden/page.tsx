@@ -16,6 +16,9 @@ export default function Home() {
   return (
     <>
       <Header title="My Garden" />
+      <div id="myGarden-introduction">
+    <h3>Click on days to track of what you've planted and when to harvest!</h3>
+  </div>
       {signedIn ? 
      <> <div id="calendar-container">
         <FullCalendar initialView="dayGridMonth" />

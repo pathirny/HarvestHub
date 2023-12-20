@@ -1,9 +1,18 @@
 "use client";
 import { createBrowserClient } from "@supabase/ssr";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { SearchBar } from "@/components/SearchBar";
+import { YourTipCard } from "@/components/YourTipCard";
+import {
+  Button,
+  Container,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 
 export default function YourTips() {
   //set up the supabase client
@@ -20,6 +29,7 @@ export default function YourTips() {
   const [success, setSuccess] = useState(false);
   //manage state for search terms in searchbar
   const [searchTerm, setSearchTerm] = useState("");
+  const [deltedTip, setDeletedTip] = useState()
 
   //function to get favourites from database and set favTips
   function getTips() {
@@ -40,10 +50,14 @@ export default function YourTips() {
     apiCall();
   }
 
-  //set the favTips on first render
+  //set your tips on first render
   useEffect(() => {
     getTips();
   }, []);
+
+  useEffect(() => {
+    getTips();
+  }, [deltedTip]);
 
   //to delete a tip from the database
   function deleteTip(id) {
@@ -90,7 +104,18 @@ export default function YourTips() {
       />
       <ul id="fav-container">
         {/* checking if api call has pulled back data rather than an empty array before rendering tips */}
-        {success ? (
+        {success ? filteredTips.map((a, i) => {return  <Container
+
+      className="card"
+      maxW="md"
+      borderRadius={10}
+      margin="20px"
+      p="20px"
+      zIndex="0"
+    >
+      <YourTipCard key={i} tip={a} setDeleted={setDeletedTip}/>
+    </Container>}) : <></>}
+        {/* {success ? (
           filteredTips.map((a) => {
             return (
               <div id="fav-card-container" key={a.id}>
@@ -114,7 +139,7 @@ export default function YourTips() {
             <p className="favsMissing">You have not added any tips</p>
             <img src="/assets/sadPumpkin.png" alt="sad pumpkin"></img>
           </>
-        )}
+        )} */}
       </ul>
     </>
   );
