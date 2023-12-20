@@ -9,6 +9,7 @@ import { createBrowserClient } from "@supabase/ssr";
 import { formatDate } from "@fullcalendar/core";
 import { list } from "postcss";
 import BackButton from "./BackButton";
+import Link from "next/link";
 
 export default function FullCalendar(props) {
   //connecting to supabase
@@ -400,7 +401,9 @@ export default function FullCalendar(props) {
           )}
         </>
       )}
-      <BackButton />
+      <Link href="/">
+        <BackButton />
+      </Link>
     </>
   );
 }
