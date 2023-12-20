@@ -1158,7 +1158,17 @@ hr {
     height: auto;
     align-self: center;
   }
-  
+  #fav-card-container {
+    max-width: 90vw;
+    height: 20vw;
+  }
+  #fav-card {
+    height: 10vw;
+  }
+  #delete-fav {
+    height: 10vw;
+    max-width: 10vw;
+  }
 }
 
 @media only screen and (max-width: 430px) {
