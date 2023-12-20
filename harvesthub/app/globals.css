@@ -7,7 +7,7 @@
   --light-green-color: #99a57b;
   --brown-color: #b9a48c;
   --white-cream-color: #f3ebe4;
-  --orange-color: rgb(219, 120, 77)
+  --orange-color: rgb(219, 120, 77);
 }
 
 body {
@@ -388,7 +388,7 @@ hr {
 
 #veggie-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2vw;
 }
 
@@ -604,7 +604,9 @@ hr {
   justify-content: space-evenly;
   margin-top: 10vw;
 }
-
+.monthImage {
+  width: 40vw;
+}
 .setting_button {
   width: 90vw;
   height: 15vw;
@@ -756,7 +758,7 @@ gap: 1vw
   z-index: 1000;
 }
 
-.calendar-event-container{
+.calendar-event-container {
   color: var(--white-cream-color);
   text-align: center;
   height: fit-content;
@@ -817,7 +819,16 @@ gap: 1vw
   align-items: center;
   justify-content: center;
 }
-
+.imageBox {
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4vw;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  border: 2px solid var(--brown-color);
+}
 /* Media Queries */
 @media only screen and (min-width: 1000px) {
   #nav-body {
@@ -978,7 +989,18 @@ gap: 1vw
     max-width: 25vw;
     height: auto;
   }
-
+  .header-month {
+    width: 30vw;
+    height: auto;
+  }
+  .monthImage {
+    max-width: 25vw;
+    margin-top: 5vw;
+    max-height: 25vw;
+  }
+  .header-month p {
+    font-size: 5rem;
+  }
   #plant-harvest-title h1 {
     font-size: 6rem;
   }
@@ -1038,7 +1060,12 @@ gap: 1vw
   .carrot-rating {
     gap: 1vw;
   }
-
+  #veggie-grid {
+    width: 70vw;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+  }
   #veggie-grid div h1 {
     margin-top: 2vw;
     font-size: 2vw;
@@ -1046,6 +1073,100 @@ gap: 1vw
   #veggie-container div {
     max-width: 100vw;
     height: auto;
+  }
+  .imageBox {
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+  }
+  .tip-img {
+    max-width: 30vw;
+    height: auto;
+  }
+  #veggie-general-info {
+    width: 50vw;
+    box-shadow: 28px 26px 29px -12px rgba(0, 0, 0, 0.75);
+  }
+  /* Settings Page */
+  #settings-container {
+    height: 100vh;
+  }
+  #settings-container button {
+    width: 30vw;
+    height: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  #settings-container button:hover {
+    background-color: var(--brown-color);
+  }
+
+  /* User Page */
+  #icon-container div {
+    width: 2vw;
+    height: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+  }
+  .settingIcon,
+  .addIcon {
+    max-width: 3vw;
+    max-height: 3vw;
+  }
+  #icon-container div:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+  #userPage-container {
+    width: 60vw;
+    margin-top: 1vw;
+  }
+
+  #user-img {
+    width: 20vw;
+    height: 20vw;
+  }
+  #user_name {
+    height: 7vw;
+  }
+  #user_name p {
+    font-size: 3rem;
+  }
+  #backBtn {
+    display: none;
+  }
+  .favAndTipButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1vw;
+  }
+  .favAndTipButtons button {
+    transition: 0.8s;
+    width: 20vw;
+    font-size: 1.6rem;
+    align-self: center;
+  }
+  .favAndTipButtons button:hover {
+    background-color: var(--brown-color);
+    cursor: pointer;
+  }
+
+  #home-button {
+    transition: 0.7s;
+  }
+  #home-button:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+  #nav-container a {
+    max-width: 10vw;
   }
 }
 
@@ -1089,13 +1210,14 @@ gap: 1vw
   .favButton {
     width: 10vw;
   }
+  #month-nav-container {
+    margin-top: 3vw;
+  }
 }
-
-
 
 /* calendar list view */
 
-#calendar-list-container{
+#calendar-list-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -1103,14 +1225,14 @@ gap: 1vw
   color: var(--white-cream-color);
 }
 
-.calendar-list{
+.calendar-list {
   display: flex;
   flex-direction: column;
   gap: 3vw;
   text-align: center;
 }
 
-.calendar-list-item{
+.calendar-list-item {
   color: var(--dark-green-color);
   border-radius: 3vw;
   padding: 2vw;
@@ -1122,28 +1244,29 @@ gap: 1vw
   flex-direction: column;
 }
 
-.calendar-list-itme-container{
+.calendar-list-itme-container {
   display: flex;
   flex-direction: row;
-  gap: 1vw
+  gap: 1vw;
 }
-.calendar-list-item p{
+.calendar-list-item p {
   margin: 0;
 }
 
-.delete-list-item{
- color: var(--dark-green-color);
- background-color: var(--white-cream-color);
- height: 100%;
- margin: 0;
- width: 10vw;
- border-radius: 3vw;
+.delete-list-item {
+  color: var(--dark-green-color);
+  background-color: var(--white-cream-color);
+  height: 100%;
+  margin: 0;
+  width: 10vw;
+  border-radius: 3vw;
 }
 
-.calendar-event-container button{
+.calendar-event-container button {
   color: var(--orange-color);
   font-weight: 700;
 }
+
 
 #myGarden-introduction{
   background-color: var(--white-cream-color);
@@ -1220,3 +1343,4 @@ border: 1px solid #f3ebe4;
 .calendar-list button{
 
 }
+

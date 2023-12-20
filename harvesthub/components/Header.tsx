@@ -5,24 +5,25 @@ import { createBrowserClient } from "@supabase/ssr";
 import { useEffect, useState } from "react";
 import { CldImage } from "next-cloudinary";
 import useCheckSignedIn from "./hooks/useCheckSignedIn";
-// sets useState
+
 export default function Header({ title }: any) {
   const [userImg, setUserImg] = useState(null);
-  // checks user is signed in
+
   const [signedIn] = useCheckSignedIn();
-  // connects to supabase
+
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
-  // useEffect recieves image data from cloudinary
-  // sets profile image to user defined photo, if none, renders blank image
+
   useEffect(() => {
     async function getUserImg() {
+      console.log("hello");
       let { data: userImg, error } = await supabase
         .from("Users")
         .select("user_img");
       if (userImg) {
+        console.log("hello");
         setUserImg(userImg[0].user_img);
       } else {
         setUserImg(null);
@@ -30,7 +31,7 @@ export default function Header({ title }: any) {
     }
     getUserImg();
   }, []);
-// renders header component including; home button, title text and user profile button
+
   return (
     <>
       <header id="nav-body">
@@ -58,7 +59,6 @@ export default function Header({ title }: any) {
               </div>
             </Link>
           ) : (
-// if user not signed in, displays sign in page redirect button
             <Link href="/login">
               <div id="user-button" className="clickable">
                 <h3>Sign In</h3>
