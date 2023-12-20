@@ -119,6 +119,7 @@ export default function TipsnTricks() {
     setImage("");
     viewTips();
   };
+
   return (
     <div>
       <Header title="Tips and Tricks" />
@@ -208,6 +209,7 @@ export default function TipsnTricks() {
         ) : (
           <></>
         )}
+      </Flex>
       </Container>
     </div>
   );
