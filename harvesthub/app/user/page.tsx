@@ -10,8 +10,10 @@ import { useEffect, useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
 import useCheckSignedIn from "../../components/hooks/useCheckSignedIn";
 export default function UserPage() {
-  const [signedIn] = useCheckSignedIn();
-  const [publicId, setPublicId] = useState("/Users_img/sprout");
+
+  const [signedIn] = useCheckSignedIn()
+  const [publicId, setPublicId] = useState("/Users_img/placeholderimg_mfasum");
+
   const [userName, setUserName] = useState("");
   const [update, setUpdate] = useState(false);
   const [bio, setBio] = useState("hi");
