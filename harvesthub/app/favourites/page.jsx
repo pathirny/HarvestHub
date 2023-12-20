@@ -6,6 +6,15 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { SearchBar } from "@/components/SearchBar";
+import { FavTipCard } from "@/components/FavTipCard";
+import {
+  Button,
+  Container,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 
 export default function Favourites() {
   //set up the supabase client
@@ -22,6 +31,12 @@ export default function Favourites() {
   const [success, setSuccess] = useState(false);
   //manage state for search terms in searchbar
   const [searchTerm, setSearchTerm] = useState("");
+
+  const [deltedTip, setDeletedTip] = useState()
+
+  useEffect(() => {
+    getFavs();
+  }, [deltedTip]);
 
   //function to get favourites from database and set favTips
   function getFavs() {
@@ -48,20 +63,6 @@ export default function Favourites() {
     getFavs();
   }, []);
 
-  //to delete a tip from the database
-  function deleteFav(id) {
-    async function apiCall(idIn) {
-      const { error } = await supabase
-        .from("favourites")
-        .delete()
-        .eq("tip_id", idIn);
-      if (error) {
-        console.log(error);
-      }
-      getFavs()
-    }
-    apiCall(id);
-  }
 
   useEffect(() => {
     // useEffect for search function
@@ -92,34 +93,26 @@ export default function Favourites() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <ul id="fav-container">
+
         {/* checking if api call has pulled back data rather than an empty array before rendering tips */}
-        {success ? (
-          filteredTips.map((a) => {
-            return (
-              <div id="fav-card-container" key={a.tips.id}>
-                <Link href={`./tips-and-tricks/${a.tips.id}`} id="fav-card">
-                  <h2>{a.tips.title}</h2>
-                </Link>
-                <button
-                  type="button"
-                  id="delete-fav"
-                  onClick={() => {
-                    deleteFav(a.tips.id);
-                  }}
-                >
-                  X
-                </button>
-              </div>
-            );
-          })
-        ) : (
+        {success ? filteredTips.map((a, i) => {return  <Container
+          key={i}
+          className="card"
+          maxW="md"
+          borderRadius={10}
+          margin="20px"
+          p="20px"
+          zIndex="0"
+        >
+          <FavTipCard key={i} tip={a} setDeleted={setDeletedTip}/>
+        </Container>}) :
+         (
           <>
             <p className="favsMissing">You have not saved any favourites</p>
-            <img src="/assets/sadPumpkin.png" alt="sad pumpkin"></img>
+            <img src="/assets/sadPumpkin.png" alt="sad pumpkin" style={{width: "50vw", marginLeft: "25vw"}}></img>
           </>
         )}
-      </ul>
+
     </>
   );
 }

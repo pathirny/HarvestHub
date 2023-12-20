@@ -64,8 +64,6 @@ export default function FullCalendar(props) {
   const [currentEvent, setCurrentEvent] = useState(null);
   //toggle error message when adding vegEvent
   const [errorAdding, setErrorAdding] = useState(false);
-  //toggle key on and off
-  const [keyOpen, setKeyopen] = useState(false)
   //set name of veg that has been selected from calendar
   const [popUpVegName, setPopUpVegName] = useState()
   //handles when a day is clicked on the calendar
@@ -144,7 +142,7 @@ export default function FullCalendar(props) {
       if (error) {
         console.error("Error fetching veggies:", error);
       }
-      if (events && events.length > 0) {
+      if (events) {
         setEventData(events);
         const eventList = events.map((event) => {
           return [
@@ -164,9 +162,9 @@ export default function FullCalendar(props) {
               start: event.harvest_date,
               allDay: true,
               display: "block",
-              backgroundColor: "#b9a48c",
+              backgroundColor: "#47594e",
               textColor: "#f3ebe4",
-              borderColor: "#b9a48c",
+              borderColor: "#47594e",
               eventOverlap: true,
               id: event.event_id + "#",
             },
@@ -180,13 +178,14 @@ export default function FullCalendar(props) {
   }
 
   function displayEvent(e) {
-    console.log(e.event._def.title);
+    console.log(e.event._def);
     setPopUpVegName(e.event._def.title)
     setCurrentEvent(e.event._def.publicId);
   }
 
   function deleteEvent(id) {
     if (id) {
+      console.log("id" + id)
       async function apiCall() {
         let { error } = await supabase
           .from("calendar_events")
@@ -197,6 +196,7 @@ export default function FullCalendar(props) {
       }
       apiCall();
     } else if (currentEvent.includes("#")) {
+      console.log("#")
       async function apiCall() {
         let { error } = await supabase
           .from("calendar_events")
@@ -206,6 +206,7 @@ export default function FullCalendar(props) {
       }
       apiCall();
     } else {
+      console.log("normal")
       async function apiCall() {
         let { error } = await supabase
           .from("calendar_events")
@@ -298,11 +299,14 @@ export default function FullCalendar(props) {
                     className="calendar-list-itme-container"
                     key={a.event_id}
                   >
-                    <div className="calendar-list-item">
+                    <div className="calendar-list-item harvest-item">
                       <p>{harvest_date} </p>
                       <p>{a.veggies.name}</p>
                     </div>
-                    <button className="delete-list-item">X</button>
+                    <button className="delete-list-item harvest-item"
+                    onClick={() => {
+                      deleteEvent(a.event_id);
+                    }}>X</button>
                   </div>
                 );
               })}
@@ -311,16 +315,9 @@ export default function FullCalendar(props) {
         </>
       ) : (
         <>
-          <div>
-          {/* <div id="calendar-key-container">
-          <div id="calendar-key-toggle" onClick={()=>{setKeyopen(!keyOpen)}}><p>Key</p></div>
-            { keyOpen? 
-          <>
-          <div id="key-colors-container">
-      <p>Plant</p><div className="key-color" style={{backgroundColor: "var(--white-cream-color)"}}></div>
-      <p>Harvest</p> <div className="key-color" ></div></div>
-      </> : <></>}</div> */}
-            <Calendar
+          <div style={{position: "relative", height: "100vh"}}>
+    
+            <Calendar 
               plugins={[dayGrid, timeGrid, interactionPlugin, multiMonthPlugin]}
               headerToolbar={{
                 start: "title", // will normally be on the left. if RTL, will be on the right
@@ -342,6 +339,9 @@ export default function FullCalendar(props) {
               {...props}
             />
           </div>
+                 {/* <div id="key-colors-container">
+      <p>Plant:</p><div className="key-color" style={{backgroundColor: "var(--white-cream-color)"}}></div>
+      <p>Harvest:</p> <div className="key-color" ></div></div> */}
           {input ? (
             <>
               <div className="calendar-event-background"></div>
@@ -390,11 +390,12 @@ export default function FullCalendar(props) {
             <>
               <div className="calendar-event-background"></div>
               <div className="calendar-event-container">
+                <h3 style={{margin: "1vw", marginBottom: "-1vw"}}>{popUpVegName}</h3>
                 <p>Are you sure you want to delete {popUpVegName} from your calendar?</p>
                 <button
                   id="delete-event-button"
                   type="button"
-                  onClick={deleteEvent}
+                  onClick={()=>{deleteEvent(null)}}
                 >
                   Delete Event
                 </button>{" "}
@@ -414,6 +415,7 @@ export default function FullCalendar(props) {
           ) : (
             <></>
           )}
+            
         </>
       )}
     </>

@@ -14,10 +14,11 @@ import { useEffect, useState } from "react";
 
 // defines prperties of TipCardtip
 interface TipCardtip {
-  tip: gardeningTipsType;
+  tip: any;
   setDeleted: any
 }
-export const YourTipCard: React.FC<TipCardtip> = ({ tip, setDeleted }) => {
+export const FavTipCard: React.FC<TipCardtip> = ({ tip, setDeleted }) => {
+  console.log(tip)
   // connects to supabase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -25,12 +26,27 @@ export const YourTipCard: React.FC<TipCardtip> = ({ tip, setDeleted }) => {
   );
   // sets state (if tip is favourited or not)
 
-  function deleteTip(id: number) {
-    async function apiCall(idIn : number) {
+  // function deleteTip(id: number) {
+  //   async function apiCall(idIn : number) {
+  //     const { error } = await supabase
+  //       .from("tips")
+  //       .delete()
+  //       .eq("id", idIn);
+  //     if (error) {
+  //       console.log(error);
+  //     }
+  //     setDeleted(id)
+  //   }
+  //   apiCall(id);
+  // }
+
+  function deleteFav(id: number) {
+    async function apiCall(idIn: number) {
+      console.log("hello" + idIn)
       const { error } = await supabase
-        .from("tips")
+        .from("favourites")
         .delete()
-        .eq("id", idIn);
+        .eq("tip_id", idIn);
       if (error) {
         console.log(error);
       }
@@ -41,8 +57,8 @@ export const YourTipCard: React.FC<TipCardtip> = ({ tip, setDeleted }) => {
   // renders tip card
   return (
     <>
-      <div id="tip-container" key={tip.id}>
-        <Link href={`./tips-and-tricks/${tip.id}`}>
+      <div id="tip-container" key={tip.tips.id}>
+        <Link href={`./tips-and-tricks/${tip.tips.id}`}>
           <Card className="TipCard" maxW="md" borderRadius={10}>
             <CardHeader className="tipsFlexContainer">
               <Flex
@@ -53,10 +69,10 @@ export const YourTipCard: React.FC<TipCardtip> = ({ tip, setDeleted }) => {
                 flexWrap="wrap"
               >
                 <Heading size="sm" style={{ margin: "0" }}>
-                  {tip.title}
+                  {tip.tips.title}
                 </Heading>
                 <CardBody id="tip-description">
-                  <p>{tip.description}</p>
+                  <p>{tip.tips.description}</p>
                 </CardBody>
               </Flex>
             </CardHeader>
@@ -66,7 +82,7 @@ export const YourTipCard: React.FC<TipCardtip> = ({ tip, setDeleted }) => {
         <IconButton
           style={{ margin: "0" }}
           aria-label="Add to favourites"
-          onClick={()=>{deleteTip(tip.id)}}
+          onClick={()=>{deleteFav(tip.tips.id)}}
           className="favButton"
           icon={<CloseIcon />}
         />

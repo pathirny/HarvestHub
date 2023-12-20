@@ -43,7 +43,7 @@ export default function YourTips() {
         setFilteredTips(data)
         setSuccess(true);
       } if (data.length <= 0) {
-        setYourTips("");
+        setYourTips({});
         setSuccess(false);
       }
     }
@@ -77,11 +77,13 @@ export default function YourTips() {
   useEffect(() => {
     // useEffect for search function
     if(success){
+
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
     // Search functionality which filters over gardening tips and returns the values
     const newFilteredTips = yourTips.filter((a) => {
-      let tip = a.tips
+      
+      let tip = a
 
      const tipArr = Object.values(tip)
      tipArr.pop()
@@ -102,10 +104,10 @@ export default function YourTips() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <ul id="fav-container">
+
         {/* checking if api call has pulled back data rather than an empty array before rendering tips */}
         {success ? filteredTips.map((a, i) => {return  <Container
-
+      key={i}
       className="card"
       maxW="md"
       borderRadius={10}
@@ -114,7 +116,10 @@ export default function YourTips() {
       zIndex="0"
     >
       <YourTipCard key={i} tip={a} setDeleted={setDeletedTip}/>
-    </Container>}) : <></>}
+    </Container>}) : <><>
+            <p className="favsMissing">You have not added any tips</p>
+            <img src="/assets/sadPumpkin.png" alt="sad pumpkin" style={{width: "50vw", marginLeft: "25vw"}}></img>
+          </></>}
         {/* {success ? (
           filteredTips.map((a) => {
             return (
@@ -140,7 +145,7 @@ export default function YourTips() {
             <img src="/assets/sadPumpkin.png" alt="sad pumpkin"></img>
           </>
         )} */}
-      </ul>
+
     </>
   );
 }
