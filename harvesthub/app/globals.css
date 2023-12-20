@@ -721,7 +721,7 @@ hr {
 }
 
 #delete-event-button {
-  z-index: 2000;
+  z-index: 5;
   margin: auto;
 }
 
@@ -733,7 +733,7 @@ hr {
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 1000;
+  z-index: 5;
 }
 
 .calendar-event-container {
@@ -752,7 +752,7 @@ hr {
   align-items: center;
   justify-content: center;
   width: 40vw;
-  z-index: 2000;
+  z-index: 7;
 }
 
 #delete-event-container p {
@@ -931,6 +931,7 @@ hr {
     height: 5vw;
     left: 45vw;
     transition: 0.8s;
+    z-index: 10;
   }
   #back-btn:hover {
     cursor: pointer;
@@ -1167,6 +1168,23 @@ hr {
   }
   #delete-fav {
     height: 10vw;
+    max-width: 10vw;
+  }
+  .calendar-event-container {
+    top: 40vh;
+  }
+  .back {
+    z-index: 10;
+  }
+  .fc {
+    padding: 0px;
+  }
+  .fc-view-harness {
+    max-height: 50vw;
+  }
+  .fc-today-button,
+  .fc-button-primary {
+    max-height: 10vw;
     max-width: 10vw;
   }
 }
