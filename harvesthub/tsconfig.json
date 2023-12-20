@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Calendar.jsx", "app/favourites/page.jsx", "app/yourTips/page.jsx", "../playwright.config.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Calendar.jsx", "app/favourites/page.jsx", "app/yourTips/page.jsx", "../playwright.config.ts", "app/yourTips/renderYourTips.jsx"],
   "exclude": ["node_modules"]
 }
