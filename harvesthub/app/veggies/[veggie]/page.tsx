@@ -66,7 +66,7 @@ export default function Veggies({ params }: any) {
           </div>
           <div id="veggie-grid">
             <div className="cream">
-              <h1>Difficulty:</h1>
+              <h2>Difficulty:</h2>
             </div>
             <div className="carrot-rating brown">
               {difficulty.map((a) => {
@@ -98,7 +98,7 @@ export default function Veggies({ params }: any) {
               })}
             </div>
             <div className="cream">
-              <h1>Time:</h1>
+              <h2>Time:</h2>
             </div>
             <div className="carrot-rating brown">
               {time.map((a) => {
@@ -130,16 +130,16 @@ export default function Veggies({ params }: any) {
               })}
             </div>
             <div className="cream">
-              <h1>Plant:</h1>
+              <h2>Plant:</h2>
             </div>
             <div className="brown">
-              <h1>{vegHarv}</h1>
+              <h2>{vegHarv}</h2>
             </div>
             <div className="cream">
-              <h1>Harvest:</h1>
+              <h2>Harvest:</h2>
             </div>
             <div className="brown">
-              <h1>{vegPlant}</h1>
+              <h2>{vegPlant}</h2>
             </div>
           </div>
         </div>
