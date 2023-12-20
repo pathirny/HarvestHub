@@ -377,6 +377,7 @@ hr {
   height: 9vw;
   text-align: center;
   font-size: 5vw;
+  padding-top: 1vw
 }
 
 #veggie-container {
@@ -602,9 +603,7 @@ hr {
   align-items: center;
   margin-top: 10vw;
 }
-.monthImage {
-  width: 40vw;
-}
+
 .setting_button {
   width: 90vw;
   height: 15vw;
@@ -1003,6 +1002,7 @@ hr {
   }
   .header-month p {
     font-size: 5rem;
+    margin-top: 4vw;
   }
   #plant-harvest-title h1 {
     font-size: 6rem;

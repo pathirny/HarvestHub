@@ -109,7 +109,7 @@ export default function Month({ params }: any) {
             <div id="prv-mnth-bttn"></div>
           </Link>
           <div className="month br-wht header-month" id="january">
-            <p>{months[params.month]}</p>
+            <p style={{margin: "0", marginTop: "2vw"}}>{months[params.month]}</p>
             <img
               className="monthImage"
               src="/assets/brMonth.png"
@@ -138,7 +138,7 @@ export default function Month({ params }: any) {
                         backgroundColor: "var(--white-cream-color)",
                       }}
                     >
-                      <h3 style={{ marginTop: "1vw", fontSize: "4vw" }}>
+                      <h3 style={{ marginTop: "2vw", fontSize: "4vw" }}>
                         {a.name}
                       </h3>
                     </div>
@@ -161,7 +161,7 @@ export default function Month({ params }: any) {
                     >
                       <h3
                         className="vegTitle"
-                        style={{ marginTop: "1vw", fontSize: "4vw" }}
+                        style={{ marginTop: "2vw", fontSize: "4vw" }}
                       >
                         {a.name}
                       </h3>
