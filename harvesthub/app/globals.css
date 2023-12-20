@@ -630,7 +630,7 @@ hr {
   margin: auto;
   height: 100vh;
   margin-left: 5vw;
-  margin-right: 5vw
+  margin-right: 5vw;
 }
 
 /*/ ///////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
@@ -687,14 +687,12 @@ hr {
   color: var(--dark-green-color);
 }
 
-.fc-daygrid-day-frame{
+.fc-daygrid-day-frame {
   border-radius: 1vw;
-
 }
 
 .fc-day-sun,
 .fc-day-sat {
-
   background-color: var(--brown-color);
   border: 1vw solid var(--dark-green-color);
 }
@@ -734,10 +732,10 @@ hr {
 }
 
 .fc-button-group {
-gap: 1vw
+  gap: 1vw;
 }
 
-.fc-direction-ltr{
+.fc-direction-ltr {
   border: none;
   border-radius: 2vw;
 }
@@ -1174,6 +1172,11 @@ gap: 1vw
   #nav-container a {
     max-width: 10vw;
   }
+  .cardContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 430px) {
@@ -1273,8 +1276,7 @@ gap: 1vw
   font-weight: 700;
 }
 
-
-#myGarden-introduction{
+#myGarden-introduction {
   background-color: var(--white-cream-color);
   color: var(--dark-green-color);
   padding: 0 3vw 0 3vw;
@@ -1282,14 +1284,14 @@ gap: 1vw
   margin: 0;
   padding-top: 4vw;
   padding-bottom: 4vw;
-  border: none
+  border: none;
 }
 
-#myGarden-introduction h3{
-margin: 0;
+#myGarden-introduction h3 {
+  margin: 0;
 }
 
-#view-options-container{
+#view-options-container {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1299,13 +1301,13 @@ margin: 0;
   width: 100vw;
   border: none;
   margin-left: -5vw;
-  margin-right: -5vw
+  margin-right: -5vw;
 }
 
-#view-options-container button{
+#view-options-container button {
   margin: 0;
   border-radius: 0;
-border: none;
+  border: none;
   border-top-right-radius: 2vw;
   border-top-left-radius: 2vw;
   background-color: #47594e;
@@ -1314,19 +1316,15 @@ border: none;
   width: 40vw;
 }
 
-
-
-.key-color{
+.key-color {
   height: 7vw;
   width: 7vw;
   border-radius: 50%;
   background-color: var(--dark-green-color);
-  border: 1px solid var(--dark-green-color)
+  border: 1px solid var(--dark-green-color);
 }
 
-
-
-#key-colors-container{
+#key-colors-container {
   position: absolute;
   bottom: 0;
   height: 10vw;
@@ -1340,13 +1338,11 @@ border: none;
   z-index: 10000;
 }
 
-.harvest-item{
-color: var(--white-cream-color);
-background-color: var(--dark-green-color);
-border: 1px solid #f3ebe4;
+.harvest-item {
+  color: var(--white-cream-color);
+  background-color: var(--dark-green-color);
+  border: 1px solid #f3ebe4;
 }
 
-.calendar-list button{
-
+.calendar-list button {
 }
-

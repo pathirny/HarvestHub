@@ -32,7 +32,7 @@ export default function Favourites() {
   //manage state for search terms in searchbar
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [deltedTip, setDeletedTip] = useState()
+  const [deltedTip, setDeletedTip] = useState();
 
   useEffect(() => {
     getFavs();
@@ -48,7 +48,7 @@ export default function Favourites() {
         console.log(error);
       } else if (data.length > 0) {
         setFavTips(data);
-        setFilteredTips(data)
+        setFilteredTips(data);
         setSuccess(true);
       } else if (data.length <= 0) {
         setFavTips("");
@@ -63,27 +63,26 @@ export default function Favourites() {
     getFavs();
   }, []);
 
-
   useEffect(() => {
     // useEffect for search function
-    if(success){
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    if (success) {
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
-    // Search functionality which filters over gardening tips and returns the values
-    const newFilteredTips = favTips.filter((a) => {
-      let tip = a.tips
+      // Search functionality which filters over gardening tips and returns the values
+      const newFilteredTips = favTips.filter((a) => {
+        let tip = a.tips;
 
-     const tipArr = Object.values(tip)
-     tipArr.pop()
+        const tipArr = Object.values(tip);
+        tipArr.pop();
 
-      return tipArr.some((b) => {
-        return b.toString().toLowerCase().includes(lowerCaseSearchTerm);
+        return tipArr.some((b) => {
+          return b.toString().toLowerCase().includes(lowerCaseSearchTerm);
+        });
       });
-    });
-    // set the state of filtered tips
-    console.log(newFilteredTips)
-    setFilteredTips(newFilteredTips);
-  }
+      // set the state of filtered tips
+      console.log(newFilteredTips);
+      setFilteredTips(newFilteredTips);
+    }
   }, [searchTerm]); // render everytime search term changes
 
   return (
@@ -93,26 +92,35 @@ export default function Favourites() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-
+      <div className="cardContainer">
         {/* checking if api call has pulled back data rather than an empty array before rendering tips */}
-        {success ? filteredTips.map((a, i) => {return  <Container
-          key={i}
-          className="card"
-          maxW="md"
-          borderRadius={10}
-          margin="20px"
-          p="20px"
-          zIndex="0"
-        >
-          <FavTipCard key={i} tip={a} setDeleted={setDeletedTip}/>
-        </Container>}) :
-         (
+        {success ? (
+          filteredTips.map((a, i) => {
+            return (
+              <Container
+                key={i}
+                className="card"
+                maxW="md"
+                borderRadius={10}
+                margin="20px"
+                p="20px"
+                zIndex="0"
+              >
+                <FavTipCard key={i} tip={a} setDeleted={setDeletedTip} />
+              </Container>
+            );
+          })
+        ) : (
           <>
             <p className="favsMissing">You have not saved any favourites</p>
-            <img src="/assets/sadPumpkin.png" alt="sad pumpkin" style={{width: "50vw", marginLeft: "25vw"}}></img>
+            <img
+              src="/assets/sadPumpkin.png"
+              alt="sad pumpkin"
+              style={{ width: "50vw", marginLeft: "25vw" }}
+            ></img>
           </>
         )}
-
+      </div>
     </>
   );
 }
