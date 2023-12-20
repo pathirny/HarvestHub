@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react'
-import userEvent from "@testing-library/user-event"
-import Users from "../page"
-
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import Users from "../page";
 
 // beforeEach(async () => {
 //     // Async setup code
@@ -13,18 +12,23 @@ import Users from "../page"
 //     await teardownAsync();
 //   });
 
-describe("UserPage", ()=> {
-
-it("setUpdate() should run when update button clicked", async () => {
-    
+describe("UserPage", () => {
+  it("setUpdate() should run when update button clicked", async () => {
     // render(<Users />)
     // const mockFunc = jest.fn()
-
     // const editBtn = screen.getByLabelText('edit-button')
     // await userEvent.click(editBtn)
-
     // expect(mockFunc).toHaveBeenCalled()
-})
+  });
+});
 
-
-})
+describe("UserPage", () => {
+  it("Should display favourites button", async () => {
+    //arrange the test
+    render(<Users />);
+    //actions
+    const favButton = screen.getByText("Favourites");
+    // assert
+    expect(favButton).toBeInTheDocument();
+  });
+});
