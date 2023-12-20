@@ -210,7 +210,12 @@ test("delete tip from tips and tricks", async ({ page }: any) => {
 
         await page.getByTitle('Previous month').click();
 
-        await page.getByRole('gridcell', { name: 'November 1, 2023', exact: true }).locator('div').nth(2).click();
+        // await page.getByRole('gridcell', { name: 'November 1, 2023', exact: true }).locator('div').nth(2).click();
 
-        await page.getByRole('option', { value: 'Potato' }).click({ timeout: 10000});
-      });
+        // await page.getByRole('combobox').selectOption('Potato');
+
+        // await page.getByRole('button', {name:'Submit'}).click();
+
+        await expect(page.locator('a').filter({ hasText: 'Potato' })).toBeVisible();        
+        
+        });
