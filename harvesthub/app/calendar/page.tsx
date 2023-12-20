@@ -1,7 +1,9 @@
+// import all neccesary components 
 import BackButton from "@/components/BackButton";
 import Header from "@/components/Header";
 import Link from "next/link";
 
+// create a function to display the calendar year view
 export default function Calendar() {
   return (
     <div id="calendar-background">
@@ -134,6 +136,7 @@ export default function Calendar() {
           </div>
         </Link>
       </div>
+  {/* create a button to return to the previous page */}
       <Link href="/">
         <BackButton />
       </Link>

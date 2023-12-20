@@ -39,6 +39,8 @@ export default function TipsnTricks() {
       let { data: tips, error } = await supabase.from("tips").select("*");
       // set the state of tips and filteredTips
       if (tips) {
+        tips.sort((a,b)=> {return a.id - b.id})
+        console.log(tips)
         setGardeningTips(tips.reverse());
         setFilteredTips(tips);
       } else {
@@ -123,13 +125,13 @@ export default function TipsnTricks() {
       <Header title="Tips and Tricks" />
 
       <Flex
-        className="flexContainer"
         position="absolute"
         zIndex="2"
         justifyContent="center"
         bgColor="#47594e"
         width="100%"
         color="#f3ebe4"
+        className="flexContainer"
       >
         <FormControl
           display={display}
@@ -141,6 +143,8 @@ export default function TipsnTricks() {
           <Input
             placeholder="Title ✍"
             width="90vw"
+            required
+            className="input"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
@@ -148,6 +152,8 @@ export default function TipsnTricks() {
             placeholder="Description ✍"
             width="90vw"
             height="25vh"
+            className="input"
+            required
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
@@ -161,6 +167,7 @@ export default function TipsnTricks() {
           <Button
             type="submit"
             border="solid 1px black"
+            className="formButton"
             boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
             onClick={(event) => {
               addTip(event);
@@ -171,6 +178,7 @@ export default function TipsnTricks() {
           </Button>
           <Button
             onClick={toggleForm}
+            className="formButton"
             border="solid 1px black"
             boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
           >
@@ -182,10 +190,12 @@ export default function TipsnTricks() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Container className="tipContainer">{renderTips(filteredTips)}</Container>
-      <Flex
+      <Container className="tipContainer">
+        <div className="tipContainerTwo">{renderTips(filteredTips)}</div>
+      </Container>
+      <Container
         className="buttonsContainer"
-        height="80px"
+        // height="80px"
         flexDirection="row"
         justifyContent="space-around"
       >
@@ -200,6 +210,7 @@ export default function TipsnTricks() {
           <></>
         )}
       </Flex>
+      </Container>
     </div>
   );
 }

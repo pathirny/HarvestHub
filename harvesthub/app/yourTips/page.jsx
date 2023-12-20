@@ -1,9 +1,18 @@
 "use client";
 import { createBrowserClient } from "@supabase/ssr";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { SearchBar } from "@/components/SearchBar";
+import { YourTipCard } from "@/components/YourTipCard";
+import {
+  Button,
+  Container,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 
 export default function YourTips() {
   //set up the supabase client
@@ -20,6 +29,7 @@ export default function YourTips() {
   const [success, setSuccess] = useState(false);
   //manage state for search terms in searchbar
   const [searchTerm, setSearchTerm] = useState("");
+  const [deltedTip, setDeletedTip] = useState()
 
   //function to get favourites from database and set favTips
   function getTips() {
@@ -33,17 +43,21 @@ export default function YourTips() {
         setFilteredTips(data)
         setSuccess(true);
       } if (data.length <= 0) {
-        setYourTips("");
+        setYourTips({});
         setSuccess(false);
       }
     }
     apiCall();
   }
 
-  //set the favTips on first render
+  //set your tips on first render
   useEffect(() => {
     getTips();
   }, []);
+
+  useEffect(() => {
+    getTips();
+  }, [deltedTip]);
 
   //to delete a tip from the database
   function deleteTip(id) {
@@ -63,11 +77,13 @@ export default function YourTips() {
   useEffect(() => {
     // useEffect for search function
     if(success){
+
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
     // Search functionality which filters over gardening tips and returns the values
     const newFilteredTips = yourTips.filter((a) => {
-      let tip = a.tips
+      
+      let tip = a
 
      const tipArr = Object.values(tip)
      tipArr.pop()
@@ -88,9 +104,23 @@ export default function YourTips() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <ul id="fav-container">
+
         {/* checking if api call has pulled back data rather than an empty array before rendering tips */}
-        {success ? (
+        {success ? filteredTips.map((a, i) => {return  <Container
+      key={i}
+      className="card"
+      maxW="md"
+      borderRadius={10}
+      margin="20px"
+      p="20px"
+      zIndex="0"
+    >
+      <YourTipCard key={i} tip={a} setDeleted={setDeletedTip}/>
+    </Container>}) : <><>
+            <p className="favsMissing">You have not added any tips</p>
+            <img src="/assets/sadPumpkin.png" alt="sad pumpkin" style={{width: "50vw", marginLeft: "25vw"}}></img>
+          </></>}
+        {/* {success ? (
           filteredTips.map((a) => {
             return (
               <div id="fav-card-container" key={a.id}>
@@ -114,8 +144,8 @@ export default function YourTips() {
             <p className="favsMissing">You have not added any tips</p>
             <img src="/assets/sadPumpkin.png" alt="sad pumpkin"></img>
           </>
-        )}
-      </ul>
+        )} */}
+
     </>
   );
 }

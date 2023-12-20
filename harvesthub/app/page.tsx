@@ -8,15 +8,64 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 // import { cookies } from "next/headers";
 import Header from "../components/Header";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { color } from "framer-motion";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import useCheckSignedIn from "../components/hooks/useCheckSignedIn"
+import useCheckSignedIn from "../components/hooks/useCheckSignedIn";
+import Head from "next/head";
+// import IndexPage from "@/components/Head";
 
 export default function Index() {
+  const [publicUser, setPublicUser] = useState(true);
+
+
+  function addToPublic(e: any) {
+    async function apiCall(formData: any) {
+      //insert row into public users table
+      const { data, error } = await supabase
+        .from("Users")
+        .insert([
+          {
+            first_name: formData.target[0].value,
+            last_name: formData.target[1].value,
+          },
+        ])
+        .select();
+
+      if (error) {
+        console.log(error);
+      }
+    }
+    apiCall(e);
+  }
+
+  const [signedIn] = useCheckSignedIn();
+  useEffect(() => {
+    async function checkUser() {
+      if (signedIn) {
+        let { data: Users, error } = await supabase
+          .from("Users")
+          .select("user_id");
+        if (Users) {
+          if (Users?.length <= 0) {
+            console.log("SIGN IN");
+            setPublicUser(false);
+          }
+          console.log(Users);
+        } else if (error) {
+          console.log(error);
+        }
+      }
+    }
+    checkUser();
+  }, [signedIn]);
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
 
   
-  const [signedIn] = useCheckSignedIn()
+  // const [signedIn] = useCheckSignedIn()
   
   // const supabase = createBrowserClient(
   //   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -34,6 +83,9 @@ export default function Index() {
 
   return (
     <>
+    <Head>
+      <link rel="icon" href="./public/assets/logo.png"></link>
+    </Head>
       <Header title="Harvest Hub" />
       <main className="homepage-box">
         <img
@@ -101,14 +153,19 @@ export default function Index() {
             style={{
               position: "relative",
               backgroundColor: "#b9a48c",
-              color: "#f3ebe4",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              color: "#47594e",
+              backgroundPosition: "center",
+              backgroundImage: "url(/assets/CalendarBackground.png)",
             }}
           >
-            <img
-              src="/assets/CalendarBackground.png"
-              style={{ width: "16rem", height: "auto", opacity: "0.25" }}
-            ></img>
-            <h2 style={{ position: "absolute", fontSize: "1.8rem" }}>
+            <h2
+              style={{
+                position: "absolute",
+                fontSize: "1.8rem",
+              }}
+            >
               Growing Calendar
             </h2>
           </div>
@@ -155,6 +212,31 @@ export default function Index() {
           </Link>
         </div>
       </main>
+      {publicUser ? (
+        <></>
+      ) : (
+        <>
+          <div id="publicUserBackground"></div>
+          <form
+            id="publicUserForm"
+            onSubmit={(e) => {
+              addToPublic(e);
+            }}
+          >
+            <h3>
+              Please add you first and last name to complete the sign up
+              process.
+            </h3>
+            <input
+              name="first name"
+              type="text"
+              placeholder="First Name"
+            ></input>
+            <input name="last name" type="text" placeholder="Last Name"></input>
+            <button type="submit">Submit</button>
+          </form>
+        </>
+      )}
     </>
   );
 }

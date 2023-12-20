@@ -2,11 +2,12 @@ import Calendar from "@fullcalendar/react";
 import dayGrid from "@fullcalendar/daygrid";
 import timeGrid from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import multiMonthPlugin from "@fullcalendar/multimonth";
 import { Select } from "@chakra-ui/react";
 import { createBrowserClient } from "@supabase/ssr";
-import { formatDate } from "@fullcalendar/core";
+import Link from "next/link";
+
 
 export default function FullCalendar(props) {
   //connecting to supabase
@@ -31,15 +32,16 @@ export default function FullCalendar(props) {
     getCalendarEvents();
   }, []);
 
+  const [listView, setListView] = useState(false);
   // Set state to the selected veggie
   const [selectedVeg, setSelectedVeg] = useState("");
   //toggle to control if the form is showing to input a new event
-  const [input, setinput] = useState(false);
+  const [input, setInput] = useState(false);
   //toggle for event popup to delete event
   const [eventOptions, setEventOptions] = useState(false);
   //setting date when a calendar day is clicked on - to be passed the event object
   const [date, setDate] = useState(null);
-  //setting even lists for events on calendar
+  //setting even lists for events on calendar - formatted for Full-Calendar
   const [event, setEvent] = useState([
     {
       // this object will be "parsed" into an Event Object
@@ -53,66 +55,81 @@ export default function FullCalendar(props) {
       eventOverlap: true,
     },
   ]);
+  //setting eventlists to be read for the listView format
+  const [eventData, setEventData] = useState([]);
+  //setting eventlists to be read for the listView format - for sorting harvest
+  const [eventData_harvest, setEventData_harvest] = useState([]);
   //selected event when it is clicked on
   const [currentEvent, setCurrentEvent] = useState(null);
-
+  //toggle error message when adding vegEvent
+  const [errorAdding, setErrorAdding] = useState(false);
+  //set name of veg that has been selected from calendar
+  const [popUpVegName, setPopUpVegName] = useState()
   //handles when a day is clicked on the calendar
   function handleDateClick(e) {
     //toggles the input form to show
-    setinput(true);
+    setInput(true);
     //sets the date to the day that has been clicked on
     setDate(e.date);
   }
 
   //adds event when the input form has been submitted
   function addEvent(data) {
-    //Create a function that uses the name of the veggie to get the harvest date and add it to the calendar
-    async function getHarvestDate(veg) {
-      // Do an api call to get the harvest date
-      let { data: veggies, error } = await supabase
-        .from("veggies")
-        .select("grow_days, id")
-        .eq("name", `${veg}`);
+    if (!selectedVeg) {
+      data.preventDefault();
+      setErrorAdding(true);
+    } else {
+      setErrorAdding(false);
+      //Create a function that uses the name of the veggie to get the harvest date and add it to the calendar
+      async function getHarvestDate(veg) {
+        // Do an api call to get the harvest date
 
-      if (error) {
-        console.error("Error fetching veggies:", error);
-        return;
-      }
+        let { data: veggies, error } = await supabase
+          .from("veggies")
+          .select("grow_days, id")
+          .eq("name", `${veg}`);
 
-      if (veggies && veggies.length > 0) {
-        // Create a new Date object to avoid mutating the original date
-        let newDate = new Date(date);
-
-        // Add 2 days to the date
-        newDate.setDate(date.getDate() + veggies[0]["grow_days"]);
-
-        async function apiCall() {
-          const { data, error } = await supabase
-            .from("calendar_events")
-            .insert([
-              {
-                veg_id: veggies[0]["id"],
-                plant_date: date,
-                harvest_date: newDate,
-              },
-            ]);
-
-          if (error) {
-            console.log(error);
-          }
-          getCalendarEvents();
+        if (error) {
+          console.error("Error fetching veggies:", error);
+          return;
         }
-        apiCall();
-      } else {
-        console.log("No veggies found with the name:", veg);
+
+        if (veggies && veggies.length > 0) {
+          // Create a new Date object to avoid mutating the original date
+          let newDate = new Date(date);
+
+          // Add 2 days to the date
+          newDate.setDate(date.getDate() + veggies[0]["grow_days"]);
+
+          async function apiCall() {
+            const { data, error } = await supabase
+              .from("calendar_events")
+              .insert([
+                {
+                  veg_id: veggies[0]["id"],
+                  plant_date: date,
+                  harvest_date: newDate,
+                },
+              ]);
+
+            if (error) {
+              console.log(error);
+            }
+            getCalendarEvents();
+          }
+          apiCall();
+        } else {
+          console.log("No veggies found with the name:", veg);
+        }
+        setSelectedVeg("");
       }
+
+      getHarvestDate(selectedVeg);
+      // Create an async function to do the api call to add a new event to the databage
+
+      //toggles the input form off
+      setInput(false);
     }
-
-    getHarvestDate(selectedVeg);
-    // Create an async function to do the api call to add a new event to the databage
-
-    //toggles the input form off
-    setinput(false);
   }
 
   function getCalendarEvents() {
@@ -124,7 +141,8 @@ export default function FullCalendar(props) {
       if (error) {
         console.error("Error fetching veggies:", error);
       }
-      if (events && events.length > 0) {
+      if (events) {
+        setEventData(events);
         const eventList = events.map((event) => {
           return [
             {
@@ -143,9 +161,9 @@ export default function FullCalendar(props) {
               start: event.harvest_date,
               allDay: true,
               display: "block",
-              backgroundColor: "#b9a48c",
+              backgroundColor: "#47594e",
               textColor: "#f3ebe4",
-              borderColor: "#b9a48c",
+              borderColor: "#47594e",
               eventOverlap: true,
               id: event.event_id + "#",
             },
@@ -159,12 +177,25 @@ export default function FullCalendar(props) {
   }
 
   function displayEvent(e) {
-    console.log(e.event._def.publicId);
+    console.log(e.event._def);
+    setPopUpVegName(e.event._def.title)
     setCurrentEvent(e.event._def.publicId);
   }
 
-  function deleteEvent() {
-    if (currentEvent.includes("#")) {
+  function deleteEvent(id) {
+    if (id) {
+      console.log("id" + id)
+      async function apiCall() {
+        let { error } = await supabase
+          .from("calendar_events")
+          .delete()
+          .eq("event_id", id);
+
+        getCalendarEvents();
+      }
+      apiCall();
+    } else if (currentEvent.includes("#")) {
+      console.log("#")
       async function apiCall() {
         let { error } = await supabase
           .from("calendar_events")
@@ -173,84 +204,218 @@ export default function FullCalendar(props) {
         getCalendarEvents();
       }
       apiCall();
-    }
+    } else {
+      console.log("normal")
+      async function apiCall() {
+        let { error } = await supabase
+          .from("calendar_events")
+          .delete()
+          .eq("event_id", currentEvent);
 
-    async function apiCall() {
-      let { error } = await supabase
-        .from("calendar_events")
-        .delete()
-        .eq("event_id", currentEvent);
-
-      getCalendarEvents();
+        getCalendarEvents();
+      }
+      apiCall();
     }
-    apiCall();
-    setEventOptions(false)
+    setEventOptions(false);
   }
+
+  useEffect(() => {
+    setEventData((curr) => {
+      return eventData.sort((a, b) => {
+        return new Date(a.plant_date) - new Date(b.plant_date);
+      });
+    });
+    setEventData_harvest((curr) => {
+      return eventData.sort((a, b) => {
+        return new Date(a.harvest_date) - new Date(b.harvest_date);
+      });
+    });
+  }, [eventData]);
 
   return (
     <>
-      {/* toggle for showing input */}
-      {input ? (
-        <form onSubmit={addEvent}>
-          <label htmlFor="vegTypev">what are you growing</label>
-          {/* drop down to select veggies */}
-          <Select
-            placeholder="Select option"
-            style={{ borderRadius: "2vw" }}
-            value={selectedVeg}
-            onChange={(e) => setSelectedVeg(e.target.value)}
-          >
-            {vegList.map((a) => {
-              return (
-                <option value={a.name} key={a.id}>
-                  {a.name}
-                </option>
-              );
-            })}
-          </Select>
-          {/* <input type="text" name="vegType" /> */}
-          <button type="submit">Submit</button>
-        </form>
-      ) : (
-        <></>
-      )}
-<div >
-      <Calendar
-        plugins={[dayGrid, timeGrid, interactionPlugin, multiMonthPlugin]}
-        headerToolbar={{
-          start: "title", // will normally be on the left. if RTL, will be on the right
-          center: "",
-          next: "",
-          prev: "", // will normally be on the right. if RTL, will be on the left
-        }}
-        selectable={true}
-        buttonText={{ today: "today" }}
-        titleFormat={{ year: "numeric", month: "short" }}
-        dateClick={(e) => {
-          handleDateClick(e);
-        }}
-        events={event}
-        eventClick={(e) => {
-          setEventOptions(true);
-          displayEvent(e);
-        }}
-        {...props}
-      />
+      <div id="view-options-container">
+        <button
+          onClick={() => {
+            setListView(true);
+          }}
+          style={listView ? {} : { backgroundColor: "rgb(139, 148, 139)", color: "rgb(88, 96, 88)"}}
+        >
+          List View
+        </button>
+        <button
+          onClick={() => {
+            setListView(false);
+          }}
+          style={listView ? { backgroundColor: "rgb(139, 148, 139)", color: "rgb(88, 96, 88)"} : {}}
+        >
+          Calendar View
+        </button>
       </div>
-      {eventOptions ? (
+      {listView ? (
         <>
-        <div id="delete-event-background">
-          
-        </div>
-        <div id="delete-event-container">
-          <p>Are you sure you want to delete this event?</p>
-        <button id="delete-event-button" type="button" onClick={deleteEvent}>
-        Delete Event
-      </button>
-      </div>
-      </>
+        
+          <div id="calendar-list-container">
+            <div id="calendar-list-plant" className="calendar-list">
+             <br></br>
+              {eventData.map((a) => {
+                let plant_date = new Date(a.plant_date);
+                plant_date = plant_date.toDateString().split(" ").splice(1, 3);
+                plant_date = plant_date.join(" ");
+                return (
+                  <div
+                    className="calendar-list-itme-container"
+                    key={a.event_id}
+                  >
+                   <Link href={`/veggies/${a.veggies.name}`}> <div className="calendar-list-item">
+                      <p>{plant_date} </p>
+                      <p>{a.veggies.name}</p>
+                    </div>
+                    </Link>
+                    <button
+                      className="delete-list-item"
+                      onClick={() => {
+                        deleteEvent(a.event_id);
+                      }}
+                    >
+                      X
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div id="calendar-list-harvest" className="calendar-list">
+            <br></br>
+              {eventData_harvest.map((a) => {
+                let harvest_date = new Date(a.harvest_date);
+                harvest_date = harvest_date
+                  .toDateString()
+                  .split(" ")
+                  .splice(1, 3);
+                harvest_date = harvest_date.join(" ");
+                return (
+                  <div
+                    className="calendar-list-itme-container"
+                    key={a.event_id}
+                  >
+                     <Link href={`/veggies/${a.veggies.name}`}> 
+                    <div className="calendar-list-item harvest-item">
+                      <p>{harvest_date} </p>
+                      <p>{a.veggies.name}</p>
+                    </div>
+                    </Link>
+                    <button className="delete-list-item harvest-item"
+                    onClick={() => {
+                      deleteEvent(a.event_id);
+                    }}>X</button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </>
       ) : (
-        <></>
+        <>
+          <div style={{position: "relative", height: "100vh"}}>
+    
+            <Calendar 
+              plugins={[dayGrid, timeGrid, interactionPlugin, multiMonthPlugin]}
+              headerToolbar={{
+                start: "title", // will normally be on the left. if RTL, will be on the right
+                center: "",
+                next: "",
+                prev: "", // will normally be on the right. if RTL, will be on the left
+              }}
+              selectable={true}
+              buttonText={{ today: "today" }}
+              titleFormat={{ year: "numeric", month: "short" }}
+              dateClick={(e) => {
+                handleDateClick(e);
+              }}
+              events={event}
+              eventClick={(e) => {
+                setEventOptions(true);
+                displayEvent(e);
+              }}
+              {...props}
+            />
+          </div>
+          {input ? (
+            <>
+              <div className="calendar-event-background"></div>
+              <form onSubmit={addEvent} className="calendar-event-container">
+                <label htmlFor="vegTypev">what are you growing?</label>
+                <br></br>
+                {/* drop down to select veggies */}
+                <Select
+                  placeholder="Select option"
+                  style={{ borderRadius: "2vw" }}
+                  value={selectedVeg}
+                  onChange={(e) => setSelectedVeg(e.target.value)}
+                >
+                  {vegList.map((a) => {
+                    return (
+                      <option value={a.name} key={a.id}>
+                        {a.name}
+                      </option>
+                    );
+                  })}
+                </Select>
+                {/* <input type="text" name="vegType" /> */}
+                {errorAdding ? (
+                  <>
+                    <p>Please ensure you have selected something to plant</p>
+                  </>
+                ) : (
+                  <></>
+                )}
+                <button type="submit">Submit</button>
+                <button
+                  id="cancel-delete-button"
+                  type="button"
+                  onClick={() => {
+                    setInput(false);
+                  }}
+                >
+                  Cancel
+                </button>
+              </form>
+            </>
+          ) : (
+            <></>
+          )}
+          {eventOptions ? (
+            <>
+              <div className="calendar-event-background"></div>
+              <div className="calendar-event-container">
+                <h3 style={{margin: "1vw", marginBottom: "-1vw"}}>{popUpVegName}</h3>
+                <p>Are you sure you want to delete {popUpVegName} from your calendar?</p>
+                <button
+                  id="delete-event-button"
+                  type="button"
+                  onClick={()=>{deleteEvent(null)}}
+                >
+                  Delete Event
+                </button>{" "}
+                <button
+                  id="cancel-delete-button"
+                  type="button"
+                  onClick={() => {
+                    setEventOptions(false);
+                    setErrorAdding(false);
+                    return;
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
+            
+        </>
       )}
     </>
   );

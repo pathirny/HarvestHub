@@ -1,18 +1,19 @@
 import Link from "next/link";
+// importing dependancys 
 import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
 
+// creating function to sign in 
 export default function Login({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
   const signIn = async (formData: FormData) => {
-
     "use server";
-
+// storing sign in data in varibales
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const cookieStore = cookies();
@@ -25,11 +26,12 @@ export default function Login({
 
     if (error) {
       return redirect("/login?message=Could not authenticate user");
+      alert("Could not authenticate user");
     }
 
     return redirect("/");
   };
-
+// storing sign up data in varibales
   const signUp = async (formData: FormData) => {
     "use server";
 
@@ -54,7 +56,7 @@ export default function Login({
 
     return redirect("/login?message=Check email to continue sign in process");
   };
-
+// rendering user data inputs and sign in button
   return (
     <div className="box">
       {/* <Link href="/"> Back</Link> */}
@@ -63,6 +65,7 @@ export default function Login({
         {/* <label className="text-md" htmlFor="email">
           Email
         </label> */}
+
         <input name="email" placeholder="Email" required />
         {/* <label className="text-md" htmlFor="password">
           Password
@@ -86,6 +89,9 @@ export default function Login({
       <a className="reset-password" href="#">
         Forgot your password?
       </a>
+      <Link href="https://harvest-hub-tau.vercel.app/">
+        <button>Continue as Guest</button>
+      </Link>
     </div>
   );
 }

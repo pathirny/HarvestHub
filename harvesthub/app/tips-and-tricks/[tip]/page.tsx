@@ -1,5 +1,6 @@
+// using client side instead of server side
 "use client";
-
+// importing dependency's
 import { Flex, Container, useStatStyles } from "@chakra-ui/react";
 import Header from "@/components/Header";
 import { useEffect, useState } from "react";
@@ -9,12 +10,12 @@ import { createBrowserClient } from "@supabase/ssr";
 export default function TipsPage({ params }: any) {
   const [tip, setTip] = useState([{ title: "", description: "" }]);
 
-  //use supabase
+  //use supabase client
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
-
+  // using the data stored in superbase to show tip data
   useEffect(() => {
     //render the tips using supabase query
     async function getTips() {
@@ -30,6 +31,7 @@ export default function TipsPage({ params }: any) {
     getTips();
   }, []); // empty dependency so it loads on render
 
+  // rendering the tip data as a card with title and description
   return (
     <>
       <Header title="Tips and Tricks" />
@@ -42,6 +44,7 @@ export default function TipsPage({ params }: any) {
       >
         <Container
           backgroundColor="#F3EBE4"
+          className="title-container"
           borderRadius="25px"
           width="90%"
           textAlign="center"
@@ -61,6 +64,7 @@ export default function TipsPage({ params }: any) {
           borderRadius="25px"
           width="90%"
           textAlign="center"
+          className="description-container"
         >
           <p>{tip[0].description}</p>
         </Container>

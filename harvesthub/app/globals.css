@@ -7,6 +7,7 @@
   --light-green-color: #99a57b;
   --brown-color: #b9a48c;
   --white-cream-color: #f3ebe4;
+  --orange-color: rgb(219, 120, 77);
 }
 
 body {
@@ -100,7 +101,7 @@ hr {
   margin-bottom: 2rem;
 }
 
-/*////////////////////////////////////////////// Header ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Header ///////////////////////////////////////////*/
 #nav-body {
   background-color: var(--light-green-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
@@ -118,12 +119,23 @@ hr {
   align-items: center;
 }
 
+.userImg {
+  width: 18vw;
+  height: auto;
+}
+
 #nav-container div {
   background-color: var(--white-cream-color);
   text-align: center;
-  border-radius: 10px;
+  border-radius: 50%;
   color: var(--dark-green-color);
   border: 2px solid var(--dark-green-color);
+  width: 15vw;
+  height: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
 }
 
 #nav-container h3 {
@@ -200,7 +212,7 @@ hr {
   color: var(--brown-color);
 }
 
-/*////////////////////////////////////////////// Calendar Month Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Calendar Month Page ///////////////////////////////////////////*/
 
 #month-nav-container {
   display: flex;
@@ -299,7 +311,7 @@ hr {
   font-weight: bold;
 }
 
-/*////////////////////////////////////////////// Veggies page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Veggies page ///////////////////////////////////////////*/
 
 #plant-harvest-grid {
   display: grid;
@@ -376,7 +388,7 @@ hr {
 
 #veggie-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2vw;
 }
 
@@ -473,7 +485,7 @@ hr {
   align-items: center;
 }
 
-/*////////////////////////////////////////////// User Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// User Page ///////////////////////////////////////////*/
 
 #userPage-container {
   display: flex;
@@ -581,7 +593,7 @@ hr {
   justify-content: center;
   margin: 0;
 }
-/*////////////////////////////////////////////// Settings Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Settings Page ///////////////////////////////////////////*/
 
 #settings-container {
   display: flex;
@@ -592,7 +604,9 @@ hr {
   justify-content: space-evenly;
   margin-top: 10vw;
 }
-
+.monthImage {
+  width: 40vw;
+}
 .setting_button {
   width: 90vw;
   height: 15vw;
@@ -615,9 +629,11 @@ hr {
   width: 90vw;
   margin: auto;
   height: 100vh;
+  margin-left: 5vw;
+  margin-right: 5vw
 }
 
-/*////////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
+/*/ ///////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
 
 #fav-container {
   padding: 5vw;
@@ -654,65 +670,84 @@ hr {
   margin: 0;
 }
 
-
-
-  .fc-button.fc-prev-button, .fc-button.fc-next-button, .fc-button.fc-button-primary{
-    background: var(--light-green-color);
-    background-image: none;
-    height: 15vw;
-    width: 15vw;
+.fc-button.fc-prev-button,
+.fc-button.fc-next-button,
+.fc-button.fc-button-primary {
+  background: var(--light-green-color);
+  background-image: none;
+  height: 10vw;
+  width: 15vw;
+  border-color: var(--light-green-color);
 }
 
-.fc-day{
+.fc-day {
   background-color: var(--light-green-color);
-  border: 3vw solid var(--dark-green-color)
+  border: 3vw solid var(--dark-green-color);
+  border-radius: 1vw;
+  color: var(--dark-green-color);
 }
 
-.fc-day-sun, .fc-day-sat{
+.fc-daygrid-day-frame{
+  border-radius: 1vw;
+
+}
+
+.fc-day-sun,
+.fc-day-sat {
+
   background-color: var(--brown-color);
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
-.fc-scrollgrid, .fc-theme-standard td{
-  border:  1vw solid var(--dark-green-color)
+.fc-scrollgrid,
+.fc-theme-standard td {
+  border: 1vw solid var(--dark-green-color);
 }
-
-
 
 .fc-theme-standard .fc-scrollgrid {
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
 .fc-theme-standard th {
-  border:  1vw solid var(--dark-green-color)
+  border: 1vw solid var(--dark-green-color);
 }
 
-.fc{
-  padding: 5vw 1vw 5vw 1vw
+.fc {
+  padding: 5vw 1vw 5vw 1vw;
 }
 
-.fc-dayGridMonth-view{
+.fc-dayGridMonth-view {
   height: 80vh;
 }
 
-.fc-toolbar-title{
+.fc-toolbar-title {
   color: var(--white-cream-color);
 }
 
-.fc-today-button{
- color: var(--white-cream-color);
- background-color: var(--brown-color);
+.fc-today-button {
+  color: var(--white-cream-color);
+  background-color: var(--brown-color);
 }
 
 .fc .fc-button-primary:hover {
   background-color: var(--light-green-color);
 }
 
-#delete-event-button {
- z-index: 2000;
- margin: auto
+.fc-button-group {
+gap: 1vw
 }
-#delete-event-background {
+
+.fc-direction-ltr{
+  border: none;
+  border-radius: 2vw;
+}
+
+#delete-event-button {
+  z-index: 2000;
+  margin: auto;
+}
+
+.calendar-event-background {
   background-color: var(--white-cream-color);
   width: 100vw;
   height: 100vh;
@@ -723,23 +758,589 @@ hr {
   z-index: 1000;
 }
 
-#delete-event-container{
-  height: 30vw;
+.calendar-event-container {
+  color: var(--white-cream-color);
+  text-align: center;
+  height: fit-content;
   left: 30vw;
   display: flex;
+  padding: 3vw;
   flex-direction: column;
   top: 50vw;
   position: fixed;
   background-color: var(--dark-green-color);
   border-radius: 3vw;
-  margin:auto;
+  margin: auto;
   align-items: center;
   justify-content: center;
   width: 40vw;
   z-index: 2000;
 }
 
-#delete-event-container p{
+#delete-event-container p {
   color: var(--white-cream-color);
   text-align: center;
 }
+/* public user form  */
+
+#publicUserForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90vw;
+  align-items: center;
+  margin: auto;
+  position: fixed;
+  top: 60vw;
+  left: 5vw;
+  background-color: var(--dark-green-color);
+  border-radius: 3vw;
+  color: var(--white-cream-color);
+  text-align: center;
+}
+
+#publicUserForm input,
+#publicUserForm button {
+  margin: 3vw;
+}
+
+#publicUserBackground {
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--white-cream-color);
+  opacity: 0.5;
+}
+
+#user-button {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.imageBox {
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4vw;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  border: 2px solid var(--brown-color);
+}
+/* Media Queries */
+@media only screen and (min-width: 1000px) {
+  #nav-body {
+    height: 11vw;
+  }
+  #nav-container div {
+    height: 8vw;
+    width: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .userImg {
+    width: 9vw;
+    height: auto;
+  }
+  #nav-container div:hover::after {
+    opacity: 40% var(--dark-green-color);
+    transition: 1s;
+  }
+  .link-container {
+    width: 80vw;
+    height: 10vw;
+    transition: 0.5s;
+  }
+  .link-container:hover {
+    width: 90vw;
+    overflow: hidden;
+  }
+  .card {
+    width: 80vw;
+    align-items: center;
+    display: flex;
+    height: 20vh;
+  }
+
+  .tipContainerTwo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .tipContainer {
+    width: 100%;
+    overflow: scroll;
+    height: 60vh;
+  }
+
+  #tip-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .TipCard {
+    display: flex;
+    flex-direction: column;
+  }
+  .individualCards {
+    position: absolute;
+    top: -100px;
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+  }
+  #tip-description {
+    height: 8vw;
+  }
+  .buttonsContainer {
+    bottom: 0;
+    position: fixed;
+    width: 100vw;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--dark-green-color);
+    mask-image: linear-gradient(
+      to top,
+      black calc(100% - 10px),
+      transparent 100%
+    );
+  }
+  .addButton {
+    width: 10vw;
+    height: 5vw;
+    bottom: -10px;
+    font-size: 1.5rem;
+    transition: 0.8s;
+  }
+  .addButton:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+
+  .searchBar {
+    max-width: 83vw;
+  }
+
+  .flexContainer {
+    max-width: 60vw;
+    left: 20%;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .input {
+    max-width: 40vw;
+  }
+  hr {
+    width: 50vw;
+  }
+  #back-btn {
+    width: 10vw;
+    font-size: 1.5rem;
+    height: 5vw;
+    left: 45vw;
+    transition: 0.8s;
+  }
+  #back-btn:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+  .title-container {
+    max-width: 40vw;
+  }
+  .description-container {
+    max-width: 70vw;
+  }
+  .formButton {
+    transition: 0.8s;
+  }
+  .formButton:hover {
+    background-color: var(--brown-color);
+    cursor: pointer;
+  }
+  #calendar-welcome {
+    font-size: 1.5rem;
+  }
+  #calendargrid {
+    align-items: center;
+    justify-items: center;
+    gap: 2px;
+    padding: 0;
+  }
+  #calendargrid div {
+    width: 25vw;
+    height: 20vw;
+  }
+  #calendargrid a {
+    width: 25vw;
+    height: auto;
+  }
+  #calendargrid p {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .month img {
+    max-width: 25vw;
+    height: auto;
+  }
+  .header-month {
+    width: 30vw;
+    height: auto;
+  }
+  .monthImage {
+    max-width: 25vw;
+    margin-top: 5vw;
+    max-height: 25vw;
+  }
+  .header-month p {
+    font-size: 5rem;
+  }
+  #plant-harvest-title h1 {
+    font-size: 6rem;
+  }
+  #plant-harvest-title {
+    background-color: #47594e;
+    position: sticky;
+    top: 0;
+    mask-image: linear-gradient(
+      to bottom,
+      black calc(100% - 10px),
+      transparent 100%
+    );
+  }
+  .vegListItem {
+    max-width: 25vw;
+    height: 5vw;
+  }
+
+  .plantHarvestList {
+    max-width: 25vw;
+  }
+  .plantHarvestList a {
+    width: 25vw;
+  }
+  #harvest-list a {
+    width: 25vw;
+  }
+  #harvest-list {
+    width: 25vw;
+  }
+  #veggie-general-info {
+    max-width: 40vw;
+    height: 20vw;
+  }
+  #veggie-general-info p {
+    font-size: 1.8rem;
+  }
+  #veggie-grid {
+    align-items: center;
+    justify-items: center;
+    gap: 1px;
+    padding: 0;
+  }
+  #veggie-grid div {
+    width: 20vw;
+    height: 15vw;
+    margin-bottom: 2vw;
+  }
+  #veggie-grid a {
+    width: 20vw;
+    height: auto;
+  }
+  .carrot-image {
+    max-height: 5vw;
+    width: auto;
+  }
+  .carrot-rating {
+    gap: 1vw;
+  }
+  #veggie-grid {
+    width: 70vw;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+  }
+  #veggie-grid div h1 {
+    margin-top: 2vw;
+    font-size: 2vw;
+  }
+  #veggie-container div {
+    max-width: 100vw;
+    height: auto;
+  }
+  .imageBox {
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+  }
+  .tip-img {
+    max-width: 30vw;
+    height: auto;
+  }
+  #veggie-general-info {
+    width: 50vw;
+    box-shadow: 28px 26px 29px -12px rgba(0, 0, 0, 0.75);
+  }
+  /* Settings Page */
+  #settings-container {
+    height: 100vh;
+  }
+  #settings-container button {
+    width: 30vw;
+    height: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  #settings-container button:hover {
+    background-color: var(--brown-color);
+  }
+
+  /* User Page */
+  #icon-container div {
+    width: 2vw;
+    height: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+  }
+  .settingIcon,
+  .addIcon {
+    max-width: 3vw;
+    max-height: 3vw;
+  }
+  #icon-container div:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+  #userPage-container {
+    width: 60vw;
+    margin-top: 1vw;
+  }
+
+  #user-img {
+    width: 20vw;
+    height: 20vw;
+  }
+  #user_name {
+    height: 7vw;
+  }
+  #user_name p {
+    font-size: 3rem;
+  }
+  #backBtn {
+    display: none;
+  }
+  .favAndTipButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1vw;
+  }
+  .favAndTipButtons button {
+    transition: 0.8s;
+    width: 20vw;
+    font-size: 1.6rem;
+    align-self: center;
+  }
+  .favAndTipButtons button:hover {
+    background-color: var(--brown-color);
+    cursor: pointer;
+  }
+
+  #home-button {
+    transition: 0.7s;
+  }
+  #home-button:hover {
+    cursor: pointer;
+    background-color: var(--brown-color);
+  }
+  #nav-container a {
+    max-width: 10vw;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .buttonsContainer {
+    height: 80px;
+  }
+  .card {
+    width: 80vw;
+    align-items: center;
+    display: flex;
+    height: 15vh;
+  }
+
+  .tipContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 80%;
+    overflow: scroll;
+    margin: 0;
+    padding: 0;
+  }
+  #tip-container {
+    width: 100%;
+    display: flex;
+    height: 10vw;
+    justify-content: space-between;
+  }
+  .TipCard {
+    display: flex;
+    flex-direction: column;
+  }
+  .individualCards {
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .favButton {
+    width: 10vw;
+  }
+  #month-nav-container {
+    margin-top: 3vw;
+  }
+}
+
+/* calendar list view */
+
+#calendar-list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 3vw;
+  color: var(--white-cream-color);
+}
+
+.calendar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+  text-align: center;
+}
+
+.calendar-list-item {
+  color: var(--dark-green-color);
+  border-radius: 3vw;
+  padding: 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  background-color: var(--white-cream-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-list-itme-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+.calendar-list-item p {
+  margin: 0;
+}
+
+.delete-list-item {
+  color: var(--dark-green-color);
+  background-color: var(--white-cream-color);
+  height: 100%;
+  margin: 0;
+  width: 10vw;
+  border-radius: 3vw;
+}
+
+.calendar-event-container button {
+  color: var(--orange-color);
+  font-weight: 700;
+}
+
+
+#myGarden-introduction{
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+  padding: 0 3vw 0 3vw;
+  text-align: center;
+  margin: 0;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+  border: none
+}
+
+#myGarden-introduction h3{
+margin: 0;
+}
+
+#view-options-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  height: fit-content;
+  align-items: center;
+  background-color: var(--white-cream-color);
+  width: 100vw;
+  border: none;
+  margin-left: -5vw;
+  margin-right: -5vw
+}
+
+#view-options-container button{
+  margin: 0;
+  border-radius: 0;
+border: none;
+  border-top-right-radius: 2vw;
+  border-top-left-radius: 2vw;
+  background-color: #47594e;
+  border-bottom: none;
+  color: var(--white-cream-color);
+  width: 40vw;
+}
+
+
+
+.key-color{
+  height: 7vw;
+  width: 7vw;
+  border-radius: 50%;
+  background-color: var(--dark-green-color);
+  border: 1px solid var(--dark-green-color)
+}
+
+
+
+#key-colors-container{
+  position: absolute;
+  bottom: 0;
+  height: 10vw;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  padding: 5vw;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.harvest-item{
+color: var(--white-cream-color);
+background-color: var(--dark-green-color);
+border: 1px solid #f3ebe4;
+}
+
+.calendar-list button{
+
+}
+
