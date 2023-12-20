@@ -1,9 +1,18 @@
 "use client";
 import { createBrowserClient } from "@supabase/ssr";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { SearchBar } from "@/components/SearchBar";
+import { YourTipCard } from "@/components/YourTipCard";
+import {
+  Button,
+  Container,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 
 export default function YourTips() {
   //set up the supabase client
@@ -20,65 +29,71 @@ export default function YourTips() {
   const [success, setSuccess] = useState(false);
   //manage state for search terms in searchbar
   const [searchTerm, setSearchTerm] = useState("");
+  const [deltedTip, setDeletedTip] = useState();
 
   //function to get favourites from database and set favTips
   function getTips() {
     async function apiCall() {
       const id = await supabase.auth.getUser();
-      const { data, error } = await supabase.from("tips").select(`*`).eq('user_id', id.data.user.id);
+      const { data, error } = await supabase
+        .from("tips")
+        .select(`*`)
+        .eq("user_id", id.data.user.id);
       if (error) {
         console.log(error);
       } else if (data) {
         setYourTips(data);
-        setFilteredTips(data)
+        setFilteredTips(data);
         setSuccess(true);
-      } if (data.length <= 0) {
-        setYourTips("");
+      }
+      if (data.length <= 0) {
+        setYourTips({});
         setSuccess(false);
       }
     }
     apiCall();
   }
 
-  //set the favTips on first render
+  //set your tips on first render
   useEffect(() => {
     getTips();
   }, []);
 
+  useEffect(() => {
+    getTips();
+  }, [deltedTip]);
+
   //to delete a tip from the database
   function deleteTip(id) {
     async function apiCall(idIn) {
-      const { error } = await supabase
-        .from("tips")
-        .delete()
-        .eq("id", idIn);
+      const { error } = await supabase.from("tips").delete().eq("id", idIn);
       if (error) {
         console.log(error);
       }
-      getTips()
+      getTips();
     }
     apiCall(id);
   }
 
   useEffect(() => {
     // useEffect for search function
-    if(success){
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    if (success) {
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
-    // Search functionality which filters over gardening tips and returns the values
-    const newFilteredTips = yourTips.filter((a) => {
-      let tip = a.tips
+      // Search functionality which filters over gardening tips and returns the values
+      const newFilteredTips = yourTips.filter((a) => {
+        let tip = a;
 
-     const tipArr = Object.values(tip)
-     tipArr.pop()
+        const tipArr = Object.values(tip);
+        tipArr.pop();
 
-      return tipArr.some((b) => {
-        return b.toString().toLowerCase().includes(lowerCaseSearchTerm);
+        return tipArr.some((b) => {
+          return b.toString().toLowerCase().includes(lowerCaseSearchTerm);
+        });
       });
-    });
-    // set the state of filtered tips
-    setFilteredTips(newFilteredTips);
-  }
+      // set the state of filtered tips
+      setFilteredTips(newFilteredTips);
+    }
   }, [searchTerm]); // render everytime search term changes
 
   return (
@@ -88,9 +103,37 @@ export default function YourTips() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <ul id="fav-container">
+      <div className="cardContainer">
         {/* checking if api call has pulled back data rather than an empty array before rendering tips */}
         {success ? (
+          filteredTips.map((a, i) => {
+            return (
+              <Container
+                key={i}
+                className="card"
+                maxW="md"
+                borderRadius={10}
+                margin="20px"
+                p="20px"
+                zIndex="0"
+              >
+                <YourTipCard key={i} tip={a} setDeleted={setDeletedTip} />
+              </Container>
+            );
+          })
+        ) : (
+          <>
+            <>
+              <p className="favsMissing">You have not added any tips</p>
+              <img
+                src="/assets/sadPumpkin.png"
+                alt="sad pumpkin"
+                style={{ width: "50vw", marginLeft: "25vw" }}
+              ></img>
+            </>
+          </>
+        )}
+        {/* {success ? (
           filteredTips.map((a) => {
             return (
               <div id="fav-card-container" key={a.id}>
@@ -114,8 +157,8 @@ export default function YourTips() {
             <p className="favsMissing">You have not added any tips</p>
             <img src="/assets/sadPumpkin.png" alt="sad pumpkin"></img>
           </>
-        )}
-      </ul>
+        )} */}
+      </div>
     </>
   );
 }

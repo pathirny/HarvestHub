@@ -46,9 +46,9 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
           setFavourited(true);
         }
       }
-      if (error) {
-        console.log(error);
-      }
+      // if (error) {
+      //   console.log(error);
+      // }
     }
 
     apiCall(tip.id);

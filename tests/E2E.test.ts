@@ -7,7 +7,9 @@ test("has title", async ({ page }: any) => {
   await expect(page).toHaveTitle(/Harvest hub!/);
 });
 
-test("clicking sign in link takes you to log in page", async ({ page }: any) => {
+test("clicking sign in link takes you to log in page", async ({
+  page,
+}: any) => {
   await page.goto("https://harvest-hub-tau.vercel.app/");
 
   // Click the Sign In link.
@@ -100,7 +102,9 @@ test("add a tip to tips and tricks", async ({ page }: any) => {
   // Click the submit button.
   await page.getByRole("button", { name: "Submit" }).click();
   // Expect the tip to be visible.
-  await expect(page.getByText("Test Tip").first()).toBeVisible({ timeout: 10000 });
+  await expect(page.getByText("Test Tip").first()).toBeVisible({
+    timeout: 10000,
+  });
 });
 
 test("delete tip from tips and tricks", async ({ page }: any) => {
@@ -122,95 +126,113 @@ test("delete tip from tips and tricks", async ({ page }: any) => {
   // Click the your tips link.
   await page.getByRole("link", { name: "Your Tips" }).click();
   // Expect the tip to be visible.
-  await expect(page.getByText("Test Tip").first()).toBeVisible({ timeout: 20000 });
+  await expect(page.getByText("Test Tip").first()).toBeVisible({
+    timeout: 20000,
+  });
   // Click the delete button.
   await page.getByRole("button", { name: "X" }).first().click();
   // Expect the tip to be gone.
   await expect(page.getByText("Test Tip").first()).not.toBeVisible();
+});
+
+test("checking that months are visable in the Growing Calendar", async ({
+  page,
+}: any) => {
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
+
+  // Enter the email and password.
+  await page.getByPlaceholder("Email").fill("testington706@gmail.com");
+  await page.getByPlaceholder("Password").fill("testpassword");
+
+  // Click the Sign In link.
+  await page.getByRole("button", { name: "Sign In" }).click();
+
+  // Expect to see the Growing Calendar link on the home page.
+  await page.getByRole("link", { name: "Growing Calendar" }).click();
+  await expect(
+    page.getByRole("heading", {
+      name: "Welcome to our growing calendar - click on the months to see what you can grow and harvest!",
+    })
+  ).toBeVisible({ timeout: 20000 });
+  await page.getByRole("link", { name: "January month" }).click();
+
+  await expect(
+    page.getByRole("heading", {
+      name: "Click on the veggies for more info and advice on growing!",
+    })
+  ).toBeVisible();
+});
+
+test("checking that individual veggie page opens and retrieves data from database", async ({
+  page,
+}: any) => {
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
+
+  // Enter the email and password.
+  await page.getByPlaceholder("Email").fill("testington706@gmail.com");
+  await page.getByPlaceholder("Password").fill("testpassword");
+
+  // Click the Sign In link.
+  await page.getByRole("button", { name: "Sign In" }).click();
+
+  await page.goto("https://harvest-hub-tau.vercel.app/calendar/0");
+  await expect(page.getByRole("link", { name: "Orange" })).toBeVisible({
+    timeout: 20000,
+  });
+  await expect(page.getByRole("link", { name: "Cauliflower" })).toBeVisible({
+    timeout: 20000,
+  });
+  await expect(page.getByRole("link", { name: "Grapefruit" })).toBeVisible({
+    timeout: 20000,
   });
 
-  test("checking that months are visable in the Growing Calendar", async ({ page }: any) => {
-    await page.goto("https://harvest-hub-tau.vercel.app/login");
-  
-    // Enter the email and password.
-    await page.getByPlaceholder("Email").fill("testington706@gmail.com");
-    await page.getByPlaceholder("Password").fill("testpassword");
-  
-    // Click the Sign In link.
-    await page.getByRole("button", { name: "Sign In" }).click();
-  
-    // Expect to see the Growing Calendar link on the home page.
-    await page.getByRole("link", { name: "Growing Calendar" }).click();
-    await expect(
-      page.getByRole("heading", { name: "Welcome to our growing calendar - click on the months to see what you can grow and harvest!"}
-    )).toBeVisible({ timeout: 20000 });
-    await page.getByRole('link', { name: 'January month' }).click()
-    
-    await expect(page.getByRole('heading', { name: 'Click on the veggies for more info and advice on growing!' })).toBeVisible();
-    });
+  await page.getByRole("link", { name: "Cauliflower" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Cauliflower" })
+  ).toBeVisible();
+});
 
-    test("checking that individual veggie page opens and retrieves data from database", async ({ page }: any) => {
-      await page.goto("https://harvest-hub-tau.vercel.app/login");
-    
-      // Enter the email and password.
-      await page.getByPlaceholder("Email").fill("testington706@gmail.com");
-      await page.getByPlaceholder("Password").fill("testpassword");
-    
-      // Click the Sign In link.
-      await page.getByRole("button", { name: "Sign In" }).click();
-    
-      await page.goto("https://harvest-hub-tau.vercel.app/calendar/0");
-      await expect(page.getByRole('link', { name: 'Orange' })).toBeVisible({ timeout: 20000 });
-      await expect(page.getByRole('link', { name: 'Cauliflower' })).toBeVisible({ timeout: 20000 });
-      await expect(page.getByRole('link', { name: 'Grapefruit' })).toBeVisible({ timeout: 20000 });
+test("testing getting onto the growing calendar", async ({ page }: any) => {
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
 
-      await page.getByRole('link', { name: 'Cauliflower' }).click();
-      await expect(page.getByRole('heading', { name: 'Cauliflower' })).toBeVisible();
-      });  
+  // Enter the email and password.
+  await page.getByPlaceholder("Email").fill("testington706@gmail.com");
+  await page.getByPlaceholder("Password").fill("testpassword");
 
-      test("testing getting onto the growing calendar", async ({ page }: any) => {
-        await page.goto("https://harvest-hub-tau.vercel.app/login");
-      
-        // Enter the email and password.
-        await page.getByPlaceholder("Email").fill("testington706@gmail.com");
-        await page.getByPlaceholder("Password").fill("testpassword");
-      
-        // Click the Sign In link.
-        await page.getByRole("button", { name: "Sign In" }).click();
+  // Click the Sign In link.
+  await page.getByRole("button", { name: "Sign In" }).click();
 
-        //going to calendar
-        await page.getByRole('link', { name: 'My Garden Calendar' }).click();
+  //going to calendar
+  await page.getByRole("link", { name: "My Garden Calendar" }).click();
 
-        //should see my garden calendar
-        await expect(page.getByRole('heading', { name: 'My Garden' })).toBeVisible(); 
+  //should see my garden calendar
+  await expect(page.getByRole("heading", { name: "My Garden" })).toBeVisible();
 
-        //clicking arrow btn
-        await page.getByTitle('Previous month').click();
+  //clicking arrow btn
+  await page.getByTitle("Previous month").click();
 
-        //checking month has changed
-        await expect(page.getByRole('heading', { name:'Nov'})).toBeVisible();
-      });
+  //checking month has changed
+  await expect(page.getByRole("heading", { name: "Nov" })).toBeVisible();
+});
 
+test("checking conitue as guest works and that add tip isn't there when not signed in", async ({ page }: any) => {
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
 
-      // test("testing add veggie to growing calendar", async ({ page }: any) => {
-      //   await page.goto("https://harvest-hub-tau.vercel.app/login");
-      
-      //   // Enter the email and password.
-      //   await page.getByPlaceholder("Email").fill("testington706@gmail.com");
-      //   await page.getByPlaceholder("Password").fill("testpassword");
-      
-      //   // Click the Sign In link.
-      //   await page.getByRole("button", { name: "Sign In" }).click();
+  //clicking continue as guest
+  await page.getByRole("button", { name: "Continue as Guest" }).click();
+  // find the tips and tricks link
+  await page.getByRole("link", { name: "Tips and Tricks" }).click();
+  // expect the add tip button to not be visible
+  await expect(page.getByRole("button", { name: "Add Tip" })).not.toBeVisible();
+});
 
-      //   //going to calendar
-      //   await page.getByRole('link', { name: 'My Garden Calendar' }).click();
+test("checking conitue as guest works and a popup stops access", async ({ page }: any) => {
+  await page.goto("https://harvest-hub-tau.vercel.app/login");
 
-      //   //should see my garden calendar
-      //   await expect(page.getByRole('heading', { name: 'My Garden' })).toBeVisible(); 
-
-      //   await page.getByTitle('Previous month').click();
-
-      //   await page.getByRole('gridcell', { name: 'November 1, 2023', exact: true }).locator('div').nth(2).click();
-
-      //   await page.getByRole('option', { value: 'Potato' }).click({ timeout: 10000});
-      // });
+  //clicking continue as guest
+  await page.getByRole("button", { name: "Continue as Guest" }).click();
+  // find the my garden link
+  await page.getByRole("link", { name: "My Garden" }).click();
+  // expect a popup to appear
+  await expect(page.getByRole("button", { name: "Click to log in  or sign up" })).toBeVisible();
+});
