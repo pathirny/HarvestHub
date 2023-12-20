@@ -88,7 +88,7 @@ export default function Index() {
     </Head>
       <Header title="Harvest Hub" />
       <main className="homepage-box">
-        <img
+        <img alt="logo"
           src="/assets/Veglogo.png"
           style={{ width: "16rem", height: "auto", opacity: "1" }}
         ></img>
@@ -224,7 +224,7 @@ export default function Index() {
             }}
           >
             <h3>
-              Please add you first and last name to complete the sign up
+              Please add your first and last name to complete the sign up
               process.
             </h3>
             <input

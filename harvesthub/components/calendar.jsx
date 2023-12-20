@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 import multiMonthPlugin from "@fullcalendar/multimonth";
 import { Select } from "@chakra-ui/react";
 import { createBrowserClient } from "@supabase/ssr";
+import { formatDate } from "@fullcalendar/core";
+import { list } from "postcss";
+import BackButton from "./BackButton";
 import Link from "next/link";
-
 
 export default function FullCalendar(props) {
   //connecting to supabase
@@ -63,8 +65,7 @@ export default function FullCalendar(props) {
   const [currentEvent, setCurrentEvent] = useState(null);
   //toggle error message when adding vegEvent
   const [errorAdding, setErrorAdding] = useState(false);
-  //set name of veg that has been selected from calendar
-  const [popUpVegName, setPopUpVegName] = useState()
+
   //handles when a day is clicked on the calendar
   function handleDateClick(e) {
     //toggles the input form to show
@@ -141,7 +142,7 @@ export default function FullCalendar(props) {
       if (error) {
         console.error("Error fetching veggies:", error);
       }
-      if (events) {
+      if (events && events.length > 0) {
         setEventData(events);
         const eventList = events.map((event) => {
           return [
@@ -161,9 +162,9 @@ export default function FullCalendar(props) {
               start: event.harvest_date,
               allDay: true,
               display: "block",
-              backgroundColor: "#47594e",
+              backgroundColor: "#b9a48c",
               textColor: "#f3ebe4",
-              borderColor: "#47594e",
+              borderColor: "#b9a48c",
               eventOverlap: true,
               id: event.event_id + "#",
             },
@@ -177,14 +178,12 @@ export default function FullCalendar(props) {
   }
 
   function displayEvent(e) {
-    console.log(e.event._def);
-    setPopUpVegName(e.event._def.title)
+    console.log(e.event._def.publicId);
     setCurrentEvent(e.event._def.publicId);
   }
 
   function deleteEvent(id) {
     if (id) {
-      console.log("id" + id)
       async function apiCall() {
         let { error } = await supabase
           .from("calendar_events")
@@ -195,7 +194,6 @@ export default function FullCalendar(props) {
       }
       apiCall();
     } else if (currentEvent.includes("#")) {
-      console.log("#")
       async function apiCall() {
         let { error } = await supabase
           .from("calendar_events")
@@ -205,7 +203,6 @@ export default function FullCalendar(props) {
       }
       apiCall();
     } else {
-      console.log("normal")
       async function apiCall() {
         let { error } = await supabase
           .from("calendar_events")
@@ -234,12 +231,11 @@ export default function FullCalendar(props) {
 
   return (
     <>
-      <div id="view-options-container">
+      <div>
         <button
           onClick={() => {
             setListView(true);
           }}
-          style={listView ? {} : { backgroundColor: "rgb(139, 148, 139)", color: "rgb(88, 96, 88)"}}
         >
           List View
         </button>
@@ -247,17 +243,15 @@ export default function FullCalendar(props) {
           onClick={() => {
             setListView(false);
           }}
-          style={listView ? { backgroundColor: "rgb(139, 148, 139)", color: "rgb(88, 96, 88)"} : {}}
         >
           Calendar View
         </button>
       </div>
       {listView ? (
         <>
-        
           <div id="calendar-list-container">
             <div id="calendar-list-plant" className="calendar-list">
-             <br></br>
+              <h3>Plant</h3>
               {eventData.map((a) => {
                 let plant_date = new Date(a.plant_date);
                 plant_date = plant_date.toDateString().split(" ").splice(1, 3);
@@ -267,11 +261,10 @@ export default function FullCalendar(props) {
                     className="calendar-list-itme-container"
                     key={a.event_id}
                   >
-                   <Link href={`/veggies/${a.veggies.name}`}> <div className="calendar-list-item">
+                    <div className="calendar-list-item">
                       <p>{plant_date} </p>
                       <p>{a.veggies.name}</p>
                     </div>
-                    </Link>
                     <button
                       className="delete-list-item"
                       onClick={() => {
@@ -284,9 +277,8 @@ export default function FullCalendar(props) {
                 );
               })}
             </div>
-
             <div id="calendar-list-harvest" className="calendar-list">
-            <br></br>
+              <h3>Harvest</h3>
               {eventData_harvest.map((a) => {
                 let harvest_date = new Date(a.harvest_date);
                 harvest_date = harvest_date
@@ -299,16 +291,11 @@ export default function FullCalendar(props) {
                     className="calendar-list-itme-container"
                     key={a.event_id}
                   >
-                     <Link href={`/veggies/${a.veggies.name}`}> 
-                    <div className="calendar-list-item harvest-item">
+                    <div className="calendar-list-item">
                       <p>{harvest_date} </p>
                       <p>{a.veggies.name}</p>
                     </div>
-                    </Link>
-                    <button className="delete-list-item harvest-item"
-                    onClick={() => {
-                      deleteEvent(a.event_id);
-                    }}>X</button>
+                    <button className="delete-list-item">X</button>
                   </div>
                 );
               })}
@@ -317,9 +304,8 @@ export default function FullCalendar(props) {
         </>
       ) : (
         <>
-          <div style={{position: "relative", height: "100vh"}}>
-    
-            <Calendar 
+          <div>
+            <Calendar
               plugins={[dayGrid, timeGrid, interactionPlugin, multiMonthPlugin]}
               headerToolbar={{
                 start: "title", // will normally be on the left. if RTL, will be on the right
@@ -389,12 +375,11 @@ export default function FullCalendar(props) {
             <>
               <div className="calendar-event-background"></div>
               <div className="calendar-event-container">
-                <h3 style={{margin: "1vw", marginBottom: "-1vw"}}>{popUpVegName}</h3>
-                <p>Are you sure you want to delete {popUpVegName} from your calendar?</p>
+                <p>Are you sure you want to delete this event?</p>
                 <button
                   id="delete-event-button"
                   type="button"
-                  onClick={()=>{deleteEvent(null)}}
+                  onClick={deleteEvent}
                 >
                   Delete Event
                 </button>{" "}
@@ -414,9 +399,11 @@ export default function FullCalendar(props) {
           ) : (
             <></>
           )}
-            
         </>
       )}
+      <Link href="/">
+        <BackButton />
+      </Link>
     </>
   );
 }
