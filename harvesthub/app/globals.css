@@ -598,10 +598,8 @@ hr {
 #settings-container {
   display: flex;
   flex-direction: column;
-  gap: 10vw;
   width: 100vw;
   align-items: center;
-  justify-content: space-evenly;
   margin-top: 10vw;
 }
 .monthImage {
@@ -872,7 +870,8 @@ hr {
   }
   .tipContainer {
     width: 100%;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     height: 60vh;
   }
 
@@ -1170,6 +1169,22 @@ hr {
     background-color: var(--brown-color);
   }
   #nav-container a {
+    max-width: 10vw;
+  }
+  .sad-pumpkin {
+    max-width: 40vw;
+    height: auto;
+    align-self: center;
+  }
+  #fav-card-container {
+    max-width: 90vw;
+    height: 20vw;
+  }
+  #fav-card {
+    height: 10vw;
+  }
+  #delete-fav {
+    height: 10vw;
     max-width: 10vw;
   }
   .cardContainer {
