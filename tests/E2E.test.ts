@@ -216,6 +216,7 @@ test("delete tip from tips and tricks", async ({ page }: any) => {
 
         // await page.getByRole('button', {name:'Submit'}).click();
 
-        await expect(page.locator('a').filter({ hasText: 'Potato' })).toBeVisible();        
+        await expect(page.locator('a').filter({ hasText: 'Potato' })).toBeVisible();     
+        
         
         });
