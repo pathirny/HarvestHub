@@ -46,6 +46,7 @@ export default function Veggies({ params }: any) {
       <div id="vegPageContainer">
         <Header title={params.veggie}></Header>
         <div className="imageBox">
+    
           <CldImage
             className="tip-img"
             alt="tip-img"
@@ -56,9 +57,10 @@ export default function Veggies({ params }: any) {
               height: "auto",
               borderRadius: "3vw",
             }}
-            src={`/HarvestHub/${params.veggie}`}
+            // src={`/HarvestHub/${params.veggie}`}
+            src={`/HarvestHub/Placeholderveg`}
             // src="/HarvestHub/Pumpkin"
-          />
+          /> 
         </div>
         <div id="veggie-container">
           <div id="veggie-general-info">

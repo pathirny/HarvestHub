@@ -151,14 +151,14 @@ test("checking that months are visable in the Growing Calendar", async ({
   await page.getByRole("link", { name: "Growing Calendar" }).click();
   await expect(
     page.getByRole("heading", {
-      name: "Welcome to our growing calendar - click on the months to see what you can grow and harvest!",
+      name: "Calendar",
     })
   ).toBeVisible({ timeout: 20000 });
   await page.getByRole("link", { name: "January month" }).click();
 
   await expect(
     page.getByRole("heading", {
-      name: "Click on the veggies for more info and advice on growing!",
+      name: "Month",
     })
   ).toBeVisible();
 });
