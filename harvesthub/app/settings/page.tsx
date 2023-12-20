@@ -33,11 +33,11 @@ export default function Settings(){
     <Header title="Settings" />
     <div id="settings-container">
       <form action={signOutFunc}>
-    <button id="signOut" type="submit" className="setting_button"><h1>Sign Out</h1> </button>
+    <button id="signOut" type="submit" className="setting_button">Sign Out</button>
     </form>
-    <button id="changeMode" className="setting_button"><h1>Change Theme</h1></button>
+    {/* <button id="changeMode" className="setting_button">Change Theme</button>
 
-  <Switch colorScheme='red' style={{width: "80vw", height: "30vw"}} />
+  <Switch colorScheme='red' style={{width: "80vw", height: "30vw"}} /> */}
 
     </div>
     

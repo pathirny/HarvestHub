@@ -109,10 +109,10 @@ export default function Month({ params }: any) {
             <div id="prv-mnth-bttn"></div>
           </Link>
           <div className="month br-wht header-month" id="january">
-            <p>{months[params.month]}</p>
+            <p style={{margin: "0", marginTop: "2vw"}}>{months[params.month]}</p>
             <img
+              className="monthImage"
               src="/assets/brMonth.png"
-              style={{ width: "40vw", height: "auto", alignSelf: "center" }}
               alt="month"
             />
           </div>
@@ -122,8 +122,8 @@ export default function Month({ params }: any) {
         </div>
         <div id="plant-harvest-grid">
           <div id="plant-harvest-title">
-            <h1>Plant</h1>
-            <h1>Harvest</h1>
+            <h2>Plant</h2>
+            <h2>Harvest</h2>
           </div>
           <div id="underline"></div>
           <div id="plant-list" className="plantHarvestList">
@@ -138,7 +138,7 @@ export default function Month({ params }: any) {
                         backgroundColor: "var(--white-cream-color)",
                       }}
                     >
-                      <h3 style={{ marginTop: "1vw", fontSize: "4vw" }}>
+                      <h3 style={{ marginTop: "2vw", fontSize: "4vw" }}>
                         {a.name}
                       </h3>
                     </div>
@@ -161,7 +161,7 @@ export default function Month({ params }: any) {
                     >
                       <h3
                         className="vegTitle"
-                        style={{ marginTop: "1vw", fontSize: "4vw" }}
+                        style={{ marginTop: "2vw", fontSize: "4vw" }}
                       >
                         {a.name}
                       </h3>
