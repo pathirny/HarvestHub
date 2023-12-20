@@ -130,7 +130,7 @@ test("delete tip from tips and tricks", async ({ page }: any) => {
     timeout: 20000,
   });
   // Click the delete button.
-  await page.getByRole("button", { name: "X" }).first().click();
+  await page.getByLabel('Add to favourites').first().click();
   // Expect the tip to be gone.
   await expect(page.getByText("Test Tip").first()).not.toBeVisible();
 });
@@ -153,7 +153,7 @@ test("checking that months are visable in the Growing Calendar", async ({
     page.getByRole("heading", {
       name: "Calendar",
     })
-  ).toBeVisible({ timeout: 20000 });
+  .first()).toBeVisible({ timeout: 20000 });
   await page.getByRole("link", { name: "January month" }).click();
 
   await expect(
