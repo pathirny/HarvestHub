@@ -1188,10 +1188,11 @@ border: none;
 
 
 .key-color{
-  height: 10vw;
-  width: 10vw;
+  height: 7vw;
+  width: 7vw;
   border-radius: 50%;
-  background-color: var(--brown-color);
+  background-color: var(--dark-green-color);
+  border: 1px solid var(--dark-green-color)
 }
 
 

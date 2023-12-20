@@ -17,19 +17,13 @@ export default function Home() {
     <>
       <Header title="My Garden" />
       <div id="myGarden-introduction">
-    <h3>Click on days to track of what you've planted and when to harvest!</h3>
+    <h3>Click on days to track what you've planted and when to harvest!</h3>
+    <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: "2vw"}}>
+    <p>Plant: </p><div className="key-color" style={{backgroundColor: "var(--white-cream-color)"}}></div><p> Harvest:</p><div className="key-color" ></div></div>
   </div>
       {signedIn ? 
      <> <div id="calendar-container">
         <FullCalendar initialView="dayGridMonth" />
-
-        {/* <Flex
-          width="100vw"
-          justifyContent="center"
-          position="fixed"
-          bottom="-10px"
-        >
-        </Flex> */}
       </div>
           <Link href="/">
             <Button className="addButton">Back</Button>

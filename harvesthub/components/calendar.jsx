@@ -2,13 +2,12 @@ import Calendar from "@fullcalendar/react";
 import dayGrid from "@fullcalendar/daygrid";
 import timeGrid from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import multiMonthPlugin from "@fullcalendar/multimonth";
 import { Select } from "@chakra-ui/react";
 import { createBrowserClient } from "@supabase/ssr";
-import { formatDate } from "@fullcalendar/core";
-import { list } from "postcss";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import Link from "next/link";
+
 
 export default function FullCalendar(props) {
   //connecting to supabase
@@ -258,7 +257,7 @@ export default function FullCalendar(props) {
         
           <div id="calendar-list-container">
             <div id="calendar-list-plant" className="calendar-list">
-              <h3>Plant</h3>
+             <br></br>
               {eventData.map((a) => {
                 let plant_date = new Date(a.plant_date);
                 plant_date = plant_date.toDateString().split(" ").splice(1, 3);
@@ -268,10 +267,11 @@ export default function FullCalendar(props) {
                     className="calendar-list-itme-container"
                     key={a.event_id}
                   >
-                    <div className="calendar-list-item">
+                   <Link href={`/veggies/${a.veggies.name}`}> <div className="calendar-list-item">
                       <p>{plant_date} </p>
                       <p>{a.veggies.name}</p>
                     </div>
+                    </Link>
                     <button
                       className="delete-list-item"
                       onClick={() => {
@@ -286,7 +286,7 @@ export default function FullCalendar(props) {
             </div>
 
             <div id="calendar-list-harvest" className="calendar-list">
-              <h3>Harvest</h3>
+            <br></br>
               {eventData_harvest.map((a) => {
                 let harvest_date = new Date(a.harvest_date);
                 harvest_date = harvest_date
@@ -299,10 +299,12 @@ export default function FullCalendar(props) {
                     className="calendar-list-itme-container"
                     key={a.event_id}
                   >
+                     <Link href={`/veggies/${a.veggies.name}`}> 
                     <div className="calendar-list-item harvest-item">
                       <p>{harvest_date} </p>
                       <p>{a.veggies.name}</p>
                     </div>
+                    </Link>
                     <button className="delete-list-item harvest-item"
                     onClick={() => {
                       deleteEvent(a.event_id);
@@ -339,9 +341,6 @@ export default function FullCalendar(props) {
               {...props}
             />
           </div>
-                 {/* <div id="key-colors-container">
-      <p>Plant:</p><div className="key-color" style={{backgroundColor: "var(--white-cream-color)"}}></div>
-      <p>Harvest:</p> <div className="key-color" ></div></div> */}
           {input ? (
             <>
               <div className="calendar-event-background"></div>
