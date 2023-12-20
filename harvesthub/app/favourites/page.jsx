@@ -114,9 +114,9 @@ export default function Favourites() {
           <>
             <p className="favsMissing">You have not saved any favourites</p>
             <img
+              className="sad-pumpkin"
               src="/assets/sadPumpkin.png"
               alt="sad pumpkin"
-              style={{ width: "50vw", marginLeft: "25vw" }}
             ></img>
           </>
         )}

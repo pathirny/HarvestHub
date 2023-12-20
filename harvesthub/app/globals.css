@@ -343,7 +343,7 @@ hr {
   text-align: center;
 }
 
-#plant-harvest-title h1 {
+#plant-harvest-title h2 {
   margin-top: 1vw;
   font-size: 5vw;
   color: var(--white-cream-color);
@@ -377,6 +377,7 @@ hr {
   height: 9vw;
   text-align: center;
   font-size: 5vw;
+  padding-top: 1vw
 }
 
 #veggie-container {
@@ -400,7 +401,7 @@ hr {
   align-items: center;
 }
 
-#veggie-grid div h1 {
+#veggie-grid div h2 {
   margin-top: 4vw;
   font-size: 5vw;
 }
@@ -598,15 +599,11 @@ hr {
 #settings-container {
   display: flex;
   flex-direction: column;
-  gap: 10vw;
   width: 100vw;
   align-items: center;
-  justify-content: space-evenly;
   margin-top: 10vw;
 }
-.monthImage {
-  width: 40vw;
-}
+
 .setting_button {
   width: 90vw;
   height: 15vw;
@@ -617,7 +614,7 @@ hr {
   padding: 2vw;
 }
 
-.setting_button h1 {
+.setting_button h2 {
   text-align: start;
   margin-top: 4vw;
   font-size: 6vw;
@@ -629,8 +626,6 @@ hr {
   width: 90vw;
   margin: auto;
   height: 100vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
 }
 
 /*/ ///////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
@@ -675,20 +670,13 @@ hr {
 .fc-button.fc-button-primary {
   background: var(--light-green-color);
   background-image: none;
-  height: 10vw;
+  height: 15vw;
   width: 15vw;
-  border-color: var(--light-green-color);
 }
 
 .fc-day {
   background-color: var(--light-green-color);
   border: 3vw solid var(--dark-green-color);
-  border-radius: 1vw;
-  color: var(--dark-green-color);
-}
-
-.fc-daygrid-day-frame {
-  border-radius: 1vw;
 }
 
 .fc-day-sun,
@@ -731,17 +719,8 @@ hr {
   background-color: var(--light-green-color);
 }
 
-.fc-button-group {
-  gap: 1vw;
-}
-
-.fc-direction-ltr {
-  border: none;
-  border-radius: 2vw;
-}
-
 #delete-event-button {
-  z-index: 2000;
+  z-index: 5;
   margin: auto;
 }
 
@@ -753,7 +732,7 @@ hr {
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 1000;
+  z-index: 5;
 }
 
 .calendar-event-container {
@@ -772,7 +751,7 @@ hr {
   align-items: center;
   justify-content: center;
   width: 40vw;
-  z-index: 2000;
+  z-index: 7;
 }
 
 #delete-event-container p {
@@ -872,7 +851,8 @@ hr {
   }
   .tipContainer {
     width: 100%;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     height: 60vh;
   }
 
@@ -950,6 +930,7 @@ hr {
     height: 5vw;
     left: 45vw;
     transition: 0.8s;
+    z-index: 10;
   }
   #back-btn:hover {
     cursor: pointer;
@@ -1004,8 +985,9 @@ hr {
   }
   .header-month p {
     font-size: 5rem;
+    margin-top: 4vw;
   }
-  #plant-harvest-title h1 {
+  #plant-harvest-title h2 {
     font-size: 6rem;
   }
   #plant-harvest-title {
@@ -1070,7 +1052,7 @@ hr {
     padding: 0;
     align-self: center;
   }
-  #veggie-grid div h1 {
+  #veggie-grid div h2 {
     margin-top: 2vw;
     font-size: 2vw;
   }
@@ -1094,6 +1076,7 @@ hr {
   }
   /* Settings Page */
   #settings-container {
+    width: 100%;
     height: 100vh;
   }
   #settings-container button {
@@ -1105,6 +1088,7 @@ hr {
     font-size: 3rem;
     transition: 0.5s;
     cursor: pointer;
+    overflow: hidden;
   }
   #settings-container button:hover {
     background-color: var(--brown-color);
@@ -1172,10 +1156,38 @@ hr {
   #nav-container a {
     max-width: 10vw;
   }
-  .cardContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  .sad-pumpkin {
+    max-width: 40vw;
+    height: auto;
+    align-self: center;
+  }
+  #fav-card-container {
+    max-width: 90vw;
+    height: 20vw;
+  }
+  #fav-card {
+    height: 10vw;
+  }
+  #delete-fav {
+    height: 10vw;
+    max-width: 10vw;
+  }
+  .calendar-event-container {
+    top: 40vh;
+  }
+  .back {
+    z-index: 10;
+  }
+  .fc {
+    padding: 0px;
+  }
+  .fc-view-harness {
+    max-height: 50vw;
+  }
+  .fc-today-button,
+  .fc-button-primary {
+    max-height: 10vw;
+    max-width: 10vw;
   }
 }
 
@@ -1221,6 +1233,10 @@ hr {
   }
   #month-nav-container {
     margin-top: 3vw;
+  }
+  .sad-pumpkin {
+    width: 100vw;
+    align-self: center;
   }
 }
 
@@ -1274,75 +1290,4 @@ hr {
 .calendar-event-container button {
   color: var(--orange-color);
   font-weight: 700;
-}
-
-#myGarden-introduction {
-  background-color: var(--white-cream-color);
-  color: var(--dark-green-color);
-  padding: 0 3vw 0 3vw;
-  text-align: center;
-  margin: 0;
-  padding-top: 4vw;
-  padding-bottom: 4vw;
-  border: none;
-}
-
-#myGarden-introduction h3 {
-  margin: 0;
-}
-
-#view-options-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  height: fit-content;
-  align-items: center;
-  background-color: var(--white-cream-color);
-  width: 100vw;
-  border: none;
-  margin-left: -5vw;
-  margin-right: -5vw;
-}
-
-#view-options-container button {
-  margin: 0;
-  border-radius: 0;
-  border: none;
-  border-top-right-radius: 2vw;
-  border-top-left-radius: 2vw;
-  background-color: #47594e;
-  border-bottom: none;
-  color: var(--white-cream-color);
-  width: 40vw;
-}
-
-.key-color {
-  height: 7vw;
-  width: 7vw;
-  border-radius: 50%;
-  background-color: var(--dark-green-color);
-  border: 1px solid var(--dark-green-color);
-}
-
-#key-colors-container {
-  position: absolute;
-  bottom: 0;
-  height: 10vw;
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
-  gap: 1vw;
-  padding: 5vw;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-}
-
-.harvest-item {
-  color: var(--white-cream-color);
-  background-color: var(--dark-green-color);
-  border: 1px solid #f3ebe4;
-}
-
-.calendar-list button {
 }
