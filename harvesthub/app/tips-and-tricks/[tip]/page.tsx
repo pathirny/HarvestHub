@@ -49,7 +49,7 @@ export default function TipsPage({ params }: any) {
           width="90%"
           textAlign="center"
         >
-          <h1>{tip[0].title}</h1>
+          <h2>{tip[0].title}</h2>
         </Container>
         {/* <Container
           backgroundColor="#F3EBE4"

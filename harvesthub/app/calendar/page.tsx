@@ -9,10 +9,10 @@ export default function Calendar() {
     <div id="calendar-background">
       <Header title="Calendar" />
       <div id="calendar-welcome-container">
-        <h1 id="calendar-welcome">
+        <h2 id="calendar-welcome">
           Welcome to our growing calendar - click on the months to see what you
           can grow and harvest!
-        </h1>
+        </h2>
       </div>
       <div id="calendargrid">
         <Link href="./calendar/0">

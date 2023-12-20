@@ -343,7 +343,7 @@ hr {
   text-align: center;
 }
 
-#plant-harvest-title h1 {
+#plant-harvest-title h2 {
   margin-top: 1vw;
   font-size: 5vw;
   color: var(--white-cream-color);
@@ -400,7 +400,7 @@ hr {
   align-items: center;
 }
 
-#veggie-grid div h1 {
+#veggie-grid div h2 {
   margin-top: 4vw;
   font-size: 5vw;
 }
@@ -617,7 +617,7 @@ hr {
   padding: 2vw;
 }
 
-.setting_button h1 {
+.setting_button h2 {
   text-align: start;
   margin-top: 4vw;
   font-size: 6vw;
@@ -1001,7 +1001,7 @@ gap: 1vw
   .header-month p {
     font-size: 5rem;
   }
-  #plant-harvest-title h1 {
+  #plant-harvest-title h2 {
     font-size: 6rem;
   }
   #plant-harvest-title {
@@ -1066,7 +1066,7 @@ gap: 1vw
     padding: 0;
     align-self: center;
   }
-  #veggie-grid div h1 {
+  #veggie-grid div h2 {
     margin-top: 2vw;
     font-size: 2vw;
   }
