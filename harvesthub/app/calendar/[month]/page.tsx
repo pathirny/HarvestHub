@@ -111,8 +111,8 @@ export default function Month({ params }: any) {
           <div className="month br-wht header-month" id="january">
             <p>{months[params.month]}</p>
             <img
+              className="monthImage"
               src="/assets/brMonth.png"
-              style={{ width: "40vw", height: "auto", alignSelf: "center" }}
               alt="month"
             />
           </div>
