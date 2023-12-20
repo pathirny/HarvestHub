@@ -192,25 +192,31 @@ test("delete tip from tips and tricks", async ({ page }: any) => {
       });
 
 
-      // test("testing add veggie to growing calendar", async ({ page }: any) => {
-      //   await page.goto("https://harvest-hub-tau.vercel.app/login");
+      test("testing add veggie to growing calendar", async ({ page }: any) => {
+        await page.goto("https://harvest-hub-tau.vercel.app/login");
       
-      //   // Enter the email and password.
-      //   await page.getByPlaceholder("Email").fill("testington706@gmail.com");
-      //   await page.getByPlaceholder("Password").fill("testpassword");
+        // Enter the email and password.
+        await page.getByPlaceholder("Email").fill("testington706@gmail.com");
+        await page.getByPlaceholder("Password").fill("testpassword");
       
-      //   // Click the Sign In link.
-      //   await page.getByRole("button", { name: "Sign In" }).click();
+        // Click the Sign In link.
+        await page.getByRole("button", { name: "Sign In" }).click();
 
-      //   //going to calendar
-      //   await page.getByRole('link', { name: 'My Garden Calendar' }).click();
+        //going to calendar
+        await page.getByRole('link', { name: 'My Garden Calendar' }).click();
 
-      //   //should see my garden calendar
-      //   await expect(page.getByRole('heading', { name: 'My Garden' })).toBeVisible(); 
+        //should see my garden calendar
+        await expect(page.getByRole('heading', { name: 'My Garden' })).toBeVisible(); 
 
-      //   await page.getByTitle('Previous month').click();
+        await page.getByTitle('Previous month').click();
 
-      //   await page.getByRole('gridcell', { name: 'November 1, 2023', exact: true }).locator('div').nth(2).click();
+        await page.getByRole('gridcell', { name: 'November 1, 2023', exact: true }).locator('div').nth(2).click();
 
-      //   await page.getByRole('option', { value: 'Potato' }).click({ timeout: 10000});
-      // });
+        await page.getByRole('combobox').selectOption('Potato');
+
+        await page.getByRole('button', {name:'Submit'}).click();
+
+        await expect(page.locator('a').filter({ hasText: 'Potato' })).toBeVisible();     
+        
+        
+        });
