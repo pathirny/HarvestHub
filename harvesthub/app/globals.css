@@ -598,10 +598,8 @@ hr {
 #settings-container {
   display: flex;
   flex-direction: column;
-  gap: 10vw;
   width: 100vw;
   align-items: center;
-  justify-content: space-evenly;
   margin-top: 10vw;
 }
 .monthImage {
@@ -1155,6 +1153,12 @@ hr {
   #nav-container a {
     max-width: 10vw;
   }
+  .sad-pumpkin {
+    max-width: 40vw;
+    height: auto;
+    align-self: center;
+  }
+  
 }
 
 @media only screen and (max-width: 430px) {

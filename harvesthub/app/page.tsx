@@ -189,7 +189,7 @@ export default function Index() {
             </div>
           </Link>
         </div>
-        <div className="link-container">
+        {/* <div className="link-container">
           <Link href="#">
             <div
               className="link-container"
@@ -210,7 +210,7 @@ export default function Index() {
               </h2>
             </div>
           </Link>
-        </div>
+        </div> */}
       </main>
       {publicUser ? (
         <></>
