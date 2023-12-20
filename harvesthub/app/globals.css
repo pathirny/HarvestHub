@@ -917,6 +917,12 @@ hr {
   .input {
     max-width: 40vw;
   }
+
+  .formButtonBox {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+  }
   hr {
     width: 50vw;
   }
