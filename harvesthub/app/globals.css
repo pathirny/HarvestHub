@@ -1093,6 +1093,7 @@ hr {
   }
   /* Settings Page */
   #settings-container {
+    width: 100%;
     height: 100vh;
   }
   #settings-container button {
@@ -1104,6 +1105,7 @@ hr {
     font-size: 3rem;
     transition: 0.5s;
     cursor: pointer;
+    overflow: hidden;
   }
   #settings-container button:hover {
     background-color: var(--brown-color);
@@ -1236,6 +1238,10 @@ hr {
   }
   #month-nav-container {
     margin-top: 3vw;
+  }
+  .sad-pumpkin {
+    width: 100vw;
+    align-self: center;
   }
 }
 
