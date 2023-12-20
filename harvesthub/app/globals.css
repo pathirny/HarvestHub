@@ -627,6 +627,8 @@ hr {
   width: 90vw;
   margin: auto;
   height: 100vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 /*/ ///////////////////////////////////////////// Favourites Page ///////////////////////////////////////////*/
@@ -671,13 +673,20 @@ hr {
 .fc-button.fc-button-primary {
   background: var(--light-green-color);
   background-image: none;
-  height: 15vw;
+  height: 10vw;
   width: 15vw;
+  border-color: var(--light-green-color);
 }
 
 .fc-day {
   background-color: var(--light-green-color);
   border: 3vw solid var(--dark-green-color);
+  border-radius: 1vw;
+  color: var(--dark-green-color);
+}
+
+.fc-daygrid-day-frame {
+  border-radius: 1vw;
 }
 
 .fc-day-sun,
@@ -718,6 +727,15 @@ hr {
 
 .fc .fc-button-primary:hover {
   background-color: var(--light-green-color);
+}
+
+.fc-button-group {
+  gap: 1vw;
+}
+
+.fc-direction-ltr {
+  border: none;
+  border-radius: 2vw;
 }
 
 #delete-event-button {
@@ -1170,6 +1188,11 @@ hr {
     height: 10vw;
     max-width: 10vw;
   }
+  .cardContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
   .calendar-event-container {
     top: 40vh;
   }
@@ -1284,4 +1307,75 @@ hr {
 .calendar-event-container button {
   color: var(--orange-color);
   font-weight: 700;
+}
+
+#myGarden-introduction {
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+  padding: 0 3vw 0 3vw;
+  text-align: center;
+  margin: 0;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+  border: none;
+}
+
+#myGarden-introduction h3 {
+  margin: 0;
+}
+
+#view-options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  height: fit-content;
+  align-items: center;
+  background-color: var(--white-cream-color);
+  width: 100vw;
+  border: none;
+  margin-left: -5vw;
+  margin-right: -5vw;
+}
+
+#view-options-container button {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  border-top-right-radius: 2vw;
+  border-top-left-radius: 2vw;
+  background-color: #47594e;
+  border-bottom: none;
+  color: var(--white-cream-color);
+  width: 40vw;
+}
+
+.key-color {
+  height: 7vw;
+  width: 7vw;
+  border-radius: 50%;
+  background-color: var(--dark-green-color);
+  border: 1px solid var(--dark-green-color);
+}
+
+#key-colors-container {
+  position: absolute;
+  bottom: 0;
+  height: 10vw;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  padding: 5vw;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.harvest-item {
+  color: var(--white-cream-color);
+  background-color: var(--dark-green-color);
+  border: 1px solid #f3ebe4;
+}
+
+.calendar-list button {
 }

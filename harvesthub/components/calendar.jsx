@@ -2,7 +2,7 @@ import Calendar from "@fullcalendar/react";
 import dayGrid from "@fullcalendar/daygrid";
 import timeGrid from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import multiMonthPlugin from "@fullcalendar/multimonth";
 import { Select } from "@chakra-ui/react";
 import { createBrowserClient } from "@supabase/ssr";
@@ -330,7 +330,7 @@ export default function FullCalendar(props) {
             <>
               <div className="calendar-event-background"></div>
               <form onSubmit={addEvent} className="calendar-event-container">
-                <label htmlFor="vegTypev">What are you growing?</label>
+                <label htmlFor="vegTypev">what are you growing?</label>
                 <br></br>
                 {/* drop down to select veggies */}
                 <Select
@@ -400,6 +400,7 @@ export default function FullCalendar(props) {
           )}
         </>
       )}
+      <BackButton />
     </>
   );
 }

@@ -39,6 +39,10 @@ export default function TipsnTricks() {
       let { data: tips, error } = await supabase.from("tips").select("*");
       // set the state of tips and filteredTips
       if (tips) {
+        tips.sort((a, b) => {
+          return a.id - b.id;
+        });
+        console.log(tips);
         setGardeningTips(tips.reverse());
         setFilteredTips(tips);
       } else {
@@ -117,6 +121,7 @@ export default function TipsnTricks() {
     setImage("");
     viewTips();
   };
+
   return (
     <div>
       <Header title="Tips and Tricks" />

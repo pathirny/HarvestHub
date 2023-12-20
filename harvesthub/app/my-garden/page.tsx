@@ -16,43 +16,21 @@ export default function Home() {
   return (
     <>
       <Header title="My Garden" />
-      {signedIn ? (
-        <>
-          {" "}
-          <div id="calendar-container">
-            <FullCalendar initialView="dayGridMonth" />
+      {signedIn ? 
+     <> <div id="calendar-container">
+        <FullCalendar initialView="dayGridMonth" />
 
-            {/* <Flex
+        {/* <Flex
           width="100vw"
           justifyContent="center"
           position="fixed"
           bottom="-10px"
         >
         </Flex> */}
-          </div>
-          <div className="back">
-            <Link href="/">
-              <BackButton />
-            </Link>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="calendar-event-background "></div>
-          <div className="calendar-event-container">
-            <h3 style={{ margin: "0" }}>
-              You need to have an account to use this feature.
-            </h3>{" "}
-            <br></br> <br></br>{" "}
-            <Link href="./login">
-              {" "}
-              <button style={{ margin: "0" }}>
-                Click to log in or sign up
-              </button>
-            </Link>
-          </div>
-        </>
-      )}
+      </div>
+          <Link href="/">
+            <Button className="addButton">Back</Button>
+          </Link></> : <><div className="calendar-event-background "></div><div className="calendar-event-container" ><h3 style={{margin: "0"}}>You need to have an account to use this feature.</h3> <br></br>  <br></br> <Link href="./login" > <button style={{margin: "0"}}>Click to log in or sign up</button></Link></div></>}
     </>
   );
 }
