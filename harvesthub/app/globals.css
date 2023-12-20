@@ -854,7 +854,8 @@ hr {
   }
   .tipContainer {
     width: 100%;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     height: 60vh;
   }
 
