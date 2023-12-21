@@ -1405,28 +1405,19 @@ hr {
   border: 1px solid #f3ebe4;
 }
 
-
-.calendar-list button{
-
-}
-
-#user-message{
+#user-message {
   text-align: center;
   color: var(--dark-green-color);
 }
 
-#user-message-container{
+#user-message-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2vw;
-  background-color: rgba(243, 235, 228, .8);
+  background-color: rgba(243, 235, 228, 0.8);
   border-radius: 3vw;
   margin: 10%;
   margin-top: 20vh;
 }
-=======
-.calendar-list button {
-}
-
