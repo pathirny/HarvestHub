@@ -157,7 +157,7 @@ export default function Index() {
               backgroundRepeat: "no-repeat",
               color: "#47594e",
               backgroundPosition: "center",
-              backgroundImage: "url(/assets/CalendarBackground.png)",
+              backgroundImage: "url(/assets/CalendarBackgroundlowOpacity.png)",
             }}
           >
             <h2
