@@ -28,7 +28,7 @@ export default function TipsnTricks() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [signedIn] = useCheckSignedIn();
-  const [addTipForm, setAddTipForm] = useState(false)
+  const [addTipForm, setAddTipForm] = useState(false);
   //use supabase
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -114,7 +114,7 @@ export default function TipsnTricks() {
   return (
     <div>
       <Header title="Tips and Tricks" />
-      
+
       <SearchBar
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
@@ -132,75 +132,99 @@ export default function TipsnTricks() {
           <Button className="addButton">Back</Button>
         </Link>
         {signedIn ? (
-          <Button className="addButton" onClick={()=>{setAddTipForm(!addTipForm)}}>
+          <Button
+            className="addButton"
+            onClick={() => {
+              setAddTipForm(!addTipForm);
+            }}
+          >
             Add Tip +
           </Button>
         ) : (
           <></>
         )}
       </Flex>
-      { addTipForm ? 
-     <> <div style={{ position: "fixed", top: "0", height: "100vh", width: "100vw", backgroundColor: "rgba(243, 235, 228, 0.8)"}}> </div> <Flex
-     position="fixed"
-     top= "40vw"
-     zIndex="1000"
-     justifyContent="center"
-     alignContent="center"
-     bgColor="#47594e"
-     width="100%"
-     color="#f3ebe4"
-     className="flexContainer"
-   >
-     <FormControl
-       flexDirection="column"
-       justifyContent="center"
-       alignItems="center"
-       className="forms"
-     >
-       <Input
-       alignSelf="center"
-       justifySelf="center"
-         placeholder="Title ✍"
-         width="90vw"
-         required
-         className="input"
-         value={title}
-         onChange={(event) => setTitle(event.target.value)}
-       />
-       <Input
-         placeholder="Description ✍"
-         width="90vw"
-         height="25vh"
-         className="input"
-         required
-         value={description}
-         onChange={(event) => setDescription(event.target.value)}
-       />
-       <hr />
-       <div className="formButtonBox" >
-         <Button
-           type="submit"
-           border="solid 1px black"
-           className="formButton"
-           boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
-           onClick={(event) => {
-             setAddTipForm(false);
-             addTip(event);
-           }}
-         >
-           Submit
-         </Button>
-         <Button
-           onClick={()=>{setAddTipForm(false)}}
-           className="formButton"
-           border="solid 1px black"
-           boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
-         >
-           Cancel
-         </Button>
-       </div>
-     </FormControl>
-   </Flex></> : <></>}
+      {addTipForm ? (
+        <>
+          {" "}
+          <div
+            style={{
+              position: "fixed",
+              top: "0",
+              height: "100vh",
+              width: "100vw",
+              backgroundColor: "rgba(243, 235, 228, 0.8)",
+            }}
+          >
+            {" "}
+          </div>{" "}
+          <Flex
+            position="fixed"
+            zIndex="1000"
+            justifyContent="center"
+            alignContent="center"
+            bgColor="#47594e"
+            width="100%"
+            color="#f3ebe4"
+            className="flexContainer"
+          >
+            <FormControl
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              className="forms"
+            >
+              <Input
+                alignSelf="center"
+                justifySelf="center"
+                placeholder="Title ✍"
+                width="90vw"
+                required
+                className="input"
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+              />
+              <Input
+                placeholder="Description ✍"
+                width="90vw"
+                height="25vh"
+                className="input"
+                required
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+              />
+              <hr />
+              <div className="formButtonBox">
+                <Button
+                  type="submit"
+                  border="solid 1px black"
+                  className="formButton"
+                  boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
+                  onClick={(event) => {
+                    setAddTipForm(false);
+                    addTip(event);
+                  }}
+                >
+                  Submit
+                </Button>
+                <Button
+                  onClick={() => {
+                    setAddTipForm(false);
+                  }}
+                  className="formButton"
+                  border="solid 1px black"
+                  boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
+                >
+                  Cancel
+                </Button>
+              </div>
+            </FormControl>
+          </Flex>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
