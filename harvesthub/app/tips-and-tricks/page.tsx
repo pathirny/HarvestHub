@@ -52,18 +52,6 @@ export default function TipsnTricks() {
     getTips();
   }
   useEffect(() => {
-    //render the tips using supabase query
-    // async function getTips() {
-    //   let { data: tips, error } = await supabase.from("tips").select("*");
-    //   // set the state of tips and filteredTips
-    //   if (tips) {
-    //     setGardeningTips(tips);
-    //     setFilteredTips(tips);
-    //     console.log(tips);
-    //   } else {
-    //     console.log(error);
-    //   }
-    // }
     viewTips();
   }, []); // empty dependency so it loads on render
 
