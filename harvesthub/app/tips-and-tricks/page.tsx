@@ -185,7 +185,7 @@ export default function TipsnTricks() {
       <Container className="tipContainer">
         <div className="tipContainerTwo">{renderTips(filteredTips)}</div>
       </Container>
-      <Container
+      <Flex
         className="buttonsContainer"
         // height="80px"
         flexDirection="row"
@@ -201,7 +201,7 @@ export default function TipsnTricks() {
         ) : (
           <></>
         )}
-      </Container>
+      </Flex>
     </div>
   );
 }
