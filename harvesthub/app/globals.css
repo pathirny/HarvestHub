@@ -137,7 +137,6 @@ hr {
   align-items: center;
   padding: 0.2rem;
 }
-
 #nav-container h3 {
   margin: 0;
   padding: 15px 0px;
@@ -234,8 +233,8 @@ hr {
   text-align: center;
   width: 100%;
   position: absolute;
-  margin-top: 5vw;
-  font-size: 5vw;
+  margin-top: 2vw;
+  font-size: 6vw;
 }
 
 #prv-mnth-bttn {
@@ -991,6 +990,7 @@ hr {
     max-width: 25vw;
     height: auto;
   }
+
   .header-month {
     width: 30vw;
     height: auto;
@@ -1002,7 +1002,7 @@ hr {
   }
   .header-month p {
     font-size: 5rem;
-    margin-top: 4vw;
+    margin-top: 5vw;
   }
   #plant-harvest-title h2 {
     font-size: 6rem;
@@ -1020,6 +1020,9 @@ hr {
   .vegListItem {
     max-width: 25vw;
     height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .plantHarvestList {
