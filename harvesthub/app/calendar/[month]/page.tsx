@@ -109,12 +109,8 @@ export default function Month({ params }: any) {
             <div id="prv-mnth-bttn"></div>
           </Link>
           <div className="month br-wht header-month" id="january">
-            <p style={{margin: "0", marginTop: "2vw"}}>{months[params.month]}</p>
-            <img
-              className="monthImage"
-              src="/assets/brMonth.png"
-              alt="month"
-            />
+            <p className="monthTitle">{months[params.month]}</p>
+            <img className="monthImage" src="/assets/brMonth.png" alt="month" />
           </div>
           <Link href={`./${nxt}`}>
             <div id="next-mnth-bttn"></div>
