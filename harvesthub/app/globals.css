@@ -460,7 +460,9 @@ hr {
       transparent 100%
     );
   }
-
+  .flexContainer {
+    top: 50vw;
+  }
   .addButton {
     margin-top: 3rem;
   }
@@ -835,6 +837,11 @@ hr {
   height: 25vw;
   opacity: 0.6;
 }
+.formButtonBox {
+  display: flex;
+  justify-content: space-around;
+  width: 80vw;
+}
 /* Media Queries */
 @media only screen and (min-width: 1000px) {
   #nav-body {
@@ -939,9 +946,10 @@ hr {
   }
 
   .flexContainer {
+    top: 20vw;
     max-width: 60vw;
     left: 20%;
-    border-radius: 0 0 25px 25px;
+    border-radius: 10px;
   }
 
   .input {
@@ -950,8 +958,8 @@ hr {
 
   .formButtonBox {
     display: flex;
-    justify-content: space-around;
-    width: 60%;
+    justify-content: center;
+    align-items: center;
   }
   hr {
     width: 50vw;
@@ -1181,11 +1189,17 @@ hr {
     background-color: var(--brown-color);
     cursor: pointer;
   }
-
-  #home-button {
+  #user-button {
+    border-radius: 70%;
+    height: 9vw;
+    width: 10vw;
+  }
+  #home-button,
+  #user-button {
     transition: 0.7s;
   }
-  #home-button:hover {
+  #home-button:hover,
+  #user-button:hover {
     cursor: pointer;
     background-color: var(--brown-color);
   }

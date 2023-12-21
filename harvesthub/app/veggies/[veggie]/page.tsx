@@ -135,13 +135,13 @@ export default function Veggies({ params }: any) {
               <h2>Plant:</h2>
             </div>
             <div className="brown">
-              <h2>{vegHarv}</h2>
+              <h2>{vegPlant}</h2>
             </div>
             <div className="cream">
               <h2>Harvest:</h2>
             </div>
             <div className="brown">
-              <h2>{vegPlant}</h2>
+              <h2>{vegHarv}</h2>
             </div>
           </div>
         </div>
