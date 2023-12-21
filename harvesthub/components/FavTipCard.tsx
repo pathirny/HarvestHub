@@ -68,7 +68,7 @@ export const FavTipCard: React.FC<TipCardtip> = ({ tip, setDeleted }) => {
                 alignItems="center"
                 flexWrap="wrap"
               >
-                <Heading size="sm" style={{ margin: "0" }}>
+                <Heading size="sm" style={{ margin: "0", maxHeight: "15vw", overflow: "hidden", textOverflow: "ellipsis ellipsis", marginTop: "3vw"}}>
                   {tip.tips.title}
                 </Heading>
                 <CardBody id="tip-description">
