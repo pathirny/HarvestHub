@@ -822,6 +822,15 @@ hr {
   border-radius: 25px;
   border: 2px solid var(--brown-color);
 }
+
+.tipContainerTwo {
+  padding-bottom: 12vw;
+}
+.calendarImg {
+  width: 45vw;
+  height: 25vw;
+  opacity: 0.6;
+}
 /* Media Queries */
 @media only screen and (min-width: 1000px) {
   #nav-body {
@@ -834,7 +843,11 @@ hr {
     justify-content: center;
     align-items: center;
   }
-
+  .calendarImg {
+    width: 20vw;
+    height: 9vw;
+    opacity: 0.6;
+  }
   .userImg {
     width: 9vw;
     height: auto;
@@ -871,7 +884,6 @@ hr {
     overflow-y: scroll;
     height: 60vh;
   }
-
   #tip-container {
     width: 100%;
     height: 80%;
