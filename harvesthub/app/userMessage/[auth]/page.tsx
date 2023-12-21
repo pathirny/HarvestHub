@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useEffect } from "react"
 
-export default function checkEmailPage({ params }){
+export default function checkEmailPage({ params } : any){
 
     return(<>
     <div id="user-message-container">

@@ -17,7 +17,7 @@ export default function Header({ title }: any) {
   );
 
   useEffect(() => {
-    if(signedIn){
+  
     async function getUserImg() {
       console.log("hello");
       let { data: userImg, error } = await supabase
@@ -30,7 +30,7 @@ export default function Header({ title }: any) {
         setUserImg(null);
       }
     }
-    getUserImg();}
+    getUserImg();
   }, [signedIn]);
 
   return (
