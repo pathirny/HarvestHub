@@ -125,11 +125,13 @@ export default function YourTips() {
           <>
             <>
               <p className="favsMissing">You have not added any tips</p>
-              <img
-                className="sad-pumpkin"
-                src="/assets/sadPumpkin.png"
-                alt="sad pumpkin"
-              ></img>
+              <div className="pumpkinContainer">
+                <img
+                  className="sad-pumpkin"
+                  src="/assets/sadPumpkin.png"
+                  alt="sad pumpkin"
+                ></img>
+              </div>
             </>
           </>
         )}

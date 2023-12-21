@@ -113,11 +113,13 @@ export default function Favourites() {
         ) : (
           <>
             <p className="favsMissing">You have not saved any favourites</p>
-            <img
-              className="sad-pumpkin"
-              src="/assets/sadPumpkin.png"
-              alt="sad pumpkin"
-            ></img>
+            <div className="pumpkinContainer">
+              <img
+                className="sad-pumpkin"
+                src="/assets/sadPumpkin.png"
+                alt="sad pumpkin"
+              ></img>
+            </div>
           </>
         )}
       </div>
