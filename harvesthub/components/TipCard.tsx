@@ -14,6 +14,7 @@ import { gardeningTipsType } from "@/app/tips-and-tricks/renderTips";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 import { createBrowserClient } from "@supabase/ssr";
 import { useEffect, useState } from "react";
+import useCheckSignedIn from "./hooks/useCheckSignedIn";
 // 1 - Style card with border etc.
 // 2 - Create a data.json file in same folder as tnt
 // 3 - Create a function to map through the array of tips and render a card for each one
@@ -31,8 +32,10 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
   );
   // sets state (if tip is favourited or not)
   const [favourited, setFavourited] = useState(false);
+  const [signedIn] = useCheckSignedIn()
 
   useEffect(() => {
+    
     async function apiCall(idIn: number) {
       console.log(idIn);
       //checks if tip is in the favourties page and render empty heart if its not there, and filled heart if it is
@@ -52,7 +55,7 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
     }
 
     apiCall(tip.id);
-  }, []);
+  }, [signedIn]);
   // adds selected tip to user's favourited list
   function favTip() {
     async function apiCall(idIn: any) {
@@ -105,14 +108,14 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
             </CardHeader>
           </Card>
         </Link>
-
-        <IconButton
+{signedIn ? <IconButton
           style={{ margin: "0" }}
           aria-label="Add to favourites"
           onClick={favTip}
           className="favButton"
           icon={favourited ? <FaHeartCircleCheck /> : <CiHeart />}
-        />
+        /> : <></>}
+       
       </div>
     </>
   );

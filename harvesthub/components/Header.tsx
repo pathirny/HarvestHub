@@ -17,6 +17,7 @@ export default function Header({ title }: any) {
   );
 
   useEffect(() => {
+  
     async function getUserImg() {
       console.log("hello");
       let { data: userImg, error } = await supabase
@@ -30,7 +31,7 @@ export default function Header({ title }: any) {
       }
     }
     getUserImg();
-  }, []);
+  }, [signedIn]);
 
   return (
     <>
@@ -50,10 +51,6 @@ export default function Header({ title }: any) {
                   width="500"
                   height="500"
                   className="userImg"
-                  // style={{
-                  //   width: "10vw",
-                  //   height: "auto",
-                  // }}
                   alt="the Users profile"
                 />
               </div>
