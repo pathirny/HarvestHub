@@ -551,7 +551,7 @@ hr {
     black calc(100% - 48px),
     transparent 100%
   );
-  height: 45.5rem;
+  max-height: 45.5rem;
   overflow: scroll;
   margin-bottom: 4rem;
 }
@@ -678,7 +678,7 @@ hr {
   background-color: var(--light-green-color);
   border: 3vw solid var(--dark-green-color);
   border-radius: 1vw;
-  color: var(--dark-green-color);
+  color: var(--white-cream-color);
 }
 
 .fc-daygrid-day-frame {
@@ -856,7 +856,7 @@ hr {
     width: 80vw;
     align-items: center;
     display: flex;
-    height: 20vh;
+    height: 30vh;
   }
 
   .tipContainerTwo {
@@ -1393,5 +1393,28 @@ hr {
   border: 1px solid #f3ebe4;
 }
 
+
+.calendar-list button{
+
+}
+
+#user-message{
+  text-align: center;
+  color: var(--dark-green-color);
+}
+
+#user-message-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2vw;
+  background-color: rgba(243, 235, 228, .8);
+  border-radius: 3vw;
+  margin: 10%;
+  margin-top: 20vh;
+}
+=======
 .calendar-list button {
 }
+
