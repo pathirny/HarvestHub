@@ -950,8 +950,9 @@ hr {
 
   .formButtonBox {
     display: flex;
-    justify-content: space-around;
-    width: 60%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   hr {
     width: 50vw;
