@@ -1189,11 +1189,17 @@ hr {
     background-color: var(--brown-color);
     cursor: pointer;
   }
-
-  #home-button {
+  #user-button {
+    border-radius: 70%;
+    height: 9vw;
+    width: 10vw;
+  }
+  #home-button,
+  #user-button {
     transition: 0.7s;
   }
-  #home-button:hover {
+  #home-button:hover,
+  #user-button:hover {
     cursor: pointer;
     background-color: var(--brown-color);
   }
