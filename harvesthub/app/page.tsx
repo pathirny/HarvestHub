@@ -154,10 +154,7 @@ export default function Index() {
               backgroundRepeat: "no-repeat",
               color: "#47594e",
               backgroundPosition: "center",
-<<<<<<< HEAD
               backgroundImage: "url(/assets/CalendarBackgroundlowOpacity.png)",
-=======
->>>>>>> 6eefe7c0e6634ca2ad0fd096140eb72703604913
             }}
           >
             <div className="calandar-image">
