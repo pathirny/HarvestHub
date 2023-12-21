@@ -157,13 +157,6 @@ export default function Index() {
               backgroundImage: "url(/assets/CalendarBackgroundlowOpacity.png)",
             }}
           >
-            <div className="calandar-image">
-              <img
-                className="calendarImg"
-                src="/assets/CalendarBackground.png"
-                alt="growing calendar"
-              />
-            </div>
             <h2
               style={{
                 position: "absolute",
