@@ -555,7 +555,11 @@ hr {
   margin-bottom: 4rem;
   height: 60vh;
 }
-
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .card:nth-child(odd) {
   background-color: var(--brown-color);
 }
