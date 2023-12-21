@@ -1,3 +1,5 @@
+
+
 import Link from "next/link";
 // importing dependancys 
 import { headers, cookies } from "next/headers";
@@ -11,6 +13,7 @@ export default function Login({
 }: {
   searchParams: { message: string };
 }) {
+
   const signIn = async (formData: FormData) => {
     "use server";
 // storing sign in data in varibales
@@ -25,8 +28,8 @@ export default function Login({
     });
 
     if (error) {
-      return redirect("/login?message=Could not authenticate user");
-      alert("Could not authenticate user");
+
+      return redirect("/userMessage/User cannot be authenticated. Please ensure username and password are correct.");
     }
 
     return redirect("/");
@@ -51,10 +54,12 @@ export default function Login({
 
     if (error) {
       console.log(error);
-      return redirect("/login?message=Could not authenticate user");
+  
+      return redirect("/userMessage/User cannot be authenticated. Please Try again.");
     }
+  
 
-    return redirect("/login?message=Check email to continue sign in process");
+    return redirect("/userMessage/Please check your email to continue sign up");
   };
 // rendering user data inputs and sign in button
   return (
@@ -92,6 +97,7 @@ export default function Login({
       <Link href="https://harvest-hub-tau.vercel.app/">
         <button>Continue as Guest</button>
       </Link>
+   
     </div>
   );
 }
