@@ -18,7 +18,6 @@ import Head from "next/head";
 export default function Index() {
   const [publicUser, setPublicUser] = useState(true);
 
-
   function addToPublic(e: any) {
     async function apiCall(formData: any) {
       //insert row into public users table
@@ -64,15 +63,12 @@ export default function Index() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  
   // const [signedIn] = useCheckSignedIn()
-  
+
   // const supabase = createBrowserClient(
   //   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   //   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   //   );
-    
-
 
   const [text] = useTypewriter({
     words: ["Garden", "Grow", "Learn", "Eat"],
@@ -83,12 +79,13 @@ export default function Index() {
 
   return (
     <>
-    <Head>
-      <link rel="icon" href="./public/assets/logo.png"></link>
-    </Head>
+      <Head>
+        <link rel="icon" href="./public/assets/logo.png"></link>
+      </Head>
       <Header title="Harvest Hub" />
       <main className="homepage-box">
-        <img alt="logo"
+        <img
+          alt="logo"
           src="/assets/Veglogo.png"
           style={{ width: "16rem", height: "auto", opacity: "1" }}
         ></img>
@@ -157,9 +154,19 @@ export default function Index() {
               backgroundRepeat: "no-repeat",
               color: "#47594e",
               backgroundPosition: "center",
+<<<<<<< HEAD
               backgroundImage: "url(/assets/CalendarBackgroundlowOpacity.png)",
+=======
+>>>>>>> 6eefe7c0e6634ca2ad0fd096140eb72703604913
             }}
           >
+            <div className="calandar-image">
+              <img
+                className="calendarImg"
+                src="/assets/CalendarBackground.png"
+                alt="growing calendar"
+              />
+            </div>
             <h2
               style={{
                 position: "absolute",

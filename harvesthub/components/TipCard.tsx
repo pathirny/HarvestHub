@@ -95,7 +95,7 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
                 className="individualCards"
                 flex="1"
                 gap="4"
-                alignItems="center"
+                alignItems="start"
                 flexWrap="wrap"
               >
                 <Heading size="sm" style={{ margin: "0" }}>

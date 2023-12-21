@@ -551,7 +551,7 @@ hr {
     black calc(100% - 48px),
     transparent 100%
   );
-  height: 45.5rem;
+  max-height: 45.5rem;
   overflow: scroll;
   margin-bottom: 4rem;
 }
@@ -822,6 +822,15 @@ hr {
   border-radius: 25px;
   border: 2px solid var(--brown-color);
 }
+
+.tipContainerTwo {
+  padding-bottom: 12vw;
+}
+.calendarImg {
+  width: 45vw;
+  height: 25vw;
+  opacity: 0.6;
+}
 /* Media Queries */
 @media only screen and (min-width: 1000px) {
   #nav-body {
@@ -834,7 +843,11 @@ hr {
     justify-content: center;
     align-items: center;
   }
-
+  .calendarImg {
+    width: 20vw;
+    height: 9vw;
+    opacity: 0.6;
+  }
   .userImg {
     width: 9vw;
     height: auto;
@@ -856,7 +869,7 @@ hr {
     width: 80vw;
     align-items: center;
     display: flex;
-    height: 20vh;
+    height: 30vh;
   }
 
   .tipContainerTwo {
@@ -871,7 +884,6 @@ hr {
     overflow-y: scroll;
     height: 60vh;
   }
-
   #tip-container {
     width: 100%;
     height: 80%;
@@ -1393,28 +1405,19 @@ hr {
   border: 1px solid #f3ebe4;
 }
 
-
-.calendar-list button{
-
-}
-
-#user-message{
+#user-message {
   text-align: center;
   color: var(--dark-green-color);
 }
 
-#user-message-container{
+#user-message-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2vw;
-  background-color: rgba(243, 235, 228, .8);
+  background-color: rgba(243, 235, 228, 0.8);
   border-radius: 3vw;
   margin: 10%;
   margin-top: 20vh;
 }
-=======
-.calendar-list button {
-}
-
