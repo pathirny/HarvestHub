@@ -98,7 +98,7 @@ export const TipCard: React.FC<TipCardtip> = ({ tip }) => {
                 alignItems="start"
                 flexWrap="wrap"
               >
-                <Heading size="sm" style={{ margin: "0" }}>
+                <Heading size="sm" style={{ margin: "0", maxHeight: "15vw", overflow: "hidden", textOverflow: "ellipsis ellipsis", marginTop: "3vw"}}>
                   {tip.title}
                 </Heading>
                 <CardBody id="tip-description">
