@@ -853,6 +853,13 @@ hr {
   justify-content: space-around;
   width: 80vw;
 }
+.title-container {
+  color: var(--dark-green-color);
+}
+.description-container {
+  color: var(--dark-green-color);
+  line-height: 25px;
+}
 /* Media Queries */
 @media only screen and (min-width: 1000px) {
   #nav-body {

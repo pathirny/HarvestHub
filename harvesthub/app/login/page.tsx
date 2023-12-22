@@ -1,22 +1,18 @@
-
-
 import Link from "next/link";
-// importing dependancys 
+// importing dependancys
 import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
-
-// creating function to sign in 
+// creating function to sign in
 export default function Login({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
-
   const signIn = async (formData: FormData) => {
     "use server";
-// storing sign in data in varibales
+    // storing sign in data in varibales
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const cookieStore = cookies();
@@ -28,13 +24,14 @@ export default function Login({
     });
 
     if (error) {
-
-      return redirect("/userMessage/User cannot be authenticated. Please ensure username and password are correct.");
+      return redirect(
+        "/userMessage/User cannot be authenticated. Please ensure username and password are correct."
+      );
     }
 
     return redirect("/");
   };
-// storing sign up data in varibales
+  // storing sign up data in varibales
   const signUp = async (formData: FormData) => {
     "use server";
 
@@ -54,18 +51,19 @@ export default function Login({
 
     if (error) {
       console.log(error);
-  
-      return redirect("/userMessage/User cannot be authenticated. Please Try again.");
+
+      return redirect(
+        "/userMessage/User cannot be authenticated. Please Try again."
+      );
     }
-  
 
     return redirect("/userMessage/Please check your email to continue sign up");
   };
-// rendering user data inputs and sign in button
+  // rendering user data inputs and sign in button
   return (
     <div className="box">
       {/* <Link href="/"> Back</Link> */}
-      <img src="/assets/logo.png" alt="harvestHub Logo" className="logo"></img>
+      <img src="/favicon.ico" alt="harvestHub Logo" className="logo"></img>
       <form className="form" action={signIn}>
         {/* <label className="text-md" htmlFor="email">
           Email
@@ -97,7 +95,6 @@ export default function Login({
       <Link href="https://harvest-hub-tau.vercel.app/">
         <button>Continue as Guest</button>
       </Link>
-   
     </div>
   );
 }

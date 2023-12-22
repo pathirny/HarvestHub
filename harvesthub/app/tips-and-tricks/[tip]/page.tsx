@@ -48,6 +48,7 @@ export default function TipsPage({ params }: any) {
           borderRadius="25px"
           width="90%"
           textAlign="center"
+          padding="10px"
         >
           <h2>{tip[0].title}</h2>
         </Container>
@@ -65,8 +66,10 @@ export default function TipsPage({ params }: any) {
           width="90%"
           textAlign="center"
           className="description-container"
+          padding="10px"
+          marginBottom="8vw"
         >
-          <p>{tip[0].description}</p>
+          <p style={{ whiteSpace: "pre-line", textAlign: "start", padding: "0 3vw 0 3vw"}}>{tip[0].description}</p>
         </Container>
         <Link href="/tips-and-tricks">
           <BackButton />
