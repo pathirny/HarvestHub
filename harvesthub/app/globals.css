@@ -31,6 +31,17 @@ input {
   color: var(--dark-green-color);
 }
 
+.input {
+  margin-top: 1rem;
+  border-radius: 10px;
+  height: 3rem;
+  width: 14rem;
+  background-color: var(--white-cream-color);
+  color: var(--dark-green-color);
+}
+#input {
+  text-wrap: wrap;
+}
 input::placeholder {
   text-align: center;
   color: var(--dark-green-color);
@@ -1194,6 +1205,7 @@ hr {
     height: 9vw;
     width: 10vw;
   }
+
   #home-button,
   #user-button {
     transition: 0.7s;

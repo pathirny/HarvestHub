@@ -14,6 +14,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Textarea,
 } from "@chakra-ui/react";
 import useCheckSignedIn from "../../components/hooks/useCheckSignedIn";
 
@@ -181,15 +182,17 @@ export default function TipsnTricks() {
                 placeholder="Title ✍"
                 width="90vw"
                 required
+                id="input"
                 className="input"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
               />
-              <Input
+              <Textarea
                 placeholder="Description ✍"
                 width="90vw"
                 height="25vh"
                 className="input"
+                id="input"
                 required
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
