@@ -199,6 +199,17 @@ export default function TipsnTricks() {
               />
               <hr />
               <div className="formButtonBox">
+              
+                <Button
+                  onClick={() => {
+                    setAddTipForm(false);
+                  }}
+                  className="formButton"
+                  border="solid 1px black"
+                  boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
+                >
+                  Cancel
+                </Button>
                 <Button
                   type="submit"
                   border="solid 1px black"
@@ -210,16 +221,6 @@ export default function TipsnTricks() {
                   }}
                 >
                   Submit
-                </Button>
-                <Button
-                  onClick={() => {
-                    setAddTipForm(false);
-                  }}
-                  className="formButton"
-                  border="solid 1px black"
-                  boxShadow="10px 9px 30px 1px rgba(0,0,0,0.75)"
-                >
-                  Cancel
                 </Button>
               </div>
             </FormControl>
