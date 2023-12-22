@@ -67,8 +67,9 @@ export default function TipsPage({ params }: any) {
           textAlign="center"
           className="description-container"
           padding="10px"
+          marginBottom="8vw"
         >
-          <p style={{ whiteSpace: "pre-line" }}>{tip[0].description}</p>
+          <p style={{ whiteSpace: "pre-line", textAlign: "start", padding: "0 3vw 0 3vw"}}>{tip[0].description}</p>
         </Container>
         <Link href="/tips-and-tricks">
           <BackButton />
