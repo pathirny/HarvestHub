@@ -6,8 +6,7 @@
 
 <h2>🚀 Demo</h2>
 
-
-https://github.com/pathirny/HarvestHub/assets/137444237/61c78495-8a36-421a-a4d0-483b80c99294
+https://github.com/pathirny/HarvestHub/assets/137444237/06e148c0-8df8-41cc-8243-3e9aedfd4f6c
 
 
 [https://youtu.be/\_zOUYQis3uU](https://youtu.be/_zOUYQis3uU)
