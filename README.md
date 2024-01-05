@@ -6,6 +6,10 @@
 
 <h2>🚀 Demo</h2>
 
+
+https://github.com/pathirny/HarvestHub/assets/137444237/61c78495-8a36-421a-a4d0-483b80c99294
+
+
 [https://youtu.be/\_zOUYQis3uU](https://youtu.be/_zOUYQis3uU)
 
 <h2>Project Screenshots:</h2>
