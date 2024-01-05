@@ -81,11 +81,47 @@ npm start
 
 Technologies used in the project:
 
-*   React 
-*   CSS
-*   Chakra UI
-*   Supabase
-*   Next.js
-*   TypeScript
-*   TS Jest
-*   Playwright 
+<div align="center" style="display: flex; justify-content: center; gap: 18px;">
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="typescript logo"  />
+
+  TypeScript
+  </div>
+  <div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
+
+  React
+  </div>
+  <div>
+  <img src="https://skillicons.dev/icons?i=nextjs" height="40" alt="nextjs logo"  />
+
+  Next.js
+  </div>
+  <div>
+  <img src="harvesthub\public\assets\chakraui-color.svg" height="40" alt="chakra logo"  />
+
+  Chakra UI
+  </div>
+  <div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
+  
+  CSS
+  </div>
+  <div>
+  <img src="https://cdn.simpleicons.org/supabase/3ECF8E" height="40" alt="supabase logo"  />
+  
+  Supabase
+  </div>
+  <div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" height="40" alt="jest logo"  />
+  
+  TS Jest
+  </div>
+  <div>
+  <img src="harvesthub\public\assets\playwright-color.svg" height="40" alt="playwright logo"  />
+
+  Playwright
+  </div>
+</div>
+
+###
