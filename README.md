@@ -4,12 +4,16 @@
 
 <p id="description">Welcome to Harvest Hub your go-to destination for cultivating a green thumb and embracing sustainable living! Whether you're a novice eager to learn the art of growing your own fruits and vegetables or a seasoned gardener ready to share your expertise Harvest Hub is the ultimate web application designed to nurture your passion for all things green and natural.<br><br>At the core of Harvest Hub lies a comprehensive knowledge base providing a wealth of information for individuals keen on sustainable living. From planting guides to organic gardening techniques our platform caters to every aspect of cultivating a thriving garden. The user-friendly interface ensures that gardening enthusiasts of all levels can easily access valuable insights and resources.<br><br>One of Harvest Hub's standout features is its vibrant community of avid growers. Connect with like-minded individuals share your gardening triumphs and seek advice from seasoned experts. Our platform fosters a collaborative environment where the exchange of tips and tricks enhances the collective wisdom of the gardening community.<br><br>For those who prefer a hands-on approach Harvest Hub offers an interactive calendar feature. Seamlessly track the progress of your crops receive timely reminders for essential tasks and know exactly when to anticipate the bountiful harvest of your hard work. Whether you're growing herbs on a windowsill or managing a backyard orchard our calendar empowers you to optimize your gardening efforts.<br><br>Harvest Hub is more than just a web app; it's a thriving ecosystem where curiosity meets expertise and a sustainable lifestyle is cultivated. Join us on this green journey where we grow together nurture the planet and harvest a sustainable future.</p>
 
+<h2>💻 Deployed Version</h2>
+
+<a href="https://harvest-hub-tau.vercel.app/">Harvest Hub</a>
+
 <h2>🚀 Demo</h2>
 
 https://github.com/pathirny/HarvestHub/assets/137444237/06e148c0-8df8-41cc-8243-3e9aedfd4f6c
 
 
-[https://youtu.be/\_zOUYQis3uU](https://youtu.be/_zOUYQis3uU)
+<a href="https://youtu.be/_zOUYQis3uU">YouTube link</a>
 
 <h2>Project Screenshots:</h2>
 <div align="center">
