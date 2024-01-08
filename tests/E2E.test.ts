@@ -212,7 +212,7 @@ test("testing getting onto the growing calendar", async ({ page }: any) => {
   await page.getByTitle("Previous month").click();
 
   //checking month has changed
-  await expect(page.getByRole("heading", { name: "Nov" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Dec" })).toBeVisible();
 });
 
 test("checking conitue as guest works and that add tip isn't there when not signed in", async ({ page }: any) => {
