@@ -2,7 +2,23 @@
 
 <p align="center"><img src="https://socialify.git.ci/pathirny/HarvestHub/image?font=Jost&amp;name=1&amp;owner=1&amp;pattern=Circuit%20Board&amp;theme=Light" alt="project-image"></p>
 
-<p id="description">Welcome to Harvest Hub your go-to destination for cultivating a green thumb and embracing sustainable living! Whether you're a novice eager to learn the art of growing your own fruits and vegetables or a seasoned gardener ready to share your expertise Harvest Hub is the ultimate web application designed to nurture your passion for all things green and natural.<br><br>At the core of Harvest Hub lies a comprehensive knowledge base providing a wealth of information for individuals keen on sustainable living. From planting guides to organic gardening techniques our platform caters to every aspect of cultivating a thriving garden. The user-friendly interface ensures that gardening enthusiasts of all levels can easily access valuable insights and resources.<br><br>One of Harvest Hub's standout features is its vibrant community of avid growers. Connect with like-minded individuals share your gardening triumphs and seek advice from seasoned experts. Our platform fosters a collaborative environment where the exchange of tips and tricks enhances the collective wisdom of the gardening community.<br><br>For those who prefer a hands-on approach Harvest Hub offers an interactive calendar feature. Seamlessly track the progress of your crops receive timely reminders for essential tasks and know exactly when to anticipate the bountiful harvest of your hard work. Whether you're growing herbs on a windowsill or managing a backyard orchard our calendar empowers you to optimize your gardening efforts.<br><br>Harvest Hub is more than just a web app; it's a thriving ecosystem where curiosity meets expertise and a sustainable lifestyle is cultivated. Join us on this green journey where we grow together nurture the planet and harvest a sustainable future.</p>
+<p id="description"Project Overview:
+Our team embarked on a 4-week journey to address a problem outlined in a given brief: creating a full-stack application to tackle a specific issue. Initially aiming to facilitate the buying and selling of homegrown veggies, we later pivoted our focus. Before delving into the project, we formed teams, with a mix of familiar faces and new collaborators. Our teamwork strategies included coin-toss and dot-voting for decision-making, backed by a Teamwork manifesto emphasizing open communication, daily stand-ups, and energizers using Gartic.
+
+Discovery Phase:
+During the Discovery Phase, we prioritised understanding the problem, the users, and existing solutions. This led to the creation of User Personas, highlighting two core users: buyers of fresh food and sellers of homegrown produce. The initial problem statement centered on excessive food, lack of sharing, and community support. User interviews and a survey were conducted, revealing a need for a knowledge-based application for novice gardeners. We refined our problem statement accordingly.
+###
+Solution Development:
+With a scaled-back project scope, we focused on a knowledge-based app for novice gardeners and tracking food growing. Agile methodologies guided our development, and we continuously deployed to achieve early feedback. The chosen tech stack included TypeScript, React, Next.js, Supabase, Chakra, and Vercel, supported by Jest and Playwright for testing. GitFlow ensured a structured workflow, and a CI/CD pipeline streamlined deployment.
+###
+Learnings:
+Deploying early revealed crucial environment differences and streamlined bug fixing. GitFlow and CI/CD were instrumental in maintaining a stable main branch. The team acquired valuable insights into TypeScript, Next.js complexities, and the importance of wider community feedback.
+###
+Successes:
+Frequent deployments, agile practices, pair programming, and efficient conflict resolution were key successes. Realistic MVP goals allowed for focused refinement, and continuous feedback loop fostered improvement.
+###
+Future Plans:
+Our future plans include enhancing form and password validation, implementing a more precise growing calendar, and exploring trading functionalities using WebSockets or integrating an AI helper for recipes. The team is poised for continuous improvement and expansion of features based on user needs and feedback.</p>
 
 <h2>💻 Deployed Version</h2>
 
